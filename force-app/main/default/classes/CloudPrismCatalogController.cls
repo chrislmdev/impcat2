@@ -19,8 +19,8 @@ public with sharing class CloudPrismCatalogController {
             soql += ' AND CSP__c = :c';
         }
         if (q != null) {
-            soql +=
-                ' AND (Title__c LIKE :q OR Catalog_Item_Number__c LIKE :q OR CSO_Short_Name__c LIKE :q OR Description__c LIKE :q)';
+            // Long Text Area fields (e.g. Description__c) cannot appear in SOQL WHERE.
+            soql += ' AND (Title__c LIKE :q OR Catalog_Item_Number__c LIKE :q OR CSO_Short_Name__c LIKE :q)';
         }
         soql += ' ORDER BY CSP__c, Catalog_Item_Number__c LIMIT :lim';
         return Database.query(soql);
@@ -42,8 +42,9 @@ public with sharing class CloudPrismCatalogController {
             soql += ' AND CSP__c = :c';
         }
         if (q != null) {
+            // Long Text Area fields cannot appear in SOQL WHERE.
             soql +=
-                ' AND (Exception_Unique_Id__c LIKE :q OR CSO_Short_Name__c LIKE :q OR Impact_Level__c LIKE :q OR Exception_Status__c LIKE :q OR Exception_PWS_Requirement__c LIKE :q OR Exception_Basis_For_Request__c LIKE :q)';
+                ' AND (Exception_Unique_Id__c LIKE :q OR CSO_Short_Name__c LIKE :q OR Impact_Level__c LIKE :q OR Exception_Status__c LIKE :q)';
         }
         soql += ' ORDER BY CSP__c, Exception_Unique_Id__c LIMIT :lim';
         return Database.query(soql);

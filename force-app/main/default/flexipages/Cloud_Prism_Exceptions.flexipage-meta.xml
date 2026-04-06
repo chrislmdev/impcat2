@@ -7,7 +7,7 @@
                 <identifier>c_exceptionsLibrary</identifier>
             </componentInstance>
         </itemInstances>
-        <name>featured</name>
+        <name>main</name>
         <type>Region</type>
     </flexiPageRegions>
     <masterLabel>Cloud Prism Exceptions</masterLabel>

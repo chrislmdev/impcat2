@@ -7,7 +7,7 @@
                 <identifier>c_catalogChanges</identifier>
             </componentInstance>
         </itemInstances>
-        <name>featured</name>
+        <name>main</name>
         <type>Region</type>
     </flexiPageRegions>
     <masterLabel>Cloud Prism Catalog Changes</masterLabel>
