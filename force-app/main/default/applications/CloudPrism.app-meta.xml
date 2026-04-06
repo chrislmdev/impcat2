@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomApplication xmlns="http://soap.sforce.com/2006/04/metadata">
+    <brand>
+        <headerColor>#1B5E20</headerColor>
+        <shouldOverrideOrgTheme>false</shouldOverrideOrgTheme>
+    </brand>
+    <formFactors>Small</formFactors>
+    <formFactors>Large</formFactors>
+    <isNavAutoTempTabsDisabled>false</isNavAutoTempTabsDisabled>
+    <isNavPersonalizationDisabled>true</isNavPersonalizationDisabled>
+    <label>CloudPrism</label>
+    <navType>Standard</navType>
+    <tabs>Cloud_Prism_Pricing</tabs>
+    <tabs>Cloud_Prism_Exceptions</tabs>
+    <tabs>Cloud_Prism_Changes</tabs>
+    <tabs>Catalog_Import__c</tabs>
+    <uiType>Lightning</uiType>
+</CustomApplication>

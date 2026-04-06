@@ -1,0 +1,40 @@
+<template>
+    <lightning-card title="Exceptions Library" icon-name="custom:custom4">
+        <div class="slds-p-horizontal_medium slds-p-bottom_small">
+            <div class="slds-grid slds-gutters_x-small slds-wrap">
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3">
+                    <lightning-combobox
+                        name="csp"
+                        label="CSP"
+                        value={cspFilter}
+                        placeholder="All CSPs"
+                        options={cspOptions}
+                        onchange={handleCspChange}
+                    ></lightning-combobox>
+                </div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-3">
+                    <lightning-input
+                        type="search"
+                        label="Search"
+                        value={searchKey}
+                        placeholder="Exception ID, service, status…"
+                        onchange={handleSearchChange}
+                    ></lightning-input>
+                </div>
+            </div>
+            <template if:true={error}>
+                <p class="slds-text-color_error slds-m-top_x-small">{errorMessage}</p>
+            </template>
+        </div>
+        <div class="slds-border_top">
+            <lightning-datatable
+                key-field="Id"
+                data={rows}
+                columns={columns}
+                hide-checkbox-column
+                show-row-number-column
+            >
+            </lightning-datatable>
+        </div>
+    </lightning-card>
+</template>
