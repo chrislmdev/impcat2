@@ -47,6 +47,31 @@ public with sharing class CatalogUploadService {
     private static final Pattern HEADER_ALNUM = Pattern.compile('[a-z0-9]');
 
     /**
+     * Extra CSV header fingerprints (alphanumeric-only) -> canonical API for pricing only.
+     * Used when the export uses business/camelCase names that do not match API fingerprints.
+     */
+    private static final Map<String, String> PRICING_HEADER_ALIASES = new Map<String, String>{
+        'commercialunitprice' => 'List_Unit_Price__c',
+        'commerciallistprice' => 'List_Unit_Price__c',
+        'commercialprice' => 'List_Unit_Price__c',
+        'listprice' => 'List_Unit_Price__c',
+        'unitlistprice' => 'List_Unit_Price__c',
+        'jwccprice' => 'JWCC_Unit_Price__c',
+        'sku' => 'Catalog_Item_Number__c',
+        'catalognumber' => 'Catalog_Item_Number__c',
+        'itemnumber' => 'Catalog_Item_Number__c',
+        'shortname' => 'CSO_Short_Name__c',
+        'csoshortname' => 'CSO_Short_Name__c',
+        'commercialunit' => 'Pricing_Unit__c',
+        'commercialunitofmeasure' => 'Pricing_Unit__c',
+        'jwccunit' => 'JWCC_Unit_Of_Issue__c',
+        'jwccunitofissue' => 'JWCC_Unit_Of_Issue__c',
+        'discountpremium' => 'Discount_Premium_Fee__c',
+        'focuscategory' => 'Focus_Category__c',
+        'servicecategory' => 'Service_Category__c'
+    };
+
+    /**
      * Lowercase, strip optional trailing __c, keep only alphanumerics (underscores/spaces removed).
      * Used to match human-friendly CSV headers to canonical API names.
      */
@@ -230,6 +255,12 @@ public with sharing class CatalogUploadService {
                 } else {
                     String fp = headerFingerprint(hn);
                     canonical = fpToCanonical.get(fp);
+                    if (canonical == null && pfn.schema == 'pricing') {
+                        String aliasTarget = PRICING_HEADER_ALIASES.get(fp);
+                        if (aliasTarget != null && allowed.contains(aliasTarget)) {
+                            canonical = aliasTarget;
+                        }
+                    }
                 }
                 if (canonical == null) {
                     header.Status__c = 'error';

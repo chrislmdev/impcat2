@@ -61,6 +61,21 @@ private class CatalogUploadServiceTest {
     }
 
     @IsTest
+    static void processFile_pricing_acceptsCommercialUnitPriceAlias() {
+        String csv = 'Catalog_Item_Number__c,commercialUnitPrice\n' + 'SKU-X,99.5\n';
+        CatalogUploadService.FileProcessResult r = CatalogUploadService.processFile('2026-03_aws_pricing.csv', csv);
+        System.assertEquals(true, r.success, r.message + ' ' + r.errors);
+        System.assertEquals(1, r.rowsInserted);
+        Pricing_Item__c row = [
+            SELECT List_Unit_Price__c
+            FROM Pricing_Item__c
+            WHERE Catalog_Import__c = :r.catalogImportId
+            LIMIT 1
+        ];
+        System.assertEquals(99.5, row.List_Unit_Price__c);
+    }
+
+    @IsTest
     static void processFile_exceptions_acceptsFriendlyExceptionIdColumn() {
         String csv = 'ExceptionuniqueID,CSO_Short_Name__c\n' + 'EX-1,svc1\n';
         CatalogUploadService.FileProcessResult r = CatalogUploadService.processFile(

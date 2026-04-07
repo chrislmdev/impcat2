@@ -30,7 +30,7 @@ Assign the **CloudPrism_POC** permission set to your user (Setup → Permission 
 
 Open the **CloudPrism** app from the App Launcher and use the **Pricing**, **Exceptions**, **Catalog Changes**, and **Bulk upload** tabs.
 
-**Bulk upload:** name each file `{YYYY-MM}_{csp}_{schema}.csv` (for example `2026-02_aws_pricing.csv`). Column headers may be Salesforce API names or common variants (case, underscores, and trailing `__c` are ignored for matching). The UI enforces modest row and size limits; for very large catalogs, use integration (see **MULESOFT_CATALOG_INGEST.md**).
+**Bulk upload:** name each file `{YYYY-MM}_{csp}_{schema}.csv` (for example `2026-02_aws_pricing.csv`). Column headers may be Salesforce API names, fingerprint-style variants (case, underscores, and trailing `__c` ignored), or a small set of pricing business aliases (e.g. `commercialUnitPrice` → `List_Unit_Price__c`). The UI enforces modest row and size limits; for very large catalogs, use integration (see **MULESOFT_CATALOG_INGEST.md**).
 
 ### Tests
 
