@@ -8,19 +8,10 @@ const COLS = [
     { label: 'Title', fieldName: 'Title__c', type: 'text', wrapText: true },
     { label: 'Short name', fieldName: 'CSO_Short_Name__c', type: 'text' },
     { label: 'Catalog #', fieldName: 'Catalog_Item_Number__c', type: 'text' },
-    {
-        label: 'Comm. price',
-        fieldName: 'List_Unit_Price__c',
-        type: 'currency',
-        typeAttributes: { currencyCode: 'USD', minimumFractionDigits: 4, maximumFractionDigits: 4 }
-    },
+    // Text + Intl formatting: lightning-datatable currency type often omits $ in some orgs.
+    { label: 'Comm. price', fieldName: 'commPriceUsd', type: 'text', initialWidth: 130 },
     { label: 'Comm. UoI', fieldName: 'Pricing_Unit__c', type: 'text' },
-    {
-        label: 'JWCC price',
-        fieldName: 'JWCC_Unit_Price__c',
-        type: 'currency',
-        typeAttributes: { currencyCode: 'USD', minimumFractionDigits: 4, maximumFractionDigits: 4 }
-    },
+    { label: 'JWCC price', fieldName: 'jwccPriceUsd', type: 'text', initialWidth: 130 },
     { label: 'JWCC UoI', fieldName: 'JWCC_Unit_Of_Issue__c', type: 'text' },
     { label: 'Disc./Prem.', fieldName: 'Discount_Premium_Fee__c', type: 'text' }
 ];
@@ -52,7 +43,9 @@ export default class PricingCatalog extends LightningElement {
         if (data) {
             this.rows = data.map((r) => ({
                 ...r,
-                importMonth: r.Catalog_Import__r ? r.Catalog_Import__r.Import_Month__c : ''
+                importMonth: r.Catalog_Import__r ? r.Catalog_Import__r.Import_Month__c : '',
+                commPriceUsd: formatUsd4(r.List_Unit_Price__c),
+                jwccPriceUsd: formatUsd4(r.JWCC_Unit_Price__c)
             }));
             this.error = undefined;
         } else if (error) {
@@ -75,5 +68,21 @@ export default class PricingCatalog extends LightningElement {
             ? this.error.body.message
             : String(this.error);
     }
+}
+
+function formatUsd4(value) {
+    if (value === null || value === undefined) {
+        return '—';
+    }
+    const n = Number(value);
+    if (Number.isNaN(n)) {
+        return String(value);
+    }
+    return new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+        minimumFractionDigits: 4,
+        maximumFractionDigits: 4
+    }).format(n);
 }
 

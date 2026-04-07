@@ -2,22 +2,17 @@ import { LightningElement, wire, track } from 'lwc';
 import getDistinctImportMonths from '@salesforce/apex/CloudPrismCatalogController.getDistinctImportMonths';
 import getCatalogChangeRows from '@salesforce/apex/CloudPrismCatalogController.getCatalogChangeRows';
 
-const currency4 = {
-    type: 'currency',
-    typeAttributes: { currencyCode: 'USD', minimumFractionDigits: 4, maximumFractionDigits: 4 }
-};
-
 const PRICING_COLS = [
     { label: 'CSP', fieldName: 'csp', type: 'text', initialWidth: 80 },
     { label: 'Catalog #', fieldName: 'catalogitemnumber', type: 'text' },
     { label: 'Title', fieldName: 'title', type: 'text', wrapText: true },
     { label: 'Type', fieldName: 'change_type', type: 'text', initialWidth: 100 },
-    { label: 'JWCC (from)', fieldName: 'prev_jwcc', ...currency4 },
-    { label: 'JWCC (to)', fieldName: 'curr_jwcc', ...currency4 },
-    { label: 'JWCC Δ', fieldName: 'cust_delta', ...currency4 },
-    { label: 'Comm (from)', fieldName: 'prev_comm', ...currency4 },
-    { label: 'Comm (to)', fieldName: 'curr_comm', ...currency4 },
-    { label: 'Comm Δ', fieldName: 'comm_delta', ...currency4 }
+    { label: 'JWCC (from)', fieldName: 'prevJwccUsd', type: 'text', initialWidth: 120 },
+    { label: 'JWCC (to)', fieldName: 'currJwccUsd', type: 'text', initialWidth: 120 },
+    { label: 'JWCC Δ', fieldName: 'custDeltaUsd', type: 'text', initialWidth: 120 },
+    { label: 'Comm (from)', fieldName: 'prevCommUsd', type: 'text', initialWidth: 120 },
+    { label: 'Comm (to)', fieldName: 'currCommUsd', type: 'text', initialWidth: 120 },
+    { label: 'Comm Δ', fieldName: 'commDeltaUsd', type: 'text', initialWidth: 120 }
 ];
 
 const EXCEPTION_COLS = [
@@ -113,6 +108,12 @@ export default class CatalogChanges extends LightningElement {
         if (this.mode === 'pricing') {
             this.pricingRows = (data || []).map((r, i) => ({
                 ...r,
+                prevJwccUsd: formatUsd4(r.prev_jwcc),
+                currJwccUsd: formatUsd4(r.curr_jwcc),
+                custDeltaUsd: formatUsd4(r.cust_delta),
+                prevCommUsd: formatUsd4(r.prev_comm),
+                currCommUsd: formatUsd4(r.curr_comm),
+                commDeltaUsd: formatUsd4(r.comm_delta),
                 rowKey: (r.csp || '') + '|' + (r.catalogitemnumber || '') + '|' + i
             }));
             this.exceptionRows = [];
@@ -181,4 +182,20 @@ function pair(a, b) {
     const p = a != null && a !== '' ? a : '—';
     const c = b != null && b !== '' ? b : '—';
     return p + ' → ' + c;
+}
+
+function formatUsd4(value) {
+    if (value === null || value === undefined) {
+        return '—';
+    }
+    const n = Number(value);
+    if (Number.isNaN(n)) {
+        return String(value);
+    }
+    return new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD',
+        minimumFractionDigits: 4,
+        maximumFractionDigits: 4
+    }).format(n);
 }
