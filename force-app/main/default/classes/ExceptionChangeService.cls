@@ -59,17 +59,79 @@ public with sharing class ExceptionChangeService {
                 continue;
             }
 
-            ExceptionRowSnap s = new ExceptionRowSnap();
-            s.uniqueId = uid;
-            s.impactlevel = e.Impact_Level__c != null ? e.Impact_Level__c : '';
-            s.exceptionstatus = e.Exception_Status__c != null ? e.Exception_Status__c : '';
-            s.pws = e.Exception_PWS_Requirement__c != null ? e.Exception_PWS_Requirement__c : '';
-            s.basis = e.Exception_Basis_For_Request__c != null ? e.Exception_Basis_For_Request__c : '';
-            s.security = e.Exception_Security__c != null ? e.Exception_Security__c : '';
-            s.csoshortname = e.CSO_Short_Name__c;
-            outMap.put(key, s);
+            outMap.put(key, snapFromExceptionItem(e, uid));
         }
         return outMap;
+    }
+
+    /**
+     * Latest exception snapshot for one CSP and month (for import-time dedup vs prior month).
+     */
+    public static Map<String, ExceptionRowSnap> latestExceptionsForMonthAndCsp(String importMonth, String cspLower) {
+        Map<String, ExceptionRowSnap> outMap = new Map<String, ExceptionRowSnap>();
+        if (String.isBlank(importMonth) || String.isBlank(cspLower)) {
+            return outMap;
+        }
+        String csp = cspLower.toLowerCase().trim();
+
+        List<Exception_Item__c> rows = [
+            SELECT
+                CSP__c,
+                Exception_Unique_Id__c,
+                CSO_Short_Name__c,
+                Impact_Level__c,
+                Exception_Status__c,
+                Exception_PWS_Requirement__c,
+                Exception_Basis_For_Request__c,
+                Exception_Security__c
+            FROM Exception_Item__c
+            WHERE
+                CSP__c = :csp
+                AND Catalog_Import__r.Import_Month__c = :importMonth
+                AND Catalog_Import__r.Schema__c = 'exceptions'
+            ORDER BY Catalog_Import__r.Imported_At__c DESC NULLS LAST, Catalog_Import__r.CreatedDate DESC, Id DESC
+        ];
+
+        for (Exception_Item__c e : rows) {
+            String rowCsp = e.CSP__c != null ? e.CSP__c.toLowerCase() : '';
+            String uid = e.Exception_Unique_Id__c != null ? e.Exception_Unique_Id__c.trim() : '';
+            if (String.isBlank(uid)) {
+                continue;
+            }
+            String key = rowCsp + '|' + uid.toLowerCase();
+            if (outMap.containsKey(key)) {
+                continue;
+            }
+            outMap.put(key, snapFromExceptionItem(e, uid));
+        }
+        return outMap;
+    }
+
+    public static ExceptionRowSnap snapFromExceptionItem(Exception_Item__c e, String trimmedUniqueId) {
+        ExceptionRowSnap s = new ExceptionRowSnap();
+        s.uniqueId = trimmedUniqueId;
+        s.impactlevel = e.Impact_Level__c != null ? e.Impact_Level__c : '';
+        s.exceptionstatus = e.Exception_Status__c != null ? e.Exception_Status__c : '';
+        s.pws = e.Exception_PWS_Requirement__c != null ? e.Exception_PWS_Requirement__c : '';
+        s.basis = e.Exception_Basis_For_Request__c != null ? e.Exception_Basis_For_Request__c : '';
+        s.security = e.Exception_Security__c != null ? e.Exception_Security__c : '';
+        s.csoshortname = e.CSO_Short_Name__c;
+        return s;
+    }
+
+    /**
+     * Inverse of compare() "changed" check — same six fields.
+     */
+    public static Boolean exceptionSnapContentEquals(ExceptionRowSnap a, ExceptionRowSnap b) {
+        if (a == null || b == null) {
+            return false;
+        }
+        return a.impactlevel == b.impactlevel &&
+            a.exceptionstatus == b.exceptionstatus &&
+            a.pws == b.pws &&
+            a.basis == b.basis &&
+            a.security == b.security &&
+            a.csoshortname == b.csoshortname;
     }
 
     public static List<ExceptionChangeRow> compare(

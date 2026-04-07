@@ -81,7 +81,8 @@
                             <tr>
                                 <th scope="col">File</th>
                                 <th scope="col">OK</th>
-                                <th scope="col">Rows</th>
+                                <th scope="col">Inserted</th>
+                                <th scope="col">Skipped (same)</th>
                                 <th scope="col">Catalog import Id</th>
                                 <th scope="col">Message</th>
                             </tr>
@@ -94,6 +95,7 @@
                                         <span class={row.pillClass}>{row.successLabel}</span>
                                     </td>
                                     <td>{row.rowsInserted}</td>
+                                    <td>{row.rowsSkippedUnchanged}</td>
                                     <td>{row.catalogImportId}</td>
                                     <td>{row.message}</td>
                                 </tr>
