@@ -153,6 +153,37 @@ private class CatalogUploadServiceTest {
     }
 
     @IsTest
+    static void processFile_pricing_infersFocusWhenNoFocusColumn() {
+        String csv =
+            'Catalog_Item_Number__c,title\n' +
+            'SKU-Z,Amazon S3 Standard storage\n';
+        CatalogUploadService.FileProcessResult r = CatalogUploadService.processFile('2026-04_aws_pricing.csv', csv);
+        System.assertEquals(true, r.success, r.message + ' ' + r.errors);
+        Pricing_Item__c row = [
+            SELECT Focus_Category__c
+            FROM Pricing_Item__c
+            WHERE Catalog_Import__c = :r.catalogImportId
+            LIMIT 1
+        ];
+        System.assertEquals('Storage', row.Focus_Category__c);
+    }
+
+    @IsTest
+    static void processFile_pricing_categoryAliasFeedsServiceCategoryAndFocus() {
+        String csv = 'Catalog_Item_Number__c,category\n' + 'SKU-1,compute\n';
+        CatalogUploadService.FileProcessResult r = CatalogUploadService.processFile('2026-04_gcp_pricing.csv', csv);
+        System.assertEquals(true, r.success, r.message + ' ' + r.errors);
+        Pricing_Item__c row = [
+            SELECT Focus_Category__c, Service_Category__c
+            FROM Pricing_Item__c
+            WHERE Catalog_Import__c = :r.catalogImportId
+            LIMIT 1
+        ];
+        System.assertEquals('compute', row.Service_Category__c);
+        System.assertEquals('Compute', row.Focus_Category__c);
+    }
+
+    @IsTest
     static void processFile_pricing_insertsRows() {
         String csv =
             'Catalog_Item_Number__c,Title__c,List_Unit_Price__c\n' +

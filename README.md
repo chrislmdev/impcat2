@@ -30,13 +30,14 @@ Assign the **CloudPrism_POC** permission set to your user (Setup → Permission 
 
 Open the **CloudPrism** app from the App Launcher and use the **Pricing**, **Exceptions**, **Catalog Changes**, and **Bulk upload** tabs.
 
-**Bulk upload:** name each file `{YYYY-MM}_{csp}_{schema}.csv` (for example `2026-02_aws_pricing.csv`). Column headers may be Salesforce API names, fingerprint-style variants (case, underscores, and trailing `__c` ignored), or a small set of pricing business aliases (e.g. `commercialUnitPrice` → `List_Unit_Price__c`, `commercialUnitOfIssue` → `Pricing_Unit__c`). **`parent` files:** only a `Catalog_Import__c` header is created; there is no child object for parent line items in this POC, so CSV rows are not imported (the UI message reports how many data lines were skipped). The UI enforces modest row and size limits; for very large catalogs, use integration (see **MULESOFT_CATALOG_INGEST.md**).
+**Bulk upload:** name each file `{YYYY-MM}_{csp}_{schema}.csv` (for example `2026-02_aws_pricing.csv`). Column headers may be Salesforce API names, fingerprint-style variants (case, underscores, and trailing `__c` ignored), or a small set of pricing business aliases (e.g. `commercialUnitPrice` → `List_Unit_Price__c`, `commercialUnitOfIssue` → `Pricing_Unit__c`). **`parent` files:** only a `Catalog_Import__c` header is created; there is no child object for parent line items in this POC, so CSV rows are not imported (the UI message reports how many data lines were skipped). **Pricing imports** auto-set `Focus_Category__c` using FinOps FOCUS-style rules aligned with [RosettaStone `focusInference`](https://github.com/chrislmdev/rosettastone2/blob/main/src/data/focusInference.js): the CSV `Focus_Category__c` / `Service_Category__c` / `category` column (alias) is normalized first; if that resolves to `Other`, title, short name, and description drive keyword inference. Parent-service row matching is not applied until parent lines exist in Salesforce. The UI enforces modest row and size limits; for very large catalogs, use integration (see **MULESOFT_CATALOG_INGEST.md**).
 
 ### Tests
 
 ```powershell
 sf apex run test --tests CloudPrismCatalogTest --result-format human --code-coverage --wait 10
 sf apex run test --tests CatalogUploadServiceTest --result-format human --code-coverage --wait 10
+sf apex run test --tests FinOpsFocusCategoryTest --result-format human --code-coverage --wait 10
 ```
 
 ### Sample data (two months)

@@ -69,7 +69,8 @@ public with sharing class CatalogUploadService {
         'jwccunitofissue' => 'JWCC_Unit_Of_Issue__c',
         'discountpremium' => 'Discount_Premium_Fee__c',
         'focuscategory' => 'Focus_Category__c',
-        'servicecategory' => 'Service_Category__c'
+        'servicecategory' => 'Service_Category__c',
+        'category' => 'Service_Category__c'
     };
 
     /**
@@ -348,6 +349,18 @@ public with sharing class CatalogUploadService {
                     } else {
                         row.put(api, raw);
                     }
+                }
+
+                if (pfn.schema == 'pricing') {
+                    String fc = row.get('Focus_Category__c') != null ? (String) row.get('Focus_Category__c') : null;
+                    String svc = row.get('Service_Category__c') != null ? (String) row.get('Service_Category__c') : null;
+                    String t = row.get('Title__c') != null ? (String) row.get('Title__c') : null;
+                    String sn = row.get('CSO_Short_Name__c') != null ? (String) row.get('CSO_Short_Name__c') : null;
+                    String d = row.get('Description__c') != null ? (String) row.get('Description__c') : null;
+                    row.put(
+                        'Focus_Category__c',
+                        FinOpsFocusCategory.resolveForPricingImport(fc, svc, t, sn, d)
+                    );
                 }
 
                 Object reqVal = row.get(requiredKey);
