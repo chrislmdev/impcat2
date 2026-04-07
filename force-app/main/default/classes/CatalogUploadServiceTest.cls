@@ -76,6 +76,21 @@ private class CatalogUploadServiceTest {
     }
 
     @IsTest
+    static void processFile_pricing_acceptsCommercialUnitOfIssueAlias() {
+        String csv = 'Catalog_Item_Number__c,commercialUnitOfIssue\n' + 'SKU-Y,Each\n';
+        CatalogUploadService.FileProcessResult r = CatalogUploadService.processFile('2026-03_aws_pricing.csv', csv);
+        System.assertEquals(true, r.success, r.message + ' ' + r.errors);
+        System.assertEquals(1, r.rowsInserted);
+        Pricing_Item__c row = [
+            SELECT Pricing_Unit__c
+            FROM Pricing_Item__c
+            WHERE Catalog_Import__c = :r.catalogImportId
+            LIMIT 1
+        ];
+        System.assertEquals('Each', row.Pricing_Unit__c);
+    }
+
+    @IsTest
     static void processFile_exceptions_acceptsFriendlyExceptionIdColumn() {
         String csv = 'ExceptionuniqueID,CSO_Short_Name__c\n' + 'EX-1,svc1\n';
         CatalogUploadService.FileProcessResult r = CatalogUploadService.processFile(
@@ -102,6 +117,10 @@ private class CatalogUploadServiceTest {
         );
         System.assertEquals(true, r.success);
         System.assertEquals(0, r.rowsInserted);
+        System.assert(
+            r.message != null && r.message.contains('not imported'),
+            'expected parent POC message: ' + r.message
+        );
         Catalog_Import__c h = [
             SELECT Status__c, Schema__c, Row_Count__c
             FROM Catalog_Import__c
@@ -110,6 +129,27 @@ private class CatalogUploadServiceTest {
         System.assertEquals('done', h.Status__c);
         System.assertEquals('parent', h.Schema__c);
         System.assertEquals(0, h.Row_Count__c);
+    }
+
+    @IsTest
+    static void processFile_parentSchema_reportsSkippedDataRows() {
+        String csv =
+            'csOParentService,csoShortName,catalogitemNumber\n' +
+            'a,b,1\n' +
+            'c,d,2\n';
+        CatalogUploadService.FileProcessResult r = CatalogUploadService.processFile('2026-03_aws_parent.csv', csv);
+        System.assertEquals(true, r.success);
+        System.assertEquals(0, r.rowsInserted);
+        System.assert(r.message.contains('2'), 'expected skipped count in message: ' + r.message);
+        System.assert(r.message.contains('skipped'), r.message);
+    }
+
+    @IsTest
+    static void countAssumedParentDataRowsAfterHeader_countsNonBlankLines() {
+        System.assertEquals(0, CatalogUploadService.countAssumedParentDataRowsAfterHeader(''));
+        System.assertEquals(0, CatalogUploadService.countAssumedParentDataRowsAfterHeader('header only'));
+        System.assertEquals(1, CatalogUploadService.countAssumedParentDataRowsAfterHeader('h\nr1\n'));
+        System.assertEquals(2, CatalogUploadService.countAssumedParentDataRowsAfterHeader('h' + '\n' + 'r1' + '\n' + 'r2' + '\n'));
     }
 
     @IsTest

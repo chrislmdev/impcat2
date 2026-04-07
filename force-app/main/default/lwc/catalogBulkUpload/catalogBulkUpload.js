@@ -108,7 +108,8 @@ export default class CatalogBulkUpload extends LightningElement {
     get bannerBody() {
         return (
             'Name each file {YYYY-MM}_{csp}_{schema}.csv (csp: aws, azure, gcp, oracle; schema: pricing, exceptions, parent). ' +
-            'Headers must use Salesforce API names. In-app upload is limited to about 8,000 data rows and 1 MB per file — ' +
+            'Pricing/exceptions: headers are API names or supported aliases. Parent: only the import header is saved — CSV data rows are not loaded into any object in this POC (success message explains skipped rows). ' +
+            'In-app upload is limited to about 8,000 data rows and 1 MB per file — ' +
             'for very large catalogs (e.g. ~1M rows), use MuleSoft / SharePoint and Bulk API 2.0 (see docs/MULESOFT_CATALOG_INGEST.md).'
         );
     }

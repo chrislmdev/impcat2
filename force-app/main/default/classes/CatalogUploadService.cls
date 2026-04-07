@@ -64,6 +64,7 @@ public with sharing class CatalogUploadService {
         'csoshortname' => 'CSO_Short_Name__c',
         'commercialunit' => 'Pricing_Unit__c',
         'commercialunitofmeasure' => 'Pricing_Unit__c',
+        'commercialunitofissue' => 'Pricing_Unit__c',
         'jwccunit' => 'JWCC_Unit_Of_Issue__c',
         'jwccunitofissue' => 'JWCC_Unit_Of_Issue__c',
         'discountpremium' => 'Discount_Premium_Fee__c',
@@ -118,6 +119,24 @@ public with sharing class CatalogUploadService {
             fpToApi.put(fp, api);
         }
         return fpToApi;
+    }
+
+    /**
+     * For parent-schema files: non-blank lines minus one (assumed header). POC does not import these rows.
+     */
+    @TestVisible
+    static Integer countAssumedParentDataRowsAfterHeader(String body) {
+        if (String.isBlank(body)) {
+            return 0;
+        }
+        List<String> lines = splitLines(body);
+        Integer nonBlank = 0;
+        for (String ln : lines) {
+            if (!String.isBlank(ln)) {
+                nonBlank++;
+            }
+        }
+        return nonBlank > 1 ? nonBlank - 1 : 0;
     }
 
     public class FileProcessResult {
@@ -199,7 +218,15 @@ public with sharing class CatalogUploadService {
                 out.success = true;
                 out.catalogImportId = header.Id;
                 out.rowsInserted = 0;
-                out.message = 'Catalog import header created (parent schema — no line items in POC).';
+                Integer skippedRows = countAssumedParentDataRowsAfterHeader(csvBody);
+                out.message =
+                    'Catalog import header saved. Parent-schema CSV rows are not imported in this POC (no Salesforce object for those lines; only the Catalog_Import__c header is stored).';
+                if (skippedRows > 0) {
+                    out.message +=
+                        ' Your file had ' +
+                        skippedRows +
+                        ' non-empty data row(s) after the first line that were skipped.';
+                }
                 return out;
             }
 
