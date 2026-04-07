@@ -43,7 +43,11 @@ sf apex run test --tests FinOpsFocusCategoryTest --result-format human --code-co
 sf apex run --file scripts/purge-all-catalog-uploads.apex
 ```
 
-### Sample data (two months)
+### Sample data (two months) + Purge Data
+
+```powershell
+sf apex run --file scripts/purge-all-catalog-uploads.apex
+```
 
 After deploy, assign **CloudPrism_POC** (if not already), then load demo rows with Anonymous Apex:
 
