@@ -45,6 +45,7 @@ sf apex run test --tests FinOpsFocusCategoryTest --result-format human --code-co
 ### Sample data (two months)
 
 After deploy, assign **CloudPrism_POC** (if not already), then load demo rows with Anonymous Apex:
+Data Purge for testing: sf apex run --file scripts/purge-all-catalog-uploads.apex
 
 ```powershell
 sf org assign permset --name CloudPrism_POC
