@@ -44,6 +44,57 @@ public with sharing class CatalogUploadService {
         'JWCC_Unit_Price__c'
     };
 
+    private static final Pattern HEADER_ALNUM = Pattern.compile('[a-z0-9]');
+
+    /**
+     * Lowercase, strip optional trailing __c, keep only alphanumerics (underscores/spaces removed).
+     * Used to match human-friendly CSV headers to canonical API names.
+     */
+    @TestVisible
+    static String headerFingerprint(String raw) {
+        if (raw == null) {
+            return '';
+        }
+        String s = raw.trim().toLowerCase();
+        if (s.endsWith('__c')) {
+            s = s.substring(0, s.length() - 3);
+        }
+        String out = '';
+        for (Integer i = 0; i < s.length(); i++) {
+            String ch = s.substring(i, i + 1);
+            if (HEADER_ALNUM.matcher(ch).matches()) {
+                out += ch;
+            }
+        }
+        return out;
+    }
+
+    /**
+     * fingerprint -> canonical API name. If two allowed fields share a fingerprint, throws (POC guard).
+     */
+    @TestVisible
+    static Map<String, String> buildHeaderResolveMap(Set<String> allowedApis) {
+        Map<String, String> fpToApi = new Map<String, String>();
+        for (String api : allowedApis) {
+            String fp = headerFingerprint(api);
+            if (String.isBlank(fp)) {
+                continue;
+            }
+            if (fpToApi.containsKey(fp)) {
+                throw new IllegalArgumentException(
+                    'Header fingerprint collision for "' +
+                    fp +
+                    '": ' +
+                    fpToApi.get(fp) +
+                    ' vs ' +
+                    api
+                );
+            }
+            fpToApi.put(fp, api);
+        }
+        return fpToApi;
+    }
+
     public class FileProcessResult {
         @AuraEnabled
         public Boolean success;
@@ -153,6 +204,17 @@ public with sharing class CatalogUploadService {
             Set<String> allowed = pfn.schema == 'pricing' ? PRICING_HEADERS : EXCEPTION_HEADERS;
             String requiredKey = pfn.schema == 'pricing' ? 'Catalog_Item_Number__c' : 'Exception_Unique_Id__c';
 
+            Map<String, String> fpToCanonical;
+            try {
+                fpToCanonical = buildHeaderResolveMap(allowed);
+            } catch (IllegalArgumentException e) {
+                header.Status__c = 'error';
+                update header;
+                out.message = 'Import configuration error: ' + e.getMessage();
+                out.catalogImportId = header.Id;
+                return out;
+            }
+
             Map<String, Integer> colIndex = new Map<String, Integer>();
             for (Integer i = 0; i < headers.size(); i++) {
                 String hn = headers[i];
@@ -162,14 +224,28 @@ public with sharing class CatalogUploadService {
                 if (RESERVED_HEADERS.contains(hn)) {
                     continue;
                 }
-                if (!allowed.contains(hn)) {
+                String canonical;
+                if (allowed.contains(hn)) {
+                    canonical = hn;
+                } else {
+                    String fp = headerFingerprint(hn);
+                    canonical = fpToCanonical.get(fp);
+                }
+                if (canonical == null) {
                     header.Status__c = 'error';
                     update header;
                     out.message = 'Unknown column: ' + hn + '. Allowed: ' + String.join(new List<String>(allowed), ', ');
                     out.catalogImportId = header.Id;
                     return out;
                 }
-                colIndex.put(hn, i);
+                if (colIndex.containsKey(canonical)) {
+                    header.Status__c = 'error';
+                    update header;
+                    out.message = 'Duplicate column maps to ' + canonical + '.';
+                    out.catalogImportId = header.Id;
+                    return out;
+                }
+                colIndex.put(canonical, i);
             }
 
             if (!colIndex.containsKey(requiredKey)) {

@@ -40,6 +40,46 @@ private class CatalogUploadServiceTest {
     }
 
     @IsTest
+    static void headerFingerprint_matchesFriendlyHeaders() {
+        System.assertEquals('title', CatalogUploadService.headerFingerprint('title'));
+        System.assertEquals('title', CatalogUploadService.headerFingerprint('Title__c'));
+        System.assertEquals('exceptionuniqueid', CatalogUploadService.headerFingerprint('ExceptionuniqueID'));
+        System.assertEquals(
+            'exceptionuniqueid',
+            CatalogUploadService.headerFingerprint('Exception_Unique_Id__c')
+        );
+    }
+
+    @IsTest
+    static void processFile_pricing_acceptsFriendlyTitleColumn() {
+        String csv =
+            'Catalog_Item_Number__c,title,List_Unit_Price__c\n' +
+            'SKU-A,Alpha,1.25\n';
+        CatalogUploadService.FileProcessResult r = CatalogUploadService.processFile('2026-03_aws_pricing.csv', csv);
+        System.assertEquals(true, r.success, r.message + ' ' + r.errors);
+        System.assertEquals(1, r.rowsInserted);
+    }
+
+    @IsTest
+    static void processFile_exceptions_acceptsFriendlyExceptionIdColumn() {
+        String csv = 'ExceptionuniqueID,CSO_Short_Name__c\n' + 'EX-1,svc1\n';
+        CatalogUploadService.FileProcessResult r = CatalogUploadService.processFile(
+            '2026-03_aws_exceptions.csv',
+            csv
+        );
+        System.assertEquals(true, r.success, r.message + ' ' + r.errors);
+        System.assertEquals(1, r.rowsInserted);
+    }
+
+    @IsTest
+    static void processFile_rejectsDuplicateColumnsSameField() {
+        String csv = 'Catalog_Item_Number__c,Title__c,title\n' + 'SKU-A,Old,New\n';
+        CatalogUploadService.FileProcessResult r = CatalogUploadService.processFile('2026-02_aws_pricing.csv', csv);
+        System.assertEquals(false, r.success);
+        System.assert(r.message != null && r.message.contains('Duplicate column'));
+    }
+
+    @IsTest
     static void processFile_parentSchema_noRows() {
         CatalogUploadService.FileProcessResult r = CatalogUploadService.processFile(
             '2026-02_aws_parent.csv',
