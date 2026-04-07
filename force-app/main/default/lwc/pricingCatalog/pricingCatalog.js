@@ -8,9 +8,19 @@ const COLS = [
     { label: 'Title', fieldName: 'Title__c', type: 'text', wrapText: true },
     { label: 'Short name', fieldName: 'CSO_Short_Name__c', type: 'text' },
     { label: 'Catalog #', fieldName: 'Catalog_Item_Number__c', type: 'text' },
-    { label: 'Comm. price', fieldName: 'List_Unit_Price__c', type: 'number', typeAttributes: { minimumFractionDigits: 4 } },
+    {
+        label: 'Comm. price',
+        fieldName: 'List_Unit_Price__c',
+        type: 'currency',
+        typeAttributes: { currencyCode: 'USD', minimumFractionDigits: 4, maximumFractionDigits: 4 }
+    },
     { label: 'Comm. UoI', fieldName: 'Pricing_Unit__c', type: 'text' },
-    { label: 'JWCC price', fieldName: 'JWCC_Unit_Price__c', type: 'number', typeAttributes: { minimumFractionDigits: 4 } },
+    {
+        label: 'JWCC price',
+        fieldName: 'JWCC_Unit_Price__c',
+        type: 'currency',
+        typeAttributes: { currencyCode: 'USD', minimumFractionDigits: 4, maximumFractionDigits: 4 }
+    },
     { label: 'JWCC UoI', fieldName: 'JWCC_Unit_Of_Issue__c', type: 'text' },
     { label: 'Disc./Prem.', fieldName: 'Discount_Premium_Fee__c', type: 'text' }
 ];

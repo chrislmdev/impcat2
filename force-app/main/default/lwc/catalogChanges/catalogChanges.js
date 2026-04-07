@@ -2,17 +2,22 @@ import { LightningElement, wire, track } from 'lwc';
 import getDistinctImportMonths from '@salesforce/apex/CloudPrismCatalogController.getDistinctImportMonths';
 import getCatalogChangeRows from '@salesforce/apex/CloudPrismCatalogController.getCatalogChangeRows';
 
+const currency4 = {
+    type: 'currency',
+    typeAttributes: { currencyCode: 'USD', minimumFractionDigits: 4, maximumFractionDigits: 4 }
+};
+
 const PRICING_COLS = [
     { label: 'CSP', fieldName: 'csp', type: 'text', initialWidth: 80 },
     { label: 'Catalog #', fieldName: 'catalogitemnumber', type: 'text' },
     { label: 'Title', fieldName: 'title', type: 'text', wrapText: true },
     { label: 'Type', fieldName: 'change_type', type: 'text', initialWidth: 100 },
-    { label: 'JWCC (from)', fieldName: 'prev_jwcc', type: 'number', typeAttributes: { minimumFractionDigits: 4 } },
-    { label: 'JWCC (to)', fieldName: 'curr_jwcc', type: 'number', typeAttributes: { minimumFractionDigits: 4 } },
-    { label: 'JWCC Δ', fieldName: 'cust_delta', type: 'number', typeAttributes: { minimumFractionDigits: 4 } },
-    { label: 'Comm (from)', fieldName: 'prev_comm', type: 'number', typeAttributes: { minimumFractionDigits: 4 } },
-    { label: 'Comm (to)', fieldName: 'curr_comm', type: 'number', typeAttributes: { minimumFractionDigits: 4 } },
-    { label: 'Comm Δ', fieldName: 'comm_delta', type: 'number', typeAttributes: { minimumFractionDigits: 4 } }
+    { label: 'JWCC (from)', fieldName: 'prev_jwcc', ...currency4 },
+    { label: 'JWCC (to)', fieldName: 'curr_jwcc', ...currency4 },
+    { label: 'JWCC Δ', fieldName: 'cust_delta', ...currency4 },
+    { label: 'Comm (from)', fieldName: 'prev_comm', ...currency4 },
+    { label: 'Comm (to)', fieldName: 'curr_comm', ...currency4 },
+    { label: 'Comm Δ', fieldName: 'comm_delta', ...currency4 }
 ];
 
 const EXCEPTION_COLS = [

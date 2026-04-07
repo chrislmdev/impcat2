@@ -51,7 +51,8 @@ private class CloudPrismCatalogTest {
                 List_Unit_Price__c = 10,
                 JWCC_Unit_Price__c = 9,
                 Pricing_Unit__c = 'Hour',
-                JWCC_Unit_Of_Issue__c = 'Hour'
+                JWCC_Unit_Of_Issue__c = 'Hour',
+                Focus_Category__c = 'Compute'
             ),
             new Pricing_Item__c(
                 Catalog_Import__c = febP.Id,
@@ -146,6 +147,12 @@ private class CloudPrismCatalogTest {
     static void controllerReturnsPricingRows() {
         List<Pricing_Item__c> pr = CloudPrismCatalogController.getPricingItems('aws', 'SKU-BOTH', 50);
         System.assert(!pr.isEmpty(), 'Expected pricing rows');
+    }
+
+    @IsTest
+    static void controllerSearchIncludesFocusCategory() {
+        List<Pricing_Item__c> pr = CloudPrismCatalogController.getPricingItems('aws', 'Compute', 50);
+        System.assert(!pr.isEmpty(), 'Search should match Focus_Category__c');
     }
 
     @IsTest

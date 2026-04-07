@@ -20,7 +20,8 @@ public with sharing class CloudPrismCatalogController {
         }
         if (q != null) {
             // Long Text Area fields (e.g. Description__c) cannot appear in SOQL WHERE.
-            soql += ' AND (Title__c LIKE :q OR Catalog_Item_Number__c LIKE :q OR CSO_Short_Name__c LIKE :q)';
+            soql +=
+                ' AND (Title__c LIKE :q OR Catalog_Item_Number__c LIKE :q OR CSO_Short_Name__c LIKE :q OR Focus_Category__c LIKE :q)';
         }
         soql += ' ORDER BY CSP__c, Catalog_Item_Number__c LIMIT :lim';
         return Database.query(soql);
