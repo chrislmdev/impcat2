@@ -4,6 +4,14 @@
 
 This workspace includes a Salesforce DX project under `force-app/` for a dev-org POC: **Pricing Catalog**, **Exceptions Library**, and **Catalog Changes** (month-over-month diffs).
 
+### Documentation
+
+- **[docs/README.md](docs/README.md)** — index  
+- **[docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)** — layers, components, security, diagrams  
+- **[docs/DATA_MODEL.md](docs/DATA_MODEL.md)** — objects and relationships  
+- **[docs/FLOWS.md](docs/FLOWS.md)** — end-to-end flows (Mermaid)  
+- **[docs/DEPENDENCIES_AND_TOOLING.md](docs/DEPENDENCIES_AND_TOOLING.md)** — stock Salesforce vs local CLI; no extra org packages  
+
 ### Prerequisites
 
 - [Salesforce CLI](https://developer.salesforce.com/tools/salesforcecli) (`sf`)
@@ -38,6 +46,6 @@ sf apex run --file scripts/sample-data.apex
 
 If `assign permset` reports a duplicate assignment, your user already has the set; run the Apex line only.
 
-That script inserts `Catalog_Import__c` headers for `2026-01` and `2026-02` (pricing and exceptions) plus child `Pricing_Item__c` and `Exception_Item__c` rows with intentional adds, removes, and updates. Use **Catalog Changes** with **From** `2026-01` and **To** `2026-02` to verify.
+That script inserts **16** `Catalog_Import__c` headers (four CSPs × **pricing** and **exceptions** × `2026-01` and `2026-02`), each with `Row_Count__c = 2`, plus **16** `Pricing_Item__c` and **16** `Exception_Item__c` rows. Every CSP gets the same story: pricing **removed / updated / added** and exceptions **updated / removed / added** between January and February so **Catalog Changes** is easy to demo with **All CSPs** or per-CSP filters. **Do not re-run** on the same org without deleting prior demo imports first, or you will duplicate month/CSP/schema headers.
 
-For Data Loader instead: create four `Catalog_Import__c` records first (two months × pricing/exceptions), note their Ids, then bulk-insert children with `Catalog_Import__c` set to the parent Id. CSV column headers must match field API names.
+For Data Loader instead: create the parent `Catalog_Import__c` rows you need, note their Ids, then bulk-insert children with `Catalog_Import__c` set to the parent Id. CSV column headers must match field API names.
