@@ -40,7 +40,6 @@ For **pricing** and **exceptions** uploads, when a **prior month** already exist
 sf apex run test --tests CloudPrismCatalogTest --result-format human --code-coverage --wait 10
 sf apex run test --tests CatalogUploadServiceTest --result-format human --code-coverage --wait 10
 sf apex run test --tests FinOpsFocusCategoryTest --result-format human --code-coverage --wait 10
-sf apex run --file scripts/purge-all-catalog-uploads.apex
 ```
 
 ### Sample data (two months) + Purge Data
