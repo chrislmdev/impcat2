@@ -12,6 +12,50 @@ function readFileAsText(file) {
     });
 }
 
+/**
+ * Apex / LWC errors are not always { body: { message } }; avoid String(err) => "[object Object]".
+ */
+function formatUploadError(error) {
+    if (!error) {
+        return 'Unknown error';
+    }
+    if (typeof error === 'string') {
+        return error;
+    }
+    if (error.message && typeof error.message === 'string') {
+        return error.message;
+    }
+    const body = error.body;
+    if (body) {
+        if (typeof body.message === 'string' && body.message) {
+            return body.message;
+        }
+        if (Array.isArray(body)) {
+            const parts = body
+                .map((row) => (row && typeof row.message === 'string' ? row.message : null))
+                .filter(Boolean);
+            if (parts.length) {
+                return parts.join('; ');
+            }
+        }
+        if (Array.isArray(body.pageErrors) && body.pageErrors.length) {
+            const parts = body.pageErrors.map((pe) => pe.message || pe.statusCode).filter(Boolean);
+            if (parts.length) {
+                return parts.join('; ');
+            }
+        }
+        try {
+            return JSON.stringify(body);
+        } catch (ignore) {
+            /* fall through */
+        }
+    }
+    if (error.statusText && typeof error.statusText === 'string') {
+        return error.statusText;
+    }
+    return 'Request failed (see browser Network tab for details).';
+}
+
 export default class CatalogBulkUpload extends LightningElement {
     @track resultRows = [];
     working = false;
@@ -186,8 +230,7 @@ export default class CatalogBulkUpload extends LightningElement {
             }
             this.statusMessage = files.length === 1 ? 'Done.' : `Done — ${files.length} files.`;
         } catch (e) {
-            const msg = e.body && e.body.message ? e.body.message : String(e);
-            this.statusMessage = `Error: ${msg}`;
+            this.statusMessage = `Error: ${formatUploadError(e)}`;
         } finally {
             this.working = false;
         }
