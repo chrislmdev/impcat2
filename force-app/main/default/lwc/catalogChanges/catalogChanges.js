@@ -106,16 +106,43 @@ export default class CatalogChanges extends LightningElement {
             return;
         }
         if (this.mode === 'pricing') {
-            this.pricingRows = (data || []).map((r, i) => ({
-                ...r,
-                prevJwccUsd: formatUsd4(r.prev_jwcc),
-                currJwccUsd: formatUsd4(r.curr_jwcc),
-                custDeltaUsd: formatUsd4(r.cust_delta),
-                prevCommUsd: formatUsd4(r.prev_comm),
-                currCommUsd: formatUsd4(r.curr_comm),
-                commDeltaUsd: formatUsd4(r.comm_delta),
-                rowKey: (r.csp || '') + '|' + (r.catalogitemnumber || '') + '|' + i
-            }));
+            const stripPriceKeys = (o) => {
+                const keys = [
+                    'prev_jwcc',
+                    'prevJwcc',
+                    'curr_jwcc',
+                    'currJwcc',
+                    'cust_delta',
+                    'custDelta',
+                    'prev_comm',
+                    'prevComm',
+                    'curr_comm',
+                    'currComm',
+                    'comm_delta',
+                    'commDelta'
+                ];
+                keys.forEach((k) => {
+                    delete o[k];
+                });
+            };
+            this.pricingRows = (data || []).map((r, i) => {
+                const cat =
+                    apexField(r, 'catalogitemnumber') ??
+                    apexField(r, 'catalogItemNumber') ??
+                    '';
+                const row = {
+                    ...r,
+                    prevJwccUsd: formatUsd4(apexField(r, 'prev_jwcc')),
+                    currJwccUsd: formatUsd4(apexField(r, 'curr_jwcc')),
+                    custDeltaUsd: formatUsd4(apexField(r, 'cust_delta')),
+                    prevCommUsd: formatUsd4(apexField(r, 'prev_comm')),
+                    currCommUsd: formatUsd4(apexField(r, 'curr_comm')),
+                    commDeltaUsd: formatUsd4(apexField(r, 'comm_delta')),
+                    rowKey: (apexField(r, 'csp') || '') + '|' + cat + '|' + i
+                };
+                stripPriceKeys(row);
+                return row;
+            });
             this.exceptionRows = [];
         } else {
             this.exceptionRows = (data || []).map((r, i) => ({
@@ -184,6 +211,26 @@ function pair(a, b) {
     return p + ' → ' + c;
 }
 
+/**
+ * Read a property from an Apex DTO as returned over @wire — keys may be snake_case or camelCase.
+ */
+function apexField(row, snakeName) {
+    if (!row || !snakeName) {
+        return undefined;
+    }
+    if (Object.prototype.hasOwnProperty.call(row, snakeName)) {
+        return row[snakeName];
+    }
+    const camel = snakeName.replace(/_([a-z])/g, (_, ch) => ch.toUpperCase());
+    if (camel !== snakeName && Object.prototype.hasOwnProperty.call(row, camel)) {
+        return row[camel];
+    }
+    return undefined;
+}
+
+/**
+ * Explicit $ prefix — more reliable than Intl currency in some Lightning contexts.
+ */
 function formatUsd4(value) {
     if (value === null || value === undefined) {
         return '—';
@@ -192,10 +239,11 @@ function formatUsd4(value) {
     if (Number.isNaN(n)) {
         return String(value);
     }
-    return new Intl.NumberFormat('en-US', {
-        style: 'currency',
-        currency: 'USD',
+    const neg = n < 0;
+    const abs = Math.abs(n);
+    const body = abs.toLocaleString('en-US', {
         minimumFractionDigits: 4,
         maximumFractionDigits: 4
-    }).format(n);
+    });
+    return (neg ? '-' : '') + '$' + body;
 }
