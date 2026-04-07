@@ -1,0 +1,521 @@
+﻿Exception_Unique_Id__c,CSO_Short_Name__c,Impact_Level__c,Exception_Status__c,Exception_PWS_Requirement__c,Exception_Basis_For_Request__c,Exception_Security__c
+DEMO-X-202601-00001,Workload-02,Medium,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00002,Workload-03,High,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00003,Workload-04,Low,Approved,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00004,Workload-05,Medium,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00005,Workload-06,High,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00006,Workload-07,Low,In Review,PWS required,Cost optimization,IL5
+DEMO-X-202601-00007,Workload-08,Medium,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00008,Workload-09,High,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00009,Workload-10,Low,Open,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00010,Workload-11,Medium,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00011,Workload-12,High,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00012,Workload-13,Low,Draft,PWS required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00013,Workload-14,Medium,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00014,Workload-15,High,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00015,Workload-16,Low,Approved,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00016,Workload-17,Medium,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00017,Workload-18,High,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00018,Workload-19,Low,In Review,PWS required,Cost optimization,IL5
+DEMO-X-202601-00019,Workload-20,Medium,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00020,Workload-21,High,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00021,Workload-22,Low,Open,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00022,Workload-23,Medium,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00023,Workload-24,High,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00024,Workload-25,Low,Draft,PWS required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00025,Workload-26,Medium,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00026,Workload-27,High,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00027,Workload-28,Low,Approved,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00028,Workload-29,Medium,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00029,Workload-30,High,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00030,Workload-31,Low,In Review,PWS required,Cost optimization,IL5
+DEMO-X-202601-00031,Workload-32,Medium,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00032,Workload-33,High,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00033,Workload-34,Low,Open,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00034,Workload-35,Medium,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00035,Workload-01,High,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00036,Workload-02,Low,Draft,PWS required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00037,Workload-03,Medium,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00038,Workload-04,High,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00039,Workload-05,Low,Approved,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00040,Workload-06,Medium,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00041,Workload-07,High,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00042,Workload-08,Low,In Review,PWS required,Cost optimization,IL5
+DEMO-X-202601-00043,Workload-09,Medium,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00044,Workload-10,High,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00045,Workload-11,Low,Open,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00046,Workload-12,Medium,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00047,Workload-13,High,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00048,Workload-14,Low,Draft,PWS required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00049,Workload-15,Medium,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00050,Workload-16,High,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00051,Workload-17,Low,Approved,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00052,Workload-18,Medium,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00053,Workload-19,High,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00054,Workload-20,Low,In Review,PWS required,Cost optimization,IL5
+DEMO-X-202601-00055,Workload-21,Medium,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00056,Workload-22,High,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00057,Workload-23,Low,Open,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00058,Workload-24,Medium,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00059,Workload-25,High,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00060,Workload-26,Low,Draft,PWS required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00061,Workload-27,Medium,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00062,Workload-28,High,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00063,Workload-29,Low,Approved,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00064,Workload-30,Medium,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00065,Workload-31,High,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00066,Workload-32,Low,In Review,PWS required,Cost optimization,IL5
+DEMO-X-202601-00067,Workload-33,Medium,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00068,Workload-34,High,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00069,Workload-35,Low,Open,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00070,Workload-01,Medium,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00071,Workload-02,High,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00072,Workload-03,Low,Draft,PWS required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00073,Workload-04,Medium,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00074,Workload-05,High,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00075,Workload-06,Low,Approved,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00076,Workload-07,Medium,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00077,Workload-08,High,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00078,Workload-09,Low,In Review,PWS required,Cost optimization,IL5
+DEMO-X-202601-00079,Workload-10,Medium,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00080,Workload-11,High,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00081,Workload-12,Low,Open,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00082,Workload-13,Medium,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00083,Workload-14,High,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00084,Workload-15,Low,Draft,PWS required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00085,Workload-16,Medium,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00086,Workload-17,High,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00087,Workload-18,Low,Approved,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00088,Workload-19,Medium,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00089,Workload-20,High,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00090,Workload-21,Low,In Review,PWS required,Cost optimization,IL5
+DEMO-X-202601-00091,Workload-22,Medium,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00092,Workload-23,High,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00093,Workload-24,Low,Open,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00094,Workload-25,Medium,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00095,Workload-26,High,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00096,Workload-27,Low,Draft,PWS required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00097,Workload-28,Medium,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00098,Workload-29,High,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00099,Workload-30,Low,Approved,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00100,Workload-31,Medium,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00101,Workload-32,High,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00102,Workload-33,Low,In Review,PWS required,Cost optimization,IL5
+DEMO-X-202601-00103,Workload-34,Medium,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00104,Workload-35,High,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00105,Workload-01,Low,Open,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00106,Workload-02,Medium,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00107,Workload-03,High,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00108,Workload-04,Low,Draft,PWS required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00109,Workload-05,Medium,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00110,Workload-06,High,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00111,Workload-07,Low,Approved,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00112,Workload-08,Medium,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00113,Workload-09,High,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00114,Workload-10,Low,In Review,PWS required,Cost optimization,IL5
+DEMO-X-202601-00115,Workload-11,Medium,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00116,Workload-12,High,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00117,Workload-13,Low,Open,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00118,Workload-14,Medium,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00119,Workload-15,High,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00120,Workload-16,Low,Draft,PWS required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00121,Workload-17,Medium,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00122,Workload-18,High,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00123,Workload-19,Low,Approved,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00124,Workload-20,Medium,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00125,Workload-21,High,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00126,Workload-22,Low,In Review,PWS required,Cost optimization,IL5
+DEMO-X-202601-00127,Workload-23,Medium,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00128,Workload-24,High,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00129,Workload-25,Low,Open,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00130,Workload-26,Medium,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00131,Workload-27,High,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00132,Workload-28,Low,Draft,PWS required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00133,Workload-29,Medium,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00134,Workload-30,High,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00135,Workload-31,Low,Approved,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00136,Workload-32,Medium,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00137,Workload-33,High,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00138,Workload-34,Low,In Review,PWS required,Cost optimization,IL5
+DEMO-X-202601-00139,Workload-35,Medium,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00140,Workload-01,High,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00141,Workload-02,Low,Open,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00142,Workload-03,Medium,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00143,Workload-04,High,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00144,Workload-05,Low,Draft,PWS required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00145,Workload-06,Medium,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00146,Workload-07,High,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00147,Workload-08,Low,Approved,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00148,Workload-09,Medium,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00149,Workload-10,High,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00150,Workload-11,Low,In Review,PWS required,Cost optimization,IL5
+DEMO-X-202601-00151,Workload-12,Medium,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00152,Workload-13,High,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00153,Workload-14,Low,Open,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00154,Workload-15,Medium,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00155,Workload-16,High,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00156,Workload-17,Low,Draft,PWS required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00157,Workload-18,Medium,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00158,Workload-19,High,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00159,Workload-20,Low,Approved,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00160,Workload-21,Medium,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00161,Workload-22,High,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00162,Workload-23,Low,In Review,PWS required,Cost optimization,IL5
+DEMO-X-202601-00163,Workload-24,Medium,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00164,Workload-25,High,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00165,Workload-26,Low,Open,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00166,Workload-27,Medium,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00167,Workload-28,High,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00168,Workload-29,Low,Draft,PWS required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00169,Workload-30,Medium,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00170,Workload-31,High,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00171,Workload-32,Low,Approved,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00172,Workload-33,Medium,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00173,Workload-34,High,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00174,Workload-35,Low,In Review,PWS required,Cost optimization,IL5
+DEMO-X-202601-00175,Workload-01,Medium,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00176,Workload-02,High,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00177,Workload-03,Low,Open,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00178,Workload-04,Medium,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00179,Workload-05,High,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00180,Workload-06,Low,Draft,PWS required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00181,Workload-07,Medium,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00182,Workload-08,High,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00183,Workload-09,Low,Approved,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00184,Workload-10,Medium,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00185,Workload-11,High,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00186,Workload-12,Low,In Review,PWS required,Cost optimization,IL5
+DEMO-X-202601-00187,Workload-13,Medium,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00188,Workload-14,High,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00189,Workload-15,Low,Open,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00190,Workload-16,Medium,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00191,Workload-17,High,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00192,Workload-18,Low,Draft,PWS required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00193,Workload-19,Medium,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00194,Workload-20,High,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00195,Workload-21,Low,Approved,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00196,Workload-22,Medium,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00197,Workload-23,High,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00198,Workload-24,Low,In Review,PWS required,Cost optimization,IL5
+DEMO-X-202601-00199,Workload-25,Medium,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00200,Workload-26,High,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00201,Workload-27,Low,Open,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00202,Workload-28,Medium,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00203,Workload-29,High,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00204,Workload-30,Low,Draft,PWS required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00205,Workload-31,Medium,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00206,Workload-32,High,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00207,Workload-33,Low,Approved,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00208,Workload-34,Medium,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00209,Workload-35,High,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00210,Workload-01,Low,In Review,PWS required,Cost optimization,IL5
+DEMO-X-202601-00211,Workload-02,Medium,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00212,Workload-03,High,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00213,Workload-04,Low,Open,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00214,Workload-05,Medium,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00215,Workload-06,High,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00216,Workload-07,Low,Draft,PWS required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00217,Workload-08,Medium,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00218,Workload-09,High,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00219,Workload-10,Low,Approved,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00220,Workload-11,Medium,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00221,Workload-12,High,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00222,Workload-13,Low,In Review,PWS required,Cost optimization,IL5
+DEMO-X-202601-00223,Workload-14,Medium,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00224,Workload-15,High,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00225,Workload-16,Low,Open,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00226,Workload-17,Medium,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00227,Workload-18,High,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00228,Workload-19,Low,Draft,PWS required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00229,Workload-20,Medium,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00230,Workload-21,High,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00231,Workload-22,Low,Approved,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00232,Workload-23,Medium,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00233,Workload-24,High,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00234,Workload-25,Low,In Review,PWS required,Cost optimization,IL5
+DEMO-X-202601-00235,Workload-26,Medium,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00236,Workload-27,High,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00237,Workload-28,Low,Open,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00238,Workload-29,Medium,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00239,Workload-30,High,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00240,Workload-31,Low,Draft,PWS required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00241,Workload-32,Medium,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00242,Workload-33,High,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00243,Workload-34,Low,Approved,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00244,Workload-35,Medium,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00245,Workload-01,High,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00246,Workload-02,Low,In Review,PWS required,Cost optimization,IL5
+DEMO-X-202601-00247,Workload-03,Medium,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00248,Workload-04,High,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00249,Workload-05,Low,Open,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00250,Workload-06,Medium,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00251,Workload-07,High,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00252,Workload-08,Low,Draft,PWS required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00253,Workload-09,Medium,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00254,Workload-10,High,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00255,Workload-11,Low,Approved,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00256,Workload-12,Medium,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00257,Workload-13,High,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00258,Workload-14,Low,In Review,PWS required,Cost optimization,IL5
+DEMO-X-202601-00259,Workload-15,Medium,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00260,Workload-16,High,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00261,Workload-17,Low,Open,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00262,Workload-18,Medium,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00263,Workload-19,High,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00264,Workload-20,Low,Draft,PWS required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00265,Workload-21,Medium,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00266,Workload-22,High,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00267,Workload-23,Low,Approved,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00268,Workload-24,Medium,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00269,Workload-25,High,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00270,Workload-26,Low,In Review,PWS required,Cost optimization,IL5
+DEMO-X-202601-00271,Workload-27,Medium,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00272,Workload-28,High,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00273,Workload-29,Low,Open,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00274,Workload-30,Medium,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00275,Workload-31,High,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00276,Workload-32,Low,Draft,PWS required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00277,Workload-33,Medium,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00278,Workload-34,High,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00279,Workload-35,Low,Approved,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00280,Workload-01,Medium,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00281,Workload-02,High,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00282,Workload-03,Low,In Review,PWS required,Cost optimization,IL5
+DEMO-X-202601-00283,Workload-04,Medium,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00284,Workload-05,High,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00285,Workload-06,Low,Open,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00286,Workload-07,Medium,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00287,Workload-08,High,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00288,Workload-09,Low,Draft,PWS required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00289,Workload-10,Medium,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00290,Workload-11,High,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00291,Workload-12,Low,Approved,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00292,Workload-13,Medium,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00293,Workload-14,High,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00294,Workload-15,Low,In Review,PWS required,Cost optimization,IL5
+DEMO-X-202601-00295,Workload-16,Medium,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00296,Workload-17,High,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00297,Workload-18,Low,Open,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00298,Workload-19,Medium,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00299,Workload-20,High,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00300,Workload-21,Low,Draft,PWS required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00301,Workload-22,Medium,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00302,Workload-23,High,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00303,Workload-24,Low,Approved,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00304,Workload-25,Medium,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00305,Workload-26,High,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00306,Workload-27,Low,In Review,PWS required,Cost optimization,IL5
+DEMO-X-202601-00307,Workload-28,Medium,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00308,Workload-29,High,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00309,Workload-30,Low,Open,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00310,Workload-31,Medium,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00311,Workload-32,High,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00312,Workload-33,Low,Draft,PWS required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00313,Workload-34,Medium,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00314,Workload-35,High,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00315,Workload-01,Low,Approved,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00316,Workload-02,Medium,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00317,Workload-03,High,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00318,Workload-04,Low,In Review,PWS required,Cost optimization,IL5
+DEMO-X-202601-00319,Workload-05,Medium,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00320,Workload-06,High,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00321,Workload-07,Low,Open,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00322,Workload-08,Medium,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00323,Workload-09,High,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00324,Workload-10,Low,Draft,PWS required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00325,Workload-11,Medium,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00326,Workload-12,High,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00327,Workload-13,Low,Approved,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00328,Workload-14,Medium,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00329,Workload-15,High,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00330,Workload-16,Low,In Review,PWS required,Cost optimization,IL5
+DEMO-X-202601-00331,Workload-17,Medium,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00332,Workload-18,High,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00333,Workload-19,Low,Open,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00334,Workload-20,Medium,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00335,Workload-21,High,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00336,Workload-22,Low,Draft,PWS required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00337,Workload-23,Medium,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00338,Workload-24,High,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00339,Workload-25,Low,Approved,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00340,Workload-26,Medium,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00341,Workload-27,High,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00342,Workload-28,Low,In Review,PWS required,Cost optimization,IL5
+DEMO-X-202601-00343,Workload-29,Medium,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00344,Workload-30,High,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00345,Workload-31,Low,Open,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00346,Workload-32,Medium,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00347,Workload-33,High,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00348,Workload-34,Low,Draft,PWS required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00349,Workload-35,Medium,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00350,Workload-01,High,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00351,Workload-02,Low,Approved,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00352,Workload-03,Medium,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00353,Workload-04,High,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00354,Workload-05,Low,In Review,PWS required,Cost optimization,IL5
+DEMO-X-202601-00355,Workload-06,Medium,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00356,Workload-07,High,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00357,Workload-08,Low,Open,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00358,Workload-09,Medium,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00359,Workload-10,High,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00360,Workload-11,Low,Draft,PWS required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00361,Workload-12,Medium,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00362,Workload-13,High,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00363,Workload-14,Low,Approved,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00364,Workload-15,Medium,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00365,Workload-16,High,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00366,Workload-17,Low,In Review,PWS required,Cost optimization,IL5
+DEMO-X-202601-00367,Workload-18,Medium,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00368,Workload-19,High,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00369,Workload-20,Low,Open,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00370,Workload-21,Medium,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00371,Workload-22,High,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00372,Workload-23,Low,Draft,PWS required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00373,Workload-24,Medium,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00374,Workload-25,High,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00375,Workload-26,Low,Approved,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00376,Workload-27,Medium,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00377,Workload-28,High,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00378,Workload-29,Low,In Review,PWS required,Cost optimization,IL5
+DEMO-X-202601-00379,Workload-30,Medium,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00380,Workload-31,High,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00381,Workload-32,Low,Open,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00382,Workload-33,Medium,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00383,Workload-34,High,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00384,Workload-35,Low,Draft,PWS required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00385,Workload-01,Medium,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00386,Workload-02,High,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00387,Workload-03,Low,Approved,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00388,Workload-04,Medium,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00389,Workload-05,High,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00390,Workload-06,Low,In Review,PWS required,Cost optimization,IL5
+DEMO-X-202601-00391,Workload-07,Medium,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00392,Workload-08,High,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00393,Workload-09,Low,Open,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00394,Workload-10,Medium,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00395,Workload-11,High,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00396,Workload-12,Low,Draft,PWS required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00397,Workload-13,Medium,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00398,Workload-14,High,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00399,Workload-15,Low,Approved,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00400,Workload-16,Medium,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00401,Workload-17,High,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00402,Workload-18,Low,In Review,PWS required,Cost optimization,IL5
+DEMO-X-202601-00403,Workload-19,Medium,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00404,Workload-20,High,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00405,Workload-21,Low,Open,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00406,Workload-22,Medium,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00407,Workload-23,High,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00408,Workload-24,Low,Draft,PWS required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00409,Workload-25,Medium,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00410,Workload-26,High,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00411,Workload-27,Low,Approved,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00412,Workload-28,Medium,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00413,Workload-29,High,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00414,Workload-30,Low,In Review,PWS required,Cost optimization,IL5
+DEMO-X-202601-00415,Workload-31,Medium,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00416,Workload-32,High,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00417,Workload-33,Low,Open,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00418,Workload-34,Medium,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00419,Workload-35,High,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00420,Workload-01,Low,Draft,PWS required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00421,Workload-02,Medium,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00422,Workload-03,High,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00423,Workload-04,Low,Approved,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00424,Workload-05,Medium,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00425,Workload-06,High,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00426,Workload-07,Low,In Review,PWS required,Cost optimization,IL5
+DEMO-X-202601-00427,Workload-08,Medium,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00428,Workload-09,High,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00429,Workload-10,Low,Open,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00430,Workload-11,Medium,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00431,Workload-12,High,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00432,Workload-13,Low,Draft,PWS required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00433,Workload-14,Medium,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00434,Workload-15,High,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00435,Workload-16,Low,Approved,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00436,Workload-17,Medium,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00437,Workload-18,High,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00438,Workload-19,Low,In Review,PWS required,Cost optimization,IL5
+DEMO-X-202601-00439,Workload-20,Medium,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00440,Workload-21,High,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00441,Workload-22,Low,Open,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00442,Workload-23,Medium,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00443,Workload-24,High,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00444,Workload-25,Low,Draft,PWS required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00445,Workload-26,Medium,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00446,Workload-27,High,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00447,Workload-28,Low,Approved,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00448,Workload-29,Medium,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00449,Workload-30,High,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00450,Workload-31,Low,In Review,PWS required,Cost optimization,IL5
+DEMO-X-202601-00451,Workload-32,Medium,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00452,Workload-33,High,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00453,Workload-34,Low,Open,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00454,Workload-35,Medium,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00455,Workload-01,High,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00456,Workload-02,Low,Draft,PWS required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00457,Workload-03,Medium,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00458,Workload-04,High,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00459,Workload-05,Low,Approved,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00460,Workload-06,Medium,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00461,Workload-07,High,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00462,Workload-08,Low,In Review,PWS required,Cost optimization,IL5
+DEMO-X-202601-00463,Workload-09,Medium,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00464,Workload-10,High,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00465,Workload-11,Low,Open,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00466,Workload-12,Medium,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00467,Workload-13,High,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00468,Workload-14,Low,Draft,PWS required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00469,Workload-15,Medium,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00470,Workload-16,High,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00471,Workload-17,Low,Approved,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00472,Workload-18,Medium,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00473,Workload-19,High,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00474,Workload-20,Low,In Review,PWS required,Cost optimization,IL5
+DEMO-X-202601-00475,Workload-21,Medium,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00476,Workload-22,High,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00477,Workload-23,Low,Open,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00478,Workload-24,Medium,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00479,Workload-25,High,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00480,Workload-26,Low,Draft,PWS required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00481,Workload-27,Medium,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00482,Workload-28,High,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00483,Workload-29,Low,Approved,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00484,Workload-30,Medium,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00485,Workload-31,High,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00486,Workload-32,Low,In Review,PWS required,Cost optimization,IL5
+DEMO-X-202601-00487,Workload-33,Medium,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00488,Workload-34,High,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00489,Workload-35,Low,Open,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00490,Workload-01,Medium,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00491,Workload-02,High,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00492,Workload-03,Low,Draft,PWS required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00493,Workload-04,Medium,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00494,Workload-05,High,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00495,Workload-06,Low,Approved,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00496,Workload-07,Medium,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00497,Workload-08,High,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00498,Workload-09,Low,In Review,PWS required,Cost optimization,IL5
+DEMO-X-202601-00499,Workload-10,Medium,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00500,Workload-11,High,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00501,Workload-12,Low,Open,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00502,Workload-13,Medium,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00503,Workload-14,High,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00504,Workload-15,Low,Draft,PWS required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00505,Workload-16,Medium,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00506,Workload-17,High,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00507,Workload-18,Low,Approved,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00508,Workload-19,Medium,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00509,Workload-20,High,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00510,Workload-21,Low,In Review,PWS required,Cost optimization,IL5
+DEMO-X-202601-00511,Workload-22,Medium,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00512,Workload-23,High,Draft,Not required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00513,Workload-24,Low,Open,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00514,Workload-25,Medium,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00515,Workload-26,High,Approved,Not required,Architecture alignment,IL5
+DEMO-X-202601-00516,Workload-27,Low,Draft,PWS required,Cost optimization,FedRAMP Moderate
+DEMO-X-202601-00517,Workload-28,Medium,Open,Not required,Architecture alignment,IL5
+DEMO-X-202601-00518,Workload-29,High,In Review,Not required,Cost optimization,IL5
+DEMO-X-202601-00519,Workload-30,Low,Approved,PWS required,Architecture alignment,IL5
+DEMO-X-202601-00520,Workload-31,Medium,Draft,Not required,Cost optimization,FedRAMP Moderate

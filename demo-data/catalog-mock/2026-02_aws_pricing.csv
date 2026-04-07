@@ -1,0 +1,521 @@
+﻿Catalog_Item_Number__c,Title__c,CSO_Short_Name__c,Description__c,List_Unit_Price__c,Pricing_Unit__c,JWCC_Unit_Price__c,JWCC_Unit_Of_Issue__c,Discount_Premium_Fee__c
+DEMO-P-202601-00001,Mock AWS catalog line 1 - compute and storage blend,CSO-SVC-02,Demo description for pricing row 1; safe for POC uploads.,10.06,GB-Mo,8.8528,GB-Mo,Standard
+DEMO-P-202601-00002,Mock AWS catalog line 2 - compute and storage blend,CSO-SVC-03,Demo description for pricing row 2; safe for POC uploads.,10.13,Each,8.9144,Each,Standard
+DEMO-P-202601-00003,Mock AWS catalog line 3 - compute and storage blend,CSO-SVC-04,Demo description for pricing row 3; safe for POC uploads.,10.2,GB-Mo,8.976,GB-Mo,Standard
+DEMO-P-202601-00004,Mock AWS catalog line 4 - compute and storage blend,CSO-SVC-05,Demo description for pricing row 4; safe for POC uploads.,10.27,Each,9.0376,Each,Standard
+DEMO-P-202601-00005,Mock AWS catalog line 5 - compute and storage blend,CSO-SVC-06,Demo description for pricing row 5; safe for POC uploads.,10.34,GB-Mo,9.0992,GB-Mo,
+DEMO-P-202601-00006,Mock AWS catalog line 6 - compute and storage blend,CSO-SVC-07,Demo description for pricing row 6; safe for POC uploads.,10.41,Each,9.1608,Each,Standard
+DEMO-P-202601-00007,Mock AWS catalog line 7 - compute and storage blend,CSO-SVC-08,Demo description for pricing row 7; safe for POC uploads.,10.48,GB-Mo,9.2224,GB-Mo,Standard
+DEMO-P-202601-00008,Mock AWS catalog line 8 - compute and storage blend,CSO-SVC-09,Demo description for pricing row 8; safe for POC uploads.,10.55,Each,9.284,Each,Standard
+DEMO-P-202601-00009,Mock AWS catalog line 9 - compute and storage blend,CSO-SVC-10,Demo description for pricing row 9; safe for POC uploads.,10.62,GB-Mo,9.3456,GB-Mo,Standard
+DEMO-P-202601-00010,Mock AWS catalog line 10 - compute and storage blend,CSO-SVC-11,Demo description for pricing row 10; safe for POC uploads.,10.69,Each,9.4072,Each,
+DEMO-P-202601-00011,Mock AWS catalog line 11 - compute and storage blend,CSO-SVC-12,Demo description for pricing row 11; safe for POC uploads.,10.76,GB-Mo,9.4688,GB-Mo,Standard
+DEMO-P-202601-00012,Mock AWS catalog line 12 - compute and storage blend,CSO-SVC-13,Demo description for pricing row 12; safe for POC uploads.,10.83,Each,9.5304,Each,Standard
+DEMO-P-202601-00013,Mock AWS catalog line 13 - compute and storage blend,CSO-SVC-14,Demo description for pricing row 13; safe for POC uploads.,10.9,GB-Mo,9.592,GB-Mo,Standard
+DEMO-P-202601-00014,Mock AWS catalog line 14 - compute and storage blend,CSO-SVC-15,Demo description for pricing row 14; safe for POC uploads.,10.97,Each,9.6536,Each,Standard
+DEMO-P-202601-00015,Mock AWS catalog line 15 - compute and storage blend,CSO-SVC-16,Demo description for pricing row 15; safe for POC uploads.,11.04,GB-Mo,9.7152,GB-Mo,
+DEMO-P-202601-00016,Mock AWS catalog line 16 - compute and storage blend,CSO-SVC-17,Demo description for pricing row 16; safe for POC uploads.,11.11,Each,9.7768,Each,Standard
+DEMO-P-202601-00017,Mock AWS catalog line 17 - compute and storage blend,CSO-SVC-18,Demo description for pricing row 17; safe for POC uploads.,11.18,GB-Mo,9.8384,GB-Mo,Standard
+DEMO-P-202601-00018,Mock AWS catalog line 18 - compute and storage blend,CSO-SVC-19,Demo description for pricing row 18; safe for POC uploads.,11.25,Each,9.9,Each,Standard
+DEMO-P-202601-00019,Mock AWS catalog line 19 - compute and storage blend,CSO-SVC-20,Demo description for pricing row 19; safe for POC uploads.,11.32,GB-Mo,9.9616,GB-Mo,Standard
+DEMO-P-202601-00020,Mock AWS catalog line 20 - compute and storage blend,CSO-SVC-21,Demo description for pricing row 20; safe for POC uploads.,11.39,Each,10.0232,Each,
+DEMO-P-202601-00021,Mock AWS catalog line 21 - compute and storage blend,CSO-SVC-22,Demo description for pricing row 21; safe for POC uploads.,11.46,GB-Mo,10.0848,GB-Mo,Standard
+DEMO-P-202601-00022,Mock AWS catalog line 22 - compute and storage blend,CSO-SVC-23,Demo description for pricing row 22; safe for POC uploads.,11.53,Each,10.1464,Each,Standard
+DEMO-P-202601-00023,Mock AWS catalog line 23 - compute and storage blend,CSO-SVC-24,Demo description for pricing row 23; safe for POC uploads.,11.6,GB-Mo,10.208,GB-Mo,Standard
+DEMO-P-202601-00024,Mock AWS catalog line 24 - compute and storage blend,CSO-SVC-25,Demo description for pricing row 24; safe for POC uploads.,11.67,Each,10.2696,Each,Standard
+DEMO-P-202601-00025,Mock AWS catalog line 25 - compute and storage blend,CSO-SVC-26,Demo description for pricing row 25; safe for POC uploads.,11.74,GB-Mo,10.3312,GB-Mo,
+DEMO-P-202601-00026,Mock AWS catalog line 26 - compute and storage blend,CSO-SVC-27,Demo description for pricing row 26; safe for POC uploads.,11.81,Each,10.3928,Each,Standard
+DEMO-P-202601-00027,Mock AWS catalog line 27 - compute and storage blend,CSO-SVC-28,Demo description for pricing row 27; safe for POC uploads.,11.88,GB-Mo,10.4544,GB-Mo,Standard
+DEMO-P-202601-00028,Mock AWS catalog line 28 - compute and storage blend,CSO-SVC-29,Demo description for pricing row 28; safe for POC uploads.,11.95,Each,10.516,Each,Standard
+DEMO-P-202601-00029,Mock AWS catalog line 29 - compute and storage blend,CSO-SVC-30,Demo description for pricing row 29; safe for POC uploads.,12.02,GB-Mo,10.5776,GB-Mo,Standard
+DEMO-P-202601-00030,Mock AWS catalog line 30 - compute and storage blend,CSO-SVC-31,Demo description for pricing row 30; safe for POC uploads.,12.09,Each,10.6392,Each,
+DEMO-P-202601-00031,Mock AWS catalog line 31 - compute and storage blend,CSO-SVC-32,Demo description for pricing row 31; safe for POC uploads.,12.16,GB-Mo,10.7008,GB-Mo,Standard
+DEMO-P-202601-00032,Mock AWS catalog line 32 - compute and storage blend,CSO-SVC-33,Demo description for pricing row 32; safe for POC uploads.,12.23,Each,10.7624,Each,Standard
+DEMO-P-202601-00033,Mock AWS catalog line 33 - compute and storage blend,CSO-SVC-34,Demo description for pricing row 33; safe for POC uploads.,12.3,GB-Mo,10.824,GB-Mo,Standard
+DEMO-P-202601-00034,Mock AWS catalog line 34 - compute and storage blend,CSO-SVC-35,Demo description for pricing row 34; safe for POC uploads.,12.37,Each,10.8856,Each,Standard
+DEMO-P-202601-00035,Mock AWS catalog line 35 - compute and storage blend,CSO-SVC-36,Demo description for pricing row 35; safe for POC uploads.,12.44,GB-Mo,10.9472,GB-Mo,
+DEMO-P-202601-00036,Mock AWS catalog line 36 - compute and storage blend,CSO-SVC-37,Demo description for pricing row 36; safe for POC uploads.,12.51,Each,11.0088,Each,Standard
+DEMO-P-202601-00037,Mock AWS catalog line 37 - compute and storage blend,CSO-SVC-38,Demo description for pricing row 37; safe for POC uploads.,12.58,GB-Mo,11.0704,GB-Mo,Standard
+DEMO-P-202601-00038,Mock AWS catalog line 38 - compute and storage blend,CSO-SVC-39,Demo description for pricing row 38; safe for POC uploads.,12.65,Each,11.132,Each,Standard
+DEMO-P-202601-00039,Mock AWS catalog line 39 - compute and storage blend,CSO-SVC-40,Demo description for pricing row 39; safe for POC uploads.,12.72,GB-Mo,11.1936,GB-Mo,Standard
+DEMO-P-202601-00040,Mock AWS catalog line 40 - compute and storage blend,CSO-SVC-01,Demo description for pricing row 40; safe for POC uploads.,12.79,Each,11.2552,Each,
+DEMO-P-202601-00041,Mock AWS catalog line 41 - compute and storage blend,CSO-SVC-02,Demo description for pricing row 41; safe for POC uploads.,12.86,GB-Mo,11.3168,GB-Mo,Standard
+DEMO-P-202601-00042,Mock AWS catalog line 42 - compute and storage blend,CSO-SVC-03,Demo description for pricing row 42; safe for POC uploads.,12.93,Each,11.3784,Each,Standard
+DEMO-P-202601-00043,Mock AWS catalog line 43 - compute and storage blend,CSO-SVC-04,Demo description for pricing row 43; safe for POC uploads.,13,GB-Mo,11.44,GB-Mo,Standard
+DEMO-P-202601-00044,Mock AWS catalog line 44 - compute and storage blend,CSO-SVC-05,Demo description for pricing row 44; safe for POC uploads.,13.07,Each,11.5016,Each,Standard
+DEMO-P-202601-00045,Mock AWS catalog line 45 - compute and storage blend,CSO-SVC-06,Demo description for pricing row 45; safe for POC uploads.,13.14,GB-Mo,11.5632,GB-Mo,
+DEMO-P-202601-00046,Mock AWS catalog line 46 - compute and storage blend,CSO-SVC-07,Demo description for pricing row 46; safe for POC uploads.,13.21,Each,11.6248,Each,Standard
+DEMO-P-202601-00047,Mock AWS catalog line 47 - compute and storage blend,CSO-SVC-08,Demo description for pricing row 47; safe for POC uploads.,13.28,GB-Mo,11.6864,GB-Mo,Standard
+DEMO-P-202601-00048,Mock AWS catalog line 48 - compute and storage blend,CSO-SVC-09,Demo description for pricing row 48; safe for POC uploads.,13.35,Each,11.748,Each,Standard
+DEMO-P-202601-00049,Mock AWS catalog line 49 - compute and storage blend,CSO-SVC-10,Demo description for pricing row 49; safe for POC uploads.,13.42,GB-Mo,11.8096,GB-Mo,Standard
+DEMO-P-202601-00050,Mock AWS catalog line 50 - compute and storage blend,CSO-SVC-11,Demo description for pricing row 50; safe for POC uploads.,13.49,Each,11.8712,Each,
+DEMO-P-202601-00051,Mock AWS catalog line 51 - compute and storage blend,CSO-SVC-12,Demo description for pricing row 51; safe for POC uploads.,13.56,GB-Mo,11.9328,GB-Mo,Standard
+DEMO-P-202601-00052,Mock AWS catalog line 52 - compute and storage blend,CSO-SVC-13,Demo description for pricing row 52; safe for POC uploads.,13.63,Each,11.9944,Each,Standard
+DEMO-P-202601-00053,Mock AWS catalog line 53 - compute and storage blend,CSO-SVC-14,Demo description for pricing row 53; safe for POC uploads.,13.7,GB-Mo,12.056,GB-Mo,Standard
+DEMO-P-202601-00054,Mock AWS catalog line 54 - compute and storage blend,CSO-SVC-15,Demo description for pricing row 54; safe for POC uploads.,13.77,Each,12.1176,Each,Standard
+DEMO-P-202601-00055,Mock AWS catalog line 55 - compute and storage blend,CSO-SVC-16,Demo description for pricing row 55; safe for POC uploads.,13.84,GB-Mo,12.1792,GB-Mo,
+DEMO-P-202601-00056,Mock AWS catalog line 56 - compute and storage blend,CSO-SVC-17,Demo description for pricing row 56; safe for POC uploads.,13.91,Each,12.2408,Each,Standard
+DEMO-P-202601-00057,Mock AWS catalog line 57 - compute and storage blend,CSO-SVC-18,Demo description for pricing row 57; safe for POC uploads.,13.98,GB-Mo,12.3024,GB-Mo,Standard
+DEMO-P-202601-00058,Mock AWS catalog line 58 - compute and storage blend,CSO-SVC-19,Demo description for pricing row 58; safe for POC uploads.,14.05,Each,12.364,Each,Standard
+DEMO-P-202601-00059,Mock AWS catalog line 59 - compute and storage blend,CSO-SVC-20,Demo description for pricing row 59; safe for POC uploads.,14.12,GB-Mo,12.4256,GB-Mo,Standard
+DEMO-P-202601-00060,Mock AWS catalog line 60 - compute and storage blend,CSO-SVC-21,Demo description for pricing row 60; safe for POC uploads.,14.19,Each,12.4872,Each,
+DEMO-P-202601-00061,Mock AWS catalog line 61 - compute and storage blend,CSO-SVC-22,Demo description for pricing row 61; safe for POC uploads.,14.26,GB-Mo,12.5488,GB-Mo,Standard
+DEMO-P-202601-00062,Mock AWS catalog line 62 - compute and storage blend,CSO-SVC-23,Demo description for pricing row 62; safe for POC uploads.,14.33,Each,12.6104,Each,Standard
+DEMO-P-202601-00063,Mock AWS catalog line 63 - compute and storage blend,CSO-SVC-24,Demo description for pricing row 63; safe for POC uploads.,14.4,GB-Mo,12.672,GB-Mo,Standard
+DEMO-P-202601-00064,Mock AWS catalog line 64 - compute and storage blend,CSO-SVC-25,Demo description for pricing row 64; safe for POC uploads.,14.47,Each,12.7336,Each,Standard
+DEMO-P-202601-00065,Mock AWS catalog line 65 - compute and storage blend,CSO-SVC-26,Demo description for pricing row 65; safe for POC uploads.,14.54,GB-Mo,12.7952,GB-Mo,
+DEMO-P-202601-00066,Mock AWS catalog line 66 - compute and storage blend,CSO-SVC-27,Demo description for pricing row 66; safe for POC uploads.,14.61,Each,12.8568,Each,Standard
+DEMO-P-202601-00067,Mock AWS catalog line 67 - compute and storage blend,CSO-SVC-28,Demo description for pricing row 67; safe for POC uploads.,14.68,GB-Mo,12.9184,GB-Mo,Standard
+DEMO-P-202601-00068,Mock AWS catalog line 68 - compute and storage blend,CSO-SVC-29,Demo description for pricing row 68; safe for POC uploads.,14.75,Each,12.98,Each,Standard
+DEMO-P-202601-00069,Mock AWS catalog line 69 - compute and storage blend,CSO-SVC-30,Demo description for pricing row 69; safe for POC uploads.,14.82,GB-Mo,13.0416,GB-Mo,Standard
+DEMO-P-202601-00070,Mock AWS catalog line 70 - compute and storage blend,CSO-SVC-31,Demo description for pricing row 70; safe for POC uploads.,14.89,Each,13.1032,Each,
+DEMO-P-202601-00071,Mock AWS catalog line 71 - compute and storage blend,CSO-SVC-32,Demo description for pricing row 71; safe for POC uploads.,14.96,GB-Mo,13.1648,GB-Mo,Standard
+DEMO-P-202601-00072,Mock AWS catalog line 72 - compute and storage blend,CSO-SVC-33,Demo description for pricing row 72; safe for POC uploads.,15.03,Each,13.2264,Each,Standard
+DEMO-P-202601-00073,Mock AWS catalog line 73 - compute and storage blend,CSO-SVC-34,Demo description for pricing row 73; safe for POC uploads.,15.1,GB-Mo,13.288,GB-Mo,Standard
+DEMO-P-202601-00074,Mock AWS catalog line 74 - compute and storage blend,CSO-SVC-35,Demo description for pricing row 74; safe for POC uploads.,15.17,Each,13.3496,Each,Standard
+DEMO-P-202601-00075,Mock AWS catalog line 75 - compute and storage blend,CSO-SVC-36,Demo description for pricing row 75; safe for POC uploads.,15.24,GB-Mo,13.4112,GB-Mo,
+DEMO-P-202601-00076,Mock AWS catalog line 76 - compute and storage blend,CSO-SVC-37,Demo description for pricing row 76; safe for POC uploads.,15.31,Each,13.4728,Each,Standard
+DEMO-P-202601-00077,Mock AWS catalog line 77 - compute and storage blend,CSO-SVC-38,Demo description for pricing row 77; safe for POC uploads.,15.38,GB-Mo,13.5344,GB-Mo,Standard
+DEMO-P-202601-00078,Mock AWS catalog line 78 - compute and storage blend,CSO-SVC-39,Demo description for pricing row 78; safe for POC uploads.,15.45,Each,13.596,Each,Standard
+DEMO-P-202601-00079,Mock AWS catalog line 79 - compute and storage blend,CSO-SVC-40,Demo description for pricing row 79; safe for POC uploads.,15.52,GB-Mo,13.6576,GB-Mo,Standard
+DEMO-P-202601-00080,Mock AWS catalog line 80 - compute and storage blend,CSO-SVC-01,Demo description for pricing row 80; safe for POC uploads.,15.59,Each,13.7192,Each,
+DEMO-P-202601-00081,Mock AWS catalog line 81 - compute and storage blend,CSO-SVC-02,Demo description for pricing row 81; safe for POC uploads.,15.66,GB-Mo,13.7808,GB-Mo,Standard
+DEMO-P-202601-00082,Mock AWS catalog line 82 - compute and storage blend,CSO-SVC-03,Demo description for pricing row 82; safe for POC uploads.,15.73,Each,13.8424,Each,Standard
+DEMO-P-202601-00083,Mock AWS catalog line 83 - compute and storage blend,CSO-SVC-04,Demo description for pricing row 83; safe for POC uploads.,15.8,GB-Mo,13.904,GB-Mo,Standard
+DEMO-P-202601-00084,Mock AWS catalog line 84 - compute and storage blend,CSO-SVC-05,Demo description for pricing row 84; safe for POC uploads.,15.87,Each,13.9656,Each,Standard
+DEMO-P-202601-00085,Mock AWS catalog line 85 - compute and storage blend,CSO-SVC-06,Demo description for pricing row 85; safe for POC uploads.,15.94,GB-Mo,14.0272,GB-Mo,
+DEMO-P-202601-00086,Mock AWS catalog line 86 - compute and storage blend,CSO-SVC-07,Demo description for pricing row 86; safe for POC uploads.,16.01,Each,14.0888,Each,Standard
+DEMO-P-202601-00087,Mock AWS catalog line 87 - compute and storage blend,CSO-SVC-08,Demo description for pricing row 87; safe for POC uploads.,16.08,GB-Mo,14.1504,GB-Mo,Standard
+DEMO-P-202601-00088,Mock AWS catalog line 88 - compute and storage blend,CSO-SVC-09,Demo description for pricing row 88; safe for POC uploads.,16.15,Each,14.212,Each,Standard
+DEMO-P-202601-00089,Mock AWS catalog line 89 - compute and storage blend,CSO-SVC-10,Demo description for pricing row 89; safe for POC uploads.,16.22,GB-Mo,14.2736,GB-Mo,Standard
+DEMO-P-202601-00090,Mock AWS catalog line 90 - compute and storage blend,CSO-SVC-11,Demo description for pricing row 90; safe for POC uploads.,16.29,Each,14.3352,Each,
+DEMO-P-202601-00091,Mock AWS catalog line 91 - compute and storage blend,CSO-SVC-12,Demo description for pricing row 91; safe for POC uploads.,16.36,GB-Mo,14.3968,GB-Mo,Standard
+DEMO-P-202601-00092,Mock AWS catalog line 92 - compute and storage blend,CSO-SVC-13,Demo description for pricing row 92; safe for POC uploads.,16.43,Each,14.4584,Each,Standard
+DEMO-P-202601-00093,Mock AWS catalog line 93 - compute and storage blend,CSO-SVC-14,Demo description for pricing row 93; safe for POC uploads.,16.5,GB-Mo,14.52,GB-Mo,Standard
+DEMO-P-202601-00094,Mock AWS catalog line 94 - compute and storage blend,CSO-SVC-15,Demo description for pricing row 94; safe for POC uploads.,16.57,Each,14.5816,Each,Standard
+DEMO-P-202601-00095,Mock AWS catalog line 95 - compute and storage blend,CSO-SVC-16,Demo description for pricing row 95; safe for POC uploads.,16.64,GB-Mo,14.6432,GB-Mo,
+DEMO-P-202601-00096,Mock AWS catalog line 96 - compute and storage blend,CSO-SVC-17,Demo description for pricing row 96; safe for POC uploads.,16.71,Each,14.7048,Each,Standard
+DEMO-P-202601-00097,Mock AWS catalog line 97 - compute and storage blend,CSO-SVC-18,Demo description for pricing row 97; safe for POC uploads.,16.78,GB-Mo,14.7664,GB-Mo,Standard
+DEMO-P-202601-00098,Mock AWS catalog line 98 - compute and storage blend,CSO-SVC-19,Demo description for pricing row 98; safe for POC uploads.,16.85,Each,14.828,Each,Standard
+DEMO-P-202601-00099,Mock AWS catalog line 99 - compute and storage blend,CSO-SVC-20,Demo description for pricing row 99; safe for POC uploads.,16.92,GB-Mo,14.8896,GB-Mo,Standard
+DEMO-P-202601-00100,Mock AWS catalog line 100 - compute and storage blend,CSO-SVC-21,Demo description for pricing row 100; safe for POC uploads.,16.99,Each,14.9512,Each,
+DEMO-P-202601-00101,Mock AWS catalog line 101 - compute and storage blend,CSO-SVC-22,Demo description for pricing row 101; safe for POC uploads.,17.06,GB-Mo,15.0128,GB-Mo,Standard
+DEMO-P-202601-00102,Mock AWS catalog line 102 - compute and storage blend,CSO-SVC-23,Demo description for pricing row 102; safe for POC uploads.,17.13,Each,15.0744,Each,Standard
+DEMO-P-202601-00103,Mock AWS catalog line 103 - compute and storage blend,CSO-SVC-24,Demo description for pricing row 103; safe for POC uploads.,17.2,GB-Mo,15.136,GB-Mo,Standard
+DEMO-P-202601-00104,Mock AWS catalog line 104 - compute and storage blend,CSO-SVC-25,Demo description for pricing row 104; safe for POC uploads.,17.27,Each,15.1976,Each,Standard
+DEMO-P-202601-00105,Mock AWS catalog line 105 - compute and storage blend,CSO-SVC-26,Demo description for pricing row 105; safe for POC uploads.,17.34,GB-Mo,15.2592,GB-Mo,
+DEMO-P-202601-00106,Mock AWS catalog line 106 - compute and storage blend,CSO-SVC-27,Demo description for pricing row 106; safe for POC uploads.,17.41,Each,15.3208,Each,Standard
+DEMO-P-202601-00107,Mock AWS catalog line 107 - compute and storage blend,CSO-SVC-28,Demo description for pricing row 107; safe for POC uploads.,17.48,GB-Mo,15.3824,GB-Mo,Standard
+DEMO-P-202601-00108,Mock AWS catalog line 108 - compute and storage blend,CSO-SVC-29,Demo description for pricing row 108; safe for POC uploads.,17.55,Each,15.444,Each,Standard
+DEMO-P-202601-00109,Mock AWS catalog line 109 - compute and storage blend,CSO-SVC-30,Demo description for pricing row 109; safe for POC uploads.,17.62,GB-Mo,15.5056,GB-Mo,Standard
+DEMO-P-202601-00110,Mock AWS catalog line 110 - compute and storage blend,CSO-SVC-31,Demo description for pricing row 110; safe for POC uploads.,17.69,Each,15.5672,Each,
+DEMO-P-202601-00111,Mock AWS catalog line 111 - compute and storage blend,CSO-SVC-32,Demo description for pricing row 111; safe for POC uploads.,17.76,GB-Mo,15.6288,GB-Mo,Standard
+DEMO-P-202601-00112,Mock AWS catalog line 112 - compute and storage blend,CSO-SVC-33,Demo description for pricing row 112; safe for POC uploads.,17.83,Each,15.6904,Each,Standard
+DEMO-P-202601-00113,Mock AWS catalog line 113 - compute and storage blend,CSO-SVC-34,Demo description for pricing row 113; safe for POC uploads.,17.9,GB-Mo,15.752,GB-Mo,Standard
+DEMO-P-202601-00114,Mock AWS catalog line 114 - compute and storage blend,CSO-SVC-35,Demo description for pricing row 114; safe for POC uploads.,17.97,Each,15.8136,Each,Standard
+DEMO-P-202601-00115,Mock AWS catalog line 115 - compute and storage blend,CSO-SVC-36,Demo description for pricing row 115; safe for POC uploads.,18.04,GB-Mo,15.8752,GB-Mo,
+DEMO-P-202601-00116,Mock AWS catalog line 116 - compute and storage blend,CSO-SVC-37,Demo description for pricing row 116; safe for POC uploads.,18.11,Each,15.9368,Each,Standard
+DEMO-P-202601-00117,Mock AWS catalog line 117 - compute and storage blend,CSO-SVC-38,Demo description for pricing row 117; safe for POC uploads.,18.18,GB-Mo,15.9984,GB-Mo,Standard
+DEMO-P-202601-00118,Mock AWS catalog line 118 - compute and storage blend,CSO-SVC-39,Demo description for pricing row 118; safe for POC uploads.,18.25,Each,16.06,Each,Standard
+DEMO-P-202601-00119,Mock AWS catalog line 119 - compute and storage blend,CSO-SVC-40,Demo description for pricing row 119; safe for POC uploads.,18.32,GB-Mo,16.1216,GB-Mo,Standard
+DEMO-P-202601-00120,Mock AWS catalog line 120 - compute and storage blend,CSO-SVC-01,Demo description for pricing row 120; safe for POC uploads.,18.39,Each,16.1832,Each,
+DEMO-P-202601-00121,Mock AWS catalog line 121 - compute and storage blend,CSO-SVC-02,Demo description for pricing row 121; safe for POC uploads.,18.46,GB-Mo,16.2448,GB-Mo,Standard
+DEMO-P-202601-00122,Mock AWS catalog line 122 - compute and storage blend,CSO-SVC-03,Demo description for pricing row 122; safe for POC uploads.,18.53,Each,16.3064,Each,Standard
+DEMO-P-202601-00123,Mock AWS catalog line 123 - compute and storage blend,CSO-SVC-04,Demo description for pricing row 123; safe for POC uploads.,18.6,GB-Mo,16.368,GB-Mo,Standard
+DEMO-P-202601-00124,Mock AWS catalog line 124 - compute and storage blend,CSO-SVC-05,Demo description for pricing row 124; safe for POC uploads.,18.67,Each,16.4296,Each,Standard
+DEMO-P-202601-00125,Mock AWS catalog line 125 - compute and storage blend,CSO-SVC-06,Demo description for pricing row 125; safe for POC uploads.,18.74,GB-Mo,16.4912,GB-Mo,
+DEMO-P-202601-00126,Mock AWS catalog line 126 - compute and storage blend,CSO-SVC-07,Demo description for pricing row 126; safe for POC uploads.,18.81,Each,16.5528,Each,Standard
+DEMO-P-202601-00127,Mock AWS catalog line 127 - compute and storage blend,CSO-SVC-08,Demo description for pricing row 127; safe for POC uploads.,18.88,GB-Mo,16.6144,GB-Mo,Standard
+DEMO-P-202601-00128,Mock AWS catalog line 128 - compute and storage blend,CSO-SVC-09,Demo description for pricing row 128; safe for POC uploads.,18.95,Each,16.676,Each,Standard
+DEMO-P-202601-00129,Mock AWS catalog line 129 - compute and storage blend,CSO-SVC-10,Demo description for pricing row 129; safe for POC uploads.,19.02,GB-Mo,16.7376,GB-Mo,Standard
+DEMO-P-202601-00130,Mock AWS catalog line 130 - compute and storage blend,CSO-SVC-11,Demo description for pricing row 130; safe for POC uploads.,19.09,Each,16.7992,Each,
+DEMO-P-202601-00131,Mock AWS catalog line 131 - compute and storage blend,CSO-SVC-12,Demo description for pricing row 131; safe for POC uploads.,19.16,GB-Mo,16.8608,GB-Mo,Standard
+DEMO-P-202601-00132,Mock AWS catalog line 132 - compute and storage blend,CSO-SVC-13,Demo description for pricing row 132; safe for POC uploads.,19.23,Each,16.9224,Each,Standard
+DEMO-P-202601-00133,Mock AWS catalog line 133 - compute and storage blend,CSO-SVC-14,Demo description for pricing row 133; safe for POC uploads.,19.3,GB-Mo,16.984,GB-Mo,Standard
+DEMO-P-202601-00134,Mock AWS catalog line 134 - compute and storage blend,CSO-SVC-15,Demo description for pricing row 134; safe for POC uploads.,19.37,Each,17.0456,Each,Standard
+DEMO-P-202601-00135,Mock AWS catalog line 135 - compute and storage blend,CSO-SVC-16,Demo description for pricing row 135; safe for POC uploads.,19.44,GB-Mo,17.1072,GB-Mo,
+DEMO-P-202601-00136,Mock AWS catalog line 136 - compute and storage blend,CSO-SVC-17,Demo description for pricing row 136; safe for POC uploads.,19.51,Each,17.1688,Each,Standard
+DEMO-P-202601-00137,Mock AWS catalog line 137 - compute and storage blend,CSO-SVC-18,Demo description for pricing row 137; safe for POC uploads.,19.58,GB-Mo,17.2304,GB-Mo,Standard
+DEMO-P-202601-00138,Mock AWS catalog line 138 - compute and storage blend,CSO-SVC-19,Demo description for pricing row 138; safe for POC uploads.,19.65,Each,17.292,Each,Standard
+DEMO-P-202601-00139,Mock AWS catalog line 139 - compute and storage blend,CSO-SVC-20,Demo description for pricing row 139; safe for POC uploads.,19.72,GB-Mo,17.3536,GB-Mo,Standard
+DEMO-P-202601-00140,Mock AWS catalog line 140 - compute and storage blend,CSO-SVC-21,Demo description for pricing row 140; safe for POC uploads.,19.79,Each,17.4152,Each,
+DEMO-P-202601-00141,Mock AWS catalog line 141 - compute and storage blend,CSO-SVC-22,Demo description for pricing row 141; safe for POC uploads.,19.86,GB-Mo,17.4768,GB-Mo,Standard
+DEMO-P-202601-00142,Mock AWS catalog line 142 - compute and storage blend,CSO-SVC-23,Demo description for pricing row 142; safe for POC uploads.,19.93,Each,17.5384,Each,Standard
+DEMO-P-202601-00143,Mock AWS catalog line 143 - compute and storage blend,CSO-SVC-24,Demo description for pricing row 143; safe for POC uploads.,20,GB-Mo,17.6,GB-Mo,Standard
+DEMO-P-202601-00144,Mock AWS catalog line 144 - compute and storage blend,CSO-SVC-25,Demo description for pricing row 144; safe for POC uploads.,20.07,Each,17.6616,Each,Standard
+DEMO-P-202601-00145,Mock AWS catalog line 145 - compute and storage blend,CSO-SVC-26,Demo description for pricing row 145; safe for POC uploads.,20.14,GB-Mo,17.7232,GB-Mo,
+DEMO-P-202601-00146,Mock AWS catalog line 146 - compute and storage blend,CSO-SVC-27,Demo description for pricing row 146; safe for POC uploads.,20.21,Each,17.7848,Each,Standard
+DEMO-P-202601-00147,Mock AWS catalog line 147 - compute and storage blend,CSO-SVC-28,Demo description for pricing row 147; safe for POC uploads.,20.28,GB-Mo,17.8464,GB-Mo,Standard
+DEMO-P-202601-00148,Mock AWS catalog line 148 - compute and storage blend,CSO-SVC-29,Demo description for pricing row 148; safe for POC uploads.,20.35,Each,17.908,Each,Standard
+DEMO-P-202601-00149,Mock AWS catalog line 149 - compute and storage blend,CSO-SVC-30,Demo description for pricing row 149; safe for POC uploads.,20.42,GB-Mo,17.9696,GB-Mo,Standard
+DEMO-P-202601-00150,Mock AWS catalog line 150 - compute and storage blend,CSO-SVC-31,Demo description for pricing row 150; safe for POC uploads.,20.49,Each,18.0312,Each,
+DEMO-P-202601-00151,Mock AWS catalog line 151 - compute and storage blend,CSO-SVC-32,Demo description for pricing row 151; safe for POC uploads.,20.56,GB-Mo,18.0928,GB-Mo,Standard
+DEMO-P-202601-00152,Mock AWS catalog line 152 - compute and storage blend,CSO-SVC-33,Demo description for pricing row 152; safe for POC uploads.,20.63,Each,18.1544,Each,Standard
+DEMO-P-202601-00153,Mock AWS catalog line 153 - compute and storage blend,CSO-SVC-34,Demo description for pricing row 153; safe for POC uploads.,20.7,GB-Mo,18.216,GB-Mo,Standard
+DEMO-P-202601-00154,Mock AWS catalog line 154 - compute and storage blend,CSO-SVC-35,Demo description for pricing row 154; safe for POC uploads.,20.77,Each,18.2776,Each,Standard
+DEMO-P-202601-00155,Mock AWS catalog line 155 - compute and storage blend,CSO-SVC-36,Demo description for pricing row 155; safe for POC uploads.,20.84,GB-Mo,18.3392,GB-Mo,
+DEMO-P-202601-00156,Mock AWS catalog line 156 - compute and storage blend,CSO-SVC-37,Demo description for pricing row 156; safe for POC uploads.,20.91,Each,18.4008,Each,Standard
+DEMO-P-202601-00157,Mock AWS catalog line 157 - compute and storage blend,CSO-SVC-38,Demo description for pricing row 157; safe for POC uploads.,20.98,GB-Mo,18.4624,GB-Mo,Standard
+DEMO-P-202601-00158,Mock AWS catalog line 158 - compute and storage blend,CSO-SVC-39,Demo description for pricing row 158; safe for POC uploads.,21.05,Each,18.524,Each,Standard
+DEMO-P-202601-00159,Mock AWS catalog line 159 - compute and storage blend,CSO-SVC-40,Demo description for pricing row 159; safe for POC uploads.,21.12,GB-Mo,18.5856,GB-Mo,Standard
+DEMO-P-202601-00160,Mock AWS catalog line 160 - compute and storage blend,CSO-SVC-01,Demo description for pricing row 160; safe for POC uploads.,21.19,Each,18.6472,Each,
+DEMO-P-202601-00161,Mock AWS catalog line 161 - compute and storage blend,CSO-SVC-02,Demo description for pricing row 161; safe for POC uploads.,21.26,GB-Mo,18.7088,GB-Mo,Standard
+DEMO-P-202601-00162,Mock AWS catalog line 162 - compute and storage blend,CSO-SVC-03,Demo description for pricing row 162; safe for POC uploads.,21.33,Each,18.7704,Each,Standard
+DEMO-P-202601-00163,Mock AWS catalog line 163 - compute and storage blend,CSO-SVC-04,Demo description for pricing row 163; safe for POC uploads.,21.4,GB-Mo,18.832,GB-Mo,Standard
+DEMO-P-202601-00164,Mock AWS catalog line 164 - compute and storage blend,CSO-SVC-05,Demo description for pricing row 164; safe for POC uploads.,21.47,Each,18.8936,Each,Standard
+DEMO-P-202601-00165,Mock AWS catalog line 165 - compute and storage blend,CSO-SVC-06,Demo description for pricing row 165; safe for POC uploads.,21.54,GB-Mo,18.9552,GB-Mo,
+DEMO-P-202601-00166,Mock AWS catalog line 166 - compute and storage blend,CSO-SVC-07,Demo description for pricing row 166; safe for POC uploads.,21.61,Each,19.0168,Each,Standard
+DEMO-P-202601-00167,Mock AWS catalog line 167 - compute and storage blend,CSO-SVC-08,Demo description for pricing row 167; safe for POC uploads.,21.68,GB-Mo,19.0784,GB-Mo,Standard
+DEMO-P-202601-00168,Mock AWS catalog line 168 - compute and storage blend,CSO-SVC-09,Demo description for pricing row 168; safe for POC uploads.,21.75,Each,19.14,Each,Standard
+DEMO-P-202601-00169,Mock AWS catalog line 169 - compute and storage blend,CSO-SVC-10,Demo description for pricing row 169; safe for POC uploads.,21.82,GB-Mo,19.2016,GB-Mo,Standard
+DEMO-P-202601-00170,Mock AWS catalog line 170 - compute and storage blend,CSO-SVC-11,Demo description for pricing row 170; safe for POC uploads.,21.89,Each,19.2632,Each,
+DEMO-P-202601-00171,Mock AWS catalog line 171 - compute and storage blend,CSO-SVC-12,Demo description for pricing row 171; safe for POC uploads.,21.96,GB-Mo,19.3248,GB-Mo,Standard
+DEMO-P-202601-00172,Mock AWS catalog line 172 - compute and storage blend,CSO-SVC-13,Demo description for pricing row 172; safe for POC uploads.,22.03,Each,19.3864,Each,Standard
+DEMO-P-202601-00173,Mock AWS catalog line 173 - compute and storage blend,CSO-SVC-14,Demo description for pricing row 173; safe for POC uploads.,22.1,GB-Mo,19.448,GB-Mo,Standard
+DEMO-P-202601-00174,Mock AWS catalog line 174 - compute and storage blend,CSO-SVC-15,Demo description for pricing row 174; safe for POC uploads.,22.17,Each,19.5096,Each,Standard
+DEMO-P-202601-00175,Mock AWS catalog line 175 - compute and storage blend,CSO-SVC-16,Demo description for pricing row 175; safe for POC uploads.,22.24,GB-Mo,19.5712,GB-Mo,
+DEMO-P-202601-00176,Mock AWS catalog line 176 - compute and storage blend,CSO-SVC-17,Demo description for pricing row 176; safe for POC uploads.,22.31,Each,19.6328,Each,Standard
+DEMO-P-202601-00177,Mock AWS catalog line 177 - compute and storage blend,CSO-SVC-18,Demo description for pricing row 177; safe for POC uploads.,22.38,GB-Mo,19.6944,GB-Mo,Standard
+DEMO-P-202601-00178,Mock AWS catalog line 178 - compute and storage blend,CSO-SVC-19,Demo description for pricing row 178; safe for POC uploads.,22.45,Each,19.756,Each,Standard
+DEMO-P-202601-00179,Mock AWS catalog line 179 - compute and storage blend,CSO-SVC-20,Demo description for pricing row 179; safe for POC uploads.,22.52,GB-Mo,19.8176,GB-Mo,Standard
+DEMO-P-202601-00180,Mock AWS catalog line 180 - compute and storage blend,CSO-SVC-21,Demo description for pricing row 180; safe for POC uploads.,22.59,Each,19.8792,Each,
+DEMO-P-202601-00181,Mock AWS catalog line 181 - compute and storage blend,CSO-SVC-22,Demo description for pricing row 181; safe for POC uploads.,22.66,GB-Mo,19.9408,GB-Mo,Standard
+DEMO-P-202601-00182,Mock AWS catalog line 182 - compute and storage blend,CSO-SVC-23,Demo description for pricing row 182; safe for POC uploads.,22.73,Each,20.0024,Each,Standard
+DEMO-P-202601-00183,Mock AWS catalog line 183 - compute and storage blend,CSO-SVC-24,Demo description for pricing row 183; safe for POC uploads.,22.8,GB-Mo,20.064,GB-Mo,Standard
+DEMO-P-202601-00184,Mock AWS catalog line 184 - compute and storage blend,CSO-SVC-25,Demo description for pricing row 184; safe for POC uploads.,22.87,Each,20.1256,Each,Standard
+DEMO-P-202601-00185,Mock AWS catalog line 185 - compute and storage blend,CSO-SVC-26,Demo description for pricing row 185; safe for POC uploads.,22.94,GB-Mo,20.1872,GB-Mo,
+DEMO-P-202601-00186,Mock AWS catalog line 186 - compute and storage blend,CSO-SVC-27,Demo description for pricing row 186; safe for POC uploads.,23.01,Each,20.2488,Each,Standard
+DEMO-P-202601-00187,Mock AWS catalog line 187 - compute and storage blend,CSO-SVC-28,Demo description for pricing row 187; safe for POC uploads.,23.08,GB-Mo,20.3104,GB-Mo,Standard
+DEMO-P-202601-00188,Mock AWS catalog line 188 - compute and storage blend,CSO-SVC-29,Demo description for pricing row 188; safe for POC uploads.,23.15,Each,20.372,Each,Standard
+DEMO-P-202601-00189,Mock AWS catalog line 189 - compute and storage blend,CSO-SVC-30,Demo description for pricing row 189; safe for POC uploads.,23.22,GB-Mo,20.4336,GB-Mo,Standard
+DEMO-P-202601-00190,Mock AWS catalog line 190 - compute and storage blend,CSO-SVC-31,Demo description for pricing row 190; safe for POC uploads.,23.29,Each,20.4952,Each,
+DEMO-P-202601-00191,Mock AWS catalog line 191 - compute and storage blend,CSO-SVC-32,Demo description for pricing row 191; safe for POC uploads.,23.36,GB-Mo,20.5568,GB-Mo,Standard
+DEMO-P-202601-00192,Mock AWS catalog line 192 - compute and storage blend,CSO-SVC-33,Demo description for pricing row 192; safe for POC uploads.,23.43,Each,20.6184,Each,Standard
+DEMO-P-202601-00193,Mock AWS catalog line 193 - compute and storage blend,CSO-SVC-34,Demo description for pricing row 193; safe for POC uploads.,23.5,GB-Mo,20.68,GB-Mo,Standard
+DEMO-P-202601-00194,Mock AWS catalog line 194 - compute and storage blend,CSO-SVC-35,Demo description for pricing row 194; safe for POC uploads.,23.57,Each,20.7416,Each,Standard
+DEMO-P-202601-00195,Mock AWS catalog line 195 - compute and storage blend,CSO-SVC-36,Demo description for pricing row 195; safe for POC uploads.,23.64,GB-Mo,20.8032,GB-Mo,
+DEMO-P-202601-00196,Mock AWS catalog line 196 - compute and storage blend,CSO-SVC-37,Demo description for pricing row 196; safe for POC uploads.,23.71,Each,20.8648,Each,Standard
+DEMO-P-202601-00197,Mock AWS catalog line 197 - compute and storage blend,CSO-SVC-38,Demo description for pricing row 197; safe for POC uploads.,23.78,GB-Mo,20.9264,GB-Mo,Standard
+DEMO-P-202601-00198,Mock AWS catalog line 198 - compute and storage blend,CSO-SVC-39,Demo description for pricing row 198; safe for POC uploads.,23.85,Each,20.988,Each,Standard
+DEMO-P-202601-00199,Mock AWS catalog line 199 - compute and storage blend,CSO-SVC-40,Demo description for pricing row 199; safe for POC uploads.,23.92,GB-Mo,21.0496,GB-Mo,Standard
+DEMO-P-202601-00200,Mock AWS catalog line 200 - compute and storage blend,CSO-SVC-01,Demo description for pricing row 200; safe for POC uploads.,23.99,Each,21.1112,Each,
+DEMO-P-202601-00201,Mock AWS catalog line 201 - compute and storage blend,CSO-SVC-02,Demo description for pricing row 201; safe for POC uploads.,24.06,GB-Mo,21.1728,GB-Mo,Standard
+DEMO-P-202601-00202,Mock AWS catalog line 202 - compute and storage blend,CSO-SVC-03,Demo description for pricing row 202; safe for POC uploads.,24.13,Each,21.2344,Each,Standard
+DEMO-P-202601-00203,Mock AWS catalog line 203 - compute and storage blend,CSO-SVC-04,Demo description for pricing row 203; safe for POC uploads.,24.2,GB-Mo,21.296,GB-Mo,Standard
+DEMO-P-202601-00204,Mock AWS catalog line 204 - compute and storage blend,CSO-SVC-05,Demo description for pricing row 204; safe for POC uploads.,24.27,Each,21.3576,Each,Standard
+DEMO-P-202601-00205,Mock AWS catalog line 205 - compute and storage blend,CSO-SVC-06,Demo description for pricing row 205; safe for POC uploads.,24.34,GB-Mo,21.4192,GB-Mo,
+DEMO-P-202601-00206,Mock AWS catalog line 206 - compute and storage blend,CSO-SVC-07,Demo description for pricing row 206; safe for POC uploads.,24.41,Each,21.4808,Each,Standard
+DEMO-P-202601-00207,Mock AWS catalog line 207 - compute and storage blend,CSO-SVC-08,Demo description for pricing row 207; safe for POC uploads.,24.48,GB-Mo,21.5424,GB-Mo,Standard
+DEMO-P-202601-00208,Mock AWS catalog line 208 - compute and storage blend,CSO-SVC-09,Demo description for pricing row 208; safe for POC uploads.,24.55,Each,21.604,Each,Standard
+DEMO-P-202601-00209,Mock AWS catalog line 209 - compute and storage blend,CSO-SVC-10,Demo description for pricing row 209; safe for POC uploads.,24.62,GB-Mo,21.6656,GB-Mo,Standard
+DEMO-P-202601-00210,Mock AWS catalog line 210 - compute and storage blend,CSO-SVC-11,Demo description for pricing row 210; safe for POC uploads.,24.69,Each,21.7272,Each,
+DEMO-P-202601-00211,Mock AWS catalog line 211 - compute and storage blend,CSO-SVC-12,Demo description for pricing row 211; safe for POC uploads.,24.76,GB-Mo,21.7888,GB-Mo,Standard
+DEMO-P-202601-00212,Mock AWS catalog line 212 - compute and storage blend,CSO-SVC-13,Demo description for pricing row 212; safe for POC uploads.,24.83,Each,21.8504,Each,Standard
+DEMO-P-202601-00213,Mock AWS catalog line 213 - compute and storage blend,CSO-SVC-14,Demo description for pricing row 213; safe for POC uploads.,24.9,GB-Mo,21.912,GB-Mo,Standard
+DEMO-P-202601-00214,Mock AWS catalog line 214 - compute and storage blend,CSO-SVC-15,Demo description for pricing row 214; safe for POC uploads.,24.97,Each,21.9736,Each,Standard
+DEMO-P-202601-00215,Mock AWS catalog line 215 - compute and storage blend,CSO-SVC-16,Demo description for pricing row 215; safe for POC uploads.,25.04,GB-Mo,22.0352,GB-Mo,
+DEMO-P-202601-00216,Mock AWS catalog line 216 - compute and storage blend,CSO-SVC-17,Demo description for pricing row 216; safe for POC uploads.,25.11,Each,22.0968,Each,Standard
+DEMO-P-202601-00217,Mock AWS catalog line 217 - compute and storage blend,CSO-SVC-18,Demo description for pricing row 217; safe for POC uploads.,25.18,GB-Mo,22.1584,GB-Mo,Standard
+DEMO-P-202601-00218,Mock AWS catalog line 218 - compute and storage blend,CSO-SVC-19,Demo description for pricing row 218; safe for POC uploads.,25.25,Each,22.22,Each,Standard
+DEMO-P-202601-00219,Mock AWS catalog line 219 - compute and storage blend,CSO-SVC-20,Demo description for pricing row 219; safe for POC uploads.,25.32,GB-Mo,22.2816,GB-Mo,Standard
+DEMO-P-202601-00220,Mock AWS catalog line 220 - compute and storage blend,CSO-SVC-21,Demo description for pricing row 220; safe for POC uploads.,25.39,Each,22.3432,Each,
+DEMO-P-202601-00221,Mock AWS catalog line 221 - compute and storage blend,CSO-SVC-22,Demo description for pricing row 221; safe for POC uploads.,27.96,GB-Mo,24.6048,GB-Mo,Standard
+DEMO-P-202601-00222,Mock AWS catalog line 222 - compute and storage blend,CSO-SVC-23,Demo description for pricing row 222; safe for POC uploads.,28.03,Each,24.6664,Each,Standard
+DEMO-P-202601-00223,Mock AWS catalog line 223 - compute and storage blend,CSO-SVC-24,Demo description for pricing row 223; safe for POC uploads.,28.1,GB-Mo,24.728,GB-Mo,Standard
+DEMO-P-202601-00224,Mock AWS catalog line 224 - compute and storage blend,CSO-SVC-25,Demo description for pricing row 224; safe for POC uploads.,28.17,Each,24.7896,Each,Standard
+DEMO-P-202601-00225,Mock AWS catalog line 225 - compute and storage blend,CSO-SVC-26,Demo description for pricing row 225; safe for POC uploads.,28.24,GB-Mo,24.8512,GB-Mo,
+DEMO-P-202601-00226,Mock AWS catalog line 226 - compute and storage blend,CSO-SVC-27,Demo description for pricing row 226; safe for POC uploads.,28.31,Each,24.9128,Each,Standard
+DEMO-P-202601-00227,Mock AWS catalog line 227 - compute and storage blend,CSO-SVC-28,Demo description for pricing row 227; safe for POC uploads.,28.38,GB-Mo,24.9744,GB-Mo,Standard
+DEMO-P-202601-00228,Mock AWS catalog line 228 - compute and storage blend,CSO-SVC-29,Demo description for pricing row 228; safe for POC uploads.,28.45,Each,25.036,Each,Standard
+DEMO-P-202601-00229,Mock AWS catalog line 229 - compute and storage blend,CSO-SVC-30,Demo description for pricing row 229; safe for POC uploads.,28.52,GB-Mo,25.0976,GB-Mo,Standard
+DEMO-P-202601-00230,Mock AWS catalog line 230 - compute and storage blend,CSO-SVC-31,Demo description for pricing row 230; safe for POC uploads.,28.59,Each,25.1592,Each,
+DEMO-P-202601-00231,Mock AWS catalog line 231 - compute and storage blend,CSO-SVC-32,Demo description for pricing row 231; safe for POC uploads.,28.66,GB-Mo,25.2208,GB-Mo,Standard
+DEMO-P-202601-00232,Mock AWS catalog line 232 - compute and storage blend,CSO-SVC-33,Demo description for pricing row 232; safe for POC uploads.,28.73,Each,25.2824,Each,Standard
+DEMO-P-202601-00233,Mock AWS catalog line 233 - compute and storage blend,CSO-SVC-34,Demo description for pricing row 233; safe for POC uploads.,28.8,GB-Mo,25.344,GB-Mo,Standard
+DEMO-P-202601-00234,Mock AWS catalog line 234 - compute and storage blend,CSO-SVC-35,Demo description for pricing row 234; safe for POC uploads.,28.87,Each,25.4056,Each,Standard
+DEMO-P-202601-00235,Mock AWS catalog line 235 - compute and storage blend,CSO-SVC-36,Demo description for pricing row 235; safe for POC uploads.,28.94,GB-Mo,25.4672,GB-Mo,
+DEMO-P-202601-00236,Mock AWS catalog line 236 - compute and storage blend,CSO-SVC-37,Demo description for pricing row 236; safe for POC uploads.,29.01,Each,25.5288,Each,Standard
+DEMO-P-202601-00237,Mock AWS catalog line 237 - compute and storage blend,CSO-SVC-38,Demo description for pricing row 237; safe for POC uploads.,29.08,GB-Mo,25.5904,GB-Mo,Standard
+DEMO-P-202601-00238,Mock AWS catalog line 238 - compute and storage blend,CSO-SVC-39,Demo description for pricing row 238; safe for POC uploads.,29.15,Each,25.652,Each,Standard
+DEMO-P-202601-00239,Mock AWS catalog line 239 - compute and storage blend,CSO-SVC-40,Demo description for pricing row 239; safe for POC uploads.,29.22,GB-Mo,25.7136,GB-Mo,Standard
+DEMO-P-202601-00240,Mock AWS catalog line 240 - compute and storage blend,CSO-SVC-01,Demo description for pricing row 240; safe for POC uploads.,29.29,Each,25.7752,Each,
+DEMO-P-202601-00241,Mock AWS catalog line 241 - compute and storage blend,CSO-SVC-02,Demo description for pricing row 241; safe for POC uploads.,29.36,GB-Mo,25.8368,GB-Mo,Standard
+DEMO-P-202601-00242,Mock AWS catalog line 242 - compute and storage blend,CSO-SVC-03,Demo description for pricing row 242; safe for POC uploads.,29.43,Each,25.8984,Each,Standard
+DEMO-P-202601-00243,Mock AWS catalog line 243 - compute and storage blend,CSO-SVC-04,Demo description for pricing row 243; safe for POC uploads.,29.5,GB-Mo,25.96,GB-Mo,Standard
+DEMO-P-202601-00244,Mock AWS catalog line 244 - compute and storage blend,CSO-SVC-05,Demo description for pricing row 244; safe for POC uploads.,29.57,Each,26.0216,Each,Standard
+DEMO-P-202601-00245,Mock AWS catalog line 245 - compute and storage blend,CSO-SVC-06,Demo description for pricing row 245; safe for POC uploads.,29.64,GB-Mo,26.0832,GB-Mo,
+DEMO-P-202601-00246,Mock AWS catalog line 246 - compute and storage blend,CSO-SVC-07,Demo description for pricing row 246; safe for POC uploads.,29.71,Each,26.1448,Each,Standard
+DEMO-P-202601-00247,Mock AWS catalog line 247 - compute and storage blend,CSO-SVC-08,Demo description for pricing row 247; safe for POC uploads.,29.78,GB-Mo,26.2064,GB-Mo,Standard
+DEMO-P-202601-00248,Mock AWS catalog line 248 - compute and storage blend,CSO-SVC-09,Demo description for pricing row 248; safe for POC uploads.,29.85,Each,26.268,Each,Standard
+DEMO-P-202601-00249,Mock AWS catalog line 249 - compute and storage blend,CSO-SVC-10,Demo description for pricing row 249; safe for POC uploads.,29.92,GB-Mo,26.3296,GB-Mo,Standard
+DEMO-P-202601-00250,Mock AWS catalog line 250 - compute and storage blend,CSO-SVC-11,Demo description for pricing row 250; safe for POC uploads.,29.99,Each,26.3912,Each,
+DEMO-P-202601-00251,Mock AWS catalog line 251 - compute and storage blend,CSO-SVC-12,Demo description for pricing row 251; safe for POC uploads.,30.06,GB-Mo,26.4528,GB-Mo,Standard
+DEMO-P-202601-00252,Mock AWS catalog line 252 - compute and storage blend,CSO-SVC-13,Demo description for pricing row 252; safe for POC uploads.,30.13,Each,26.5144,Each,Standard
+DEMO-P-202601-00253,Mock AWS catalog line 253 - compute and storage blend,CSO-SVC-14,Demo description for pricing row 253; safe for POC uploads.,30.2,GB-Mo,26.576,GB-Mo,Standard
+DEMO-P-202601-00254,Mock AWS catalog line 254 - compute and storage blend,CSO-SVC-15,Demo description for pricing row 254; safe for POC uploads.,30.27,Each,26.6376,Each,Standard
+DEMO-P-202601-00255,Mock AWS catalog line 255 - compute and storage blend,CSO-SVC-16,Demo description for pricing row 255; safe for POC uploads.,30.34,GB-Mo,26.6992,GB-Mo,
+DEMO-P-202601-00256,Mock AWS catalog line 256 - compute and storage blend,CSO-SVC-17,Demo description for pricing row 256; safe for POC uploads.,30.41,Each,26.7608,Each,Standard
+DEMO-P-202601-00257,Mock AWS catalog line 257 - compute and storage blend,CSO-SVC-18,Demo description for pricing row 257; safe for POC uploads.,30.48,GB-Mo,26.8224,GB-Mo,Standard
+DEMO-P-202601-00258,Mock AWS catalog line 258 - compute and storage blend,CSO-SVC-19,Demo description for pricing row 258; safe for POC uploads.,30.55,Each,26.884,Each,Standard
+DEMO-P-202601-00259,Mock AWS catalog line 259 - compute and storage blend,CSO-SVC-20,Demo description for pricing row 259; safe for POC uploads.,30.62,GB-Mo,26.9456,GB-Mo,Standard
+DEMO-P-202601-00260,Mock AWS catalog line 260 - compute and storage blend,CSO-SVC-21,Demo description for pricing row 260; safe for POC uploads.,30.69,Each,27.0072,Each,
+DEMO-P-202601-00261,Mock AWS catalog line 261 - compute and storage blend,CSO-SVC-22,Demo description for pricing row 261; safe for POC uploads.,30.76,GB-Mo,27.0688,GB-Mo,Standard
+DEMO-P-202601-00262,Mock AWS catalog line 262 - compute and storage blend,CSO-SVC-23,Demo description for pricing row 262; safe for POC uploads.,30.83,Each,27.1304,Each,Standard
+DEMO-P-202601-00263,Mock AWS catalog line 263 - compute and storage blend,CSO-SVC-24,Demo description for pricing row 263; safe for POC uploads.,30.9,GB-Mo,27.192,GB-Mo,Standard
+DEMO-P-202601-00264,Mock AWS catalog line 264 - compute and storage blend,CSO-SVC-25,Demo description for pricing row 264; safe for POC uploads.,30.97,Each,27.2536,Each,Standard
+DEMO-P-202601-00265,Mock AWS catalog line 265 - compute and storage blend,CSO-SVC-26,Demo description for pricing row 265; safe for POC uploads.,31.04,GB-Mo,27.3152,GB-Mo,
+DEMO-P-202601-00266,Mock AWS catalog line 266 - compute and storage blend,CSO-SVC-27,Demo description for pricing row 266; safe for POC uploads.,31.11,Each,27.3768,Each,Standard
+DEMO-P-202601-00267,Mock AWS catalog line 267 - compute and storage blend,CSO-SVC-28,Demo description for pricing row 267; safe for POC uploads.,31.18,GB-Mo,27.4384,GB-Mo,Standard
+DEMO-P-202601-00268,Mock AWS catalog line 268 - compute and storage blend,CSO-SVC-29,Demo description for pricing row 268; safe for POC uploads.,31.25,Each,27.5,Each,Standard
+DEMO-P-202601-00269,Mock AWS catalog line 269 - compute and storage blend,CSO-SVC-30,Demo description for pricing row 269; safe for POC uploads.,31.32,GB-Mo,27.5616,GB-Mo,Standard
+DEMO-P-202601-00270,Mock AWS catalog line 270 - compute and storage blend,CSO-SVC-31,Demo description for pricing row 270; safe for POC uploads.,31.39,Each,27.6232,Each,
+DEMO-P-202601-00271,Mock AWS catalog line 271 - compute and storage blend,CSO-SVC-32,Demo description for pricing row 271; safe for POC uploads.,31.46,GB-Mo,27.6848,GB-Mo,Standard
+DEMO-P-202601-00272,Mock AWS catalog line 272 - compute and storage blend,CSO-SVC-33,Demo description for pricing row 272; safe for POC uploads.,31.53,Each,27.7464,Each,Standard
+DEMO-P-202601-00273,Mock AWS catalog line 273 - compute and storage blend,CSO-SVC-34,Demo description for pricing row 273; safe for POC uploads.,31.6,GB-Mo,27.808,GB-Mo,Standard
+DEMO-P-202601-00274,Mock AWS catalog line 274 - compute and storage blend,CSO-SVC-35,Demo description for pricing row 274; safe for POC uploads.,31.67,Each,27.8696,Each,Standard
+DEMO-P-202601-00275,Mock AWS catalog line 275 - compute and storage blend,CSO-SVC-36,Demo description for pricing row 275; safe for POC uploads.,31.74,GB-Mo,27.9312,GB-Mo,
+DEMO-P-202601-00276,Mock AWS catalog line 276 - compute and storage blend,CSO-SVC-37,Demo description for pricing row 276; safe for POC uploads.,31.81,Each,27.9928,Each,Standard
+DEMO-P-202601-00277,Mock AWS catalog line 277 - compute and storage blend,CSO-SVC-38,Demo description for pricing row 277; safe for POC uploads.,31.88,GB-Mo,28.0544,GB-Mo,Standard
+DEMO-P-202601-00278,Mock AWS catalog line 278 - compute and storage blend,CSO-SVC-39,Demo description for pricing row 278; safe for POC uploads.,31.95,Each,28.116,Each,Standard
+DEMO-P-202601-00279,Mock AWS catalog line 279 - compute and storage blend,CSO-SVC-40,Demo description for pricing row 279; safe for POC uploads.,32.02,GB-Mo,28.1776,GB-Mo,Standard
+DEMO-P-202601-00280,Mock AWS catalog line 280 - compute and storage blend,CSO-SVC-01,Demo description for pricing row 280; safe for POC uploads.,32.09,Each,28.2392,Each,
+DEMO-P-202601-00281,Mock AWS catalog line 281 - compute and storage blend,CSO-SVC-02,Demo description for pricing row 281; safe for POC uploads.,32.16,GB-Mo,28.3008,GB-Mo,Standard
+DEMO-P-202601-00282,Mock AWS catalog line 282 - compute and storage blend,CSO-SVC-03,Demo description for pricing row 282; safe for POC uploads.,32.23,Each,28.3624,Each,Standard
+DEMO-P-202601-00283,Mock AWS catalog line 283 - compute and storage blend,CSO-SVC-04,Demo description for pricing row 283; safe for POC uploads.,32.3,GB-Mo,28.424,GB-Mo,Standard
+DEMO-P-202601-00284,Mock AWS catalog line 284 - compute and storage blend,CSO-SVC-05,Demo description for pricing row 284; safe for POC uploads.,32.37,Each,28.4856,Each,Standard
+DEMO-P-202601-00285,Mock AWS catalog line 285 - compute and storage blend,CSO-SVC-06,Demo description for pricing row 285; safe for POC uploads.,32.44,GB-Mo,28.5472,GB-Mo,
+DEMO-P-202601-00286,Mock AWS catalog line 286 - compute and storage blend,CSO-SVC-07,Demo description for pricing row 286; safe for POC uploads.,32.51,Each,28.6088,Each,Standard
+DEMO-P-202601-00287,Mock AWS catalog line 287 - compute and storage blend,CSO-SVC-08,Demo description for pricing row 287; safe for POC uploads.,32.58,GB-Mo,28.6704,GB-Mo,Standard
+DEMO-P-202601-00288,Mock AWS catalog line 288 - compute and storage blend,CSO-SVC-09,Demo description for pricing row 288; safe for POC uploads.,32.65,Each,28.732,Each,Standard
+DEMO-P-202601-00289,Mock AWS catalog line 289 - compute and storage blend,CSO-SVC-10,Demo description for pricing row 289; safe for POC uploads.,32.72,GB-Mo,28.7936,GB-Mo,Standard
+DEMO-P-202601-00290,Mock AWS catalog line 290 - compute and storage blend,CSO-SVC-11,Demo description for pricing row 290; safe for POC uploads.,32.79,Each,28.8552,Each,
+DEMO-P-202601-00291,Mock AWS catalog line 291 - compute and storage blend,CSO-SVC-12,Demo description for pricing row 291; safe for POC uploads.,32.86,GB-Mo,28.9168,GB-Mo,Standard
+DEMO-P-202601-00292,Mock AWS catalog line 292 - compute and storage blend,CSO-SVC-13,Demo description for pricing row 292; safe for POC uploads.,32.93,Each,28.9784,Each,Standard
+DEMO-P-202601-00293,Mock AWS catalog line 293 - compute and storage blend,CSO-SVC-14,Demo description for pricing row 293; safe for POC uploads.,33,GB-Mo,29.04,GB-Mo,Standard
+DEMO-P-202601-00294,Mock AWS catalog line 294 - compute and storage blend,CSO-SVC-15,Demo description for pricing row 294; safe for POC uploads.,33.07,Each,29.1016,Each,Standard
+DEMO-P-202601-00295,Mock AWS catalog line 295 - compute and storage blend,CSO-SVC-16,Demo description for pricing row 295; safe for POC uploads.,33.14,GB-Mo,29.1632,GB-Mo,
+DEMO-P-202601-00296,Mock AWS catalog line 296 - compute and storage blend,CSO-SVC-17,Demo description for pricing row 296; safe for POC uploads.,33.21,Each,29.2248,Each,Standard
+DEMO-P-202601-00297,Mock AWS catalog line 297 - compute and storage blend,CSO-SVC-18,Demo description for pricing row 297; safe for POC uploads.,33.28,GB-Mo,29.2864,GB-Mo,Standard
+DEMO-P-202601-00298,Mock AWS catalog line 298 - compute and storage blend,CSO-SVC-19,Demo description for pricing row 298; safe for POC uploads.,33.35,Each,29.348,Each,Standard
+DEMO-P-202601-00299,Mock AWS catalog line 299 - compute and storage blend,CSO-SVC-20,Demo description for pricing row 299; safe for POC uploads.,33.42,GB-Mo,29.4096,GB-Mo,Standard
+DEMO-P-202601-00300,Mock AWS catalog line 300 - compute and storage blend,CSO-SVC-21,Demo description for pricing row 300; safe for POC uploads.,33.49,Each,29.4712,Each,
+DEMO-P-202601-00301,Mock AWS catalog line 301 - compute and storage blend,CSO-SVC-22,Demo description for pricing row 301; safe for POC uploads.,33.56,GB-Mo,29.5328,GB-Mo,Standard
+DEMO-P-202601-00302,Mock AWS catalog line 302 - compute and storage blend,CSO-SVC-23,Demo description for pricing row 302; safe for POC uploads.,33.63,Each,29.5944,Each,Standard
+DEMO-P-202601-00303,Mock AWS catalog line 303 - compute and storage blend,CSO-SVC-24,Demo description for pricing row 303; safe for POC uploads.,33.7,GB-Mo,29.656,GB-Mo,Standard
+DEMO-P-202601-00304,Mock AWS catalog line 304 - compute and storage blend,CSO-SVC-25,Demo description for pricing row 304; safe for POC uploads.,33.77,Each,29.7176,Each,Standard
+DEMO-P-202601-00305,Mock AWS catalog line 305 - compute and storage blend,CSO-SVC-26,Demo description for pricing row 305; safe for POC uploads.,33.84,GB-Mo,29.7792,GB-Mo,
+DEMO-P-202601-00306,Mock AWS catalog line 306 - compute and storage blend,CSO-SVC-27,Demo description for pricing row 306; safe for POC uploads.,33.91,Each,29.8408,Each,Standard
+DEMO-P-202601-00307,Mock AWS catalog line 307 - compute and storage blend,CSO-SVC-28,Demo description for pricing row 307; safe for POC uploads.,33.98,GB-Mo,29.9024,GB-Mo,Standard
+DEMO-P-202601-00308,Mock AWS catalog line 308 - compute and storage blend,CSO-SVC-29,Demo description for pricing row 308; safe for POC uploads.,34.05,Each,29.964,Each,Standard
+DEMO-P-202601-00309,Mock AWS catalog line 309 - compute and storage blend,CSO-SVC-30,Demo description for pricing row 309; safe for POC uploads.,34.12,GB-Mo,30.0256,GB-Mo,Standard
+DEMO-P-202601-00310,Mock AWS catalog line 310 - compute and storage blend,CSO-SVC-31,Demo description for pricing row 310; safe for POC uploads.,34.19,Each,30.0872,Each,
+DEMO-P-202601-00311,Mock AWS catalog line 311 - compute and storage blend,CSO-SVC-32,Demo description for pricing row 311; safe for POC uploads.,34.26,GB-Mo,30.1488,GB-Mo,Standard
+DEMO-P-202601-00312,Mock AWS catalog line 312 - compute and storage blend,CSO-SVC-33,Demo description for pricing row 312; safe for POC uploads.,34.33,Each,30.2104,Each,Standard
+DEMO-P-202601-00313,Mock AWS catalog line 313 - compute and storage blend,CSO-SVC-34,Demo description for pricing row 313; safe for POC uploads.,34.4,GB-Mo,30.272,GB-Mo,Standard
+DEMO-P-202601-00314,Mock AWS catalog line 314 - compute and storage blend,CSO-SVC-35,Demo description for pricing row 314; safe for POC uploads.,34.47,Each,30.3336,Each,Standard
+DEMO-P-202601-00315,Mock AWS catalog line 315 - compute and storage blend,CSO-SVC-36,Demo description for pricing row 315; safe for POC uploads.,34.54,GB-Mo,30.3952,GB-Mo,
+DEMO-P-202601-00316,Mock AWS catalog line 316 - compute and storage blend,CSO-SVC-37,Demo description for pricing row 316; safe for POC uploads.,34.61,Each,30.4568,Each,Standard
+DEMO-P-202601-00317,Mock AWS catalog line 317 - compute and storage blend,CSO-SVC-38,Demo description for pricing row 317; safe for POC uploads.,34.68,GB-Mo,30.5184,GB-Mo,Standard
+DEMO-P-202601-00318,Mock AWS catalog line 318 - compute and storage blend,CSO-SVC-39,Demo description for pricing row 318; safe for POC uploads.,34.75,Each,30.58,Each,Standard
+DEMO-P-202601-00319,Mock AWS catalog line 319 - compute and storage blend,CSO-SVC-40,Demo description for pricing row 319; safe for POC uploads.,34.82,GB-Mo,30.6416,GB-Mo,Standard
+DEMO-P-202601-00320,Mock AWS catalog line 320 - compute and storage blend,CSO-SVC-01,Demo description for pricing row 320; safe for POC uploads.,34.89,Each,30.7032,Each,
+DEMO-P-202602-NEW-00001,New February 2026 SKU 1,CSO-NEW-02,Net-new item for added-row demo.,19.55,Each,17.595,Each,
+DEMO-P-202602-NEW-00002,New February 2026 SKU 2,CSO-NEW-03,Net-new item for added-row demo.,19.6,Each,17.64,Each,
+DEMO-P-202602-NEW-00003,New February 2026 SKU 3,CSO-NEW-04,Net-new item for added-row demo.,19.65,Each,17.685,Each,
+DEMO-P-202602-NEW-00004,New February 2026 SKU 4,CSO-NEW-05,Net-new item for added-row demo.,19.7,Each,17.73,Each,
+DEMO-P-202602-NEW-00005,New February 2026 SKU 5,CSO-NEW-06,Net-new item for added-row demo.,19.75,Each,17.775,Each,
+DEMO-P-202602-NEW-00006,New February 2026 SKU 6,CSO-NEW-07,Net-new item for added-row demo.,19.8,Each,17.82,Each,
+DEMO-P-202602-NEW-00007,New February 2026 SKU 7,CSO-NEW-08,Net-new item for added-row demo.,19.85,Each,17.865,Each,
+DEMO-P-202602-NEW-00008,New February 2026 SKU 8,CSO-NEW-09,Net-new item for added-row demo.,19.9,Each,17.91,Each,
+DEMO-P-202602-NEW-00009,New February 2026 SKU 9,CSO-NEW-10,Net-new item for added-row demo.,19.95,Each,17.955,Each,
+DEMO-P-202602-NEW-00010,New February 2026 SKU 10,CSO-NEW-11,Net-new item for added-row demo.,20,Each,18,Each,
+DEMO-P-202602-NEW-00011,New February 2026 SKU 11,CSO-NEW-12,Net-new item for added-row demo.,20.05,Each,18.045,Each,
+DEMO-P-202602-NEW-00012,New February 2026 SKU 12,CSO-NEW-01,Net-new item for added-row demo.,20.1,Each,18.09,Each,
+DEMO-P-202602-NEW-00013,New February 2026 SKU 13,CSO-NEW-02,Net-new item for added-row demo.,20.15,Each,18.135,Each,
+DEMO-P-202602-NEW-00014,New February 2026 SKU 14,CSO-NEW-03,Net-new item for added-row demo.,20.2,Each,18.18,Each,
+DEMO-P-202602-NEW-00015,New February 2026 SKU 15,CSO-NEW-04,Net-new item for added-row demo.,20.25,Each,18.225,Each,
+DEMO-P-202602-NEW-00016,New February 2026 SKU 16,CSO-NEW-05,Net-new item for added-row demo.,20.3,Each,18.27,Each,
+DEMO-P-202602-NEW-00017,New February 2026 SKU 17,CSO-NEW-06,Net-new item for added-row demo.,20.35,Each,18.315,Each,
+DEMO-P-202602-NEW-00018,New February 2026 SKU 18,CSO-NEW-07,Net-new item for added-row demo.,20.4,Each,18.36,Each,
+DEMO-P-202602-NEW-00019,New February 2026 SKU 19,CSO-NEW-08,Net-new item for added-row demo.,20.45,Each,18.405,Each,
+DEMO-P-202602-NEW-00020,New February 2026 SKU 20,CSO-NEW-09,Net-new item for added-row demo.,20.5,Each,18.45,Each,
+DEMO-P-202602-NEW-00021,New February 2026 SKU 21,CSO-NEW-10,Net-new item for added-row demo.,20.55,Each,18.495,Each,
+DEMO-P-202602-NEW-00022,New February 2026 SKU 22,CSO-NEW-11,Net-new item for added-row demo.,20.6,Each,18.54,Each,
+DEMO-P-202602-NEW-00023,New February 2026 SKU 23,CSO-NEW-12,Net-new item for added-row demo.,20.65,Each,18.585,Each,
+DEMO-P-202602-NEW-00024,New February 2026 SKU 24,CSO-NEW-01,Net-new item for added-row demo.,20.7,Each,18.63,Each,
+DEMO-P-202602-NEW-00025,New February 2026 SKU 25,CSO-NEW-02,Net-new item for added-row demo.,20.75,Each,18.675,Each,
+DEMO-P-202602-NEW-00026,New February 2026 SKU 26,CSO-NEW-03,Net-new item for added-row demo.,20.8,Each,18.72,Each,
+DEMO-P-202602-NEW-00027,New February 2026 SKU 27,CSO-NEW-04,Net-new item for added-row demo.,20.85,Each,18.765,Each,
+DEMO-P-202602-NEW-00028,New February 2026 SKU 28,CSO-NEW-05,Net-new item for added-row demo.,20.9,Each,18.81,Each,
+DEMO-P-202602-NEW-00029,New February 2026 SKU 29,CSO-NEW-06,Net-new item for added-row demo.,20.95,Each,18.855,Each,
+DEMO-P-202602-NEW-00030,New February 2026 SKU 30,CSO-NEW-07,Net-new item for added-row demo.,21,Each,18.9,Each,
+DEMO-P-202602-NEW-00031,New February 2026 SKU 31,CSO-NEW-08,Net-new item for added-row demo.,21.05,Each,18.945,Each,
+DEMO-P-202602-NEW-00032,New February 2026 SKU 32,CSO-NEW-09,Net-new item for added-row demo.,21.1,Each,18.99,Each,
+DEMO-P-202602-NEW-00033,New February 2026 SKU 33,CSO-NEW-10,Net-new item for added-row demo.,21.15,Each,19.035,Each,
+DEMO-P-202602-NEW-00034,New February 2026 SKU 34,CSO-NEW-11,Net-new item for added-row demo.,21.2,Each,19.08,Each,
+DEMO-P-202602-NEW-00035,New February 2026 SKU 35,CSO-NEW-12,Net-new item for added-row demo.,21.25,Each,19.125,Each,
+DEMO-P-202602-NEW-00036,New February 2026 SKU 36,CSO-NEW-01,Net-new item for added-row demo.,21.3,Each,19.17,Each,
+DEMO-P-202602-NEW-00037,New February 2026 SKU 37,CSO-NEW-02,Net-new item for added-row demo.,21.35,Each,19.215,Each,
+DEMO-P-202602-NEW-00038,New February 2026 SKU 38,CSO-NEW-03,Net-new item for added-row demo.,21.4,Each,19.26,Each,
+DEMO-P-202602-NEW-00039,New February 2026 SKU 39,CSO-NEW-04,Net-new item for added-row demo.,21.45,Each,19.305,Each,
+DEMO-P-202602-NEW-00040,New February 2026 SKU 40,CSO-NEW-05,Net-new item for added-row demo.,21.5,Each,19.35,Each,
+DEMO-P-202602-NEW-00041,New February 2026 SKU 41,CSO-NEW-06,Net-new item for added-row demo.,21.55,Each,19.395,Each,
+DEMO-P-202602-NEW-00042,New February 2026 SKU 42,CSO-NEW-07,Net-new item for added-row demo.,21.6,Each,19.44,Each,
+DEMO-P-202602-NEW-00043,New February 2026 SKU 43,CSO-NEW-08,Net-new item for added-row demo.,21.65,Each,19.485,Each,
+DEMO-P-202602-NEW-00044,New February 2026 SKU 44,CSO-NEW-09,Net-new item for added-row demo.,21.7,Each,19.53,Each,
+DEMO-P-202602-NEW-00045,New February 2026 SKU 45,CSO-NEW-10,Net-new item for added-row demo.,21.75,Each,19.575,Each,
+DEMO-P-202602-NEW-00046,New February 2026 SKU 46,CSO-NEW-11,Net-new item for added-row demo.,21.8,Each,19.62,Each,
+DEMO-P-202602-NEW-00047,New February 2026 SKU 47,CSO-NEW-12,Net-new item for added-row demo.,21.85,Each,19.665,Each,
+DEMO-P-202602-NEW-00048,New February 2026 SKU 48,CSO-NEW-01,Net-new item for added-row demo.,21.9,Each,19.71,Each,
+DEMO-P-202602-NEW-00049,New February 2026 SKU 49,CSO-NEW-02,Net-new item for added-row demo.,21.95,Each,19.755,Each,
+DEMO-P-202602-NEW-00050,New February 2026 SKU 50,CSO-NEW-03,Net-new item for added-row demo.,22,Each,19.8,Each,
+DEMO-P-202602-NEW-00051,New February 2026 SKU 51,CSO-NEW-04,Net-new item for added-row demo.,22.05,Each,19.845,Each,
+DEMO-P-202602-NEW-00052,New February 2026 SKU 52,CSO-NEW-05,Net-new item for added-row demo.,22.1,Each,19.89,Each,
+DEMO-P-202602-NEW-00053,New February 2026 SKU 53,CSO-NEW-06,Net-new item for added-row demo.,22.15,Each,19.935,Each,
+DEMO-P-202602-NEW-00054,New February 2026 SKU 54,CSO-NEW-07,Net-new item for added-row demo.,22.2,Each,19.98,Each,
+DEMO-P-202602-NEW-00055,New February 2026 SKU 55,CSO-NEW-08,Net-new item for added-row demo.,22.25,Each,20.025,Each,
+DEMO-P-202602-NEW-00056,New February 2026 SKU 56,CSO-NEW-09,Net-new item for added-row demo.,22.3,Each,20.07,Each,
+DEMO-P-202602-NEW-00057,New February 2026 SKU 57,CSO-NEW-10,Net-new item for added-row demo.,22.35,Each,20.115,Each,
+DEMO-P-202602-NEW-00058,New February 2026 SKU 58,CSO-NEW-11,Net-new item for added-row demo.,22.4,Each,20.16,Each,
+DEMO-P-202602-NEW-00059,New February 2026 SKU 59,CSO-NEW-12,Net-new item for added-row demo.,22.45,Each,20.205,Each,
+DEMO-P-202602-NEW-00060,New February 2026 SKU 60,CSO-NEW-01,Net-new item for added-row demo.,22.5,Each,20.25,Each,
+DEMO-P-202602-NEW-00061,New February 2026 SKU 61,CSO-NEW-02,Net-new item for added-row demo.,22.55,Each,20.295,Each,
+DEMO-P-202602-NEW-00062,New February 2026 SKU 62,CSO-NEW-03,Net-new item for added-row demo.,22.6,Each,20.34,Each,
+DEMO-P-202602-NEW-00063,New February 2026 SKU 63,CSO-NEW-04,Net-new item for added-row demo.,22.65,Each,20.385,Each,
+DEMO-P-202602-NEW-00064,New February 2026 SKU 64,CSO-NEW-05,Net-new item for added-row demo.,22.7,Each,20.43,Each,
+DEMO-P-202602-NEW-00065,New February 2026 SKU 65,CSO-NEW-06,Net-new item for added-row demo.,22.75,Each,20.475,Each,
+DEMO-P-202602-NEW-00066,New February 2026 SKU 66,CSO-NEW-07,Net-new item for added-row demo.,22.8,Each,20.52,Each,
+DEMO-P-202602-NEW-00067,New February 2026 SKU 67,CSO-NEW-08,Net-new item for added-row demo.,22.85,Each,20.565,Each,
+DEMO-P-202602-NEW-00068,New February 2026 SKU 68,CSO-NEW-09,Net-new item for added-row demo.,22.9,Each,20.61,Each,
+DEMO-P-202602-NEW-00069,New February 2026 SKU 69,CSO-NEW-10,Net-new item for added-row demo.,22.95,Each,20.655,Each,
+DEMO-P-202602-NEW-00070,New February 2026 SKU 70,CSO-NEW-11,Net-new item for added-row demo.,23,Each,20.7,Each,
+DEMO-P-202602-NEW-00071,New February 2026 SKU 71,CSO-NEW-12,Net-new item for added-row demo.,23.05,Each,20.745,Each,
+DEMO-P-202602-NEW-00072,New February 2026 SKU 72,CSO-NEW-01,Net-new item for added-row demo.,23.1,Each,20.79,Each,
+DEMO-P-202602-NEW-00073,New February 2026 SKU 73,CSO-NEW-02,Net-new item for added-row demo.,23.15,Each,20.835,Each,
+DEMO-P-202602-NEW-00074,New February 2026 SKU 74,CSO-NEW-03,Net-new item for added-row demo.,23.2,Each,20.88,Each,
+DEMO-P-202602-NEW-00075,New February 2026 SKU 75,CSO-NEW-04,Net-new item for added-row demo.,23.25,Each,20.925,Each,
+DEMO-P-202602-NEW-00076,New February 2026 SKU 76,CSO-NEW-05,Net-new item for added-row demo.,23.3,Each,20.97,Each,
+DEMO-P-202602-NEW-00077,New February 2026 SKU 77,CSO-NEW-06,Net-new item for added-row demo.,23.35,Each,21.015,Each,
+DEMO-P-202602-NEW-00078,New February 2026 SKU 78,CSO-NEW-07,Net-new item for added-row demo.,23.4,Each,21.06,Each,
+DEMO-P-202602-NEW-00079,New February 2026 SKU 79,CSO-NEW-08,Net-new item for added-row demo.,23.45,Each,21.105,Each,
+DEMO-P-202602-NEW-00080,New February 2026 SKU 80,CSO-NEW-09,Net-new item for added-row demo.,23.5,Each,21.15,Each,
+DEMO-P-202602-NEW-00081,New February 2026 SKU 81,CSO-NEW-10,Net-new item for added-row demo.,23.55,Each,21.195,Each,
+DEMO-P-202602-NEW-00082,New February 2026 SKU 82,CSO-NEW-11,Net-new item for added-row demo.,23.6,Each,21.24,Each,
+DEMO-P-202602-NEW-00083,New February 2026 SKU 83,CSO-NEW-12,Net-new item for added-row demo.,23.65,Each,21.285,Each,
+DEMO-P-202602-NEW-00084,New February 2026 SKU 84,CSO-NEW-01,Net-new item for added-row demo.,23.7,Each,21.33,Each,
+DEMO-P-202602-NEW-00085,New February 2026 SKU 85,CSO-NEW-02,Net-new item for added-row demo.,23.75,Each,21.375,Each,
+DEMO-P-202602-NEW-00086,New February 2026 SKU 86,CSO-NEW-03,Net-new item for added-row demo.,23.8,Each,21.42,Each,
+DEMO-P-202602-NEW-00087,New February 2026 SKU 87,CSO-NEW-04,Net-new item for added-row demo.,23.85,Each,21.465,Each,
+DEMO-P-202602-NEW-00088,New February 2026 SKU 88,CSO-NEW-05,Net-new item for added-row demo.,23.9,Each,21.51,Each,
+DEMO-P-202602-NEW-00089,New February 2026 SKU 89,CSO-NEW-06,Net-new item for added-row demo.,23.95,Each,21.555,Each,
+DEMO-P-202602-NEW-00090,New February 2026 SKU 90,CSO-NEW-07,Net-new item for added-row demo.,24,Each,21.6,Each,
+DEMO-P-202602-NEW-00091,New February 2026 SKU 91,CSO-NEW-08,Net-new item for added-row demo.,24.05,Each,21.645,Each,
+DEMO-P-202602-NEW-00092,New February 2026 SKU 92,CSO-NEW-09,Net-new item for added-row demo.,24.1,Each,21.69,Each,
+DEMO-P-202602-NEW-00093,New February 2026 SKU 93,CSO-NEW-10,Net-new item for added-row demo.,24.15,Each,21.735,Each,
+DEMO-P-202602-NEW-00094,New February 2026 SKU 94,CSO-NEW-11,Net-new item for added-row demo.,24.2,Each,21.78,Each,
+DEMO-P-202602-NEW-00095,New February 2026 SKU 95,CSO-NEW-12,Net-new item for added-row demo.,24.25,Each,21.825,Each,
+DEMO-P-202602-NEW-00096,New February 2026 SKU 96,CSO-NEW-01,Net-new item for added-row demo.,24.3,Each,21.87,Each,
+DEMO-P-202602-NEW-00097,New February 2026 SKU 97,CSO-NEW-02,Net-new item for added-row demo.,24.35,Each,21.915,Each,
+DEMO-P-202602-NEW-00098,New February 2026 SKU 98,CSO-NEW-03,Net-new item for added-row demo.,24.4,Each,21.96,Each,
+DEMO-P-202602-NEW-00099,New February 2026 SKU 99,CSO-NEW-04,Net-new item for added-row demo.,24.45,Each,22.005,Each,
+DEMO-P-202602-NEW-00100,New February 2026 SKU 100,CSO-NEW-05,Net-new item for added-row demo.,24.5,Each,22.05,Each,
+DEMO-P-202602-NEW-00101,New February 2026 SKU 101,CSO-NEW-06,Net-new item for added-row demo.,24.55,Each,22.095,Each,
+DEMO-P-202602-NEW-00102,New February 2026 SKU 102,CSO-NEW-07,Net-new item for added-row demo.,24.6,Each,22.14,Each,
+DEMO-P-202602-NEW-00103,New February 2026 SKU 103,CSO-NEW-08,Net-new item for added-row demo.,24.65,Each,22.185,Each,
+DEMO-P-202602-NEW-00104,New February 2026 SKU 104,CSO-NEW-09,Net-new item for added-row demo.,24.7,Each,22.23,Each,
+DEMO-P-202602-NEW-00105,New February 2026 SKU 105,CSO-NEW-10,Net-new item for added-row demo.,24.75,Each,22.275,Each,
+DEMO-P-202602-NEW-00106,New February 2026 SKU 106,CSO-NEW-11,Net-new item for added-row demo.,24.8,Each,22.32,Each,
+DEMO-P-202602-NEW-00107,New February 2026 SKU 107,CSO-NEW-12,Net-new item for added-row demo.,24.85,Each,22.365,Each,
+DEMO-P-202602-NEW-00108,New February 2026 SKU 108,CSO-NEW-01,Net-new item for added-row demo.,24.9,Each,22.41,Each,
+DEMO-P-202602-NEW-00109,New February 2026 SKU 109,CSO-NEW-02,Net-new item for added-row demo.,24.95,Each,22.455,Each,
+DEMO-P-202602-NEW-00110,New February 2026 SKU 110,CSO-NEW-03,Net-new item for added-row demo.,25,Each,22.5,Each,
+DEMO-P-202602-NEW-00111,New February 2026 SKU 111,CSO-NEW-04,Net-new item for added-row demo.,25.05,Each,22.545,Each,
+DEMO-P-202602-NEW-00112,New February 2026 SKU 112,CSO-NEW-05,Net-new item for added-row demo.,25.1,Each,22.59,Each,
+DEMO-P-202602-NEW-00113,New February 2026 SKU 113,CSO-NEW-06,Net-new item for added-row demo.,25.15,Each,22.635,Each,
+DEMO-P-202602-NEW-00114,New February 2026 SKU 114,CSO-NEW-07,Net-new item for added-row demo.,25.2,Each,22.68,Each,
+DEMO-P-202602-NEW-00115,New February 2026 SKU 115,CSO-NEW-08,Net-new item for added-row demo.,25.25,Each,22.725,Each,
+DEMO-P-202602-NEW-00116,New February 2026 SKU 116,CSO-NEW-09,Net-new item for added-row demo.,25.3,Each,22.77,Each,
+DEMO-P-202602-NEW-00117,New February 2026 SKU 117,CSO-NEW-10,Net-new item for added-row demo.,25.35,Each,22.815,Each,
+DEMO-P-202602-NEW-00118,New February 2026 SKU 118,CSO-NEW-11,Net-new item for added-row demo.,25.4,Each,22.86,Each,
+DEMO-P-202602-NEW-00119,New February 2026 SKU 119,CSO-NEW-12,Net-new item for added-row demo.,25.45,Each,22.905,Each,
+DEMO-P-202602-NEW-00120,New February 2026 SKU 120,CSO-NEW-01,Net-new item for added-row demo.,25.5,Each,22.95,Each,
+DEMO-P-202602-NEW-00121,New February 2026 SKU 121,CSO-NEW-02,Net-new item for added-row demo.,25.55,Each,22.995,Each,
+DEMO-P-202602-NEW-00122,New February 2026 SKU 122,CSO-NEW-03,Net-new item for added-row demo.,25.6,Each,23.04,Each,
+DEMO-P-202602-NEW-00123,New February 2026 SKU 123,CSO-NEW-04,Net-new item for added-row demo.,25.65,Each,23.085,Each,
+DEMO-P-202602-NEW-00124,New February 2026 SKU 124,CSO-NEW-05,Net-new item for added-row demo.,25.7,Each,23.13,Each,
+DEMO-P-202602-NEW-00125,New February 2026 SKU 125,CSO-NEW-06,Net-new item for added-row demo.,25.75,Each,23.175,Each,
+DEMO-P-202602-NEW-00126,New February 2026 SKU 126,CSO-NEW-07,Net-new item for added-row demo.,25.8,Each,23.22,Each,
+DEMO-P-202602-NEW-00127,New February 2026 SKU 127,CSO-NEW-08,Net-new item for added-row demo.,25.85,Each,23.265,Each,
+DEMO-P-202602-NEW-00128,New February 2026 SKU 128,CSO-NEW-09,Net-new item for added-row demo.,25.9,Each,23.31,Each,
+DEMO-P-202602-NEW-00129,New February 2026 SKU 129,CSO-NEW-10,Net-new item for added-row demo.,25.95,Each,23.355,Each,
+DEMO-P-202602-NEW-00130,New February 2026 SKU 130,CSO-NEW-11,Net-new item for added-row demo.,26,Each,23.4,Each,
+DEMO-P-202602-NEW-00131,New February 2026 SKU 131,CSO-NEW-12,Net-new item for added-row demo.,26.05,Each,23.445,Each,
+DEMO-P-202602-NEW-00132,New February 2026 SKU 132,CSO-NEW-01,Net-new item for added-row demo.,26.1,Each,23.49,Each,
+DEMO-P-202602-NEW-00133,New February 2026 SKU 133,CSO-NEW-02,Net-new item for added-row demo.,26.15,Each,23.535,Each,
+DEMO-P-202602-NEW-00134,New February 2026 SKU 134,CSO-NEW-03,Net-new item for added-row demo.,26.2,Each,23.58,Each,
+DEMO-P-202602-NEW-00135,New February 2026 SKU 135,CSO-NEW-04,Net-new item for added-row demo.,26.25,Each,23.625,Each,
+DEMO-P-202602-NEW-00136,New February 2026 SKU 136,CSO-NEW-05,Net-new item for added-row demo.,26.3,Each,23.67,Each,
+DEMO-P-202602-NEW-00137,New February 2026 SKU 137,CSO-NEW-06,Net-new item for added-row demo.,26.35,Each,23.715,Each,
+DEMO-P-202602-NEW-00138,New February 2026 SKU 138,CSO-NEW-07,Net-new item for added-row demo.,26.4,Each,23.76,Each,
+DEMO-P-202602-NEW-00139,New February 2026 SKU 139,CSO-NEW-08,Net-new item for added-row demo.,26.45,Each,23.805,Each,
+DEMO-P-202602-NEW-00140,New February 2026 SKU 140,CSO-NEW-09,Net-new item for added-row demo.,26.5,Each,23.85,Each,
+DEMO-P-202602-NEW-00141,New February 2026 SKU 141,CSO-NEW-10,Net-new item for added-row demo.,26.55,Each,23.895,Each,
+DEMO-P-202602-NEW-00142,New February 2026 SKU 142,CSO-NEW-11,Net-new item for added-row demo.,26.6,Each,23.94,Each,
+DEMO-P-202602-NEW-00143,New February 2026 SKU 143,CSO-NEW-12,Net-new item for added-row demo.,26.65,Each,23.985,Each,
+DEMO-P-202602-NEW-00144,New February 2026 SKU 144,CSO-NEW-01,Net-new item for added-row demo.,26.7,Each,24.03,Each,
+DEMO-P-202602-NEW-00145,New February 2026 SKU 145,CSO-NEW-02,Net-new item for added-row demo.,26.75,Each,24.075,Each,
+DEMO-P-202602-NEW-00146,New February 2026 SKU 146,CSO-NEW-03,Net-new item for added-row demo.,26.8,Each,24.12,Each,
+DEMO-P-202602-NEW-00147,New February 2026 SKU 147,CSO-NEW-04,Net-new item for added-row demo.,26.85,Each,24.165,Each,
+DEMO-P-202602-NEW-00148,New February 2026 SKU 148,CSO-NEW-05,Net-new item for added-row demo.,26.9,Each,24.21,Each,
+DEMO-P-202602-NEW-00149,New February 2026 SKU 149,CSO-NEW-06,Net-new item for added-row demo.,26.95,Each,24.255,Each,
+DEMO-P-202602-NEW-00150,New February 2026 SKU 150,CSO-NEW-07,Net-new item for added-row demo.,27,Each,24.3,Each,
+DEMO-P-202602-NEW-00151,New February 2026 SKU 151,CSO-NEW-08,Net-new item for added-row demo.,27.05,Each,24.345,Each,
+DEMO-P-202602-NEW-00152,New February 2026 SKU 152,CSO-NEW-09,Net-new item for added-row demo.,27.1,Each,24.39,Each,
+DEMO-P-202602-NEW-00153,New February 2026 SKU 153,CSO-NEW-10,Net-new item for added-row demo.,27.15,Each,24.435,Each,
+DEMO-P-202602-NEW-00154,New February 2026 SKU 154,CSO-NEW-11,Net-new item for added-row demo.,27.2,Each,24.48,Each,
+DEMO-P-202602-NEW-00155,New February 2026 SKU 155,CSO-NEW-12,Net-new item for added-row demo.,27.25,Each,24.525,Each,
+DEMO-P-202602-NEW-00156,New February 2026 SKU 156,CSO-NEW-01,Net-new item for added-row demo.,27.3,Each,24.57,Each,
+DEMO-P-202602-NEW-00157,New February 2026 SKU 157,CSO-NEW-02,Net-new item for added-row demo.,27.35,Each,24.615,Each,
+DEMO-P-202602-NEW-00158,New February 2026 SKU 158,CSO-NEW-03,Net-new item for added-row demo.,27.4,Each,24.66,Each,
+DEMO-P-202602-NEW-00159,New February 2026 SKU 159,CSO-NEW-04,Net-new item for added-row demo.,27.45,Each,24.705,Each,
+DEMO-P-202602-NEW-00160,New February 2026 SKU 160,CSO-NEW-05,Net-new item for added-row demo.,27.5,Each,24.75,Each,
+DEMO-P-202602-NEW-00161,New February 2026 SKU 161,CSO-NEW-06,Net-new item for added-row demo.,27.55,Each,24.795,Each,
+DEMO-P-202602-NEW-00162,New February 2026 SKU 162,CSO-NEW-07,Net-new item for added-row demo.,27.6,Each,24.84,Each,
+DEMO-P-202602-NEW-00163,New February 2026 SKU 163,CSO-NEW-08,Net-new item for added-row demo.,27.65,Each,24.885,Each,
+DEMO-P-202602-NEW-00164,New February 2026 SKU 164,CSO-NEW-09,Net-new item for added-row demo.,27.7,Each,24.93,Each,
+DEMO-P-202602-NEW-00165,New February 2026 SKU 165,CSO-NEW-10,Net-new item for added-row demo.,27.75,Each,24.975,Each,
+DEMO-P-202602-NEW-00166,New February 2026 SKU 166,CSO-NEW-11,Net-new item for added-row demo.,27.8,Each,25.02,Each,
+DEMO-P-202602-NEW-00167,New February 2026 SKU 167,CSO-NEW-12,Net-new item for added-row demo.,27.85,Each,25.065,Each,
+DEMO-P-202602-NEW-00168,New February 2026 SKU 168,CSO-NEW-01,Net-new item for added-row demo.,27.9,Each,25.11,Each,
+DEMO-P-202602-NEW-00169,New February 2026 SKU 169,CSO-NEW-02,Net-new item for added-row demo.,27.95,Each,25.155,Each,
+DEMO-P-202602-NEW-00170,New February 2026 SKU 170,CSO-NEW-03,Net-new item for added-row demo.,28,Each,25.2,Each,
+DEMO-P-202602-NEW-00171,New February 2026 SKU 171,CSO-NEW-04,Net-new item for added-row demo.,28.05,Each,25.245,Each,
+DEMO-P-202602-NEW-00172,New February 2026 SKU 172,CSO-NEW-05,Net-new item for added-row demo.,28.1,Each,25.29,Each,
+DEMO-P-202602-NEW-00173,New February 2026 SKU 173,CSO-NEW-06,Net-new item for added-row demo.,28.15,Each,25.335,Each,
+DEMO-P-202602-NEW-00174,New February 2026 SKU 174,CSO-NEW-07,Net-new item for added-row demo.,28.2,Each,25.38,Each,
+DEMO-P-202602-NEW-00175,New February 2026 SKU 175,CSO-NEW-08,Net-new item for added-row demo.,28.25,Each,25.425,Each,
+DEMO-P-202602-NEW-00176,New February 2026 SKU 176,CSO-NEW-09,Net-new item for added-row demo.,28.3,Each,25.47,Each,
+DEMO-P-202602-NEW-00177,New February 2026 SKU 177,CSO-NEW-10,Net-new item for added-row demo.,28.35,Each,25.515,Each,
+DEMO-P-202602-NEW-00178,New February 2026 SKU 178,CSO-NEW-11,Net-new item for added-row demo.,28.4,Each,25.56,Each,
+DEMO-P-202602-NEW-00179,New February 2026 SKU 179,CSO-NEW-12,Net-new item for added-row demo.,28.45,Each,25.605,Each,
+DEMO-P-202602-NEW-00180,New February 2026 SKU 180,CSO-NEW-01,Net-new item for added-row demo.,28.5,Each,25.65,Each,
+DEMO-P-202602-NEW-00181,New February 2026 SKU 181,CSO-NEW-02,Net-new item for added-row demo.,28.55,Each,25.695,Each,
+DEMO-P-202602-NEW-00182,New February 2026 SKU 182,CSO-NEW-03,Net-new item for added-row demo.,28.6,Each,25.74,Each,
+DEMO-P-202602-NEW-00183,New February 2026 SKU 183,CSO-NEW-04,Net-new item for added-row demo.,28.65,Each,25.785,Each,
+DEMO-P-202602-NEW-00184,New February 2026 SKU 184,CSO-NEW-05,Net-new item for added-row demo.,28.7,Each,25.83,Each,
+DEMO-P-202602-NEW-00185,New February 2026 SKU 185,CSO-NEW-06,Net-new item for added-row demo.,28.75,Each,25.875,Each,
+DEMO-P-202602-NEW-00186,New February 2026 SKU 186,CSO-NEW-07,Net-new item for added-row demo.,28.8,Each,25.92,Each,
+DEMO-P-202602-NEW-00187,New February 2026 SKU 187,CSO-NEW-08,Net-new item for added-row demo.,28.85,Each,25.965,Each,
+DEMO-P-202602-NEW-00188,New February 2026 SKU 188,CSO-NEW-09,Net-new item for added-row demo.,28.9,Each,26.01,Each,
+DEMO-P-202602-NEW-00189,New February 2026 SKU 189,CSO-NEW-10,Net-new item for added-row demo.,28.95,Each,26.055,Each,
+DEMO-P-202602-NEW-00190,New February 2026 SKU 190,CSO-NEW-11,Net-new item for added-row demo.,29,Each,26.1,Each,
+DEMO-P-202602-NEW-00191,New February 2026 SKU 191,CSO-NEW-12,Net-new item for added-row demo.,29.05,Each,26.145,Each,
+DEMO-P-202602-NEW-00192,New February 2026 SKU 192,CSO-NEW-01,Net-new item for added-row demo.,29.1,Each,26.19,Each,
+DEMO-P-202602-NEW-00193,New February 2026 SKU 193,CSO-NEW-02,Net-new item for added-row demo.,29.15,Each,26.235,Each,
+DEMO-P-202602-NEW-00194,New February 2026 SKU 194,CSO-NEW-03,Net-new item for added-row demo.,29.2,Each,26.28,Each,
+DEMO-P-202602-NEW-00195,New February 2026 SKU 195,CSO-NEW-04,Net-new item for added-row demo.,29.25,Each,26.325,Each,
+DEMO-P-202602-NEW-00196,New February 2026 SKU 196,CSO-NEW-05,Net-new item for added-row demo.,29.3,Each,26.37,Each,
+DEMO-P-202602-NEW-00197,New February 2026 SKU 197,CSO-NEW-06,Net-new item for added-row demo.,29.35,Each,26.415,Each,
+DEMO-P-202602-NEW-00198,New February 2026 SKU 198,CSO-NEW-07,Net-new item for added-row demo.,29.4,Each,26.46,Each,
+DEMO-P-202602-NEW-00199,New February 2026 SKU 199,CSO-NEW-08,Net-new item for added-row demo.,29.45,Each,26.505,Each,
+DEMO-P-202602-NEW-00200,New February 2026 SKU 200,CSO-NEW-09,Net-new item for added-row demo.,29.5,Each,26.55,Each,
