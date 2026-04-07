@@ -7,6 +7,7 @@ This workspace includes a Salesforce DX project under `force-app/` for a dev-org
 ### Documentation
 
 - **[docs/README.md](docs/README.md)** — index  
+- **[docs/END_TO_END_WALKTHROUGH.md](docs/END_TO_END_WALKTHROUGH.md)** — narrative walkthrough (login → upload → browse → diffs)  
 - **[docs/ARCHITECTURE.md](docs/ARCHITECTURE.md)** — layers, components, security, diagrams  
 - **[docs/DATA_MODEL.md](docs/DATA_MODEL.md)** — objects and relationships  
 - **[docs/FLOWS.md](docs/FLOWS.md)** — end-to-end flows (Mermaid)  
