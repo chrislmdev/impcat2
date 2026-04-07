@@ -2,7 +2,7 @@
 
 ## Salesforce CloudPrism POC (this repo)
 
-This workspace includes a Salesforce DX project under `force-app/` for a dev-org POC: **Pricing Catalog**, **Exceptions Library**, and **Catalog Changes** (month-over-month diffs).
+This workspace includes a Salesforce DX project under `force-app/` for a dev-org POC: **Pricing Catalog**, **Exceptions Library**, **Catalog Changes** (month-over-month diffs), and **Bulk upload** (multi-file CSV into `Catalog_Import__c` and children, small files only).
 
 ### Documentation
 
@@ -11,6 +11,7 @@ This workspace includes a Salesforce DX project under `force-app/` for a dev-org
 - **[docs/DATA_MODEL.md](docs/DATA_MODEL.md)** — objects and relationships  
 - **[docs/FLOWS.md](docs/FLOWS.md)** — end-to-end flows (Mermaid)  
 - **[docs/DEPENDENCIES_AND_TOOLING.md](docs/DEPENDENCIES_AND_TOOLING.md)** — stock Salesforce vs local CLI; no extra org packages  
+- **[docs/MULESOFT_CATALOG_INGEST.md](docs/MULESOFT_CATALOG_INGEST.md)** — when to use MuleSoft / Bulk API 2.0 instead of in-app upload  
 
 ### Prerequisites
 
@@ -27,12 +28,15 @@ sf project deploy start --source-dir force-app
 
 Assign the **CloudPrism_POC** permission set to your user (Setup → Permission Sets → CloudPrism_POC → Manage Assignments). That set includes object access plus field-level security on the optional custom fields (required fields and master-detail columns are always available when you have object access). Without read access to a field, **anonymous Apex** that references it fails to compile with errors like “Field does not exist,” even though the field exists in Setup.
 
-Open the **CloudPrism** app from the App Launcher and use the **Pricing**, **Exceptions**, and **Catalog Changes** tabs.
+Open the **CloudPrism** app from the App Launcher and use the **Pricing**, **Exceptions**, **Catalog Changes**, and **Bulk upload** tabs.
+
+**Bulk upload:** name each file `{YYYY-MM}_{csp}_{schema}.csv` (for example `2026-02_aws_pricing.csv`). Headers must match field API names. The UI enforces modest row and size limits; for very large catalogs, use integration (see **MULESOFT_CATALOG_INGEST.md**).
 
 ### Tests
 
 ```powershell
 sf apex run test --tests CloudPrismCatalogTest --result-format human --code-coverage --wait 10
+sf apex run test --tests CatalogUploadServiceTest --result-format human --code-coverage --wait 10
 ```
 
 ### Sample data (two months)

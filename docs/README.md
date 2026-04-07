@@ -6,5 +6,6 @@
 | [DATA_MODEL.md](./DATA_MODEL.md) | Custom objects, relationships, key fields |
 | [FLOWS.md](./FLOWS.md) | End-to-end flows with Mermaid diagrams (UI, diffs, sample load, CI) |
 | [DEPENDENCIES_AND_TOOLING.md](./DEPENDENCIES_AND_TOOLING.md) | What ships with Salesforce vs what you install locally; no third-party org packages |
+| [MULESOFT_CATALOG_INGEST.md](./MULESOFT_CATALOG_INGEST.md) | Large-catalog ingest via MuleSoft / Bulk API 2.0 vs in-app bulk upload |
 
 Start with **ARCHITECTURE.md** for the big picture, then **FLOWS.md** for behavior.

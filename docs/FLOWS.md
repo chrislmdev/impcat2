@@ -107,7 +107,37 @@ flowchart TD
 
 ---
 
-## 4. Sample data load (developer)
+## 4. Bulk upload (in-app CSV)
+
+```mermaid
+sequenceDiagram
+    participant User
+    participant LWC as catalogBulkUpload_LWC
+    participant Apex as CatalogUploadService
+    participant DB as Salesforce_DB
+
+    User->>LWC: Select_one_or_more_CSV_files
+    loop Each_file_sequentially
+        LWC->>LWC: FileReader_readAsText
+        LWC->>Apex: processFile_fileName_csvBody
+        Apex->>Apex: Validate_name_rows_size
+        Apex->>DB: insert_Catalog_Import__c_header
+        alt schema_parent
+            Apex->>DB: update_header_done
+        else pricing_or_exceptions
+            Apex->>DB: insert_children_in_batches
+            Apex->>DB: update_header_rowCount_status
+        end
+        Apex-->>LWC: FileProcessResult
+    end
+    LWC-->>User: lightning_datatable_results
+```
+
+Files must match `{YYYY-MM}_{csp}_{schema}.csv`. Row and character limits are enforced in Apex; larger loads belong on an integration path ([MULESOFT_CATALOG_INGEST.md](./MULESOFT_CATALOG_INGEST.md)).
+
+---
+
+## 5. Sample data load (developer)
 
 ```mermaid
 sequenceDiagram
@@ -128,7 +158,7 @@ Requires **CloudPrism_POC** (or equivalent FLS) on the running user. Re-running 
 
 ---
 
-## 5. Metadata deploy (CI or laptop)
+## 6. Metadata deploy (CI or laptop)
 
 ```mermaid
 flowchart LR
@@ -140,7 +170,7 @@ flowchart LR
 
 ---
 
-## 6. Target production-style load (future — not implemented in repo)
+## 7. Target production-style load (future — not implemented in repo)
 
 ```mermaid
 flowchart TB

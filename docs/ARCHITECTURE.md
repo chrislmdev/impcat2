@@ -40,17 +40,20 @@ flowchart TB
         FP1[FlexiPage_Cloud_Prism_Pricing]
         FP2[FlexiPage_Cloud_Prism_Exceptions]
         FP3[FlexiPage_Cloud_Prism_Changes]
-        TAB[Tab_Catalog_Import]
+        FP4[FlexiPage_Cloud_Prism_Upload]
         PC[pricingCatalog_LWC]
         EL[exceptionsLibrary_LWC]
         CC[catalogChanges_LWC]
+        BU[catalogBulkUpload_LWC]
         FP1 --> PC
         FP2 --> EL
         FP3 --> CC
+        FP4 --> BU
     end
 
     subgraph application [Application_Apex]
         CTRL[CloudPrismCatalogController]
+        UP[CatalogUploadService]
         PCH[PricingChangeService]
         ECH[ExceptionChangeService]
         CTRL --> PCH
@@ -69,7 +72,11 @@ flowchart TB
     PC --> CTRL
     EL --> CTRL
     CC --> CTRL
+    BU --> UP
     CTRL --> O1
+    UP --> O1
+    UP --> O2
+    UP --> O3
     CTRL --> O2
     CTRL --> O3
     PS -.-> presentation
@@ -81,14 +88,17 @@ flowchart TB
 
 | Layer | Artifact | Responsibility |
 |-------|----------|----------------|
-| App | `CloudPrism` | Lightning app with tabs for Pricing, Exceptions, Changes, Catalog Import |
+| App | `CloudPrism` | Lightning app with tabs for Pricing, Exceptions, Changes, Bulk upload |
 | UI | `pricingCatalog` | Datatable, CSP filter, search; wires `getPricingItems` |
 | UI | `exceptionsLibrary` | Datatable, CSP filter, search; wires `getExceptionItems` |
 | UI | `catalogChanges` | Month pickers, pricing vs exceptions mode, CSP and change-type filters; wires `getDistinctImportMonths`, `getCatalogChangeRows` |
+| UI | `catalogBulkUpload` | Multi-file CSV picker; sequential `CatalogUploadService.processFile` calls; results table |
 | API | `CloudPrismCatalogController` | `@AuraEnabled(cacheable=true)` read endpoints; dynamic SOQL for list views |
+| API | `CatalogUploadService` | `@AuraEnabled` CSV ingest; filename `{YYYY-MM}_{csp}_{schema}.csv`; row/size guardrails |
 | Domain | `PricingChangeService` | Build latest snapshot per month; compare two months; emit DTOs (`added` / `removed` / `updated`) |
 | Domain | `ExceptionChangeService` | Same pattern for exceptions |
 | Quality | `CloudPrismCatalogTest` | Apex tests for diff behavior and controller wiring |
+| Quality | `CatalogUploadServiceTest` | Filename parsing, CSV ingest, validation, and limits |
 | Access | `CloudPrism_POC` | Object CRUD, tab visibility, Apex class access, FLS on optional custom fields |
 | Seed | `scripts/sample-data.apex` | Anonymous Apex demo data (multi-CSP, two months) |
 
@@ -97,7 +107,7 @@ Source paths live under [`force-app/main/default/`](../force-app/main/default/).
 ## Security model (POC)
 
 - **Apex** uses `with sharing`; CRUD/FLS enforced for the running user where applicable.  
-- **Permission set** `CloudPrism_POC` grants access to the three custom objects, Lightning tabs, the CloudPrism app, and the four Apex classes. Optional custom fields have explicit **field permissions** (required fields and master-detail columns are not duplicated in the permission set metadata per Salesforce rules).  
+- **Permission set** `CloudPrism_POC` grants access to the three custom objects, Lightning tabs, the CloudPrism app, and Apex classes including `CatalogUploadService`. Optional custom fields have explicit **field permissions** where listed (required fields and master-detail columns are not duplicated in the permission set metadata per Salesforce rules).  
 - **Anonymous Apex** (`sample-data.apex`) compiles against the **user’s** field visibility; assign the permission set to avoid “field does not exist” compile errors.
 
 ## Catalog changes algorithm (summary)
@@ -139,7 +149,7 @@ flowchart LR
 - Services / **parent** catalog grid and enrichment  
 - Cloud calculator  
 - IGCE, Redis, Node workers  
-- In-org CSV upload UI (use Data Loader, Bulk API, MuleSoft, or `sample-data.apex`)  
+- **Large-catalog** automated ingest (MuleSoft / Bulk API 2.0) beyond the [MULESOFT_CATALOG_INGEST.md](./MULESOFT_CATALOG_INGEST.md) outline  
 - Precomputed change-log objects (diffs are **on read**)
 
 ## Related documents

@@ -12,6 +12,10 @@
         <apexClass>PricingChangeService</apexClass>
         <enabled>true</enabled>
     </classAccesses>
+    <classAccesses>
+        <apexClass>CatalogUploadService</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
     <description>Access to CloudPrism POC custom objects, Apex, and LWCs</description>
     <hasActivationRequired>false</hasActivationRequired>
     <label>CloudPrism POC</label>
@@ -153,7 +157,7 @@
         <readable>true</readable>
     </fieldPermissions>
     <tabSettings>
-        <tab>Catalog_Import__c</tab>
+        <tab>Cloud_Prism_Upload</tab>
         <visibility>Visible</visibility>
     </tabSettings>
     <tabSettings>

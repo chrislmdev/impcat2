@@ -1,0 +1,194 @@
+import { LightningElement, track } from 'lwc';
+import processFile from '@salesforce/apex/CatalogUploadService.processFile';
+
+const THEME_KEY = 'cloudprism.catalogBulkUpload.theme';
+
+function readFileAsText(file) {
+    return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => resolve(typeof reader.result === 'string' ? reader.result : '');
+        reader.onerror = () => reject(reader.error);
+        reader.readAsText(file);
+    });
+}
+
+export default class CatalogBulkUpload extends LightningElement {
+    @track resultRows = [];
+    working = false;
+    statusMessage = '';
+    themeMode = 'system';
+    effectiveTheme = 'light';
+    dragDepth = 0;
+
+    connectedCallback() {
+        try {
+            const stored = localStorage.getItem(THEME_KEY);
+            if (stored === 'light' || stored === 'dark' || stored === 'system') {
+                this.themeMode = stored;
+            }
+        } catch (e) {
+            /* localStorage unavailable */
+        }
+        this._applyEffectiveTheme();
+        this._mq = window.matchMedia('(prefers-color-scheme: dark)');
+        this._boundMq = () => {
+            if (this.themeMode === 'system') {
+                this.effectiveTheme = this._mq.matches ? 'dark' : 'light';
+            }
+        };
+        this._mq.addEventListener('change', this._boundMq);
+    }
+
+    disconnectedCallback() {
+        if (this._mq && this._boundMq) {
+            this._mq.removeEventListener('change', this._boundMq);
+        }
+    }
+
+    _applyEffectiveTheme() {
+        if (this.themeMode === 'system') {
+            this.effectiveTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        } else {
+            this.effectiveTheme = this.themeMode;
+        }
+    }
+
+    _persistTheme() {
+        try {
+            localStorage.setItem(THEME_KEY, this.themeMode);
+        } catch (e) {
+            /* ignore */
+        }
+    }
+
+    handleThemeSystem() {
+        this.themeMode = 'system';
+        this._persistTheme();
+        this._applyEffectiveTheme();
+    }
+
+    handleThemeLight() {
+        this.themeMode = 'light';
+        this._persistTheme();
+        this.effectiveTheme = 'light';
+    }
+
+    handleThemeDark() {
+        this.themeMode = 'dark';
+        this._persistTheme();
+        this.effectiveTheme = 'dark';
+    }
+
+    get rootClass() {
+        return `cp-root cp-theme-${this.effectiveTheme}`;
+    }
+
+    get uploadZoneClass() {
+        const drag = this.dragDepth > 0 ? ' cp-drag' : '';
+        const busy = this.working ? ' cp-upload-disabled' : '';
+        return `cp-upload${drag}${busy}`;
+    }
+
+    get systemButtonVariant() {
+        return this.themeMode === 'system' ? 'brand' : 'border-filled';
+    }
+
+    get lightButtonVariant() {
+        return this.themeMode === 'light' ? 'brand' : 'border-filled';
+    }
+
+    get darkButtonVariant() {
+        return this.themeMode === 'dark' ? 'brand' : 'border-filled';
+    }
+
+    get hasResults() {
+        return this.resultRows && this.resultRows.length > 0;
+    }
+
+    get bannerBody() {
+        return (
+            'Name each file {YYYY-MM}_{csp}_{schema}.csv (csp: aws, azure, gcp, oracle; schema: pricing, exceptions, parent). ' +
+            'Headers must use Salesforce API names. In-app upload is limited to about 8,000 data rows and 1 MB per file — ' +
+            'for very large catalogs (e.g. ~1M rows), use MuleSoft / SharePoint and Bulk API 2.0 (see docs/MULESOFT_CATALOG_INGEST.md).'
+        );
+    }
+
+    handleDragOver(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        if (event.dataTransfer) {
+            event.dataTransfer.dropEffect = 'copy';
+        }
+    }
+
+    handleDragEnter(event) {
+        event.preventDefault();
+        this.dragDepth += 1;
+    }
+
+    handleDragLeave(event) {
+        event.preventDefault();
+        this.dragDepth = Math.max(0, this.dragDepth - 1);
+    }
+
+    handleDrop(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        this.dragDepth = 0;
+        if (this.working) {
+            return;
+        }
+        const dt = event.dataTransfer;
+        if (!dt || !dt.files || !dt.files.length) {
+            return;
+        }
+        const files = Array.from(dt.files).filter((f) => f.name && f.name.toLowerCase().endsWith('.csv'));
+        if (files.length) {
+            this.runUploads(files);
+        }
+    }
+
+    handleFileChange(event) {
+        const input = event.target;
+        const files = input.files;
+        if (!files || !files.length) {
+            return;
+        }
+        this.runUploads(Array.from(files));
+        input.value = '';
+    }
+
+    async runUploads(files) {
+        this.working = true;
+        this.statusMessage = '';
+        const nextKey = this.resultRows.length;
+        try {
+            for (let i = 0; i < files.length; i++) {
+                const f = files[i];
+                this.statusMessage = `Processing ${i + 1} of ${files.length}: ${f.name}…`;
+                const csvBody = await readFileAsText(f);
+                const res = await processFile({ fileName: f.name, csvBody });
+                const errs = res.errors && res.errors.length ? res.errors.join('; ') : '';
+                const success = !!res.success;
+                this.resultRows = [
+                    ...this.resultRows,
+                    {
+                        key: `${nextKey + i}`,
+                        fileName: f.name,
+                        successLabel: success ? 'Yes' : 'No',
+                        pillClass: success ? 'cp-pill cp-pill-yes' : 'cp-pill cp-pill-no',
+                        rowsInserted: res.rowsInserted != null ? res.rowsInserted : 0,
+                        catalogImportId: res.catalogImportId || '',
+                        message: [res.message, errs].filter(Boolean).join(' — ')
+                    }
+                ];
+            }
+            this.statusMessage = files.length === 1 ? 'Done.' : `Done — ${files.length} files.`;
+        } catch (e) {
+            const msg = e.body && e.body.message ? e.body.message : String(e);
+            this.statusMessage = `Error: ${msg}`;
+        } finally {
+            this.working = false;
+        }
+    }
+}

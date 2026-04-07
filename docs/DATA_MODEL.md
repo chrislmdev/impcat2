@@ -39,7 +39,7 @@ erDiagram
 
 ## `Catalog_Import__c` — import header
 
-One row per **logical file** / snapshot: a combination of **month**, **CSP**, and **schema** (pricing vs exceptions). Optional `parent` value exists on the schema picklist for future use; the POC UI and child objects focus on **pricing** and **exceptions**.
+One row per **logical file** / snapshot: a combination of **month**, **CSP**, and **schema** (pricing vs exceptions). The **Bulk upload** tab and `CatalogUploadService` can create headers from files named `{YYYY-MM}_{csp}_{schema}.csv`; for `parent` schema they insert the header only (no child rows in POC). Other loads may use Data Loader, Bulk API, or `scripts/sample-data.apex`.
 
 | Field (API) | Purpose |
 |-------------|---------|

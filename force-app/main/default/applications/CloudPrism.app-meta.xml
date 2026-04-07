@@ -13,6 +13,6 @@
     <tabs>Cloud_Prism_Pricing</tabs>
     <tabs>Cloud_Prism_Exceptions</tabs>
     <tabs>Cloud_Prism_Changes</tabs>
-    <tabs>Catalog_Import__c</tabs>
+    <tabs>Cloud_Prism_Upload</tabs>
     <uiType>Lightning</uiType>
 </CustomApplication>

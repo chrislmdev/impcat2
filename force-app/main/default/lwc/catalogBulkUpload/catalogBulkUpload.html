@@ -1,0 +1,107 @@
+<template>
+    <div class={rootClass}>
+        <header class="cp-header">
+            <div>
+                <h1 class="cp-heading">Bulk catalog upload</h1>
+                <p class="cp-sub">Import CSV snapshots into Catalog Import headers and line items — styled for clarity, with a theme you control.</p>
+            </div>
+            <div class="cp-theme-bar">
+                <span class="cp-theme-label">Theme</span>
+                <lightning-button-group>
+                    <lightning-button-icon
+                        icon-name="utility:desktop"
+                        alternative-text="Match system"
+                        title="Match system"
+                        variant={systemButtonVariant}
+                        onclick={handleThemeSystem}
+                    ></lightning-button-icon>
+                    <lightning-button-icon
+                        icon-name="utility:light_bulb"
+                        alternative-text="Light"
+                        title="Light"
+                        variant={lightButtonVariant}
+                        onclick={handleThemeLight}
+                    ></lightning-button-icon>
+                    <lightning-button-icon
+                        icon-name="utility:world"
+                        alternative-text="Dark"
+                        title="Dark"
+                        variant={darkButtonVariant}
+                        onclick={handleThemeDark}
+                    ></lightning-button-icon>
+                </lightning-button-group>
+            </div>
+        </header>
+
+        <section class="cp-info" role="status">
+            <p class="cp-info-title">In-app limits</p>
+            <p class="cp-info-body">{bannerBody}</p>
+        </section>
+
+        <div
+            class={uploadZoneClass}
+            ondragover={handleDragOver}
+            ondragenter={handleDragEnter}
+            ondragleave={handleDragLeave}
+            ondrop={handleDrop}
+        >
+            <input
+                id="bulk-csv-input"
+                class="cp-file-input"
+                type="file"
+                accept=".csv,text/csv"
+                multiple
+                disabled={working}
+                onchange={handleFileChange}
+            />
+            <label class="cp-upload-label" for="bulk-csv-input">
+                <div class="cp-upload-icon">
+                    <lightning-icon icon-name="utility:upload" size="medium"></lightning-icon>
+                </div>
+                <p class="cp-upload-title">Drop CSV files here or click to browse</p>
+                <p class="cp-upload-hint">Multiple files are processed one after another.</p>
+            </label>
+        </div>
+
+        <div class="cp-status">
+            <template if:true={working}>
+                <lightning-spinner alternative-text="Processing" size="small"></lightning-spinner>
+            </template>
+            <template if:true={statusMessage}>
+                <span class="cp-status-msg">{statusMessage}</span>
+            </template>
+        </div>
+
+        <template if:true={hasResults}>
+            <div class="cp-results-wrap">
+                <h2 class="cp-results-title">Results</h2>
+                <div class="cp-table-wrap">
+                    <table class="cp-table">
+                        <thead>
+                            <tr>
+                                <th scope="col">File</th>
+                                <th scope="col">OK</th>
+                                <th scope="col">Rows</th>
+                                <th scope="col">Catalog import Id</th>
+                                <th scope="col">Message</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <template for:each={resultRows} for:item="row">
+                                <tr key={row.key}>
+                                    <td>{row.fileName}</td>
+                                    <td>
+                                        <span class={row.pillClass}>{row.successLabel}</span>
+                                    </td>
+                                    <td>{row.rowsInserted}</td>
+                                    <td>{row.catalogImportId}</td>
+                                    <td>{row.message}</td>
+                                </tr>
+                            </template>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </template>
+    </div>
+</template>
