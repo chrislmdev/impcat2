@@ -40,12 +40,13 @@ For **pricing** and **exceptions** uploads, when a **prior month** already exist
 sf apex run test --tests CloudPrismCatalogTest --result-format human --code-coverage --wait 10
 sf apex run test --tests CatalogUploadServiceTest --result-format human --code-coverage --wait 10
 sf apex run test --tests FinOpsFocusCategoryTest --result-format human --code-coverage --wait 10
+sf apex run --file scripts/purge-all-catalog-uploads.apex
 ```
 
 ### Sample data (two months)
 
 After deploy, assign **CloudPrism_POC** (if not already), then load demo rows with Anonymous Apex:
-Data Purge for testing: sf apex run --file scripts/purge-all-catalog-uploads.apex
+
 
 ```powershell
 sf org assign permset --name CloudPrism_POC
