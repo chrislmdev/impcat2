@@ -9,10 +9,10 @@ const PRICING_COLS = [
     { label: 'Type', fieldName: 'change_type', type: 'text', initialWidth: 100, sortable: true },
     { label: 'JWCC (from)', fieldName: 'prevJwccUsd', type: 'text', initialWidth: 120, sortable: true },
     { label: 'JWCC (to)', fieldName: 'currJwccUsd', type: 'text', initialWidth: 120, sortable: true },
-    { label: 'JWCC Δ', fieldName: 'custDeltaUsd', type: 'text', initialWidth: 120, sortable: true },
+    { label: 'JWCC delta', fieldName: 'custDeltaUsd', type: 'text', initialWidth: 120, sortable: true },
     { label: 'Comm (from)', fieldName: 'prevCommUsd', type: 'text', initialWidth: 120, sortable: true },
     { label: 'Comm (to)', fieldName: 'currCommUsd', type: 'text', initialWidth: 120, sortable: true },
-    { label: 'Comm Δ', fieldName: 'commDeltaUsd', type: 'text', initialWidth: 120, sortable: true }
+    { label: 'Comm delta', fieldName: 'commDeltaUsd', type: 'text', initialWidth: 120, sortable: true }
 ];
 
 const EXCEPTION_COLS = [
