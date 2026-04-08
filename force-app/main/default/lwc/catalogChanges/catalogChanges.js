@@ -2,10 +2,7 @@ import { LightningElement, wire, track } from 'lwc';
 import { loadStyle, loadScript } from 'lightning/platformResourceLoader';
 import getDistinctImportMonths from '@salesforce/apex/CloudPrismCatalogController.getDistinctImportMonths';
 import getCatalogChangeRows from '@salesforce/apex/CloudPrismCatalogController.getCatalogChangeRows';
-import CLOUD_PRISM_THEME_STYLES from '@salesforce/resourceUrl/CloudPrismThemeStyles';
-import JSPDF_UMD from '@salesforce/resourceUrl/jspdfUmd';
-import JSPDF_AUTOTABLE from '@salesforce/resourceUrl/jspdfAutotable';
-import CLOUD_PRISM_EXPORT_LIB from '@salesforce/resourceUrl/cloudPrismExportLib';
+import getCloudPrismStaticAssetUrls from '@salesforce/apex/CloudPrismCatalogController.getCloudPrismStaticAssetUrls';
 import { readStoredThemeMode, persistThemeMode, computeEffectiveTheme } from './themeUtil';
 
 const PRICING_COLS = [
@@ -58,7 +55,8 @@ export default class CatalogChanges extends LightningElement {
 
     themeMode = 'system';
     effectiveTheme = 'light';
-    jspdfScriptsLoaded = false;
+    _assetUrls = {};
+    _themeStyleLoaded = false;
 
     pricingSortedBy = 'csp';
     pricingSortDirection = 'asc';
@@ -142,9 +140,19 @@ export default class CatalogChanges extends LightningElement {
         };
         this._mq.addEventListener('change', this._boundMq);
 
-        loadStyle(this, CLOUD_PRISM_THEME_STYLES).catch(() => {
-            /* ignore */
-        });
+        getCloudPrismStaticAssetUrls()
+            .then((urls) => {
+                this._assetUrls = urls || {};
+                const themeUrl = this._assetUrls.theme;
+                if (themeUrl && !this._themeStyleLoaded) {
+                    this._themeStyleLoaded = true;
+                    return loadStyle(this, themeUrl);
+                }
+                return undefined;
+            })
+            .catch(() => {
+                /* ignore */
+            });
     }
 
     disconnectedCallback() {
@@ -357,21 +365,43 @@ export default class CatalogChanges extends LightningElement {
         }
     }
 
+    async _resolveAssetUrls() {
+        if (this._assetUrls && this._assetUrls.exportLib) {
+            return this._assetUrls;
+        }
+        const urls = await getCloudPrismStaticAssetUrls();
+        this._assetUrls = urls || {};
+        const themeUrl = this._assetUrls.theme;
+        if (themeUrl && !this._themeStyleLoaded) {
+            this._themeStyleLoaded = true;
+            await loadStyle(this, themeUrl).catch(() => {});
+        }
+        return this._assetUrls;
+    }
+
     async _ensureExportLib() {
         if (window.CloudPrismExport) {
             return;
         }
-        await loadScript(this, CLOUD_PRISM_EXPORT_LIB);
+        const urls = await this._resolveAssetUrls();
+        if (!urls.exportLib) {
+            throw new Error('cloudPrismExportLib static resource missing in org.');
+        }
+        await loadScript(this, urls.exportLib);
     }
 
     async _ensureExportScripts() {
-        await this._ensureExportLib();
-        if (this.jspdfScriptsLoaded) {
-            return;
+        const urls = await this._resolveAssetUrls();
+        if (!urls.jspdfUmd || !urls.jspdfAutotable || !urls.exportLib) {
+            throw new Error('jspdfUmd, jspdfAutotable, or cloudPrismExportLib static resource missing in org.');
         }
-        await loadScript(this, JSPDF_UMD);
-        await loadScript(this, JSPDF_AUTOTABLE);
-        this.jspdfScriptsLoaded = true;
+        if (!window.jspdf || !window.jspdf.jsPDF) {
+            await loadScript(this, urls.jspdfUmd);
+        }
+        await loadScript(this, urls.jspdfAutotable);
+        if (!window.CloudPrismExport) {
+            await loadScript(this, urls.exportLib);
+        }
     }
 
     get errorMessage() {

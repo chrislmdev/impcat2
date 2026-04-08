@@ -174,4 +174,42 @@ public with sharing class CloudPrismCatalogController {
         }
         return PricingChangeService.compare(monthFrom, monthTo, csp, changeType);
     }
+
+    /**
+     * Absolute URLs for CloudPrism static resources so LWCs can loadStyle/loadScript without
+     * compile-time @salesforce/resourceUrl (e.g. deploy catalogChanges alone; assets resolve at runtime).
+     * Keys: theme, jspdfUmd, jspdfAutotable, exportLib
+     */
+    @AuraEnabled(cacheable = true)
+    public static Map<String, String> getCloudPrismStaticAssetUrls() {
+        String base = URL.getOrgDomainUrl().toExternalForm();
+        List<String> names = new List<String>{
+            'CloudPrismThemeStyles',
+            'jspdfUmd',
+            'jspdfAutotable',
+            'cloudPrismExportLib'
+        };
+        Map<String, String> byName = new Map<String, String>();
+        try {
+            for (StaticResource sr : [SELECT Name, SystemModstamp FROM StaticResource WHERE Name IN :names]) {
+                byName.put(
+                    sr.Name,
+                    base + '/resource/' + String.valueOf(sr.SystemModstamp.getTime()) + '/' + sr.Name
+                );
+            }
+        } catch (Exception e) {
+            /* No StaticResource query access — fall through to simple paths */
+        }
+        for (String nm : names) {
+            if (!byName.containsKey(nm)) {
+                byName.put(nm, base + '/resource/' + nm);
+            }
+        }
+        return new Map<String, String>{
+            'theme' => byName.get('CloudPrismThemeStyles'),
+            'jspdfUmd' => byName.get('jspdfUmd'),
+            'jspdfAutotable' => byName.get('jspdfAutotable'),
+            'exportLib' => byName.get('cloudPrismExportLib')
+        };
+    }
 }

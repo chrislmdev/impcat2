@@ -203,4 +203,15 @@ private class CloudPrismCatalogTest {
         System.assert(m.contains('2026-01'));
         System.assert(m.contains('2026-02'));
     }
+
+    @IsTest
+    static void controllerReturnsStaticAssetUrlMap() {
+        Map<String, String> u = CloudPrismCatalogController.getCloudPrismStaticAssetUrls();
+        System.assertNotEquals(null, u);
+        System.assert(u.containsKey('theme'));
+        System.assert(u.containsKey('jspdfUmd'));
+        System.assert(u.containsKey('jspdfAutotable'));
+        System.assert(u.containsKey('exportLib'));
+        System.assert(String.isNotBlank(u.get('theme')));
+    }
 }
