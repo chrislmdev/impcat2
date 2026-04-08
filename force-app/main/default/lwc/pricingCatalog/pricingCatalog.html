@@ -2,12 +2,32 @@
     <div class={rootClass}>
         <lightning-card title="Pricing Catalog" icon-name="custom:custom18">
             <div slot="actions" class="cp-toolbar-actions">
-                <c-cloud-prism-theme-bar
-                    system-button-variant={systemButtonVariant}
-                    light-button-variant={lightButtonVariant}
-                    dark-button-variant={darkButtonVariant}
-                    oncloudprismthemechange={handleThemeChange}
-                ></c-cloud-prism-theme-bar>
+                <div class="cp-theme-bar">
+                    <span class="cp-theme-label">Theme</span>
+                    <lightning-button-group>
+                        <lightning-button-icon
+                            icon-name="utility:desktop"
+                            alternative-text="Match system"
+                            title="Match system"
+                            variant={systemButtonVariant}
+                            onclick={handleThemeSystem}
+                        ></lightning-button-icon>
+                        <lightning-button-icon
+                            icon-name="utility:light_bulb"
+                            alternative-text="Light"
+                            title="Light"
+                            variant={lightButtonVariant}
+                            onclick={handleThemeLight}
+                        ></lightning-button-icon>
+                        <lightning-button-icon
+                            icon-name="utility:world"
+                            alternative-text="Dark"
+                            title="Dark"
+                            variant={darkButtonVariant}
+                            onclick={handleThemeDark}
+                        ></lightning-button-icon>
+                    </lightning-button-group>
+                </div>
                 <lightning-button label="Export CSV" onclick={handleExportCsv} disabled={exportDisabled}></lightning-button>
                 <lightning-button label="Export PDF" onclick={handleExportPdf} disabled={exportDisabled}></lightning-button>
             </div>
