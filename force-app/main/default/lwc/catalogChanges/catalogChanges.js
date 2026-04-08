@@ -3,26 +3,35 @@ import getDistinctImportMonths from '@salesforce/apex/CloudPrismCatalogControlle
 import getCatalogChangeRows from '@salesforce/apex/CloudPrismCatalogController.getCatalogChangeRows';
 
 const PRICING_COLS = [
-    { label: 'CSP', fieldName: 'csp', type: 'text', initialWidth: 80 },
-    { label: 'Catalog #', fieldName: 'catalogitemnumber', type: 'text' },
-    { label: 'Title', fieldName: 'title', type: 'text', wrapText: true },
-    { label: 'Type', fieldName: 'change_type', type: 'text', initialWidth: 100 },
-    { label: 'JWCC (from)', fieldName: 'prevJwccUsd', type: 'text', initialWidth: 120 },
-    { label: 'JWCC (to)', fieldName: 'currJwccUsd', type: 'text', initialWidth: 120 },
-    { label: 'JWCC Δ', fieldName: 'custDeltaUsd', type: 'text', initialWidth: 120 },
-    { label: 'Comm (from)', fieldName: 'prevCommUsd', type: 'text', initialWidth: 120 },
-    { label: 'Comm (to)', fieldName: 'currCommUsd', type: 'text', initialWidth: 120 },
-    { label: 'Comm Δ', fieldName: 'commDeltaUsd', type: 'text', initialWidth: 120 }
+    { label: 'CSP', fieldName: 'csp', type: 'text', sortable: true, initialWidth: 80 },
+    { label: 'Catalog #', fieldName: 'catalogitemnumber', type: 'text', sortable: true },
+    { label: 'Title', fieldName: 'title', type: 'text', wrapText: true, sortable: true },
+    { label: 'Type', fieldName: 'change_type', type: 'text', initialWidth: 100, sortable: true },
+    { label: 'JWCC (from)', fieldName: 'prevJwccUsd', type: 'text', initialWidth: 120, sortable: true },
+    { label: 'JWCC (to)', fieldName: 'currJwccUsd', type: 'text', initialWidth: 120, sortable: true },
+    { label: 'JWCC Δ', fieldName: 'custDeltaUsd', type: 'text', initialWidth: 120, sortable: true },
+    { label: 'Comm (from)', fieldName: 'prevCommUsd', type: 'text', initialWidth: 120, sortable: true },
+    { label: 'Comm (to)', fieldName: 'currCommUsd', type: 'text', initialWidth: 120, sortable: true },
+    { label: 'Comm Δ', fieldName: 'commDeltaUsd', type: 'text', initialWidth: 120, sortable: true }
 ];
 
 const EXCEPTION_COLS = [
-    { label: 'CSP', fieldName: 'csp', type: 'text', initialWidth: 80 },
-    { label: 'Exception ID', fieldName: 'exceptionuniqueid', type: 'text' },
-    { label: 'Short name', fieldName: 'csoshortname', type: 'text' },
-    { label: 'Type', fieldName: 'change_type', type: 'text', initialWidth: 100 },
-    { label: 'Status (prev → curr)', fieldName: 'statusPair', type: 'text', wrapText: true },
-    { label: 'Impact (prev → curr)', fieldName: 'impactPair', type: 'text', wrapText: true }
+    { label: 'CSP', fieldName: 'csp', type: 'text', sortable: true, initialWidth: 80 },
+    { label: 'Exception ID', fieldName: 'exceptionuniqueid', type: 'text', sortable: true },
+    { label: 'Short name', fieldName: 'csoshortname', type: 'text', sortable: true },
+    { label: 'Type', fieldName: 'change_type', type: 'text', initialWidth: 100, sortable: true },
+    { label: 'Status (prev → curr)', fieldName: 'statusPair', type: 'text', wrapText: true, sortable: true },
+    { label: 'Impact (prev → curr)', fieldName: 'impactPair', type: 'text', wrapText: true, sortable: true }
 ];
+
+const PRICING_SORT_KEYS = {
+    prevJwccUsd: 'prevJwccNum',
+    currJwccUsd: 'currJwccNum',
+    custDeltaUsd: 'custDeltaNum',
+    prevCommUsd: 'prevCommNum',
+    currCommUsd: 'currCommNum',
+    commDeltaUsd: 'commDeltaNum'
+};
 
 export default class CatalogChanges extends LightningElement {
     mode = 'pricing';
@@ -36,6 +45,14 @@ export default class CatalogChanges extends LightningElement {
     error;
 
     monthOptions = [];
+
+    pricingSortedBy = 'csp';
+    pricingSortDirection = 'asc';
+    exceptionSortedBy = 'exceptionuniqueid';
+    exceptionSortDirection = 'asc';
+
+    _rawPricingRows = [];
+    _rawExceptionRows = [];
 
     get schemaForMonths() {
         return this.mode === 'exceptions' ? 'exceptions' : 'pricing';
@@ -97,12 +114,16 @@ export default class CatalogChanges extends LightningElement {
             this.error = error;
             this.pricingRows = [];
             this.exceptionRows = [];
+            this._rawPricingRows = [];
+            this._rawExceptionRows = [];
             return;
         }
         this.error = undefined;
         if (!data) {
             this.pricingRows = [];
             this.exceptionRows = [];
+            this._rawPricingRows = [];
+            this._rawExceptionRows = [];
             return;
         }
         if (this.mode === 'pricing') {
@@ -125,7 +146,7 @@ export default class CatalogChanges extends LightningElement {
                     delete o[k];
                 });
             };
-            this.pricingRows = (data || []).map((r, i) => {
+            this._rawPricingRows = (data || []).map((r, i) => {
                 const cat =
                     apexField(r, 'catalogitemnumber') ??
                     apexField(r, 'catalogItemNumber') ??
@@ -138,20 +159,30 @@ export default class CatalogChanges extends LightningElement {
                     prevCommUsd: formatUsd4(apexField(r, 'prev_comm')),
                     currCommUsd: formatUsd4(apexField(r, 'curr_comm')),
                     commDeltaUsd: formatUsd4(apexField(r, 'comm_delta')),
+                    prevJwccNum: toSortableNum(apexField(r, 'prev_jwcc')),
+                    currJwccNum: toSortableNum(apexField(r, 'curr_jwcc')),
+                    custDeltaNum: toSortableNum(apexField(r, 'cust_delta')),
+                    prevCommNum: toSortableNum(apexField(r, 'prev_comm')),
+                    currCommNum: toSortableNum(apexField(r, 'curr_comm')),
+                    commDeltaNum: toSortableNum(apexField(r, 'comm_delta')),
                     rowKey: (apexField(r, 'csp') || '') + '|' + cat + '|' + i
                 };
                 stripPriceKeys(row);
                 return row;
             });
+            this._rawExceptionRows = [];
             this.exceptionRows = [];
+            this.applyPricingSort();
         } else {
-            this.exceptionRows = (data || []).map((r, i) => ({
+            this._rawExceptionRows = (data || []).map((r, i) => ({
                 ...r,
                 statusPair: pair(r.exceptionstatus_prev, r.exceptionstatus_curr),
                 impactPair: pair(r.impactlevel_prev, r.impactlevel_curr),
                 rowKey: (r.csp || '') + '|' + (r.exceptionuniqueid || '') + '|' + i
             }));
+            this._rawPricingRows = [];
             this.pricingRows = [];
+            this.applyExceptionSort();
         }
     }
 
@@ -177,6 +208,38 @@ export default class CatalogChanges extends LightningElement {
 
     handleChangeType(event) {
         this.changeTypeFilter = event.detail.value;
+    }
+
+    handlePricingSort(event) {
+        const { fieldName, sortDirection } = event.detail;
+        this.pricingSortedBy = fieldName;
+        this.pricingSortDirection = sortDirection;
+        this.applyPricingSort();
+    }
+
+    handleExceptionSort(event) {
+        const { fieldName, sortDirection } = event.detail;
+        this.exceptionSortedBy = fieldName;
+        this.exceptionSortDirection = sortDirection;
+        this.applyExceptionSort();
+    }
+
+    applyPricingSort() {
+        this.pricingRows = sortRows(
+            this._rawPricingRows,
+            this.pricingSortedBy,
+            this.pricingSortDirection,
+            PRICING_SORT_KEYS
+        );
+    }
+
+    applyExceptionSort() {
+        this.exceptionRows = sortRows(
+            this._rawExceptionRows,
+            this.exceptionSortedBy,
+            this.exceptionSortDirection,
+            null
+        );
     }
 
     get errorMessage() {
@@ -209,6 +272,47 @@ function pair(a, b) {
     const p = a != null && a !== '' ? a : '—';
     const c = b != null && b !== '' ? b : '—';
     return p + ' → ' + c;
+}
+
+function toSortableNum(value) {
+    if (value === null || value === undefined || value === '') {
+        return null;
+    }
+    const n = Number(value);
+    return Number.isNaN(n) ? null : n;
+}
+
+function sortRows(rows, fieldName, direction, sortKeyMap) {
+    const clone = [...rows];
+    const dir = direction === 'asc' ? 1 : -1;
+    clone.sort((a, b) => {
+        const cmp = compareByField(a, b, fieldName, sortKeyMap);
+        return cmp * dir;
+    });
+    return clone;
+}
+
+function compareByField(a, b, fieldName, sortKeyMap) {
+    const sortKey = sortKeyMap && sortKeyMap[fieldName] ? sortKeyMap[fieldName] : fieldName;
+    const na = a[sortKey];
+    const nb = b[sortKey];
+    const numA = typeof na === 'number' && !Number.isNaN(na);
+    const numB = typeof nb === 'number' && !Number.isNaN(nb);
+    if (numA && numB) {
+        if (na === nb) {
+            return 0;
+        }
+        return na < nb ? -1 : 1;
+    }
+    if (numA && !numB) {
+        return nb == null || nb === '' ? -1 : 1;
+    }
+    if (!numA && numB) {
+        return na == null || na === '' ? 1 : -1;
+    }
+    const sa = na == null || na === '' ? '' : String(na).toLowerCase();
+    const sb = nb == null || nb === '' ? '' : String(nb).toLowerCase();
+    return sa.localeCompare(sb, undefined, { numeric: true, sensitivity: 'base' });
 }
 
 /**

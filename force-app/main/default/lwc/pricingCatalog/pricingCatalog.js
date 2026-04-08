@@ -2,18 +2,29 @@ import { LightningElement, wire, track } from 'lwc';
 import getPricingItems from '@salesforce/apex/CloudPrismCatalogController.getPricingItems';
 
 const COLS = [
-    { label: 'CSP', fieldName: 'CSP__c', type: 'text', initialWidth: 90 },
-    { label: 'Import month', fieldName: 'importMonth', type: 'text', initialWidth: 100 },
-    { label: 'Category', fieldName: 'Focus_Category__c', type: 'text', initialWidth: 120 },
-    { label: 'Title', fieldName: 'Title__c', type: 'text', wrapText: true },
-    { label: 'Short name', fieldName: 'CSO_Short_Name__c', type: 'text' },
-    { label: 'Catalog #', fieldName: 'Catalog_Item_Number__c', type: 'text' },
-    // Text + Intl formatting: lightning-datatable currency type often omits $ in some orgs.
-    { label: 'Comm. price', fieldName: 'commPriceUsd', type: 'text', initialWidth: 130 },
-    { label: 'Comm. UoI', fieldName: 'Pricing_Unit__c', type: 'text' },
-    { label: 'JWCC price', fieldName: 'jwccPriceUsd', type: 'text', initialWidth: 130 },
-    { label: 'JWCC UoI', fieldName: 'JWCC_Unit_Of_Issue__c', type: 'text' },
-    { label: 'Disc./Prem.', fieldName: 'Discount_Premium_Fee__c', type: 'text' }
+    { label: 'CSP', fieldName: 'CSP__c', type: 'text', sortable: true, initialWidth: 90 },
+    { label: 'Import month', fieldName: 'importMonth', type: 'text', sortable: true, initialWidth: 100 },
+    { label: 'Category', fieldName: 'Focus_Category__c', type: 'text', sortable: true, initialWidth: 120 },
+    { label: 'Title', fieldName: 'Title__c', type: 'text', wrapText: true, sortable: true },
+    { label: 'Short name', fieldName: 'CSO_Short_Name__c', type: 'text', sortable: true },
+    { label: 'Catalog #', fieldName: 'Catalog_Item_Number__c', type: 'text', sortable: true },
+    {
+        label: 'Comm. price',
+        fieldName: 'commPriceUsd',
+        type: 'text',
+        sortable: true,
+        initialWidth: 130
+    },
+    { label: 'Comm. UoI', fieldName: 'Pricing_Unit__c', type: 'text', sortable: true },
+    {
+        label: 'JWCC price',
+        fieldName: 'jwccPriceUsd',
+        type: 'text',
+        sortable: true,
+        initialWidth: 130
+    },
+    { label: 'JWCC UoI', fieldName: 'JWCC_Unit_Of_Issue__c', type: 'text', sortable: true },
+    { label: 'Disc./Prem.', fieldName: 'Discount_Premium_Fee__c', type: 'text', sortable: true }
 ];
 
 export default class PricingCatalog extends LightningElement {
@@ -23,6 +34,10 @@ export default class PricingCatalog extends LightningElement {
 
     cspFilter = '';
     searchKey = '';
+
+    sortedBy = 'Catalog_Item_Number__c';
+    sortedDirection = 'asc';
+    rawRows = [];
 
     get cspOptions() {
         return [
@@ -41,14 +56,16 @@ export default class PricingCatalog extends LightningElement {
     })
     wiredItems({ data, error }) {
         if (data) {
-            this.rows = data.map((r) => {
+            this.rawRows = data.map((r) => {
                 const listP = fieldFromRow(r, 'List_Unit_Price__c');
                 const jwccP = fieldFromRow(r, 'JWCC_Unit_Price__c');
                 const row = {
                     ...r,
                     importMonth: r.Catalog_Import__r ? r.Catalog_Import__r.Import_Month__c : '',
                     commPriceUsd: formatUsd4(listP),
-                    jwccPriceUsd: formatUsd4(jwccP)
+                    jwccPriceUsd: formatUsd4(jwccP),
+                    listUnitPriceNum: toSortableNum(listP),
+                    jwccPriceNum: toSortableNum(jwccP)
                 };
                 ['List_Unit_Price__c', customFieldToJsName('List_Unit_Price__c'), 'JWCC_Unit_Price__c', customFieldToJsName('JWCC_Unit_Price__c')]
                     .filter(Boolean)
@@ -57,11 +74,30 @@ export default class PricingCatalog extends LightningElement {
                     });
                 return row;
             });
+            this.sortData(this.sortedBy, this.sortedDirection);
             this.error = undefined;
         } else if (error) {
             this.error = error;
             this.rows = [];
+            this.rawRows = [];
         }
+    }
+
+    handleSort(event) {
+        const { fieldName, sortDirection } = event.detail;
+        this.sortedBy = fieldName;
+        this.sortedDirection = sortDirection;
+        this.sortData(fieldName, sortDirection);
+    }
+
+    sortData(fieldName, direction) {
+        const clone = [...this.rawRows];
+        const dir = direction === 'asc' ? 1 : -1;
+        clone.sort((a, b) => {
+            const cmp = compareByField(a, b, fieldName);
+            return cmp * dir;
+        });
+        this.rows = clone;
     }
 
     handleCspChange(event) {
@@ -78,6 +114,60 @@ export default class PricingCatalog extends LightningElement {
             ? this.error.body.message
             : String(this.error);
     }
+}
+
+function compareByField(a, b, fieldName) {
+    let va;
+    let vb;
+    if (fieldName === 'commPriceUsd') {
+        va = a.listUnitPriceNum;
+        vb = b.listUnitPriceNum;
+    } else if (fieldName === 'jwccPriceUsd') {
+        va = a.jwccPriceNum;
+        vb = b.jwccPriceNum;
+    } else {
+        va = sortableScalar(a[fieldName]);
+        vb = sortableScalar(b[fieldName]);
+    }
+    return compareValues(va, vb);
+}
+
+function sortableScalar(v) {
+    if (v === null || v === undefined) {
+        return '';
+    }
+    if (typeof v === 'number' && !Number.isNaN(v)) {
+        return v;
+    }
+    return String(v).toLowerCase();
+}
+
+function compareValues(va, vb) {
+    const na = typeof va === 'number' && !Number.isNaN(va);
+    const nb = typeof vb === 'number' && !Number.isNaN(vb);
+    if (na && nb) {
+        if (va === vb) {
+            return 0;
+        }
+        return va < vb ? -1 : 1;
+    }
+    if (na && !nb) {
+        return -1;
+    }
+    if (!na && nb) {
+        return 1;
+    }
+    const sa = va === null || va === undefined ? '' : String(va);
+    const sb = vb === null || vb === undefined ? '' : String(vb);
+    return sa.localeCompare(sb, undefined, { numeric: true, sensitivity: 'base' });
+}
+
+function toSortableNum(value) {
+    if (value === null || value === undefined || value === '') {
+        return null;
+    }
+    const n = Number(value);
+    return Number.isNaN(n) ? null : n;
 }
 
 function fieldFromRow(row, apiName) {
@@ -121,4 +211,3 @@ function formatUsd4(value) {
     });
     return (neg ? '-' : '') + '$' + body;
 }
-

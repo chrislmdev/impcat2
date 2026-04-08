@@ -71,6 +71,9 @@
                     columns={pricingColumns}
                     hide-checkbox-column
                     show-row-number-column
+                    sorted-by={pricingSortedBy}
+                    sorted-direction={pricingSortDirection}
+                    onsort={handlePricingSort}
                 >
                 </lightning-datatable>
             </template>
@@ -81,6 +84,9 @@
                     columns={exceptionColumns}
                     hide-checkbox-column
                     show-row-number-column
+                    sorted-by={exceptionSortedBy}
+                    sorted-direction={exceptionSortDirection}
+                    onsort={handleExceptionSort}
                 >
                 </lightning-datatable>
             </template>
