@@ -157,10 +157,22 @@ export default class CatalogChanges extends LightningElement {
         this.effectiveTheme = computeEffectiveTheme(this.themeMode);
     }
 
-    handleThemeChange(event) {
-        this.themeMode = event.detail.mode;
+    handleThemeSystem() {
+        this.themeMode = 'system';
         persistThemeMode(this.themeMode);
         this._applyEffectiveTheme();
+    }
+
+    handleThemeLight() {
+        this.themeMode = 'light';
+        persistThemeMode(this.themeMode);
+        this.effectiveTheme = 'light';
+    }
+
+    handleThemeDark() {
+        this.themeMode = 'dark';
+        persistThemeMode(this.themeMode);
+        this.effectiveTheme = 'dark';
     }
 
     @wire(getDistinctImportMonths, { schemaName: '$schemaForMonths' })
