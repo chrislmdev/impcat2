@@ -2,12 +2,18 @@ import { LightningElement, wire, track } from 'lwc';
 import { loadStyle, loadScript } from 'lightning/platformResourceLoader';
 import getExceptionItems from '@salesforce/apex/CloudPrismCatalogController.getExceptionItems';
 import getDistinctImportMonths from '@salesforce/apex/CloudPrismCatalogController.getDistinctImportMonths';
-import getDistinctExceptionStatuses from '@salesforce/apex/CloudPrismCatalogController.getDistinctExceptionStatuses';
-import CLOUD_PRISM_THEME_STYLES from '@salesforce/resourceUrl/CloudPrismThemeStyles';
-import JSPDF_UMD from '@salesforce/resourceUrl/jspdfUmd';
-import JSPDF_AUTOTABLE from '@salesforce/resourceUrl/jspdfAutotable';
-import CLOUD_PRISM_EXPORT_LIB from '@salesforce/resourceUrl/cloudPrismExportLib';
 import { readStoredThemeMode, persistThemeMode, computeEffectiveTheme } from './themeUtil';
+
+function buildCloudPrismAssetUrls() {
+    const origin = typeof window !== 'undefined' && window.location ? window.location.origin : '';
+    const r = (name) => `${origin}/resource/${encodeURIComponent(name)}`;
+    return {
+        theme: r('CloudPrismThemeStyles'),
+        jspdfUmd: r('jspdfUmd'),
+        jspdfAutotable: r('jspdfAutotable'),
+        exportLib: r('cloudPrismExportLib')
+    };
+}
 
 const COLS = [
     { label: 'CSP', fieldName: 'CSP__c', type: 'text', sortable: true, initialWidth: 90 },
@@ -63,6 +69,8 @@ export default class ExceptionsLibrary extends LightningElement {
 
     themeMode = 'system';
     effectiveTheme = 'light';
+    _assetUrls = {};
+    _themeStyleLoaded = false;
     exportScriptsLoaded = false;
 
     sortedBy = 'Exception_Unique_Id__c';
@@ -71,6 +79,8 @@ export default class ExceptionsLibrary extends LightningElement {
 
     monthOptions = [];
     statusOptions = [];
+    /** Status picklist built from statuses seen in wire results (no separate Apex). */
+    _seenStatuses = new Set();
 
     get cspOptions() {
         return [
@@ -125,7 +135,11 @@ export default class ExceptionsLibrary extends LightningElement {
         };
         this._mq.addEventListener('change', this._boundMq);
 
-        loadStyle(this, CLOUD_PRISM_THEME_STYLES).catch(() => {});
+        this._assetUrls = buildCloudPrismAssetUrls();
+        if (this._assetUrls.theme && !this._themeStyleLoaded) {
+            this._themeStyleLoaded = true;
+            loadStyle(this, this._assetUrls.theme).catch(() => {});
+        }
     }
 
     disconnectedCallback() {
@@ -138,10 +152,22 @@ export default class ExceptionsLibrary extends LightningElement {
         this.effectiveTheme = computeEffectiveTheme(this.themeMode);
     }
 
-    handleThemeChange(event) {
-        this.themeMode = event.detail.mode;
+    handleThemeSystem() {
+        this.themeMode = 'system';
         persistThemeMode(this.themeMode);
         this._applyEffectiveTheme();
+    }
+
+    handleThemeLight() {
+        this.themeMode = 'light';
+        persistThemeMode(this.themeMode);
+        this.effectiveTheme = 'light';
+    }
+
+    handleThemeDark() {
+        this.themeMode = 'dark';
+        persistThemeMode(this.themeMode);
+        this.effectiveTheme = 'dark';
     }
 
     @wire(getDistinctImportMonths, { schemaName: 'exceptions' })
@@ -150,15 +176,6 @@ export default class ExceptionsLibrary extends LightningElement {
             this.monthOptions = data.map((m) => ({ label: m, value: m }));
         } else if (error) {
             this.monthOptions = [];
-        }
-    }
-
-    @wire(getDistinctExceptionStatuses)
-    wiredStatuses({ data, error }) {
-        if (data) {
-            this.statusOptions = data.map((s) => ({ label: s, value: s }));
-        } else if (error) {
-            this.statusOptions = [];
         }
     }
 
@@ -171,6 +188,15 @@ export default class ExceptionsLibrary extends LightningElement {
     })
     wiredItems({ data, error }) {
         if (data) {
+            (data || []).forEach((r) => {
+                const s = r.Exception_Status__c;
+                if (s) {
+                    this._seenStatuses.add(s);
+                }
+            });
+            this.statusOptions = Array.from(this._seenStatuses)
+                .sort()
+                .map((st) => ({ label: st, value: st }));
             this.rawRows = data.map((r) => ({
                 ...r,
                 importMonth: r.Catalog_Import__r ? r.Catalog_Import__r.Import_Month__c : ''
@@ -235,11 +261,17 @@ export default class ExceptionsLibrary extends LightningElement {
         return String(v).toLowerCase();
     }
 
-    handleExportCsv() {
-        if (!this.hasRows || !window.CloudPrismExport) {
+    async handleExportCsv() {
+        if (!this.hasRows) {
             return;
         }
-        window.CloudPrismExport.downloadCsv('exceptions-library', EXPORT_COLS, this.rows);
+        try {
+            await this._ensureExportLib();
+            window.CloudPrismExport.downloadCsv('exceptions-library', EXPORT_COLS, this.rows);
+        } catch (e) {
+            // eslint-disable-next-line no-console
+            console.error(e);
+        }
     }
 
     async handleExportPdf() {
@@ -255,13 +287,40 @@ export default class ExceptionsLibrary extends LightningElement {
         }
     }
 
+    _getAssetUrls() {
+        if (this._assetUrls && this._assetUrls.exportLib) {
+            return this._assetUrls;
+        }
+        this._assetUrls = buildCloudPrismAssetUrls();
+        return this._assetUrls;
+    }
+
+    async _ensureExportLib() {
+        if (window.CloudPrismExport) {
+            return;
+        }
+        const urls = this._getAssetUrls();
+        if (!urls.exportLib) {
+            throw new Error('cloudPrismExportLib static resource missing in org.');
+        }
+        await loadScript(this, urls.exportLib);
+    }
+
     async _ensureExportScripts() {
         if (this.exportScriptsLoaded) {
             return;
         }
-        await loadScript(this, JSPDF_UMD);
-        await loadScript(this, JSPDF_AUTOTABLE);
-        await loadScript(this, CLOUD_PRISM_EXPORT_LIB);
+        const urls = this._getAssetUrls();
+        if (!urls.jspdfUmd || !urls.jspdfAutotable || !urls.exportLib) {
+            throw new Error('jspdfUmd, jspdfAutotable, or cloudPrismExportLib static resource missing in org.');
+        }
+        if (!window.jspdf || !window.jspdf.jsPDF) {
+            await loadScript(this, urls.jspdfUmd);
+        }
+        await loadScript(this, urls.jspdfAutotable);
+        if (!window.CloudPrismExport) {
+            await loadScript(this, urls.exportLib);
+        }
         this.exportScriptsLoaded = true;
     }
 
