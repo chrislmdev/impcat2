@@ -22,6 +22,3 @@ declare module "@salesforce/apex/CloudPrismCatalogController.getExceptionChanges
 declare module "@salesforce/apex/CloudPrismCatalogController.getCatalogChangeRows" {
   export default function getCatalogChangeRows(param: {entity: any, monthFrom: any, monthTo: any, csp: any, changeType: any}): Promise<any>;
 }
-declare module "@salesforce/apex/CloudPrismCatalogController.getCloudPrismStaticAssetUrls" {
-  export default function getCloudPrismStaticAssetUrls(): Promise<any>;
-}

@@ -2,7 +2,6 @@ import { LightningElement, wire, track } from 'lwc';
 import { loadStyle, loadScript } from 'lightning/platformResourceLoader';
 import getDistinctImportMonths from '@salesforce/apex/CloudPrismCatalogController.getDistinctImportMonths';
 import getCatalogChangeRows from '@salesforce/apex/CloudPrismCatalogController.getCatalogChangeRows';
-import getCloudPrismStaticAssetUrls from '@salesforce/apex/CloudPrismCatalogController.getCloudPrismStaticAssetUrls';
 import { readStoredThemeMode, persistThemeMode, computeEffectiveTheme } from './themeUtil';
 
 const PRICING_COLS = [
@@ -39,6 +38,18 @@ const PRICING_SORT_KEYS = {
 
 const PRICING_EXPORT_COLS = PRICING_COLS.map((c) => ({ label: c.label, fieldName: c.fieldName }));
 const EXCEPTION_EXPORT_COLS = EXCEPTION_COLS.map((c) => ({ label: c.label, fieldName: c.fieldName }));
+
+/** Same-origin /resource/{name} URLs — no @salesforce/resourceUrl or extra Apex to deploy with this LWC. */
+function buildCloudPrismAssetUrls() {
+    const origin = typeof window !== 'undefined' && window.location ? window.location.origin : '';
+    const r = (name) => `${origin}/resource/${encodeURIComponent(name)}`;
+    return {
+        theme: r('CloudPrismThemeStyles'),
+        jspdfUmd: r('jspdfUmd'),
+        jspdfAutotable: r('jspdfAutotable'),
+        exportLib: r('cloudPrismExportLib')
+    };
+}
 
 export default class CatalogChanges extends LightningElement {
     mode = 'pricing';
@@ -140,19 +151,13 @@ export default class CatalogChanges extends LightningElement {
         };
         this._mq.addEventListener('change', this._boundMq);
 
-        getCloudPrismStaticAssetUrls()
-            .then((urls) => {
-                this._assetUrls = urls || {};
-                const themeUrl = this._assetUrls.theme;
-                if (themeUrl && !this._themeStyleLoaded) {
-                    this._themeStyleLoaded = true;
-                    return loadStyle(this, themeUrl);
-                }
-                return undefined;
-            })
-            .catch(() => {
+        this._assetUrls = buildCloudPrismAssetUrls();
+        if (this._assetUrls.theme && !this._themeStyleLoaded) {
+            this._themeStyleLoaded = true;
+            loadStyle(this, this._assetUrls.theme).catch(() => {
                 /* ignore */
             });
+        }
     }
 
     disconnectedCallback() {
@@ -365,17 +370,11 @@ export default class CatalogChanges extends LightningElement {
         }
     }
 
-    async _resolveAssetUrls() {
+    _getAssetUrls() {
         if (this._assetUrls && this._assetUrls.exportLib) {
             return this._assetUrls;
         }
-        const urls = await getCloudPrismStaticAssetUrls();
-        this._assetUrls = urls || {};
-        const themeUrl = this._assetUrls.theme;
-        if (themeUrl && !this._themeStyleLoaded) {
-            this._themeStyleLoaded = true;
-            await loadStyle(this, themeUrl).catch(() => {});
-        }
+        this._assetUrls = buildCloudPrismAssetUrls();
         return this._assetUrls;
     }
 
@@ -383,7 +382,7 @@ export default class CatalogChanges extends LightningElement {
         if (window.CloudPrismExport) {
             return;
         }
-        const urls = await this._resolveAssetUrls();
+        const urls = this._getAssetUrls();
         if (!urls.exportLib) {
             throw new Error('cloudPrismExportLib static resource missing in org.');
         }
@@ -391,7 +390,7 @@ export default class CatalogChanges extends LightningElement {
     }
 
     async _ensureExportScripts() {
-        const urls = await this._resolveAssetUrls();
+        const urls = this._getAssetUrls();
         if (!urls.jspdfUmd || !urls.jspdfAutotable || !urls.exportLib) {
             throw new Error('jspdfUmd, jspdfAutotable, or cloudPrismExportLib static resource missing in org.');
         }
