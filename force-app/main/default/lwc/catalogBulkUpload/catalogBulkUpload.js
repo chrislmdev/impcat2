@@ -1,7 +1,19 @@
 import { LightningElement, track } from 'lwc';
+import { loadStyle, loadScript } from 'lightning/platformResourceLoader';
 import processFile from '@salesforce/apex/CatalogUploadService.processFile';
+import CLOUD_PRISM_THEME_STYLES from '@salesforce/resourceUrl/CloudPrismThemeStyles';
+import JSPDF_UMD from '@salesforce/resourceUrl/jspdfUmd';
+import JSPDF_AUTOTABLE from '@salesforce/resourceUrl/jspdfAutotable';
+import CLOUD_PRISM_EXPORT_LIB from '@salesforce/resourceUrl/cloudPrismExportLib';
+import { readStoredThemeMode, persistThemeMode, computeEffectiveTheme } from './themeUtil';
 
-const THEME_KEY = 'cloudprism.catalogBulkUpload.theme';
+const UPLOAD_EXPORT_COLS = [
+    { label: 'File', fieldName: 'fileName' },
+    { label: 'OK', fieldName: 'successLabel' },
+    { label: 'Rows', fieldName: 'rowsInserted' },
+    { label: 'Catalog import Id', fieldName: 'catalogImportId' },
+    { label: 'Message', fieldName: 'message' }
+];
 
 function readFileAsText(file) {
     return new Promise((resolve, reject) => {
@@ -63,16 +75,10 @@ export default class CatalogBulkUpload extends LightningElement {
     themeMode = 'system';
     effectiveTheme = 'light';
     dragDepth = 0;
+    jspdfScriptsLoaded = false;
 
     connectedCallback() {
-        try {
-            const stored = localStorage.getItem(THEME_KEY);
-            if (stored === 'light' || stored === 'dark' || stored === 'system') {
-                this.themeMode = stored;
-            }
-        } catch (e) {
-            /* localStorage unavailable */
-        }
+        this.themeMode = readStoredThemeMode();
         this._applyEffectiveTheme();
         this._mq = window.matchMedia('(prefers-color-scheme: dark)');
         this._boundMq = () => {
@@ -81,6 +87,10 @@ export default class CatalogBulkUpload extends LightningElement {
             }
         };
         this._mq.addEventListener('change', this._boundMq);
+
+        loadStyle(this, CLOUD_PRISM_THEME_STYLES).catch(() => {
+            /* ignore */
+        });
     }
 
     disconnectedCallback() {
@@ -90,37 +100,13 @@ export default class CatalogBulkUpload extends LightningElement {
     }
 
     _applyEffectiveTheme() {
-        if (this.themeMode === 'system') {
-            this.effectiveTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-        } else {
-            this.effectiveTheme = this.themeMode;
-        }
+        this.effectiveTheme = computeEffectiveTheme(this.themeMode);
     }
 
-    _persistTheme() {
-        try {
-            localStorage.setItem(THEME_KEY, this.themeMode);
-        } catch (e) {
-            /* ignore */
-        }
-    }
-
-    handleThemeSystem() {
-        this.themeMode = 'system';
-        this._persistTheme();
+    handleThemeChange(event) {
+        this.themeMode = event.detail.mode;
+        persistThemeMode(this.themeMode);
         this._applyEffectiveTheme();
-    }
-
-    handleThemeLight() {
-        this.themeMode = 'light';
-        this._persistTheme();
-        this.effectiveTheme = 'light';
-    }
-
-    handleThemeDark() {
-        this.themeMode = 'dark';
-        this._persistTheme();
-        this.effectiveTheme = 'dark';
     }
 
     get rootClass() {
@@ -147,6 +133,10 @@ export default class CatalogBulkUpload extends LightningElement {
 
     get hasResults() {
         return this.resultRows && this.resultRows.length > 0;
+    }
+
+    get exportDisabled() {
+        return !this.hasResults;
     }
 
     get bannerBody() {
@@ -234,5 +224,53 @@ export default class CatalogBulkUpload extends LightningElement {
         } finally {
             this.working = false;
         }
+    }
+
+    async handleExportCsv() {
+        if (!this.hasResults) {
+            return;
+        }
+        try {
+            await this._ensureExportLib();
+            window.CloudPrismExport.downloadCsv('bulk-upload-results', UPLOAD_EXPORT_COLS, this.resultRows);
+        } catch (e) {
+            // eslint-disable-next-line no-console
+            console.error(e);
+        }
+    }
+
+    async handleExportPdf() {
+        if (!this.hasResults) {
+            return;
+        }
+        try {
+            await this._ensureExportScripts();
+            window.CloudPrismExport.downloadPdf(
+                'bulk-upload-results',
+                'Bulk catalog upload — results',
+                UPLOAD_EXPORT_COLS,
+                this.resultRows
+            );
+        } catch (e) {
+            // eslint-disable-next-line no-console
+            console.error(e);
+        }
+    }
+
+    async _ensureExportLib() {
+        if (window.CloudPrismExport) {
+            return;
+        }
+        await loadScript(this, CLOUD_PRISM_EXPORT_LIB);
+    }
+
+    async _ensureExportScripts() {
+        await this._ensureExportLib();
+        if (this.jspdfScriptsLoaded) {
+            return;
+        }
+        await loadScript(this, JSPDF_UMD);
+        await loadScript(this, JSPDF_AUTOTABLE);
+        this.jspdfScriptsLoaded = true;
     }
 }

@@ -3,10 +3,18 @@
  */
 public with sharing class CloudPrismCatalogController {
     @AuraEnabled(cacheable=true)
-    public static List<Pricing_Item__c> getPricingItems(String csp, String searchKey, Integer rowLimit) {
+    public static List<Pricing_Item__c> getPricingItems(
+        String csp,
+        String searchKey,
+        String importMonth,
+        String focusCategory,
+        Integer rowLimit
+    ) {
         Integer lim = rowLimit != null && rowLimit > 0 ? Math.min(rowLimit, 2000) : 500;
         String q = String.isNotBlank(searchKey) ? '%' + String.escapeSingleQuotes(searchKey.trim()) + '%' : null;
         String c = String.isNotBlank(csp) ? csp.toLowerCase().trim() : null;
+        String month = String.isNotBlank(importMonth) ? importMonth.trim() : null;
+        String cat = String.isNotBlank(focusCategory) ? focusCategory.trim() : null;
 
         String soql =
             'SELECT Id, Name, CSP__c, Catalog_Item_Number__c, Title__c, CSO_Short_Name__c, Description__c, ' +
@@ -18,6 +26,12 @@ public with sharing class CloudPrismCatalogController {
         if (c != null) {
             soql += ' AND CSP__c = :c';
         }
+        if (month != null) {
+            soql += ' AND Catalog_Import__r.Import_Month__c = :month';
+        }
+        if (cat != null) {
+            soql += ' AND Focus_Category__c = :cat';
+        }
         if (q != null) {
             // Long Text Area fields (e.g. Description__c) cannot appear in SOQL WHERE.
             soql +=
@@ -28,10 +42,18 @@ public with sharing class CloudPrismCatalogController {
     }
 
     @AuraEnabled(cacheable=true)
-    public static List<Exception_Item__c> getExceptionItems(String csp, String searchKey, Integer rowLimit) {
+    public static List<Exception_Item__c> getExceptionItems(
+        String csp,
+        String searchKey,
+        String importMonth,
+        String exceptionStatus,
+        Integer rowLimit
+    ) {
         Integer lim = rowLimit != null && rowLimit > 0 ? Math.min(rowLimit, 2000) : 500;
         String q = String.isNotBlank(searchKey) ? '%' + String.escapeSingleQuotes(searchKey.trim()) + '%' : null;
         String c = String.isNotBlank(csp) ? csp.toLowerCase().trim() : null;
+        String month = String.isNotBlank(importMonth) ? importMonth.trim() : null;
+        String st = String.isNotBlank(exceptionStatus) ? exceptionStatus.trim() : null;
 
         String soql =
             'SELECT Id, Name, CSP__c, Exception_Unique_Id__c, CSO_Short_Name__c, Impact_Level__c, Exception_Status__c, ' +
@@ -41,6 +63,12 @@ public with sharing class CloudPrismCatalogController {
 
         if (c != null) {
             soql += ' AND CSP__c = :c';
+        }
+        if (month != null) {
+            soql += ' AND Catalog_Import__r.Import_Month__c = :month';
+        }
+        if (st != null) {
+            soql += ' AND Exception_Status__c = :st';
         }
         if (q != null) {
             // Long Text Area fields cannot appear in SOQL WHERE.
@@ -67,6 +95,44 @@ public with sharing class CloudPrismCatalogController {
             months.add((String) ar.get('Import_Month__c'));
         }
         List<String> sorted = new List<String>(months);
+        sorted.sort();
+        return sorted;
+    }
+
+    @AuraEnabled(cacheable=true)
+    public static List<String> getDistinctFocusCategories() {
+        Set<String> cats = new Set<String>();
+        for (AggregateResult ar : [
+            SELECT Focus_Category__c
+            FROM Pricing_Item__c
+            WHERE Catalog_Import__r.Schema__c = 'pricing' AND Focus_Category__c != NULL
+            GROUP BY Focus_Category__c
+        ]) {
+            String v = (String) ar.get('Focus_Category__c');
+            if (String.isNotBlank(v)) {
+                cats.add(v);
+            }
+        }
+        List<String> sorted = new List<String>(cats);
+        sorted.sort();
+        return sorted;
+    }
+
+    @AuraEnabled(cacheable=true)
+    public static List<String> getDistinctExceptionStatuses() {
+        Set<String> sts = new Set<String>();
+        for (AggregateResult ar : [
+            SELECT Exception_Status__c
+            FROM Exception_Item__c
+            WHERE Catalog_Import__r.Schema__c = 'exceptions' AND Exception_Status__c != NULL
+            GROUP BY Exception_Status__c
+        ]) {
+            String v = (String) ar.get('Exception_Status__c');
+            if (String.isNotBlank(v)) {
+                sts.add(v);
+            }
+        }
+        List<String> sorted = new List<String>(sts);
         sorted.sort();
         return sorted;
     }

@@ -1,28 +1,47 @@
 import { LightningElement, wire, track } from 'lwc';
+import { loadStyle, loadScript } from 'lightning/platformResourceLoader';
 import getDistinctImportMonths from '@salesforce/apex/CloudPrismCatalogController.getDistinctImportMonths';
 import getCatalogChangeRows from '@salesforce/apex/CloudPrismCatalogController.getCatalogChangeRows';
+import CLOUD_PRISM_THEME_STYLES from '@salesforce/resourceUrl/CloudPrismThemeStyles';
+import JSPDF_UMD from '@salesforce/resourceUrl/jspdfUmd';
+import JSPDF_AUTOTABLE from '@salesforce/resourceUrl/jspdfAutotable';
+import CLOUD_PRISM_EXPORT_LIB from '@salesforce/resourceUrl/cloudPrismExportLib';
+import { readStoredThemeMode, persistThemeMode, computeEffectiveTheme } from './themeUtil';
 
 const PRICING_COLS = [
-    { label: 'CSP', fieldName: 'csp', type: 'text', initialWidth: 80 },
-    { label: 'Catalog #', fieldName: 'catalogitemnumber', type: 'text' },
-    { label: 'Title', fieldName: 'title', type: 'text', wrapText: true },
-    { label: 'Type', fieldName: 'change_type', type: 'text', initialWidth: 100 },
-    { label: 'JWCC (from)', fieldName: 'prevJwccUsd', type: 'text', initialWidth: 120 },
-    { label: 'JWCC (to)', fieldName: 'currJwccUsd', type: 'text', initialWidth: 120 },
-    { label: 'JWCC Δ', fieldName: 'custDeltaUsd', type: 'text', initialWidth: 120 },
-    { label: 'Comm (from)', fieldName: 'prevCommUsd', type: 'text', initialWidth: 120 },
-    { label: 'Comm (to)', fieldName: 'currCommUsd', type: 'text', initialWidth: 120 },
-    { label: 'Comm Δ', fieldName: 'commDeltaUsd', type: 'text', initialWidth: 120 }
+    { label: 'CSP', fieldName: 'csp', type: 'text', sortable: true, initialWidth: 80 },
+    { label: 'Catalog #', fieldName: 'catalogitemnumber', type: 'text', sortable: true },
+    { label: 'Title', fieldName: 'title', type: 'text', wrapText: true, sortable: true },
+    { label: 'Type', fieldName: 'change_type', type: 'text', initialWidth: 100, sortable: true },
+    { label: 'JWCC (from)', fieldName: 'prevJwccUsd', type: 'text', initialWidth: 120, sortable: true },
+    { label: 'JWCC (to)', fieldName: 'currJwccUsd', type: 'text', initialWidth: 120, sortable: true },
+    { label: 'JWCC Δ', fieldName: 'custDeltaUsd', type: 'text', initialWidth: 120, sortable: true },
+    { label: 'Comm (from)', fieldName: 'prevCommUsd', type: 'text', initialWidth: 120, sortable: true },
+    { label: 'Comm (to)', fieldName: 'currCommUsd', type: 'text', initialWidth: 120, sortable: true },
+    { label: 'Comm Δ', fieldName: 'commDeltaUsd', type: 'text', initialWidth: 120, sortable: true }
 ];
 
 const EXCEPTION_COLS = [
-    { label: 'CSP', fieldName: 'csp', type: 'text', initialWidth: 80 },
-    { label: 'Exception ID', fieldName: 'exceptionuniqueid', type: 'text' },
-    { label: 'Short name', fieldName: 'csoshortname', type: 'text' },
-    { label: 'Type', fieldName: 'change_type', type: 'text', initialWidth: 100 },
-    { label: 'Status (prev → curr)', fieldName: 'statusPair', type: 'text', wrapText: true },
-    { label: 'Impact (prev → curr)', fieldName: 'impactPair', type: 'text', wrapText: true }
+    { label: 'CSP', fieldName: 'csp', type: 'text', sortable: true, initialWidth: 80 },
+    { label: 'Exception ID', fieldName: 'exceptionuniqueid', type: 'text', sortable: true },
+    { label: 'Short name', fieldName: 'csoshortname', type: 'text', sortable: true },
+    { label: 'Type', fieldName: 'change_type', type: 'text', initialWidth: 100, sortable: true },
+    { label: 'Status (prev → curr)', fieldName: 'statusPair', type: 'text', wrapText: true, sortable: true },
+    { label: 'Impact (prev → curr)', fieldName: 'impactPair', type: 'text', wrapText: true, sortable: true }
 ];
+
+/** Datatable sorts formatted USD columns; compare using numeric fields. */
+const PRICING_SORT_KEYS = {
+    prevJwccUsd: 'prevJwccNum',
+    currJwccUsd: 'currJwccNum',
+    custDeltaUsd: 'custDeltaNum',
+    prevCommUsd: 'prevCommNum',
+    currCommUsd: 'currCommNum',
+    commDeltaUsd: 'commDeltaNum'
+};
+
+const PRICING_EXPORT_COLS = PRICING_COLS.map((c) => ({ label: c.label, fieldName: c.fieldName }));
+const EXCEPTION_EXPORT_COLS = EXCEPTION_COLS.map((c) => ({ label: c.label, fieldName: c.fieldName }));
 
 export default class CatalogChanges extends LightningElement {
     mode = 'pricing';
@@ -36,6 +55,18 @@ export default class CatalogChanges extends LightningElement {
     error;
 
     monthOptions = [];
+
+    themeMode = 'system';
+    effectiveTheme = 'light';
+    jspdfScriptsLoaded = false;
+
+    pricingSortedBy = 'csp';
+    pricingSortDirection = 'asc';
+    exceptionSortedBy = 'exceptionuniqueid';
+    exceptionSortDirection = 'asc';
+
+    _rawPricingRows = [];
+    _rawExceptionRows = [];
 
     get schemaForMonths() {
         return this.mode === 'exceptions' ? 'exceptions' : 'pricing';
@@ -76,6 +107,62 @@ export default class CatalogChanges extends LightningElement {
         return this.mode === 'pricing';
     }
 
+    get rootClass() {
+        return `cp-root cp-theme-${this.effectiveTheme}`;
+    }
+
+    get systemButtonVariant() {
+        return this.themeMode === 'system' ? 'brand' : 'border-filled';
+    }
+
+    get lightButtonVariant() {
+        return this.themeMode === 'light' ? 'brand' : 'border-filled';
+    }
+
+    get darkButtonVariant() {
+        return this.themeMode === 'dark' ? 'brand' : 'border-filled';
+    }
+
+    get hasActiveRows() {
+        return this.isPricingMode ? this.pricingRows.length > 0 : this.exceptionRows.length > 0;
+    }
+
+    get exportDisabled() {
+        return !this.hasActiveRows;
+    }
+
+    connectedCallback() {
+        this.themeMode = readStoredThemeMode();
+        this._applyEffectiveTheme();
+        this._mq = window.matchMedia('(prefers-color-scheme: dark)');
+        this._boundMq = () => {
+            if (this.themeMode === 'system') {
+                this.effectiveTheme = this._mq.matches ? 'dark' : 'light';
+            }
+        };
+        this._mq.addEventListener('change', this._boundMq);
+
+        loadStyle(this, CLOUD_PRISM_THEME_STYLES).catch(() => {
+            /* ignore */
+        });
+    }
+
+    disconnectedCallback() {
+        if (this._mq && this._boundMq) {
+            this._mq.removeEventListener('change', this._boundMq);
+        }
+    }
+
+    _applyEffectiveTheme() {
+        this.effectiveTheme = computeEffectiveTheme(this.themeMode);
+    }
+
+    handleThemeChange(event) {
+        this.themeMode = event.detail.mode;
+        persistThemeMode(this.themeMode);
+        this._applyEffectiveTheme();
+    }
+
     @wire(getDistinctImportMonths, { schemaName: '$schemaForMonths' })
     wiredMonths({ data, error }) {
         if (data) {
@@ -97,12 +184,16 @@ export default class CatalogChanges extends LightningElement {
             this.error = error;
             this.pricingRows = [];
             this.exceptionRows = [];
+            this._rawPricingRows = [];
+            this._rawExceptionRows = [];
             return;
         }
         this.error = undefined;
         if (!data) {
             this.pricingRows = [];
             this.exceptionRows = [];
+            this._rawPricingRows = [];
+            this._rawExceptionRows = [];
             return;
         }
         if (this.mode === 'pricing') {
@@ -125,7 +216,7 @@ export default class CatalogChanges extends LightningElement {
                     delete o[k];
                 });
             };
-            this.pricingRows = (data || []).map((r, i) => {
+            this._rawPricingRows = (data || []).map((r, i) => {
                 const cat =
                     apexField(r, 'catalogitemnumber') ??
                     apexField(r, 'catalogItemNumber') ??
@@ -138,20 +229,30 @@ export default class CatalogChanges extends LightningElement {
                     prevCommUsd: formatUsd4(apexField(r, 'prev_comm')),
                     currCommUsd: formatUsd4(apexField(r, 'curr_comm')),
                     commDeltaUsd: formatUsd4(apexField(r, 'comm_delta')),
+                    prevJwccNum: toSortableNum(apexField(r, 'prev_jwcc')),
+                    currJwccNum: toSortableNum(apexField(r, 'curr_jwcc')),
+                    custDeltaNum: toSortableNum(apexField(r, 'cust_delta')),
+                    prevCommNum: toSortableNum(apexField(r, 'prev_comm')),
+                    currCommNum: toSortableNum(apexField(r, 'curr_comm')),
+                    commDeltaNum: toSortableNum(apexField(r, 'comm_delta')),
                     rowKey: (apexField(r, 'csp') || '') + '|' + cat + '|' + i
                 };
                 stripPriceKeys(row);
                 return row;
             });
+            this._rawExceptionRows = [];
             this.exceptionRows = [];
+            this.applyPricingSort();
         } else {
-            this.exceptionRows = (data || []).map((r, i) => ({
+            this._rawExceptionRows = (data || []).map((r, i) => ({
                 ...r,
                 statusPair: pair(r.exceptionstatus_prev, r.exceptionstatus_curr),
                 impactPair: pair(r.impactlevel_prev, r.impactlevel_curr),
                 rowKey: (r.csp || '') + '|' + (r.exceptionuniqueid || '') + '|' + i
             }));
+            this._rawPricingRows = [];
             this.pricingRows = [];
+            this.applyExceptionSort();
         }
     }
 
@@ -177,6 +278,88 @@ export default class CatalogChanges extends LightningElement {
 
     handleChangeType(event) {
         this.changeTypeFilter = event.detail.value;
+    }
+
+    handlePricingSort(event) {
+        const { fieldName, sortDirection } = event.detail;
+        this.pricingSortedBy = fieldName;
+        this.pricingSortDirection = sortDirection;
+        this.applyPricingSort();
+    }
+
+    handleExceptionSort(event) {
+        const { fieldName, sortDirection } = event.detail;
+        this.exceptionSortedBy = fieldName;
+        this.exceptionSortDirection = sortDirection;
+        this.applyExceptionSort();
+    }
+
+    applyPricingSort() {
+        this.pricingRows = sortRows(
+            this._rawPricingRows,
+            this.pricingSortedBy,
+            this.pricingSortDirection,
+            PRICING_SORT_KEYS
+        );
+    }
+
+    applyExceptionSort() {
+        this.exceptionRows = sortRows(
+            this._rawExceptionRows,
+            this.exceptionSortedBy,
+            this.exceptionSortDirection,
+            null
+        );
+    }
+
+    async handleExportCsv() {
+        if (!this.hasActiveRows) {
+            return;
+        }
+        try {
+            await this._ensureExportLib();
+            const cols = this.isPricingMode ? PRICING_EXPORT_COLS : EXCEPTION_EXPORT_COLS;
+            const rows = this.isPricingMode ? this.pricingRows : this.exceptionRows;
+            const base = this.isPricingMode ? 'catalog-changes-pricing' : 'catalog-changes-exceptions';
+            window.CloudPrismExport.downloadCsv(base, cols, rows);
+        } catch (e) {
+            // eslint-disable-next-line no-console
+            console.error(e);
+        }
+    }
+
+    async handleExportPdf() {
+        if (!this.hasActiveRows) {
+            return;
+        }
+        try {
+            await this._ensureExportScripts();
+            const cols = this.isPricingMode ? PRICING_EXPORT_COLS : EXCEPTION_EXPORT_COLS;
+            const rows = this.isPricingMode ? this.pricingRows : this.exceptionRows;
+            const title = this.isPricingMode ? 'Catalog Changes — Pricing' : 'Catalog Changes — Exceptions';
+            const base = this.isPricingMode ? 'catalog-changes-pricing' : 'catalog-changes-exceptions';
+            window.CloudPrismExport.downloadPdf(base, title, cols, rows);
+        } catch (e) {
+            // eslint-disable-next-line no-console
+            console.error(e);
+        }
+    }
+
+    async _ensureExportLib() {
+        if (window.CloudPrismExport) {
+            return;
+        }
+        await loadScript(this, CLOUD_PRISM_EXPORT_LIB);
+    }
+
+    async _ensureExportScripts() {
+        await this._ensureExportLib();
+        if (this.jspdfScriptsLoaded) {
+            return;
+        }
+        await loadScript(this, JSPDF_UMD);
+        await loadScript(this, JSPDF_AUTOTABLE);
+        this.jspdfScriptsLoaded = true;
     }
 
     get errorMessage() {
@@ -209,6 +392,47 @@ function pair(a, b) {
     const p = a != null && a !== '' ? a : '—';
     const c = b != null && b !== '' ? b : '—';
     return p + ' → ' + c;
+}
+
+function toSortableNum(value) {
+    if (value === null || value === undefined || value === '') {
+        return null;
+    }
+    const n = Number(value);
+    return Number.isNaN(n) ? null : n;
+}
+
+function sortRows(rows, fieldName, direction, sortKeyMap) {
+    const clone = [...rows];
+    const dir = direction === 'asc' ? 1 : -1;
+    clone.sort((a, b) => {
+        const cmp = compareByField(a, b, fieldName, sortKeyMap);
+        return cmp * dir;
+    });
+    return clone;
+}
+
+function compareByField(a, b, fieldName, sortKeyMap) {
+    const sortKey = sortKeyMap && sortKeyMap[fieldName] ? sortKeyMap[fieldName] : fieldName;
+    const na = a[sortKey];
+    const nb = b[sortKey];
+    const numA = typeof na === 'number' && !Number.isNaN(na);
+    const numB = typeof nb === 'number' && !Number.isNaN(nb);
+    if (numA && numB) {
+        if (na === nb) {
+            return 0;
+        }
+        return na < nb ? -1 : 1;
+    }
+    if (numA && !numB) {
+        return nb == null || nb === '' ? 1 : -1;
+    }
+    if (!numA && numB) {
+        return na == null || na === '' ? -1 : 1;
+    }
+    const sa = na == null || na === '' ? '' : String(na).toLowerCase();
+    const sb = nb == null || nb === '' ? '' : String(nb).toLowerCase();
+    return sa.localeCompare(sb, undefined, { numeric: true, sensitivity: 'base' });
 }
 
 /**

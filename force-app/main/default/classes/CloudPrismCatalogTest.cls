@@ -145,14 +145,56 @@ private class CloudPrismCatalogTest {
 
     @IsTest
     static void controllerReturnsPricingRows() {
-        List<Pricing_Item__c> pr = CloudPrismCatalogController.getPricingItems('aws', 'SKU-BOTH', 50);
+        List<Pricing_Item__c> pr = CloudPrismCatalogController.getPricingItems('aws', 'SKU-BOTH', null, null, 50);
         System.assert(!pr.isEmpty(), 'Expected pricing rows');
     }
 
     @IsTest
     static void controllerSearchIncludesFocusCategory() {
-        List<Pricing_Item__c> pr = CloudPrismCatalogController.getPricingItems('aws', 'Compute', 50);
+        List<Pricing_Item__c> pr = CloudPrismCatalogController.getPricingItems('aws', 'Compute', null, null, 50);
         System.assert(!pr.isEmpty(), 'Search should match Focus_Category__c');
+    }
+
+    @IsTest
+    static void controllerPricingFilterByImportMonth() {
+        List<Pricing_Item__c> pr = CloudPrismCatalogController.getPricingItems('aws', null, '2026-01', null, 100);
+        System.assertEquals(2, pr.size());
+        for (Pricing_Item__c p : pr) {
+            System.assertEquals('2026-01', p.Catalog_Import__r.Import_Month__c);
+        }
+    }
+
+    @IsTest
+    static void controllerPricingFilterByFocusCategory() {
+        List<Pricing_Item__c> pr = CloudPrismCatalogController.getPricingItems('aws', null, null, 'Compute', 100);
+        System.assertEquals(1, pr.size());
+        System.assertEquals('Compute', pr[0].Focus_Category__c);
+    }
+
+    @IsTest
+    static void controllerExceptionFilterByMonthAndStatus() {
+        List<Exception_Item__c> ex = CloudPrismCatalogController.getExceptionItems(
+            'aws',
+            null,
+            '2026-01',
+            'Pending',
+            100
+        );
+        System.assertEquals(1, ex.size());
+        System.assertEquals('EX-1', ex[0].Exception_Unique_Id__c);
+    }
+
+    @IsTest
+    static void controllerReturnsDistinctFocusCategories() {
+        List<String> cats = CloudPrismCatalogController.getDistinctFocusCategories();
+        System.assert(cats.contains('Compute'));
+    }
+
+    @IsTest
+    static void controllerReturnsDistinctExceptionStatuses() {
+        List<String> sts = CloudPrismCatalogController.getDistinctExceptionStatuses();
+        System.assert(sts.contains('Pending'));
+        System.assert(sts.contains('Approved'));
     }
 
     @IsTest
