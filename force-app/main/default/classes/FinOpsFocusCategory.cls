@@ -7,22 +7,73 @@ public class FinOpsFocusCategory {
 
     private static final Map<String, String> FOCUS_CATEGORY_MAP = new Map<String, String>{
         'compute' => 'Compute',
+        'amazon ec2' => 'Compute',
+        'google compute' => 'Compute',
+        'azure vm' => 'Compute',
+        'ec2' => 'Compute',
+        'eks' => 'Compute',
+        'gke' => 'Compute',
+        'aks' => 'Compute',
+        'vmware' => 'Compute',
+        'bare metal' => 'Compute',
+        'baremetal' => 'Compute',
+        'autoscaling' => 'Compute',
         'storage' => 'Storage',
+        'amazon s3' => 'Storage',
+        'azure blob' => 'Storage',
+        'efs' => 'Storage',
+        'ebs' => 'Storage',
+        'glacier' => 'Storage',
+        'cold storage' => 'Storage',
+        'file share' => 'Storage',
+        'fileshare' => 'Storage',
+        'nas' => 'Storage',
+        'netapp' => 'Storage',
         'database' => 'Database',
+        'dynamodb' => 'Database',
+        'snowflake' => 'Analytics',
+        'databricks' => 'Analytics',
+        'elasticsearch' => 'Database',
+        'opensearch' => 'Database',
+        'mongodb' => 'Database',
+        'mongo' => 'Database',
+        'cassandra' => 'Database',
+        'cosmos db' => 'Database',
         'networking' => 'Networking',
         'network' => 'Networking',
+        'direct connect' => 'Networking',
+        'transit gateway' => 'Networking',
+        'peering' => 'Networking',
+        'front door' => 'Networking',
+        'application gateway' => 'Networking',
         'security' => 'Security',
         'identity' => 'Security',
+        'secrets manager' => 'Security',
+        'certificate' => 'Security',
+        'sso' => 'Security',
+        'mfa' => 'Security',
+        'zero trust' => 'Security',
         'ai' => 'AI and Machine Learning',
         'machine learning' => 'AI and Machine Learning',
         'ml' => 'AI and Machine Learning',
         'analytics' => 'Analytics',
         'big data' => 'Analytics',
+        'power bi' => 'Analytics',
+        'looker' => 'Analytics',
+        'quicksight' => 'Analytics',
+        'etl' => 'Analytics',
+        'dataflow' => 'Analytics',
         'developer tools' => 'Developer Tools',
         'devops' => 'Developer Tools',
         'management' => 'Management and Governance',
         'governance' => 'Management and Governance',
         'monitoring' => 'Management and Governance',
+        'cost explorer' => 'Management and Governance',
+        'cloudhealth' => 'Management and Governance',
+        'finops' => 'Management and Governance',
+        'chargeback' => 'Management and Governance',
+        'billing' => 'Management and Governance',
+        'budget' => 'Management and Governance',
         'serverless' => 'Compute',
         'containers' => 'Compute',
         'web' => 'Web and Mobile',
@@ -31,6 +82,9 @@ public class FinOpsFocusCategory {
         'integration' => 'Integration',
         'messaging' => 'Integration',
         'api gateway' => 'Integration',
+        'kafka' => 'Integration',
+        'mulesoft' => 'Integration',
+        'confluent' => 'Integration',
         'media' => 'Media Services',
         'migration' => 'Migration and Transfer',
         'transfer' => 'Migration and Transfer',
@@ -49,38 +103,46 @@ public class FinOpsFocusCategory {
     private static final Pattern INF_1_PRO_SERVICES = Pattern.compile(
         '(?i)(professional services|managed service|technical account|tam|consulting|implementation service|support plan|premier support|training workshop|advisory|pro services)'
     );
+    /** SAP / ERP + implementation or consulting → Professional Services (before generic ERP/compute). */
+    private static final Pattern INF_1B_SAP_IMPLEMENTATION = Pattern.compile(
+        '(?i)(sap|s4hana|s 4hana|hana enterprise|erp).*(implementation|consulting|advisory|professional service|migration project)|(implementation|consulting|advisory).*(sap|s4hana|s 4hana|hana enterprise|erp)'
+    );
     private static final Pattern INF_2_AI = Pattern.compile(
         '(?i)(bedrock|openai|vertex|genai|machine learning|\\bai\\b|inference|embedding|neural|model|token|ml )'
     );
     private static final Pattern INF_3_ANALYTICS = Pattern.compile(
-        '(?i)(analytics|bigquery|synapse|athena|data lake|warehouse|spark|big data)'
+        '(?i)(analytics|bigquery|synapse|athena|data lake|warehouse|spark|big data|databricks|snowflake|power bi|looker|quicksight|etl|dataflow)'
+    );
+    /** SAP HANA / S/4 on VM-style hosting → Compute (before Database catches “hana”). */
+    private static final Pattern INF_3B_SAP_COMPUTE = Pattern.compile(
+        '(?i)((sap hana|s4hana|s4 hana|sap netweaver).*(vm|virtual|instance|compute|hosting|infrastructure|hyperscaler)|\\b(sap|erp)\\b.*\\b(vm|virtual machine|instance|compute|hosting)\\b)'
     );
     private static final Pattern INF_4_DATABASE = Pattern.compile(
-        '(?i)(database|sql|nosql|rds|postgres|mysql|cosmos|spanner|redis|caching)'
+        '(?i)(database|sql|nosql|rds|postgres|mysql|cosmos|spanner|redis|caching|dynamodb|mongo|cassandra|elasticsearch|opensearch|\\bhana\\b)'
     );
     private static final Pattern INF_5_SECURITY = Pattern.compile(
-        '(?i)(security|iam|kms|waf|guardduty|sentinel|defender|siem|threat|key management)'
+        '(?i)(security|iam|kms|waf|guardduty|sentinel|defender|siem|threat|key management|secrets|certificate|sso|mfa|zero trust)'
     );
     private static final Pattern INF_6_INTEGRATION = Pattern.compile(
-        '(?i)(api gateway|service bus|event hub|event grid|pub\\.?sub|pubsub|messaging|queue|integration|workflow|orchestration|apim)'
+        '(?i)(api gateway|service bus|event hub|event grid|pub\\.?sub|pubsub|messaging|queue|integration|workflow|orchestration|apim|kafka|confluent|mulesoft)'
     );
     private static final Pattern INF_7_NETWORK = Pattern.compile(
-        '(?i)(network|vpc|vpn|dns|load balancer|cdn|egress|firewall|expressroute|interconnect|nat gateway)'
+        '(?i)(network|vpc|vpn|dns|load balancer|cdn|egress|firewall|expressroute|interconnect|nat gateway|service mesh|istio|linkerd|app mesh|peering|transit gateway|direct connect)'
     );
     private static final Pattern INF_8_STORAGE = Pattern.compile(
-        '(?i)(storage|object|bucket|archive|block|blob|volume|disk|s3 )'
+        '(?i)(storage|object|bucket|archive|block|blob|volume|disk|s3 |backup|snapshot|point in time)'
     );
     private static final Pattern INF_9_COMPUTE = Pattern.compile(
         '(?i)(compute|vm|virtual machine|instance|kubernetes|container|serverless|lambda|function|engine|ocpu)'
     );
     private static final Pattern INF_10_DEVOPS = Pattern.compile(
-        '(?i)(devops|developer|pipeline|artifact|repo|build|deploy)'
+        '(?i)(devops|developer|pipeline|artifact|repo|build|deploy|helm)'
     );
     private static final Pattern INF_11_GOV = Pattern.compile(
-        '(?i)(monitor|governance|policy|logging|observability|control tower)'
+        '(?i)(monitor|governance|policy|logging|observability|control tower|apm|tracing|grafana|datadog|new relic|prometheus|cost management|cloudhealth|finops|chargeback|cost explorer|cloudability|budget)'
     );
     private static final Pattern INF_12_MIGRATE = Pattern.compile(
-        '(?i)(migrate|migration|transfer|data movement)'
+        '(?i)(migrate|migration|transfer|data movement|disaster recovery|\\bdr\\b|geo replication|geo.?replication|cross.region replication)'
     );
     private static final Pattern INF_13_EUC = Pattern.compile(
         '(?i)(desktop|avd|virtual desktop|end user)'
@@ -195,11 +257,17 @@ public class FinOpsFocusCategory {
         if (INF_1_PRO_SERVICES.matcher(t).find()) {
             return 'Professional Services';
         }
+        if (INF_1B_SAP_IMPLEMENTATION.matcher(t).find()) {
+            return 'Professional Services';
+        }
         if (INF_2_AI.matcher(t).find()) {
             return 'AI and Machine Learning';
         }
         if (INF_3_ANALYTICS.matcher(t).find()) {
             return 'Analytics';
+        }
+        if (INF_3B_SAP_COMPUTE.matcher(t).find()) {
+            return 'Compute';
         }
         if (INF_4_DATABASE.matcher(t).find()) {
             return 'Database';

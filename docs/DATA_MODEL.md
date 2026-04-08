@@ -59,7 +59,7 @@ One row per **logical file** / snapshot: a combination of **month**, **CSP**, an
 
 Child of a **pricing** schema import. Diff logic keys rows by **`CSP__c` + `Catalog_Item_Number__c`** (case-normalized) within each month.
 
-Notable fields: `Title__c`, `CSO_Short_Name__c`, `Description__c` (long text), `List_Unit_Price__c`, `JWCC_Unit_Price__c`, `Pricing_Unit__c`, `JWCC_Unit_Of_Issue__c`, `Discount_Premium_Fee__c`, `Focus_Category__c`, `Service_Category__c`. On **bulk pricing CSV upload**, `Focus_Category__c` is populated by `FinOpsFocusCategory` (RosettaStone-aligned normalization + inference from text when needed); optional CSV column `category` maps to `Service_Category__c` and participates in that resolution.
+Notable fields: `Title__c`, `CSO_Short_Name__c`, `Description__c` (long text), `List_Unit_Price__c`, `JWCC_Unit_Price__c`, `Pricing_Unit__c`, `JWCC_Unit_Of_Issue__c`, `Discount_Premium_Fee__c`, `Focus_Category__c`, `Service_Category__c`. On **bulk pricing CSV upload**, `Focus_Category__c` is populated by `FinOpsFocusCategory` (RosettaStone-aligned normalization + inference from text when needed); optional CSV column `category` maps to `Service_Category__c` and participates in that resolution. The Apex class extends the stock RosettaStone-style map and regex list with additional CSP/vendor synonyms and inference patterns (storage backup/snapshot, DR-style migration, SAP consulting vs VM hosting, mesh/networking tokens, observability and cost-management tools) to reduce default `Other` when CSV focus fields are blank.
 
 ## `Exception_Item__c` — exception line
 
