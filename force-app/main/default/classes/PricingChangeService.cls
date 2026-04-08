@@ -74,52 +74,6 @@ public with sharing class PricingChangeService {
         return outMap;
     }
 
-    /**
-     * Latest pricing snapshot for one CSP and month (for import-time dedup vs prior month).
-     */
-    public static Map<String, PricingRowSnap> latestPricingForMonthAndCsp(String importMonth, String cspLower) {
-        Map<String, PricingRowSnap> outMap = new Map<String, PricingRowSnap>();
-        if (String.isBlank(importMonth) || String.isBlank(cspLower)) {
-            return outMap;
-        }
-        String csp = cspLower.toLowerCase().trim();
-
-        List<Pricing_Item__c> rows = [
-            SELECT
-                CSP__c,
-                Catalog_Item_Number__c,
-                Title__c,
-                List_Unit_Price__c,
-                JWCC_Unit_Price__c,
-                Discount_Premium_Fee__c,
-                Pricing_Unit__c,
-                JWCC_Unit_Of_Issue__c,
-                Catalog_Import__r.Import_Month__c,
-                Catalog_Import__r.Imported_At__c,
-                Catalog_Import__r.CreatedDate
-            FROM Pricing_Item__c
-            WHERE
-                CSP__c = :csp
-                AND Catalog_Import__r.Import_Month__c = :importMonth
-                AND Catalog_Import__r.Schema__c = 'pricing'
-            ORDER BY Catalog_Import__r.Imported_At__c DESC NULLS LAST, Catalog_Import__r.CreatedDate DESC, Id DESC
-        ];
-
-        for (Pricing_Item__c p : rows) {
-            String rowCsp = p.CSP__c != null ? p.CSP__c.toLowerCase() : '';
-            String cat = p.Catalog_Item_Number__c != null ? p.Catalog_Item_Number__c.trim() : '';
-            if (String.isBlank(cat)) {
-                continue;
-            }
-            String key = rowCsp + '|' + cat.toLowerCase();
-            if (outMap.containsKey(key)) {
-                continue;
-            }
-            outMap.put(key, snapFromPricingItem(p));
-        }
-        return outMap;
-    }
-
     public static PricingRowSnap snapFromPricingItem(Pricing_Item__c p) {
         PricingRowSnap s = new PricingRowSnap();
         s.catalogNum = p.Catalog_Item_Number__c != null ? p.Catalog_Item_Number__c.trim() : '';
@@ -130,20 +84,6 @@ public with sharing class PricingChangeService {
         s.commU = p.Pricing_Unit__c != null ? p.Pricing_Unit__c.trim() : '';
         s.title = p.Title__c;
         return s;
-    }
-
-    /**
-     * Same compared fields as compare() for "updated" — excludes title.
-     */
-    public static Boolean pricingSnapContentEquals(PricingRowSnap a, PricingRowSnap b) {
-        if (a == null || b == null) {
-            return false;
-        }
-        return decimalsEqual(a.jwccPric, b.jwccPric) &&
-            decimalsEqual(a.commPric, b.commPric) &&
-            a.disc == b.disc &&
-            a.jwccU == b.jwccU &&
-            a.commU == b.commU;
     }
 
     public static List<PricingChangeRow> compare(

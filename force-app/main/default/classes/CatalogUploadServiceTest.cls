@@ -244,7 +244,7 @@ private class CatalogUploadServiceTest {
     }
 
     @IsTest
-    static void processFile_pricing_skipsUnchangedWhenPriorMonthExists() {
+    static void processFile_pricing_insertsAllRowsWhenPriorMonthExists() {
         String csv =
             'Catalog_Item_Number__c,Title__c,List_Unit_Price__c,JWCC_Unit_Price__c\n' +
             'SKU-A,Alpha,1.25,1\n';
@@ -254,78 +254,14 @@ private class CatalogUploadServiceTest {
         );
         System.assertEquals(true, first.success, first.message + ' ' + first.errors);
         System.assertEquals(1, first.rowsInserted);
-        System.assertEquals(0, first.rowsSkippedUnchanged);
 
         CatalogUploadService.FileProcessResult second = CatalogUploadService.processFile(
             '2030-02_aws_pricing.csv',
             csv
         );
         System.assertEquals(true, second.success, second.message + ' ' + second.errors);
-        System.assertEquals(0, second.rowsInserted);
-        System.assertEquals(1, second.rowsSkippedUnchanged);
-        System.assert(second.message.contains('skipped'), second.message);
-        System.assert(second.message.contains('2030-01'), second.message);
+        System.assertEquals(1, second.rowsInserted);
         Catalog_Import__c h = [SELECT Row_Count__c FROM Catalog_Import__c WHERE Id = :second.catalogImportId];
-        System.assertEquals(0, h.Row_Count__c);
-
-        Map<String, PricingChangeService.PricingRowSnap> snapMap = PricingChangeService.latestPricingForMonthAndCsp(
-            '2030-01',
-            'aws'
-        );
-        System.assertEquals(1, snapMap.size());
-        System.assert(snapMap.containsKey('aws|sku-a'));
-    }
-
-    @IsTest
-    static void processFile_pricing_insertsOnlyChangedRowsVsPriorMonth() {
-        String csvJan =
-            'Catalog_Item_Number__c,Title__c,List_Unit_Price__c\n' +
-            'SKU-A,A,1\n' +
-            'SKU-B,B,2\n';
-        CatalogUploadService.FileProcessResult jan = CatalogUploadService.processFile(
-            '2030-05_gcp_pricing.csv',
-            csvJan
-        );
-        System.assertEquals(true, jan.success, jan.message);
-
-        String csvFeb =
-            'Catalog_Item_Number__c,Title__c,List_Unit_Price__c\n' +
-            'SKU-A,A,1\n' +
-            'SKU-B,B,2.5\n';
-        CatalogUploadService.FileProcessResult feb = CatalogUploadService.processFile(
-            '2030-06_gcp_pricing.csv',
-            csvFeb
-        );
-        System.assertEquals(true, feb.success, feb.message);
-        System.assertEquals(1, feb.rowsInserted);
-        System.assertEquals(1, feb.rowsSkippedUnchanged);
-    }
-
-    @IsTest
-    static void processFile_exceptions_skipsUnchangedWhenPriorMonthExists() {
-        String csv =
-            'Exception_Unique_Id__c,CSO_Short_Name__c,Impact_Level__c,Exception_Status__c\n' +
-            'EX-1,svc1,High,Open\n';
-        CatalogUploadService.FileProcessResult first = CatalogUploadService.processFile(
-            '2030-07_azure_exceptions.csv',
-            csv
-        );
-        System.assertEquals(true, first.success, first.message);
-        System.assertEquals(1, first.rowsInserted);
-
-        CatalogUploadService.FileProcessResult second = CatalogUploadService.processFile(
-            '2030-08_azure_exceptions.csv',
-            csv
-        );
-        System.assertEquals(true, second.success, second.message);
-        System.assertEquals(0, second.rowsInserted);
-        System.assertEquals(1, second.rowsSkippedUnchanged);
-
-        Map<String, ExceptionChangeService.ExceptionRowSnap> exMap = ExceptionChangeService.latestExceptionsForMonthAndCsp(
-            '2030-07',
-            'azure'
-        );
-        System.assertEquals(1, exMap.size());
-        System.assert(exMap.containsKey('azure|ex-1'));
+        System.assertEquals(1, h.Row_Count__c);
     }
 }

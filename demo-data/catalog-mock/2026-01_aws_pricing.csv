@@ -1,521 +1,997 @@
 ﻿Catalog_Item_Number__c,Title__c,CSO_Short_Name__c,Description__c,List_Unit_Price__c,Pricing_Unit__c,JWCC_Unit_Price__c,JWCC_Unit_Of_Issue__c,Discount_Premium_Fee__c
-DEMO-P-202601-00001,Mock AWS catalog line 1 - compute and storage blend,CSO-SVC-02,Demo description for pricing row 1; safe for POC uploads.,10.06,GB-Mo,8.8528,GB-Mo,Standard
-DEMO-P-202601-00002,Mock AWS catalog line 2 - compute and storage blend,CSO-SVC-03,Demo description for pricing row 2; safe for POC uploads.,10.13,Each,8.9144,Each,Standard
-DEMO-P-202601-00003,Mock AWS catalog line 3 - compute and storage blend,CSO-SVC-04,Demo description for pricing row 3; safe for POC uploads.,10.2,GB-Mo,8.976,GB-Mo,Standard
-DEMO-P-202601-00004,Mock AWS catalog line 4 - compute and storage blend,CSO-SVC-05,Demo description for pricing row 4; safe for POC uploads.,10.27,Each,9.0376,Each,Standard
-DEMO-P-202601-00005,Mock AWS catalog line 5 - compute and storage blend,CSO-SVC-06,Demo description for pricing row 5; safe for POC uploads.,10.34,GB-Mo,9.0992,GB-Mo,
-DEMO-P-202601-00006,Mock AWS catalog line 6 - compute and storage blend,CSO-SVC-07,Demo description for pricing row 6; safe for POC uploads.,10.41,Each,9.1608,Each,Standard
-DEMO-P-202601-00007,Mock AWS catalog line 7 - compute and storage blend,CSO-SVC-08,Demo description for pricing row 7; safe for POC uploads.,10.48,GB-Mo,9.2224,GB-Mo,Standard
-DEMO-P-202601-00008,Mock AWS catalog line 8 - compute and storage blend,CSO-SVC-09,Demo description for pricing row 8; safe for POC uploads.,10.55,Each,9.284,Each,Standard
-DEMO-P-202601-00009,Mock AWS catalog line 9 - compute and storage blend,CSO-SVC-10,Demo description for pricing row 9; safe for POC uploads.,10.62,GB-Mo,9.3456,GB-Mo,Standard
-DEMO-P-202601-00010,Mock AWS catalog line 10 - compute and storage blend,CSO-SVC-11,Demo description for pricing row 10; safe for POC uploads.,10.69,Each,9.4072,Each,
-DEMO-P-202601-00011,Mock AWS catalog line 11 - compute and storage blend,CSO-SVC-12,Demo description for pricing row 11; safe for POC uploads.,10.76,GB-Mo,9.4688,GB-Mo,Standard
-DEMO-P-202601-00012,Mock AWS catalog line 12 - compute and storage blend,CSO-SVC-13,Demo description for pricing row 12; safe for POC uploads.,10.83,Each,9.5304,Each,Standard
-DEMO-P-202601-00013,Mock AWS catalog line 13 - compute and storage blend,CSO-SVC-14,Demo description for pricing row 13; safe for POC uploads.,10.9,GB-Mo,9.592,GB-Mo,Standard
-DEMO-P-202601-00014,Mock AWS catalog line 14 - compute and storage blend,CSO-SVC-15,Demo description for pricing row 14; safe for POC uploads.,10.97,Each,9.6536,Each,Standard
-DEMO-P-202601-00015,Mock AWS catalog line 15 - compute and storage blend,CSO-SVC-16,Demo description for pricing row 15; safe for POC uploads.,11.04,GB-Mo,9.7152,GB-Mo,
-DEMO-P-202601-00016,Mock AWS catalog line 16 - compute and storage blend,CSO-SVC-17,Demo description for pricing row 16; safe for POC uploads.,11.11,Each,9.7768,Each,Standard
-DEMO-P-202601-00017,Mock AWS catalog line 17 - compute and storage blend,CSO-SVC-18,Demo description for pricing row 17; safe for POC uploads.,11.18,GB-Mo,9.8384,GB-Mo,Standard
-DEMO-P-202601-00018,Mock AWS catalog line 18 - compute and storage blend,CSO-SVC-19,Demo description for pricing row 18; safe for POC uploads.,11.25,Each,9.9,Each,Standard
-DEMO-P-202601-00019,Mock AWS catalog line 19 - compute and storage blend,CSO-SVC-20,Demo description for pricing row 19; safe for POC uploads.,11.32,GB-Mo,9.9616,GB-Mo,Standard
-DEMO-P-202601-00020,Mock AWS catalog line 20 - compute and storage blend,CSO-SVC-21,Demo description for pricing row 20; safe for POC uploads.,11.39,Each,10.0232,Each,
-DEMO-P-202601-00021,Mock AWS catalog line 21 - compute and storage blend,CSO-SVC-22,Demo description for pricing row 21; safe for POC uploads.,11.46,GB-Mo,10.0848,GB-Mo,Standard
-DEMO-P-202601-00022,Mock AWS catalog line 22 - compute and storage blend,CSO-SVC-23,Demo description for pricing row 22; safe for POC uploads.,11.53,Each,10.1464,Each,Standard
-DEMO-P-202601-00023,Mock AWS catalog line 23 - compute and storage blend,CSO-SVC-24,Demo description for pricing row 23; safe for POC uploads.,11.6,GB-Mo,10.208,GB-Mo,Standard
-DEMO-P-202601-00024,Mock AWS catalog line 24 - compute and storage blend,CSO-SVC-25,Demo description for pricing row 24; safe for POC uploads.,11.67,Each,10.2696,Each,Standard
-DEMO-P-202601-00025,Mock AWS catalog line 25 - compute and storage blend,CSO-SVC-26,Demo description for pricing row 25; safe for POC uploads.,11.74,GB-Mo,10.3312,GB-Mo,
-DEMO-P-202601-00026,Mock AWS catalog line 26 - compute and storage blend,CSO-SVC-27,Demo description for pricing row 26; safe for POC uploads.,11.81,Each,10.3928,Each,Standard
-DEMO-P-202601-00027,Mock AWS catalog line 27 - compute and storage blend,CSO-SVC-28,Demo description for pricing row 27; safe for POC uploads.,11.88,GB-Mo,10.4544,GB-Mo,Standard
-DEMO-P-202601-00028,Mock AWS catalog line 28 - compute and storage blend,CSO-SVC-29,Demo description for pricing row 28; safe for POC uploads.,11.95,Each,10.516,Each,Standard
-DEMO-P-202601-00029,Mock AWS catalog line 29 - compute and storage blend,CSO-SVC-30,Demo description for pricing row 29; safe for POC uploads.,12.02,GB-Mo,10.5776,GB-Mo,Standard
-DEMO-P-202601-00030,Mock AWS catalog line 30 - compute and storage blend,CSO-SVC-31,Demo description for pricing row 30; safe for POC uploads.,12.09,Each,10.6392,Each,
-DEMO-P-202601-00031,Mock AWS catalog line 31 - compute and storage blend,CSO-SVC-32,Demo description for pricing row 31; safe for POC uploads.,12.16,GB-Mo,10.7008,GB-Mo,Standard
-DEMO-P-202601-00032,Mock AWS catalog line 32 - compute and storage blend,CSO-SVC-33,Demo description for pricing row 32; safe for POC uploads.,12.23,Each,10.7624,Each,Standard
-DEMO-P-202601-00033,Mock AWS catalog line 33 - compute and storage blend,CSO-SVC-34,Demo description for pricing row 33; safe for POC uploads.,12.3,GB-Mo,10.824,GB-Mo,Standard
-DEMO-P-202601-00034,Mock AWS catalog line 34 - compute and storage blend,CSO-SVC-35,Demo description for pricing row 34; safe for POC uploads.,12.37,Each,10.8856,Each,Standard
-DEMO-P-202601-00035,Mock AWS catalog line 35 - compute and storage blend,CSO-SVC-36,Demo description for pricing row 35; safe for POC uploads.,12.44,GB-Mo,10.9472,GB-Mo,
-DEMO-P-202601-00036,Mock AWS catalog line 36 - compute and storage blend,CSO-SVC-37,Demo description for pricing row 36; safe for POC uploads.,12.51,Each,11.0088,Each,Standard
-DEMO-P-202601-00037,Mock AWS catalog line 37 - compute and storage blend,CSO-SVC-38,Demo description for pricing row 37; safe for POC uploads.,12.58,GB-Mo,11.0704,GB-Mo,Standard
-DEMO-P-202601-00038,Mock AWS catalog line 38 - compute and storage blend,CSO-SVC-39,Demo description for pricing row 38; safe for POC uploads.,12.65,Each,11.132,Each,Standard
-DEMO-P-202601-00039,Mock AWS catalog line 39 - compute and storage blend,CSO-SVC-40,Demo description for pricing row 39; safe for POC uploads.,12.72,GB-Mo,11.1936,GB-Mo,Standard
-DEMO-P-202601-00040,Mock AWS catalog line 40 - compute and storage blend,CSO-SVC-01,Demo description for pricing row 40; safe for POC uploads.,12.79,Each,11.2552,Each,
-DEMO-P-202601-00041,Mock AWS catalog line 41 - compute and storage blend,CSO-SVC-02,Demo description for pricing row 41; safe for POC uploads.,12.86,GB-Mo,11.3168,GB-Mo,Standard
-DEMO-P-202601-00042,Mock AWS catalog line 42 - compute and storage blend,CSO-SVC-03,Demo description for pricing row 42; safe for POC uploads.,12.93,Each,11.3784,Each,Standard
-DEMO-P-202601-00043,Mock AWS catalog line 43 - compute and storage blend,CSO-SVC-04,Demo description for pricing row 43; safe for POC uploads.,13,GB-Mo,11.44,GB-Mo,Standard
-DEMO-P-202601-00044,Mock AWS catalog line 44 - compute and storage blend,CSO-SVC-05,Demo description for pricing row 44; safe for POC uploads.,13.07,Each,11.5016,Each,Standard
-DEMO-P-202601-00045,Mock AWS catalog line 45 - compute and storage blend,CSO-SVC-06,Demo description for pricing row 45; safe for POC uploads.,13.14,GB-Mo,11.5632,GB-Mo,
-DEMO-P-202601-00046,Mock AWS catalog line 46 - compute and storage blend,CSO-SVC-07,Demo description for pricing row 46; safe for POC uploads.,13.21,Each,11.6248,Each,Standard
-DEMO-P-202601-00047,Mock AWS catalog line 47 - compute and storage blend,CSO-SVC-08,Demo description for pricing row 47; safe for POC uploads.,13.28,GB-Mo,11.6864,GB-Mo,Standard
-DEMO-P-202601-00048,Mock AWS catalog line 48 - compute and storage blend,CSO-SVC-09,Demo description for pricing row 48; safe for POC uploads.,13.35,Each,11.748,Each,Standard
-DEMO-P-202601-00049,Mock AWS catalog line 49 - compute and storage blend,CSO-SVC-10,Demo description for pricing row 49; safe for POC uploads.,13.42,GB-Mo,11.8096,GB-Mo,Standard
-DEMO-P-202601-00050,Mock AWS catalog line 50 - compute and storage blend,CSO-SVC-11,Demo description for pricing row 50; safe for POC uploads.,13.49,Each,11.8712,Each,
-DEMO-P-202601-00051,Mock AWS catalog line 51 - compute and storage blend,CSO-SVC-12,Demo description for pricing row 51; safe for POC uploads.,13.56,GB-Mo,11.9328,GB-Mo,Standard
-DEMO-P-202601-00052,Mock AWS catalog line 52 - compute and storage blend,CSO-SVC-13,Demo description for pricing row 52; safe for POC uploads.,13.63,Each,11.9944,Each,Standard
-DEMO-P-202601-00053,Mock AWS catalog line 53 - compute and storage blend,CSO-SVC-14,Demo description for pricing row 53; safe for POC uploads.,13.7,GB-Mo,12.056,GB-Mo,Standard
-DEMO-P-202601-00054,Mock AWS catalog line 54 - compute and storage blend,CSO-SVC-15,Demo description for pricing row 54; safe for POC uploads.,13.77,Each,12.1176,Each,Standard
-DEMO-P-202601-00055,Mock AWS catalog line 55 - compute and storage blend,CSO-SVC-16,Demo description for pricing row 55; safe for POC uploads.,13.84,GB-Mo,12.1792,GB-Mo,
-DEMO-P-202601-00056,Mock AWS catalog line 56 - compute and storage blend,CSO-SVC-17,Demo description for pricing row 56; safe for POC uploads.,13.91,Each,12.2408,Each,Standard
-DEMO-P-202601-00057,Mock AWS catalog line 57 - compute and storage blend,CSO-SVC-18,Demo description for pricing row 57; safe for POC uploads.,13.98,GB-Mo,12.3024,GB-Mo,Standard
-DEMO-P-202601-00058,Mock AWS catalog line 58 - compute and storage blend,CSO-SVC-19,Demo description for pricing row 58; safe for POC uploads.,14.05,Each,12.364,Each,Standard
-DEMO-P-202601-00059,Mock AWS catalog line 59 - compute and storage blend,CSO-SVC-20,Demo description for pricing row 59; safe for POC uploads.,14.12,GB-Mo,12.4256,GB-Mo,Standard
-DEMO-P-202601-00060,Mock AWS catalog line 60 - compute and storage blend,CSO-SVC-21,Demo description for pricing row 60; safe for POC uploads.,14.19,Each,12.4872,Each,
-DEMO-P-202601-00061,Mock AWS catalog line 61 - compute and storage blend,CSO-SVC-22,Demo description for pricing row 61; safe for POC uploads.,14.26,GB-Mo,12.5488,GB-Mo,Standard
-DEMO-P-202601-00062,Mock AWS catalog line 62 - compute and storage blend,CSO-SVC-23,Demo description for pricing row 62; safe for POC uploads.,14.33,Each,12.6104,Each,Standard
-DEMO-P-202601-00063,Mock AWS catalog line 63 - compute and storage blend,CSO-SVC-24,Demo description for pricing row 63; safe for POC uploads.,14.4,GB-Mo,12.672,GB-Mo,Standard
-DEMO-P-202601-00064,Mock AWS catalog line 64 - compute and storage blend,CSO-SVC-25,Demo description for pricing row 64; safe for POC uploads.,14.47,Each,12.7336,Each,Standard
-DEMO-P-202601-00065,Mock AWS catalog line 65 - compute and storage blend,CSO-SVC-26,Demo description for pricing row 65; safe for POC uploads.,14.54,GB-Mo,12.7952,GB-Mo,
-DEMO-P-202601-00066,Mock AWS catalog line 66 - compute and storage blend,CSO-SVC-27,Demo description for pricing row 66; safe for POC uploads.,14.61,Each,12.8568,Each,Standard
-DEMO-P-202601-00067,Mock AWS catalog line 67 - compute and storage blend,CSO-SVC-28,Demo description for pricing row 67; safe for POC uploads.,14.68,GB-Mo,12.9184,GB-Mo,Standard
-DEMO-P-202601-00068,Mock AWS catalog line 68 - compute and storage blend,CSO-SVC-29,Demo description for pricing row 68; safe for POC uploads.,14.75,Each,12.98,Each,Standard
-DEMO-P-202601-00069,Mock AWS catalog line 69 - compute and storage blend,CSO-SVC-30,Demo description for pricing row 69; safe for POC uploads.,14.82,GB-Mo,13.0416,GB-Mo,Standard
-DEMO-P-202601-00070,Mock AWS catalog line 70 - compute and storage blend,CSO-SVC-31,Demo description for pricing row 70; safe for POC uploads.,14.89,Each,13.1032,Each,
-DEMO-P-202601-00071,Mock AWS catalog line 71 - compute and storage blend,CSO-SVC-32,Demo description for pricing row 71; safe for POC uploads.,14.96,GB-Mo,13.1648,GB-Mo,Standard
-DEMO-P-202601-00072,Mock AWS catalog line 72 - compute and storage blend,CSO-SVC-33,Demo description for pricing row 72; safe for POC uploads.,15.03,Each,13.2264,Each,Standard
-DEMO-P-202601-00073,Mock AWS catalog line 73 - compute and storage blend,CSO-SVC-34,Demo description for pricing row 73; safe for POC uploads.,15.1,GB-Mo,13.288,GB-Mo,Standard
-DEMO-P-202601-00074,Mock AWS catalog line 74 - compute and storage blend,CSO-SVC-35,Demo description for pricing row 74; safe for POC uploads.,15.17,Each,13.3496,Each,Standard
-DEMO-P-202601-00075,Mock AWS catalog line 75 - compute and storage blend,CSO-SVC-36,Demo description for pricing row 75; safe for POC uploads.,15.24,GB-Mo,13.4112,GB-Mo,
-DEMO-P-202601-00076,Mock AWS catalog line 76 - compute and storage blend,CSO-SVC-37,Demo description for pricing row 76; safe for POC uploads.,15.31,Each,13.4728,Each,Standard
-DEMO-P-202601-00077,Mock AWS catalog line 77 - compute and storage blend,CSO-SVC-38,Demo description for pricing row 77; safe for POC uploads.,15.38,GB-Mo,13.5344,GB-Mo,Standard
-DEMO-P-202601-00078,Mock AWS catalog line 78 - compute and storage blend,CSO-SVC-39,Demo description for pricing row 78; safe for POC uploads.,15.45,Each,13.596,Each,Standard
-DEMO-P-202601-00079,Mock AWS catalog line 79 - compute and storage blend,CSO-SVC-40,Demo description for pricing row 79; safe for POC uploads.,15.52,GB-Mo,13.6576,GB-Mo,Standard
-DEMO-P-202601-00080,Mock AWS catalog line 80 - compute and storage blend,CSO-SVC-01,Demo description for pricing row 80; safe for POC uploads.,15.59,Each,13.7192,Each,
-DEMO-P-202601-00081,Mock AWS catalog line 81 - compute and storage blend,CSO-SVC-02,Demo description for pricing row 81; safe for POC uploads.,15.66,GB-Mo,13.7808,GB-Mo,Standard
-DEMO-P-202601-00082,Mock AWS catalog line 82 - compute and storage blend,CSO-SVC-03,Demo description for pricing row 82; safe for POC uploads.,15.73,Each,13.8424,Each,Standard
-DEMO-P-202601-00083,Mock AWS catalog line 83 - compute and storage blend,CSO-SVC-04,Demo description for pricing row 83; safe for POC uploads.,15.8,GB-Mo,13.904,GB-Mo,Standard
-DEMO-P-202601-00084,Mock AWS catalog line 84 - compute and storage blend,CSO-SVC-05,Demo description for pricing row 84; safe for POC uploads.,15.87,Each,13.9656,Each,Standard
-DEMO-P-202601-00085,Mock AWS catalog line 85 - compute and storage blend,CSO-SVC-06,Demo description for pricing row 85; safe for POC uploads.,15.94,GB-Mo,14.0272,GB-Mo,
-DEMO-P-202601-00086,Mock AWS catalog line 86 - compute and storage blend,CSO-SVC-07,Demo description for pricing row 86; safe for POC uploads.,16.01,Each,14.0888,Each,Standard
-DEMO-P-202601-00087,Mock AWS catalog line 87 - compute and storage blend,CSO-SVC-08,Demo description for pricing row 87; safe for POC uploads.,16.08,GB-Mo,14.1504,GB-Mo,Standard
-DEMO-P-202601-00088,Mock AWS catalog line 88 - compute and storage blend,CSO-SVC-09,Demo description for pricing row 88; safe for POC uploads.,16.15,Each,14.212,Each,Standard
-DEMO-P-202601-00089,Mock AWS catalog line 89 - compute and storage blend,CSO-SVC-10,Demo description for pricing row 89; safe for POC uploads.,16.22,GB-Mo,14.2736,GB-Mo,Standard
-DEMO-P-202601-00090,Mock AWS catalog line 90 - compute and storage blend,CSO-SVC-11,Demo description for pricing row 90; safe for POC uploads.,16.29,Each,14.3352,Each,
-DEMO-P-202601-00091,Mock AWS catalog line 91 - compute and storage blend,CSO-SVC-12,Demo description for pricing row 91; safe for POC uploads.,16.36,GB-Mo,14.3968,GB-Mo,Standard
-DEMO-P-202601-00092,Mock AWS catalog line 92 - compute and storage blend,CSO-SVC-13,Demo description for pricing row 92; safe for POC uploads.,16.43,Each,14.4584,Each,Standard
-DEMO-P-202601-00093,Mock AWS catalog line 93 - compute and storage blend,CSO-SVC-14,Demo description for pricing row 93; safe for POC uploads.,16.5,GB-Mo,14.52,GB-Mo,Standard
-DEMO-P-202601-00094,Mock AWS catalog line 94 - compute and storage blend,CSO-SVC-15,Demo description for pricing row 94; safe for POC uploads.,16.57,Each,14.5816,Each,Standard
-DEMO-P-202601-00095,Mock AWS catalog line 95 - compute and storage blend,CSO-SVC-16,Demo description for pricing row 95; safe for POC uploads.,16.64,GB-Mo,14.6432,GB-Mo,
-DEMO-P-202601-00096,Mock AWS catalog line 96 - compute and storage blend,CSO-SVC-17,Demo description for pricing row 96; safe for POC uploads.,16.71,Each,14.7048,Each,Standard
-DEMO-P-202601-00097,Mock AWS catalog line 97 - compute and storage blend,CSO-SVC-18,Demo description for pricing row 97; safe for POC uploads.,16.78,GB-Mo,14.7664,GB-Mo,Standard
-DEMO-P-202601-00098,Mock AWS catalog line 98 - compute and storage blend,CSO-SVC-19,Demo description for pricing row 98; safe for POC uploads.,16.85,Each,14.828,Each,Standard
-DEMO-P-202601-00099,Mock AWS catalog line 99 - compute and storage blend,CSO-SVC-20,Demo description for pricing row 99; safe for POC uploads.,16.92,GB-Mo,14.8896,GB-Mo,Standard
-DEMO-P-202601-00100,Mock AWS catalog line 100 - compute and storage blend,CSO-SVC-21,Demo description for pricing row 100; safe for POC uploads.,16.99,Each,14.9512,Each,
-DEMO-P-202601-00101,Mock AWS catalog line 101 - compute and storage blend,CSO-SVC-22,Demo description for pricing row 101; safe for POC uploads.,17.06,GB-Mo,15.0128,GB-Mo,Standard
-DEMO-P-202601-00102,Mock AWS catalog line 102 - compute and storage blend,CSO-SVC-23,Demo description for pricing row 102; safe for POC uploads.,17.13,Each,15.0744,Each,Standard
-DEMO-P-202601-00103,Mock AWS catalog line 103 - compute and storage blend,CSO-SVC-24,Demo description for pricing row 103; safe for POC uploads.,17.2,GB-Mo,15.136,GB-Mo,Standard
-DEMO-P-202601-00104,Mock AWS catalog line 104 - compute and storage blend,CSO-SVC-25,Demo description for pricing row 104; safe for POC uploads.,17.27,Each,15.1976,Each,Standard
-DEMO-P-202601-00105,Mock AWS catalog line 105 - compute and storage blend,CSO-SVC-26,Demo description for pricing row 105; safe for POC uploads.,17.34,GB-Mo,15.2592,GB-Mo,
-DEMO-P-202601-00106,Mock AWS catalog line 106 - compute and storage blend,CSO-SVC-27,Demo description for pricing row 106; safe for POC uploads.,17.41,Each,15.3208,Each,Standard
-DEMO-P-202601-00107,Mock AWS catalog line 107 - compute and storage blend,CSO-SVC-28,Demo description for pricing row 107; safe for POC uploads.,17.48,GB-Mo,15.3824,GB-Mo,Standard
-DEMO-P-202601-00108,Mock AWS catalog line 108 - compute and storage blend,CSO-SVC-29,Demo description for pricing row 108; safe for POC uploads.,17.55,Each,15.444,Each,Standard
-DEMO-P-202601-00109,Mock AWS catalog line 109 - compute and storage blend,CSO-SVC-30,Demo description for pricing row 109; safe for POC uploads.,17.62,GB-Mo,15.5056,GB-Mo,Standard
-DEMO-P-202601-00110,Mock AWS catalog line 110 - compute and storage blend,CSO-SVC-31,Demo description for pricing row 110; safe for POC uploads.,17.69,Each,15.5672,Each,
-DEMO-P-202601-00111,Mock AWS catalog line 111 - compute and storage blend,CSO-SVC-32,Demo description for pricing row 111; safe for POC uploads.,17.76,GB-Mo,15.6288,GB-Mo,Standard
-DEMO-P-202601-00112,Mock AWS catalog line 112 - compute and storage blend,CSO-SVC-33,Demo description for pricing row 112; safe for POC uploads.,17.83,Each,15.6904,Each,Standard
-DEMO-P-202601-00113,Mock AWS catalog line 113 - compute and storage blend,CSO-SVC-34,Demo description for pricing row 113; safe for POC uploads.,17.9,GB-Mo,15.752,GB-Mo,Standard
-DEMO-P-202601-00114,Mock AWS catalog line 114 - compute and storage blend,CSO-SVC-35,Demo description for pricing row 114; safe for POC uploads.,17.97,Each,15.8136,Each,Standard
-DEMO-P-202601-00115,Mock AWS catalog line 115 - compute and storage blend,CSO-SVC-36,Demo description for pricing row 115; safe for POC uploads.,18.04,GB-Mo,15.8752,GB-Mo,
-DEMO-P-202601-00116,Mock AWS catalog line 116 - compute and storage blend,CSO-SVC-37,Demo description for pricing row 116; safe for POC uploads.,18.11,Each,15.9368,Each,Standard
-DEMO-P-202601-00117,Mock AWS catalog line 117 - compute and storage blend,CSO-SVC-38,Demo description for pricing row 117; safe for POC uploads.,18.18,GB-Mo,15.9984,GB-Mo,Standard
-DEMO-P-202601-00118,Mock AWS catalog line 118 - compute and storage blend,CSO-SVC-39,Demo description for pricing row 118; safe for POC uploads.,18.25,Each,16.06,Each,Standard
-DEMO-P-202601-00119,Mock AWS catalog line 119 - compute and storage blend,CSO-SVC-40,Demo description for pricing row 119; safe for POC uploads.,18.32,GB-Mo,16.1216,GB-Mo,Standard
-DEMO-P-202601-00120,Mock AWS catalog line 120 - compute and storage blend,CSO-SVC-01,Demo description for pricing row 120; safe for POC uploads.,18.39,Each,16.1832,Each,
-DEMO-P-202601-00121,Mock AWS catalog line 121 - compute and storage blend,CSO-SVC-02,Demo description for pricing row 121; safe for POC uploads.,18.46,GB-Mo,16.2448,GB-Mo,Standard
-DEMO-P-202601-00122,Mock AWS catalog line 122 - compute and storage blend,CSO-SVC-03,Demo description for pricing row 122; safe for POC uploads.,18.53,Each,16.3064,Each,Standard
-DEMO-P-202601-00123,Mock AWS catalog line 123 - compute and storage blend,CSO-SVC-04,Demo description for pricing row 123; safe for POC uploads.,18.6,GB-Mo,16.368,GB-Mo,Standard
-DEMO-P-202601-00124,Mock AWS catalog line 124 - compute and storage blend,CSO-SVC-05,Demo description for pricing row 124; safe for POC uploads.,18.67,Each,16.4296,Each,Standard
-DEMO-P-202601-00125,Mock AWS catalog line 125 - compute and storage blend,CSO-SVC-06,Demo description for pricing row 125; safe for POC uploads.,18.74,GB-Mo,16.4912,GB-Mo,
-DEMO-P-202601-00126,Mock AWS catalog line 126 - compute and storage blend,CSO-SVC-07,Demo description for pricing row 126; safe for POC uploads.,18.81,Each,16.5528,Each,Standard
-DEMO-P-202601-00127,Mock AWS catalog line 127 - compute and storage blend,CSO-SVC-08,Demo description for pricing row 127; safe for POC uploads.,18.88,GB-Mo,16.6144,GB-Mo,Standard
-DEMO-P-202601-00128,Mock AWS catalog line 128 - compute and storage blend,CSO-SVC-09,Demo description for pricing row 128; safe for POC uploads.,18.95,Each,16.676,Each,Standard
-DEMO-P-202601-00129,Mock AWS catalog line 129 - compute and storage blend,CSO-SVC-10,Demo description for pricing row 129; safe for POC uploads.,19.02,GB-Mo,16.7376,GB-Mo,Standard
-DEMO-P-202601-00130,Mock AWS catalog line 130 - compute and storage blend,CSO-SVC-11,Demo description for pricing row 130; safe for POC uploads.,19.09,Each,16.7992,Each,
-DEMO-P-202601-00131,Mock AWS catalog line 131 - compute and storage blend,CSO-SVC-12,Demo description for pricing row 131; safe for POC uploads.,19.16,GB-Mo,16.8608,GB-Mo,Standard
-DEMO-P-202601-00132,Mock AWS catalog line 132 - compute and storage blend,CSO-SVC-13,Demo description for pricing row 132; safe for POC uploads.,19.23,Each,16.9224,Each,Standard
-DEMO-P-202601-00133,Mock AWS catalog line 133 - compute and storage blend,CSO-SVC-14,Demo description for pricing row 133; safe for POC uploads.,19.3,GB-Mo,16.984,GB-Mo,Standard
-DEMO-P-202601-00134,Mock AWS catalog line 134 - compute and storage blend,CSO-SVC-15,Demo description for pricing row 134; safe for POC uploads.,19.37,Each,17.0456,Each,Standard
-DEMO-P-202601-00135,Mock AWS catalog line 135 - compute and storage blend,CSO-SVC-16,Demo description for pricing row 135; safe for POC uploads.,19.44,GB-Mo,17.1072,GB-Mo,
-DEMO-P-202601-00136,Mock AWS catalog line 136 - compute and storage blend,CSO-SVC-17,Demo description for pricing row 136; safe for POC uploads.,19.51,Each,17.1688,Each,Standard
-DEMO-P-202601-00137,Mock AWS catalog line 137 - compute and storage blend,CSO-SVC-18,Demo description for pricing row 137; safe for POC uploads.,19.58,GB-Mo,17.2304,GB-Mo,Standard
-DEMO-P-202601-00138,Mock AWS catalog line 138 - compute and storage blend,CSO-SVC-19,Demo description for pricing row 138; safe for POC uploads.,19.65,Each,17.292,Each,Standard
-DEMO-P-202601-00139,Mock AWS catalog line 139 - compute and storage blend,CSO-SVC-20,Demo description for pricing row 139; safe for POC uploads.,19.72,GB-Mo,17.3536,GB-Mo,Standard
-DEMO-P-202601-00140,Mock AWS catalog line 140 - compute and storage blend,CSO-SVC-21,Demo description for pricing row 140; safe for POC uploads.,19.79,Each,17.4152,Each,
-DEMO-P-202601-00141,Mock AWS catalog line 141 - compute and storage blend,CSO-SVC-22,Demo description for pricing row 141; safe for POC uploads.,19.86,GB-Mo,17.4768,GB-Mo,Standard
-DEMO-P-202601-00142,Mock AWS catalog line 142 - compute and storage blend,CSO-SVC-23,Demo description for pricing row 142; safe for POC uploads.,19.93,Each,17.5384,Each,Standard
-DEMO-P-202601-00143,Mock AWS catalog line 143 - compute and storage blend,CSO-SVC-24,Demo description for pricing row 143; safe for POC uploads.,20,GB-Mo,17.6,GB-Mo,Standard
-DEMO-P-202601-00144,Mock AWS catalog line 144 - compute and storage blend,CSO-SVC-25,Demo description for pricing row 144; safe for POC uploads.,20.07,Each,17.6616,Each,Standard
-DEMO-P-202601-00145,Mock AWS catalog line 145 - compute and storage blend,CSO-SVC-26,Demo description for pricing row 145; safe for POC uploads.,20.14,GB-Mo,17.7232,GB-Mo,
-DEMO-P-202601-00146,Mock AWS catalog line 146 - compute and storage blend,CSO-SVC-27,Demo description for pricing row 146; safe for POC uploads.,20.21,Each,17.7848,Each,Standard
-DEMO-P-202601-00147,Mock AWS catalog line 147 - compute and storage blend,CSO-SVC-28,Demo description for pricing row 147; safe for POC uploads.,20.28,GB-Mo,17.8464,GB-Mo,Standard
-DEMO-P-202601-00148,Mock AWS catalog line 148 - compute and storage blend,CSO-SVC-29,Demo description for pricing row 148; safe for POC uploads.,20.35,Each,17.908,Each,Standard
-DEMO-P-202601-00149,Mock AWS catalog line 149 - compute and storage blend,CSO-SVC-30,Demo description for pricing row 149; safe for POC uploads.,20.42,GB-Mo,17.9696,GB-Mo,Standard
-DEMO-P-202601-00150,Mock AWS catalog line 150 - compute and storage blend,CSO-SVC-31,Demo description for pricing row 150; safe for POC uploads.,20.49,Each,18.0312,Each,
-DEMO-P-202601-00151,Mock AWS catalog line 151 - compute and storage blend,CSO-SVC-32,Demo description for pricing row 151; safe for POC uploads.,20.56,GB-Mo,18.0928,GB-Mo,Standard
-DEMO-P-202601-00152,Mock AWS catalog line 152 - compute and storage blend,CSO-SVC-33,Demo description for pricing row 152; safe for POC uploads.,20.63,Each,18.1544,Each,Standard
-DEMO-P-202601-00153,Mock AWS catalog line 153 - compute and storage blend,CSO-SVC-34,Demo description for pricing row 153; safe for POC uploads.,20.7,GB-Mo,18.216,GB-Mo,Standard
-DEMO-P-202601-00154,Mock AWS catalog line 154 - compute and storage blend,CSO-SVC-35,Demo description for pricing row 154; safe for POC uploads.,20.77,Each,18.2776,Each,Standard
-DEMO-P-202601-00155,Mock AWS catalog line 155 - compute and storage blend,CSO-SVC-36,Demo description for pricing row 155; safe for POC uploads.,20.84,GB-Mo,18.3392,GB-Mo,
-DEMO-P-202601-00156,Mock AWS catalog line 156 - compute and storage blend,CSO-SVC-37,Demo description for pricing row 156; safe for POC uploads.,20.91,Each,18.4008,Each,Standard
-DEMO-P-202601-00157,Mock AWS catalog line 157 - compute and storage blend,CSO-SVC-38,Demo description for pricing row 157; safe for POC uploads.,20.98,GB-Mo,18.4624,GB-Mo,Standard
-DEMO-P-202601-00158,Mock AWS catalog line 158 - compute and storage blend,CSO-SVC-39,Demo description for pricing row 158; safe for POC uploads.,21.05,Each,18.524,Each,Standard
-DEMO-P-202601-00159,Mock AWS catalog line 159 - compute and storage blend,CSO-SVC-40,Demo description for pricing row 159; safe for POC uploads.,21.12,GB-Mo,18.5856,GB-Mo,Standard
-DEMO-P-202601-00160,Mock AWS catalog line 160 - compute and storage blend,CSO-SVC-01,Demo description for pricing row 160; safe for POC uploads.,21.19,Each,18.6472,Each,
-DEMO-P-202601-00161,Mock AWS catalog line 161 - compute and storage blend,CSO-SVC-02,Demo description for pricing row 161; safe for POC uploads.,21.26,GB-Mo,18.7088,GB-Mo,Standard
-DEMO-P-202601-00162,Mock AWS catalog line 162 - compute and storage blend,CSO-SVC-03,Demo description for pricing row 162; safe for POC uploads.,21.33,Each,18.7704,Each,Standard
-DEMO-P-202601-00163,Mock AWS catalog line 163 - compute and storage blend,CSO-SVC-04,Demo description for pricing row 163; safe for POC uploads.,21.4,GB-Mo,18.832,GB-Mo,Standard
-DEMO-P-202601-00164,Mock AWS catalog line 164 - compute and storage blend,CSO-SVC-05,Demo description for pricing row 164; safe for POC uploads.,21.47,Each,18.8936,Each,Standard
-DEMO-P-202601-00165,Mock AWS catalog line 165 - compute and storage blend,CSO-SVC-06,Demo description for pricing row 165; safe for POC uploads.,21.54,GB-Mo,18.9552,GB-Mo,
-DEMO-P-202601-00166,Mock AWS catalog line 166 - compute and storage blend,CSO-SVC-07,Demo description for pricing row 166; safe for POC uploads.,21.61,Each,19.0168,Each,Standard
-DEMO-P-202601-00167,Mock AWS catalog line 167 - compute and storage blend,CSO-SVC-08,Demo description for pricing row 167; safe for POC uploads.,21.68,GB-Mo,19.0784,GB-Mo,Standard
-DEMO-P-202601-00168,Mock AWS catalog line 168 - compute and storage blend,CSO-SVC-09,Demo description for pricing row 168; safe for POC uploads.,21.75,Each,19.14,Each,Standard
-DEMO-P-202601-00169,Mock AWS catalog line 169 - compute and storage blend,CSO-SVC-10,Demo description for pricing row 169; safe for POC uploads.,21.82,GB-Mo,19.2016,GB-Mo,Standard
-DEMO-P-202601-00170,Mock AWS catalog line 170 - compute and storage blend,CSO-SVC-11,Demo description for pricing row 170; safe for POC uploads.,21.89,Each,19.2632,Each,
-DEMO-P-202601-00171,Mock AWS catalog line 171 - compute and storage blend,CSO-SVC-12,Demo description for pricing row 171; safe for POC uploads.,21.96,GB-Mo,19.3248,GB-Mo,Standard
-DEMO-P-202601-00172,Mock AWS catalog line 172 - compute and storage blend,CSO-SVC-13,Demo description for pricing row 172; safe for POC uploads.,22.03,Each,19.3864,Each,Standard
-DEMO-P-202601-00173,Mock AWS catalog line 173 - compute and storage blend,CSO-SVC-14,Demo description for pricing row 173; safe for POC uploads.,22.1,GB-Mo,19.448,GB-Mo,Standard
-DEMO-P-202601-00174,Mock AWS catalog line 174 - compute and storage blend,CSO-SVC-15,Demo description for pricing row 174; safe for POC uploads.,22.17,Each,19.5096,Each,Standard
-DEMO-P-202601-00175,Mock AWS catalog line 175 - compute and storage blend,CSO-SVC-16,Demo description for pricing row 175; safe for POC uploads.,22.24,GB-Mo,19.5712,GB-Mo,
-DEMO-P-202601-00176,Mock AWS catalog line 176 - compute and storage blend,CSO-SVC-17,Demo description for pricing row 176; safe for POC uploads.,22.31,Each,19.6328,Each,Standard
-DEMO-P-202601-00177,Mock AWS catalog line 177 - compute and storage blend,CSO-SVC-18,Demo description for pricing row 177; safe for POC uploads.,22.38,GB-Mo,19.6944,GB-Mo,Standard
-DEMO-P-202601-00178,Mock AWS catalog line 178 - compute and storage blend,CSO-SVC-19,Demo description for pricing row 178; safe for POC uploads.,22.45,Each,19.756,Each,Standard
-DEMO-P-202601-00179,Mock AWS catalog line 179 - compute and storage blend,CSO-SVC-20,Demo description for pricing row 179; safe for POC uploads.,22.52,GB-Mo,19.8176,GB-Mo,Standard
-DEMO-P-202601-00180,Mock AWS catalog line 180 - compute and storage blend,CSO-SVC-21,Demo description for pricing row 180; safe for POC uploads.,22.59,Each,19.8792,Each,
-DEMO-P-202601-00181,Mock AWS catalog line 181 - compute and storage blend,CSO-SVC-22,Demo description for pricing row 181; safe for POC uploads.,22.66,GB-Mo,19.9408,GB-Mo,Standard
-DEMO-P-202601-00182,Mock AWS catalog line 182 - compute and storage blend,CSO-SVC-23,Demo description for pricing row 182; safe for POC uploads.,22.73,Each,20.0024,Each,Standard
-DEMO-P-202601-00183,Mock AWS catalog line 183 - compute and storage blend,CSO-SVC-24,Demo description for pricing row 183; safe for POC uploads.,22.8,GB-Mo,20.064,GB-Mo,Standard
-DEMO-P-202601-00184,Mock AWS catalog line 184 - compute and storage blend,CSO-SVC-25,Demo description for pricing row 184; safe for POC uploads.,22.87,Each,20.1256,Each,Standard
-DEMO-P-202601-00185,Mock AWS catalog line 185 - compute and storage blend,CSO-SVC-26,Demo description for pricing row 185; safe for POC uploads.,22.94,GB-Mo,20.1872,GB-Mo,
-DEMO-P-202601-00186,Mock AWS catalog line 186 - compute and storage blend,CSO-SVC-27,Demo description for pricing row 186; safe for POC uploads.,23.01,Each,20.2488,Each,Standard
-DEMO-P-202601-00187,Mock AWS catalog line 187 - compute and storage blend,CSO-SVC-28,Demo description for pricing row 187; safe for POC uploads.,23.08,GB-Mo,20.3104,GB-Mo,Standard
-DEMO-P-202601-00188,Mock AWS catalog line 188 - compute and storage blend,CSO-SVC-29,Demo description for pricing row 188; safe for POC uploads.,23.15,Each,20.372,Each,Standard
-DEMO-P-202601-00189,Mock AWS catalog line 189 - compute and storage blend,CSO-SVC-30,Demo description for pricing row 189; safe for POC uploads.,23.22,GB-Mo,20.4336,GB-Mo,Standard
-DEMO-P-202601-00190,Mock AWS catalog line 190 - compute and storage blend,CSO-SVC-31,Demo description for pricing row 190; safe for POC uploads.,23.29,Each,20.4952,Each,
-DEMO-P-202601-00191,Mock AWS catalog line 191 - compute and storage blend,CSO-SVC-32,Demo description for pricing row 191; safe for POC uploads.,23.36,GB-Mo,20.5568,GB-Mo,Standard
-DEMO-P-202601-00192,Mock AWS catalog line 192 - compute and storage blend,CSO-SVC-33,Demo description for pricing row 192; safe for POC uploads.,23.43,Each,20.6184,Each,Standard
-DEMO-P-202601-00193,Mock AWS catalog line 193 - compute and storage blend,CSO-SVC-34,Demo description for pricing row 193; safe for POC uploads.,23.5,GB-Mo,20.68,GB-Mo,Standard
-DEMO-P-202601-00194,Mock AWS catalog line 194 - compute and storage blend,CSO-SVC-35,Demo description for pricing row 194; safe for POC uploads.,23.57,Each,20.7416,Each,Standard
-DEMO-P-202601-00195,Mock AWS catalog line 195 - compute and storage blend,CSO-SVC-36,Demo description for pricing row 195; safe for POC uploads.,23.64,GB-Mo,20.8032,GB-Mo,
-DEMO-P-202601-00196,Mock AWS catalog line 196 - compute and storage blend,CSO-SVC-37,Demo description for pricing row 196; safe for POC uploads.,23.71,Each,20.8648,Each,Standard
-DEMO-P-202601-00197,Mock AWS catalog line 197 - compute and storage blend,CSO-SVC-38,Demo description for pricing row 197; safe for POC uploads.,23.78,GB-Mo,20.9264,GB-Mo,Standard
-DEMO-P-202601-00198,Mock AWS catalog line 198 - compute and storage blend,CSO-SVC-39,Demo description for pricing row 198; safe for POC uploads.,23.85,Each,20.988,Each,Standard
-DEMO-P-202601-00199,Mock AWS catalog line 199 - compute and storage blend,CSO-SVC-40,Demo description for pricing row 199; safe for POC uploads.,23.92,GB-Mo,21.0496,GB-Mo,Standard
-DEMO-P-202601-00200,Mock AWS catalog line 200 - compute and storage blend,CSO-SVC-01,Demo description for pricing row 200; safe for POC uploads.,23.99,Each,21.1112,Each,
-DEMO-P-202601-00201,Mock AWS catalog line 201 - compute and storage blend,CSO-SVC-02,Demo description for pricing row 201; safe for POC uploads.,24.06,GB-Mo,21.1728,GB-Mo,Standard
-DEMO-P-202601-00202,Mock AWS catalog line 202 - compute and storage blend,CSO-SVC-03,Demo description for pricing row 202; safe for POC uploads.,24.13,Each,21.2344,Each,Standard
-DEMO-P-202601-00203,Mock AWS catalog line 203 - compute and storage blend,CSO-SVC-04,Demo description for pricing row 203; safe for POC uploads.,24.2,GB-Mo,21.296,GB-Mo,Standard
-DEMO-P-202601-00204,Mock AWS catalog line 204 - compute and storage blend,CSO-SVC-05,Demo description for pricing row 204; safe for POC uploads.,24.27,Each,21.3576,Each,Standard
-DEMO-P-202601-00205,Mock AWS catalog line 205 - compute and storage blend,CSO-SVC-06,Demo description for pricing row 205; safe for POC uploads.,24.34,GB-Mo,21.4192,GB-Mo,
-DEMO-P-202601-00206,Mock AWS catalog line 206 - compute and storage blend,CSO-SVC-07,Demo description for pricing row 206; safe for POC uploads.,24.41,Each,21.4808,Each,Standard
-DEMO-P-202601-00207,Mock AWS catalog line 207 - compute and storage blend,CSO-SVC-08,Demo description for pricing row 207; safe for POC uploads.,24.48,GB-Mo,21.5424,GB-Mo,Standard
-DEMO-P-202601-00208,Mock AWS catalog line 208 - compute and storage blend,CSO-SVC-09,Demo description for pricing row 208; safe for POC uploads.,24.55,Each,21.604,Each,Standard
-DEMO-P-202601-00209,Mock AWS catalog line 209 - compute and storage blend,CSO-SVC-10,Demo description for pricing row 209; safe for POC uploads.,24.62,GB-Mo,21.6656,GB-Mo,Standard
-DEMO-P-202601-00210,Mock AWS catalog line 210 - compute and storage blend,CSO-SVC-11,Demo description for pricing row 210; safe for POC uploads.,24.69,Each,21.7272,Each,
-DEMO-P-202601-00211,Mock AWS catalog line 211 - compute and storage blend,CSO-SVC-12,Demo description for pricing row 211; safe for POC uploads.,24.76,GB-Mo,21.7888,GB-Mo,Standard
-DEMO-P-202601-00212,Mock AWS catalog line 212 - compute and storage blend,CSO-SVC-13,Demo description for pricing row 212; safe for POC uploads.,24.83,Each,21.8504,Each,Standard
-DEMO-P-202601-00213,Mock AWS catalog line 213 - compute and storage blend,CSO-SVC-14,Demo description for pricing row 213; safe for POC uploads.,24.9,GB-Mo,21.912,GB-Mo,Standard
-DEMO-P-202601-00214,Mock AWS catalog line 214 - compute and storage blend,CSO-SVC-15,Demo description for pricing row 214; safe for POC uploads.,24.97,Each,21.9736,Each,Standard
-DEMO-P-202601-00215,Mock AWS catalog line 215 - compute and storage blend,CSO-SVC-16,Demo description for pricing row 215; safe for POC uploads.,25.04,GB-Mo,22.0352,GB-Mo,
-DEMO-P-202601-00216,Mock AWS catalog line 216 - compute and storage blend,CSO-SVC-17,Demo description for pricing row 216; safe for POC uploads.,25.11,Each,22.0968,Each,Standard
-DEMO-P-202601-00217,Mock AWS catalog line 217 - compute and storage blend,CSO-SVC-18,Demo description for pricing row 217; safe for POC uploads.,25.18,GB-Mo,22.1584,GB-Mo,Standard
-DEMO-P-202601-00218,Mock AWS catalog line 218 - compute and storage blend,CSO-SVC-19,Demo description for pricing row 218; safe for POC uploads.,25.25,Each,22.22,Each,Standard
-DEMO-P-202601-00219,Mock AWS catalog line 219 - compute and storage blend,CSO-SVC-20,Demo description for pricing row 219; safe for POC uploads.,25.32,GB-Mo,22.2816,GB-Mo,Standard
-DEMO-P-202601-00220,Mock AWS catalog line 220 - compute and storage blend,CSO-SVC-21,Demo description for pricing row 220; safe for POC uploads.,25.39,Each,22.3432,Each,
-DEMO-P-202601-00221,Mock AWS catalog line 221 - compute and storage blend,CSO-SVC-22,Demo description for pricing row 221; safe for POC uploads.,25.46,GB-Mo,22.4048,GB-Mo,Standard
-DEMO-P-202601-00222,Mock AWS catalog line 222 - compute and storage blend,CSO-SVC-23,Demo description for pricing row 222; safe for POC uploads.,25.53,Each,22.4664,Each,Standard
-DEMO-P-202601-00223,Mock AWS catalog line 223 - compute and storage blend,CSO-SVC-24,Demo description for pricing row 223; safe for POC uploads.,25.6,GB-Mo,22.528,GB-Mo,Standard
-DEMO-P-202601-00224,Mock AWS catalog line 224 - compute and storage blend,CSO-SVC-25,Demo description for pricing row 224; safe for POC uploads.,25.67,Each,22.5896,Each,Standard
-DEMO-P-202601-00225,Mock AWS catalog line 225 - compute and storage blend,CSO-SVC-26,Demo description for pricing row 225; safe for POC uploads.,25.74,GB-Mo,22.6512,GB-Mo,
-DEMO-P-202601-00226,Mock AWS catalog line 226 - compute and storage blend,CSO-SVC-27,Demo description for pricing row 226; safe for POC uploads.,25.81,Each,22.7128,Each,Standard
-DEMO-P-202601-00227,Mock AWS catalog line 227 - compute and storage blend,CSO-SVC-28,Demo description for pricing row 227; safe for POC uploads.,25.88,GB-Mo,22.7744,GB-Mo,Standard
-DEMO-P-202601-00228,Mock AWS catalog line 228 - compute and storage blend,CSO-SVC-29,Demo description for pricing row 228; safe for POC uploads.,25.95,Each,22.836,Each,Standard
-DEMO-P-202601-00229,Mock AWS catalog line 229 - compute and storage blend,CSO-SVC-30,Demo description for pricing row 229; safe for POC uploads.,26.02,GB-Mo,22.8976,GB-Mo,Standard
-DEMO-P-202601-00230,Mock AWS catalog line 230 - compute and storage blend,CSO-SVC-31,Demo description for pricing row 230; safe for POC uploads.,26.09,Each,22.9592,Each,
-DEMO-P-202601-00231,Mock AWS catalog line 231 - compute and storage blend,CSO-SVC-32,Demo description for pricing row 231; safe for POC uploads.,26.16,GB-Mo,23.0208,GB-Mo,Standard
-DEMO-P-202601-00232,Mock AWS catalog line 232 - compute and storage blend,CSO-SVC-33,Demo description for pricing row 232; safe for POC uploads.,26.23,Each,23.0824,Each,Standard
-DEMO-P-202601-00233,Mock AWS catalog line 233 - compute and storage blend,CSO-SVC-34,Demo description for pricing row 233; safe for POC uploads.,26.3,GB-Mo,23.144,GB-Mo,Standard
-DEMO-P-202601-00234,Mock AWS catalog line 234 - compute and storage blend,CSO-SVC-35,Demo description for pricing row 234; safe for POC uploads.,26.37,Each,23.2056,Each,Standard
-DEMO-P-202601-00235,Mock AWS catalog line 235 - compute and storage blend,CSO-SVC-36,Demo description for pricing row 235; safe for POC uploads.,26.44,GB-Mo,23.2672,GB-Mo,
-DEMO-P-202601-00236,Mock AWS catalog line 236 - compute and storage blend,CSO-SVC-37,Demo description for pricing row 236; safe for POC uploads.,26.51,Each,23.3288,Each,Standard
-DEMO-P-202601-00237,Mock AWS catalog line 237 - compute and storage blend,CSO-SVC-38,Demo description for pricing row 237; safe for POC uploads.,26.58,GB-Mo,23.3904,GB-Mo,Standard
-DEMO-P-202601-00238,Mock AWS catalog line 238 - compute and storage blend,CSO-SVC-39,Demo description for pricing row 238; safe for POC uploads.,26.65,Each,23.452,Each,Standard
-DEMO-P-202601-00239,Mock AWS catalog line 239 - compute and storage blend,CSO-SVC-40,Demo description for pricing row 239; safe for POC uploads.,26.72,GB-Mo,23.5136,GB-Mo,Standard
-DEMO-P-202601-00240,Mock AWS catalog line 240 - compute and storage blend,CSO-SVC-01,Demo description for pricing row 240; safe for POC uploads.,26.79,Each,23.5752,Each,
-DEMO-P-202601-00241,Mock AWS catalog line 241 - compute and storage blend,CSO-SVC-02,Demo description for pricing row 241; safe for POC uploads.,26.86,GB-Mo,23.6368,GB-Mo,Standard
-DEMO-P-202601-00242,Mock AWS catalog line 242 - compute and storage blend,CSO-SVC-03,Demo description for pricing row 242; safe for POC uploads.,26.93,Each,23.6984,Each,Standard
-DEMO-P-202601-00243,Mock AWS catalog line 243 - compute and storage blend,CSO-SVC-04,Demo description for pricing row 243; safe for POC uploads.,27,GB-Mo,23.76,GB-Mo,Standard
-DEMO-P-202601-00244,Mock AWS catalog line 244 - compute and storage blend,CSO-SVC-05,Demo description for pricing row 244; safe for POC uploads.,27.07,Each,23.8216,Each,Standard
-DEMO-P-202601-00245,Mock AWS catalog line 245 - compute and storage blend,CSO-SVC-06,Demo description for pricing row 245; safe for POC uploads.,27.14,GB-Mo,23.8832,GB-Mo,
-DEMO-P-202601-00246,Mock AWS catalog line 246 - compute and storage blend,CSO-SVC-07,Demo description for pricing row 246; safe for POC uploads.,27.21,Each,23.9448,Each,Standard
-DEMO-P-202601-00247,Mock AWS catalog line 247 - compute and storage blend,CSO-SVC-08,Demo description for pricing row 247; safe for POC uploads.,27.28,GB-Mo,24.0064,GB-Mo,Standard
-DEMO-P-202601-00248,Mock AWS catalog line 248 - compute and storage blend,CSO-SVC-09,Demo description for pricing row 248; safe for POC uploads.,27.35,Each,24.068,Each,Standard
-DEMO-P-202601-00249,Mock AWS catalog line 249 - compute and storage blend,CSO-SVC-10,Demo description for pricing row 249; safe for POC uploads.,27.42,GB-Mo,24.1296,GB-Mo,Standard
-DEMO-P-202601-00250,Mock AWS catalog line 250 - compute and storage blend,CSO-SVC-11,Demo description for pricing row 250; safe for POC uploads.,27.49,Each,24.1912,Each,
-DEMO-P-202601-00251,Mock AWS catalog line 251 - compute and storage blend,CSO-SVC-12,Demo description for pricing row 251; safe for POC uploads.,27.56,GB-Mo,24.2528,GB-Mo,Standard
-DEMO-P-202601-00252,Mock AWS catalog line 252 - compute and storage blend,CSO-SVC-13,Demo description for pricing row 252; safe for POC uploads.,27.63,Each,24.3144,Each,Standard
-DEMO-P-202601-00253,Mock AWS catalog line 253 - compute and storage blend,CSO-SVC-14,Demo description for pricing row 253; safe for POC uploads.,27.7,GB-Mo,24.376,GB-Mo,Standard
-DEMO-P-202601-00254,Mock AWS catalog line 254 - compute and storage blend,CSO-SVC-15,Demo description for pricing row 254; safe for POC uploads.,27.77,Each,24.4376,Each,Standard
-DEMO-P-202601-00255,Mock AWS catalog line 255 - compute and storage blend,CSO-SVC-16,Demo description for pricing row 255; safe for POC uploads.,27.84,GB-Mo,24.4992,GB-Mo,
-DEMO-P-202601-00256,Mock AWS catalog line 256 - compute and storage blend,CSO-SVC-17,Demo description for pricing row 256; safe for POC uploads.,27.91,Each,24.5608,Each,Standard
-DEMO-P-202601-00257,Mock AWS catalog line 257 - compute and storage blend,CSO-SVC-18,Demo description for pricing row 257; safe for POC uploads.,27.98,GB-Mo,24.6224,GB-Mo,Standard
-DEMO-P-202601-00258,Mock AWS catalog line 258 - compute and storage blend,CSO-SVC-19,Demo description for pricing row 258; safe for POC uploads.,28.05,Each,24.684,Each,Standard
-DEMO-P-202601-00259,Mock AWS catalog line 259 - compute and storage blend,CSO-SVC-20,Demo description for pricing row 259; safe for POC uploads.,28.12,GB-Mo,24.7456,GB-Mo,Standard
-DEMO-P-202601-00260,Mock AWS catalog line 260 - compute and storage blend,CSO-SVC-21,Demo description for pricing row 260; safe for POC uploads.,28.19,Each,24.8072,Each,
-DEMO-P-202601-00261,Mock AWS catalog line 261 - compute and storage blend,CSO-SVC-22,Demo description for pricing row 261; safe for POC uploads.,28.26,GB-Mo,24.8688,GB-Mo,Standard
-DEMO-P-202601-00262,Mock AWS catalog line 262 - compute and storage blend,CSO-SVC-23,Demo description for pricing row 262; safe for POC uploads.,28.33,Each,24.9304,Each,Standard
-DEMO-P-202601-00263,Mock AWS catalog line 263 - compute and storage blend,CSO-SVC-24,Demo description for pricing row 263; safe for POC uploads.,28.4,GB-Mo,24.992,GB-Mo,Standard
-DEMO-P-202601-00264,Mock AWS catalog line 264 - compute and storage blend,CSO-SVC-25,Demo description for pricing row 264; safe for POC uploads.,28.47,Each,25.0536,Each,Standard
-DEMO-P-202601-00265,Mock AWS catalog line 265 - compute and storage blend,CSO-SVC-26,Demo description for pricing row 265; safe for POC uploads.,28.54,GB-Mo,25.1152,GB-Mo,
-DEMO-P-202601-00266,Mock AWS catalog line 266 - compute and storage blend,CSO-SVC-27,Demo description for pricing row 266; safe for POC uploads.,28.61,Each,25.1768,Each,Standard
-DEMO-P-202601-00267,Mock AWS catalog line 267 - compute and storage blend,CSO-SVC-28,Demo description for pricing row 267; safe for POC uploads.,28.68,GB-Mo,25.2384,GB-Mo,Standard
-DEMO-P-202601-00268,Mock AWS catalog line 268 - compute and storage blend,CSO-SVC-29,Demo description for pricing row 268; safe for POC uploads.,28.75,Each,25.3,Each,Standard
-DEMO-P-202601-00269,Mock AWS catalog line 269 - compute and storage blend,CSO-SVC-30,Demo description for pricing row 269; safe for POC uploads.,28.82,GB-Mo,25.3616,GB-Mo,Standard
-DEMO-P-202601-00270,Mock AWS catalog line 270 - compute and storage blend,CSO-SVC-31,Demo description for pricing row 270; safe for POC uploads.,28.89,Each,25.4232,Each,
-DEMO-P-202601-00271,Mock AWS catalog line 271 - compute and storage blend,CSO-SVC-32,Demo description for pricing row 271; safe for POC uploads.,28.96,GB-Mo,25.4848,GB-Mo,Standard
-DEMO-P-202601-00272,Mock AWS catalog line 272 - compute and storage blend,CSO-SVC-33,Demo description for pricing row 272; safe for POC uploads.,29.03,Each,25.5464,Each,Standard
-DEMO-P-202601-00273,Mock AWS catalog line 273 - compute and storage blend,CSO-SVC-34,Demo description for pricing row 273; safe for POC uploads.,29.1,GB-Mo,25.608,GB-Mo,Standard
-DEMO-P-202601-00274,Mock AWS catalog line 274 - compute and storage blend,CSO-SVC-35,Demo description for pricing row 274; safe for POC uploads.,29.17,Each,25.6696,Each,Standard
-DEMO-P-202601-00275,Mock AWS catalog line 275 - compute and storage blend,CSO-SVC-36,Demo description for pricing row 275; safe for POC uploads.,29.24,GB-Mo,25.7312,GB-Mo,
-DEMO-P-202601-00276,Mock AWS catalog line 276 - compute and storage blend,CSO-SVC-37,Demo description for pricing row 276; safe for POC uploads.,29.31,Each,25.7928,Each,Standard
-DEMO-P-202601-00277,Mock AWS catalog line 277 - compute and storage blend,CSO-SVC-38,Demo description for pricing row 277; safe for POC uploads.,29.38,GB-Mo,25.8544,GB-Mo,Standard
-DEMO-P-202601-00278,Mock AWS catalog line 278 - compute and storage blend,CSO-SVC-39,Demo description for pricing row 278; safe for POC uploads.,29.45,Each,25.916,Each,Standard
-DEMO-P-202601-00279,Mock AWS catalog line 279 - compute and storage blend,CSO-SVC-40,Demo description for pricing row 279; safe for POC uploads.,29.52,GB-Mo,25.9776,GB-Mo,Standard
-DEMO-P-202601-00280,Mock AWS catalog line 280 - compute and storage blend,CSO-SVC-01,Demo description for pricing row 280; safe for POC uploads.,29.59,Each,26.0392,Each,
-DEMO-P-202601-00281,Mock AWS catalog line 281 - compute and storage blend,CSO-SVC-02,Demo description for pricing row 281; safe for POC uploads.,29.66,GB-Mo,26.1008,GB-Mo,Standard
-DEMO-P-202601-00282,Mock AWS catalog line 282 - compute and storage blend,CSO-SVC-03,Demo description for pricing row 282; safe for POC uploads.,29.73,Each,26.1624,Each,Standard
-DEMO-P-202601-00283,Mock AWS catalog line 283 - compute and storage blend,CSO-SVC-04,Demo description for pricing row 283; safe for POC uploads.,29.8,GB-Mo,26.224,GB-Mo,Standard
-DEMO-P-202601-00284,Mock AWS catalog line 284 - compute and storage blend,CSO-SVC-05,Demo description for pricing row 284; safe for POC uploads.,29.87,Each,26.2856,Each,Standard
-DEMO-P-202601-00285,Mock AWS catalog line 285 - compute and storage blend,CSO-SVC-06,Demo description for pricing row 285; safe for POC uploads.,29.94,GB-Mo,26.3472,GB-Mo,
-DEMO-P-202601-00286,Mock AWS catalog line 286 - compute and storage blend,CSO-SVC-07,Demo description for pricing row 286; safe for POC uploads.,30.01,Each,26.4088,Each,Standard
-DEMO-P-202601-00287,Mock AWS catalog line 287 - compute and storage blend,CSO-SVC-08,Demo description for pricing row 287; safe for POC uploads.,30.08,GB-Mo,26.4704,GB-Mo,Standard
-DEMO-P-202601-00288,Mock AWS catalog line 288 - compute and storage blend,CSO-SVC-09,Demo description for pricing row 288; safe for POC uploads.,30.15,Each,26.532,Each,Standard
-DEMO-P-202601-00289,Mock AWS catalog line 289 - compute and storage blend,CSO-SVC-10,Demo description for pricing row 289; safe for POC uploads.,30.22,GB-Mo,26.5936,GB-Mo,Standard
-DEMO-P-202601-00290,Mock AWS catalog line 290 - compute and storage blend,CSO-SVC-11,Demo description for pricing row 290; safe for POC uploads.,30.29,Each,26.6552,Each,
-DEMO-P-202601-00291,Mock AWS catalog line 291 - compute and storage blend,CSO-SVC-12,Demo description for pricing row 291; safe for POC uploads.,30.36,GB-Mo,26.7168,GB-Mo,Standard
-DEMO-P-202601-00292,Mock AWS catalog line 292 - compute and storage blend,CSO-SVC-13,Demo description for pricing row 292; safe for POC uploads.,30.43,Each,26.7784,Each,Standard
-DEMO-P-202601-00293,Mock AWS catalog line 293 - compute and storage blend,CSO-SVC-14,Demo description for pricing row 293; safe for POC uploads.,30.5,GB-Mo,26.84,GB-Mo,Standard
-DEMO-P-202601-00294,Mock AWS catalog line 294 - compute and storage blend,CSO-SVC-15,Demo description for pricing row 294; safe for POC uploads.,30.57,Each,26.9016,Each,Standard
-DEMO-P-202601-00295,Mock AWS catalog line 295 - compute and storage blend,CSO-SVC-16,Demo description for pricing row 295; safe for POC uploads.,30.64,GB-Mo,26.9632,GB-Mo,
-DEMO-P-202601-00296,Mock AWS catalog line 296 - compute and storage blend,CSO-SVC-17,Demo description for pricing row 296; safe for POC uploads.,30.71,Each,27.0248,Each,Standard
-DEMO-P-202601-00297,Mock AWS catalog line 297 - compute and storage blend,CSO-SVC-18,Demo description for pricing row 297; safe for POC uploads.,30.78,GB-Mo,27.0864,GB-Mo,Standard
-DEMO-P-202601-00298,Mock AWS catalog line 298 - compute and storage blend,CSO-SVC-19,Demo description for pricing row 298; safe for POC uploads.,30.85,Each,27.148,Each,Standard
-DEMO-P-202601-00299,Mock AWS catalog line 299 - compute and storage blend,CSO-SVC-20,Demo description for pricing row 299; safe for POC uploads.,30.92,GB-Mo,27.2096,GB-Mo,Standard
-DEMO-P-202601-00300,Mock AWS catalog line 300 - compute and storage blend,CSO-SVC-21,Demo description for pricing row 300; safe for POC uploads.,30.99,Each,27.2712,Each,
-DEMO-P-202601-00301,Mock AWS catalog line 301 - compute and storage blend,CSO-SVC-22,Demo description for pricing row 301; safe for POC uploads.,31.06,GB-Mo,27.3328,GB-Mo,Standard
-DEMO-P-202601-00302,Mock AWS catalog line 302 - compute and storage blend,CSO-SVC-23,Demo description for pricing row 302; safe for POC uploads.,31.13,Each,27.3944,Each,Standard
-DEMO-P-202601-00303,Mock AWS catalog line 303 - compute and storage blend,CSO-SVC-24,Demo description for pricing row 303; safe for POC uploads.,31.2,GB-Mo,27.456,GB-Mo,Standard
-DEMO-P-202601-00304,Mock AWS catalog line 304 - compute and storage blend,CSO-SVC-25,Demo description for pricing row 304; safe for POC uploads.,31.27,Each,27.5176,Each,Standard
-DEMO-P-202601-00305,Mock AWS catalog line 305 - compute and storage blend,CSO-SVC-26,Demo description for pricing row 305; safe for POC uploads.,31.34,GB-Mo,27.5792,GB-Mo,
-DEMO-P-202601-00306,Mock AWS catalog line 306 - compute and storage blend,CSO-SVC-27,Demo description for pricing row 306; safe for POC uploads.,31.41,Each,27.6408,Each,Standard
-DEMO-P-202601-00307,Mock AWS catalog line 307 - compute and storage blend,CSO-SVC-28,Demo description for pricing row 307; safe for POC uploads.,31.48,GB-Mo,27.7024,GB-Mo,Standard
-DEMO-P-202601-00308,Mock AWS catalog line 308 - compute and storage blend,CSO-SVC-29,Demo description for pricing row 308; safe for POC uploads.,31.55,Each,27.764,Each,Standard
-DEMO-P-202601-00309,Mock AWS catalog line 309 - compute and storage blend,CSO-SVC-30,Demo description for pricing row 309; safe for POC uploads.,31.62,GB-Mo,27.8256,GB-Mo,Standard
-DEMO-P-202601-00310,Mock AWS catalog line 310 - compute and storage blend,CSO-SVC-31,Demo description for pricing row 310; safe for POC uploads.,31.69,Each,27.8872,Each,
-DEMO-P-202601-00311,Mock AWS catalog line 311 - compute and storage blend,CSO-SVC-32,Demo description for pricing row 311; safe for POC uploads.,31.76,GB-Mo,27.9488,GB-Mo,Standard
-DEMO-P-202601-00312,Mock AWS catalog line 312 - compute and storage blend,CSO-SVC-33,Demo description for pricing row 312; safe for POC uploads.,31.83,Each,28.0104,Each,Standard
-DEMO-P-202601-00313,Mock AWS catalog line 313 - compute and storage blend,CSO-SVC-34,Demo description for pricing row 313; safe for POC uploads.,31.9,GB-Mo,28.072,GB-Mo,Standard
-DEMO-P-202601-00314,Mock AWS catalog line 314 - compute and storage blend,CSO-SVC-35,Demo description for pricing row 314; safe for POC uploads.,31.97,Each,28.1336,Each,Standard
-DEMO-P-202601-00315,Mock AWS catalog line 315 - compute and storage blend,CSO-SVC-36,Demo description for pricing row 315; safe for POC uploads.,32.04,GB-Mo,28.1952,GB-Mo,
-DEMO-P-202601-00316,Mock AWS catalog line 316 - compute and storage blend,CSO-SVC-37,Demo description for pricing row 316; safe for POC uploads.,32.11,Each,28.2568,Each,Standard
-DEMO-P-202601-00317,Mock AWS catalog line 317 - compute and storage blend,CSO-SVC-38,Demo description for pricing row 317; safe for POC uploads.,32.18,GB-Mo,28.3184,GB-Mo,Standard
-DEMO-P-202601-00318,Mock AWS catalog line 318 - compute and storage blend,CSO-SVC-39,Demo description for pricing row 318; safe for POC uploads.,32.25,Each,28.38,Each,Standard
-DEMO-P-202601-00319,Mock AWS catalog line 319 - compute and storage blend,CSO-SVC-40,Demo description for pricing row 319; safe for POC uploads.,32.32,GB-Mo,28.4416,GB-Mo,Standard
-DEMO-P-202601-00320,Mock AWS catalog line 320 - compute and storage blend,CSO-SVC-01,Demo description for pricing row 320; safe for POC uploads.,32.39,Each,28.5032,Each,
-DEMO-P-202601-00321,Mock AWS catalog line 321 - compute and storage blend,CSO-SVC-02,Demo description for pricing row 321; safe for POC uploads.,32.46,GB-Mo,28.5648,GB-Mo,Standard
-DEMO-P-202601-00322,Mock AWS catalog line 322 - compute and storage blend,CSO-SVC-03,Demo description for pricing row 322; safe for POC uploads.,32.53,Each,28.6264,Each,Standard
-DEMO-P-202601-00323,Mock AWS catalog line 323 - compute and storage blend,CSO-SVC-04,Demo description for pricing row 323; safe for POC uploads.,32.6,GB-Mo,28.688,GB-Mo,Standard
-DEMO-P-202601-00324,Mock AWS catalog line 324 - compute and storage blend,CSO-SVC-05,Demo description for pricing row 324; safe for POC uploads.,32.67,Each,28.7496,Each,Standard
-DEMO-P-202601-00325,Mock AWS catalog line 325 - compute and storage blend,CSO-SVC-06,Demo description for pricing row 325; safe for POC uploads.,32.74,GB-Mo,28.8112,GB-Mo,
-DEMO-P-202601-00326,Mock AWS catalog line 326 - compute and storage blend,CSO-SVC-07,Demo description for pricing row 326; safe for POC uploads.,32.81,Each,28.8728,Each,Standard
-DEMO-P-202601-00327,Mock AWS catalog line 327 - compute and storage blend,CSO-SVC-08,Demo description for pricing row 327; safe for POC uploads.,32.88,GB-Mo,28.9344,GB-Mo,Standard
-DEMO-P-202601-00328,Mock AWS catalog line 328 - compute and storage blend,CSO-SVC-09,Demo description for pricing row 328; safe for POC uploads.,32.95,Each,28.996,Each,Standard
-DEMO-P-202601-00329,Mock AWS catalog line 329 - compute and storage blend,CSO-SVC-10,Demo description for pricing row 329; safe for POC uploads.,33.02,GB-Mo,29.0576,GB-Mo,Standard
-DEMO-P-202601-00330,Mock AWS catalog line 330 - compute and storage blend,CSO-SVC-11,Demo description for pricing row 330; safe for POC uploads.,33.09,Each,29.1192,Each,
-DEMO-P-202601-00331,Mock AWS catalog line 331 - compute and storage blend,CSO-SVC-12,Demo description for pricing row 331; safe for POC uploads.,33.16,GB-Mo,29.1808,GB-Mo,Standard
-DEMO-P-202601-00332,Mock AWS catalog line 332 - compute and storage blend,CSO-SVC-13,Demo description for pricing row 332; safe for POC uploads.,33.23,Each,29.2424,Each,Standard
-DEMO-P-202601-00333,Mock AWS catalog line 333 - compute and storage blend,CSO-SVC-14,Demo description for pricing row 333; safe for POC uploads.,33.3,GB-Mo,29.304,GB-Mo,Standard
-DEMO-P-202601-00334,Mock AWS catalog line 334 - compute and storage blend,CSO-SVC-15,Demo description for pricing row 334; safe for POC uploads.,33.37,Each,29.3656,Each,Standard
-DEMO-P-202601-00335,Mock AWS catalog line 335 - compute and storage blend,CSO-SVC-16,Demo description for pricing row 335; safe for POC uploads.,33.44,GB-Mo,29.4272,GB-Mo,
-DEMO-P-202601-00336,Mock AWS catalog line 336 - compute and storage blend,CSO-SVC-17,Demo description for pricing row 336; safe for POC uploads.,33.51,Each,29.4888,Each,Standard
-DEMO-P-202601-00337,Mock AWS catalog line 337 - compute and storage blend,CSO-SVC-18,Demo description for pricing row 337; safe for POC uploads.,33.58,GB-Mo,29.5504,GB-Mo,Standard
-DEMO-P-202601-00338,Mock AWS catalog line 338 - compute and storage blend,CSO-SVC-19,Demo description for pricing row 338; safe for POC uploads.,33.65,Each,29.612,Each,Standard
-DEMO-P-202601-00339,Mock AWS catalog line 339 - compute and storage blend,CSO-SVC-20,Demo description for pricing row 339; safe for POC uploads.,33.72,GB-Mo,29.6736,GB-Mo,Standard
-DEMO-P-202601-00340,Mock AWS catalog line 340 - compute and storage blend,CSO-SVC-21,Demo description for pricing row 340; safe for POC uploads.,33.79,Each,29.7352,Each,
-DEMO-P-202601-00341,Mock AWS catalog line 341 - compute and storage blend,CSO-SVC-22,Demo description for pricing row 341; safe for POC uploads.,33.86,GB-Mo,29.7968,GB-Mo,Standard
-DEMO-P-202601-00342,Mock AWS catalog line 342 - compute and storage blend,CSO-SVC-23,Demo description for pricing row 342; safe for POC uploads.,33.93,Each,29.8584,Each,Standard
-DEMO-P-202601-00343,Mock AWS catalog line 343 - compute and storage blend,CSO-SVC-24,Demo description for pricing row 343; safe for POC uploads.,34,GB-Mo,29.92,GB-Mo,Standard
-DEMO-P-202601-00344,Mock AWS catalog line 344 - compute and storage blend,CSO-SVC-25,Demo description for pricing row 344; safe for POC uploads.,34.07,Each,29.9816,Each,Standard
-DEMO-P-202601-00345,Mock AWS catalog line 345 - compute and storage blend,CSO-SVC-26,Demo description for pricing row 345; safe for POC uploads.,34.14,GB-Mo,30.0432,GB-Mo,
-DEMO-P-202601-00346,Mock AWS catalog line 346 - compute and storage blend,CSO-SVC-27,Demo description for pricing row 346; safe for POC uploads.,34.21,Each,30.1048,Each,Standard
-DEMO-P-202601-00347,Mock AWS catalog line 347 - compute and storage blend,CSO-SVC-28,Demo description for pricing row 347; safe for POC uploads.,34.28,GB-Mo,30.1664,GB-Mo,Standard
-DEMO-P-202601-00348,Mock AWS catalog line 348 - compute and storage blend,CSO-SVC-29,Demo description for pricing row 348; safe for POC uploads.,34.35,Each,30.228,Each,Standard
-DEMO-P-202601-00349,Mock AWS catalog line 349 - compute and storage blend,CSO-SVC-30,Demo description for pricing row 349; safe for POC uploads.,34.42,GB-Mo,30.2896,GB-Mo,Standard
-DEMO-P-202601-00350,Mock AWS catalog line 350 - compute and storage blend,CSO-SVC-31,Demo description for pricing row 350; safe for POC uploads.,34.49,Each,30.3512,Each,
-DEMO-P-202601-00351,Mock AWS catalog line 351 - compute and storage blend,CSO-SVC-32,Demo description for pricing row 351; safe for POC uploads.,34.56,GB-Mo,30.4128,GB-Mo,Standard
-DEMO-P-202601-00352,Mock AWS catalog line 352 - compute and storage blend,CSO-SVC-33,Demo description for pricing row 352; safe for POC uploads.,34.63,Each,30.4744,Each,Standard
-DEMO-P-202601-00353,Mock AWS catalog line 353 - compute and storage blend,CSO-SVC-34,Demo description for pricing row 353; safe for POC uploads.,34.7,GB-Mo,30.536,GB-Mo,Standard
-DEMO-P-202601-00354,Mock AWS catalog line 354 - compute and storage blend,CSO-SVC-35,Demo description for pricing row 354; safe for POC uploads.,34.77,Each,30.5976,Each,Standard
-DEMO-P-202601-00355,Mock AWS catalog line 355 - compute and storage blend,CSO-SVC-36,Demo description for pricing row 355; safe for POC uploads.,34.84,GB-Mo,30.6592,GB-Mo,
-DEMO-P-202601-00356,Mock AWS catalog line 356 - compute and storage blend,CSO-SVC-37,Demo description for pricing row 356; safe for POC uploads.,34.91,Each,30.7208,Each,Standard
-DEMO-P-202601-00357,Mock AWS catalog line 357 - compute and storage blend,CSO-SVC-38,Demo description for pricing row 357; safe for POC uploads.,34.98,GB-Mo,30.7824,GB-Mo,Standard
-DEMO-P-202601-00358,Mock AWS catalog line 358 - compute and storage blend,CSO-SVC-39,Demo description for pricing row 358; safe for POC uploads.,35.05,Each,30.844,Each,Standard
-DEMO-P-202601-00359,Mock AWS catalog line 359 - compute and storage blend,CSO-SVC-40,Demo description for pricing row 359; safe for POC uploads.,35.12,GB-Mo,30.9056,GB-Mo,Standard
-DEMO-P-202601-00360,Mock AWS catalog line 360 - compute and storage blend,CSO-SVC-01,Demo description for pricing row 360; safe for POC uploads.,35.19,Each,30.9672,Each,
-DEMO-P-202601-00361,Mock AWS catalog line 361 - compute and storage blend,CSO-SVC-02,Demo description for pricing row 361; safe for POC uploads.,35.26,GB-Mo,31.0288,GB-Mo,Standard
-DEMO-P-202601-00362,Mock AWS catalog line 362 - compute and storage blend,CSO-SVC-03,Demo description for pricing row 362; safe for POC uploads.,35.33,Each,31.0904,Each,Standard
-DEMO-P-202601-00363,Mock AWS catalog line 363 - compute and storage blend,CSO-SVC-04,Demo description for pricing row 363; safe for POC uploads.,35.4,GB-Mo,31.152,GB-Mo,Standard
-DEMO-P-202601-00364,Mock AWS catalog line 364 - compute and storage blend,CSO-SVC-05,Demo description for pricing row 364; safe for POC uploads.,35.47,Each,31.2136,Each,Standard
-DEMO-P-202601-00365,Mock AWS catalog line 365 - compute and storage blend,CSO-SVC-06,Demo description for pricing row 365; safe for POC uploads.,35.54,GB-Mo,31.2752,GB-Mo,
-DEMO-P-202601-00366,Mock AWS catalog line 366 - compute and storage blend,CSO-SVC-07,Demo description for pricing row 366; safe for POC uploads.,35.61,Each,31.3368,Each,Standard
-DEMO-P-202601-00367,Mock AWS catalog line 367 - compute and storage blend,CSO-SVC-08,Demo description for pricing row 367; safe for POC uploads.,35.68,GB-Mo,31.3984,GB-Mo,Standard
-DEMO-P-202601-00368,Mock AWS catalog line 368 - compute and storage blend,CSO-SVC-09,Demo description for pricing row 368; safe for POC uploads.,35.75,Each,31.46,Each,Standard
-DEMO-P-202601-00369,Mock AWS catalog line 369 - compute and storage blend,CSO-SVC-10,Demo description for pricing row 369; safe for POC uploads.,35.82,GB-Mo,31.5216,GB-Mo,Standard
-DEMO-P-202601-00370,Mock AWS catalog line 370 - compute and storage blend,CSO-SVC-11,Demo description for pricing row 370; safe for POC uploads.,35.89,Each,31.5832,Each,
-DEMO-P-202601-00371,Mock AWS catalog line 371 - compute and storage blend,CSO-SVC-12,Demo description for pricing row 371; safe for POC uploads.,35.96,GB-Mo,31.6448,GB-Mo,Standard
-DEMO-P-202601-00372,Mock AWS catalog line 372 - compute and storage blend,CSO-SVC-13,Demo description for pricing row 372; safe for POC uploads.,36.03,Each,31.7064,Each,Standard
-DEMO-P-202601-00373,Mock AWS catalog line 373 - compute and storage blend,CSO-SVC-14,Demo description for pricing row 373; safe for POC uploads.,36.1,GB-Mo,31.768,GB-Mo,Standard
-DEMO-P-202601-00374,Mock AWS catalog line 374 - compute and storage blend,CSO-SVC-15,Demo description for pricing row 374; safe for POC uploads.,36.17,Each,31.8296,Each,Standard
-DEMO-P-202601-00375,Mock AWS catalog line 375 - compute and storage blend,CSO-SVC-16,Demo description for pricing row 375; safe for POC uploads.,36.24,GB-Mo,31.8912,GB-Mo,
-DEMO-P-202601-00376,Mock AWS catalog line 376 - compute and storage blend,CSO-SVC-17,Demo description for pricing row 376; safe for POC uploads.,36.31,Each,31.9528,Each,Standard
-DEMO-P-202601-00377,Mock AWS catalog line 377 - compute and storage blend,CSO-SVC-18,Demo description for pricing row 377; safe for POC uploads.,36.38,GB-Mo,32.0144,GB-Mo,Standard
-DEMO-P-202601-00378,Mock AWS catalog line 378 - compute and storage blend,CSO-SVC-19,Demo description for pricing row 378; safe for POC uploads.,36.45,Each,32.076,Each,Standard
-DEMO-P-202601-00379,Mock AWS catalog line 379 - compute and storage blend,CSO-SVC-20,Demo description for pricing row 379; safe for POC uploads.,36.52,GB-Mo,32.1376,GB-Mo,Standard
-DEMO-P-202601-00380,Mock AWS catalog line 380 - compute and storage blend,CSO-SVC-21,Demo description for pricing row 380; safe for POC uploads.,36.59,Each,32.1992,Each,
-DEMO-P-202601-00381,Mock AWS catalog line 381 - compute and storage blend,CSO-SVC-22,Demo description for pricing row 381; safe for POC uploads.,36.66,GB-Mo,32.2608,GB-Mo,Standard
-DEMO-P-202601-00382,Mock AWS catalog line 382 - compute and storage blend,CSO-SVC-23,Demo description for pricing row 382; safe for POC uploads.,36.73,Each,32.3224,Each,Standard
-DEMO-P-202601-00383,Mock AWS catalog line 383 - compute and storage blend,CSO-SVC-24,Demo description for pricing row 383; safe for POC uploads.,36.8,GB-Mo,32.384,GB-Mo,Standard
-DEMO-P-202601-00384,Mock AWS catalog line 384 - compute and storage blend,CSO-SVC-25,Demo description for pricing row 384; safe for POC uploads.,36.87,Each,32.4456,Each,Standard
-DEMO-P-202601-00385,Mock AWS catalog line 385 - compute and storage blend,CSO-SVC-26,Demo description for pricing row 385; safe for POC uploads.,36.94,GB-Mo,32.5072,GB-Mo,
-DEMO-P-202601-00386,Mock AWS catalog line 386 - compute and storage blend,CSO-SVC-27,Demo description for pricing row 386; safe for POC uploads.,37.01,Each,32.5688,Each,Standard
-DEMO-P-202601-00387,Mock AWS catalog line 387 - compute and storage blend,CSO-SVC-28,Demo description for pricing row 387; safe for POC uploads.,37.08,GB-Mo,32.6304,GB-Mo,Standard
-DEMO-P-202601-00388,Mock AWS catalog line 388 - compute and storage blend,CSO-SVC-29,Demo description for pricing row 388; safe for POC uploads.,37.15,Each,32.692,Each,Standard
-DEMO-P-202601-00389,Mock AWS catalog line 389 - compute and storage blend,CSO-SVC-30,Demo description for pricing row 389; safe for POC uploads.,37.22,GB-Mo,32.7536,GB-Mo,Standard
-DEMO-P-202601-00390,Mock AWS catalog line 390 - compute and storage blend,CSO-SVC-31,Demo description for pricing row 390; safe for POC uploads.,37.29,Each,32.8152,Each,
-DEMO-P-202601-00391,Mock AWS catalog line 391 - compute and storage blend,CSO-SVC-32,Demo description for pricing row 391; safe for POC uploads.,37.36,GB-Mo,32.8768,GB-Mo,Standard
-DEMO-P-202601-00392,Mock AWS catalog line 392 - compute and storage blend,CSO-SVC-33,Demo description for pricing row 392; safe for POC uploads.,37.43,Each,32.9384,Each,Standard
-DEMO-P-202601-00393,Mock AWS catalog line 393 - compute and storage blend,CSO-SVC-34,Demo description for pricing row 393; safe for POC uploads.,37.5,GB-Mo,33,GB-Mo,Standard
-DEMO-P-202601-00394,Mock AWS catalog line 394 - compute and storage blend,CSO-SVC-35,Demo description for pricing row 394; safe for POC uploads.,37.57,Each,33.0616,Each,Standard
-DEMO-P-202601-00395,Mock AWS catalog line 395 - compute and storage blend,CSO-SVC-36,Demo description for pricing row 395; safe for POC uploads.,37.64,GB-Mo,33.1232,GB-Mo,
-DEMO-P-202601-00396,Mock AWS catalog line 396 - compute and storage blend,CSO-SVC-37,Demo description for pricing row 396; safe for POC uploads.,37.71,Each,33.1848,Each,Standard
-DEMO-P-202601-00397,Mock AWS catalog line 397 - compute and storage blend,CSO-SVC-38,Demo description for pricing row 397; safe for POC uploads.,37.78,GB-Mo,33.2464,GB-Mo,Standard
-DEMO-P-202601-00398,Mock AWS catalog line 398 - compute and storage blend,CSO-SVC-39,Demo description for pricing row 398; safe for POC uploads.,37.85,Each,33.308,Each,Standard
-DEMO-P-202601-00399,Mock AWS catalog line 399 - compute and storage blend,CSO-SVC-40,Demo description for pricing row 399; safe for POC uploads.,37.92,GB-Mo,33.3696,GB-Mo,Standard
-DEMO-P-202601-00400,Mock AWS catalog line 400 - compute and storage blend,CSO-SVC-01,Demo description for pricing row 400; safe for POC uploads.,37.99,Each,33.4312,Each,
-DEMO-P-202601-00401,Mock AWS catalog line 401 - compute and storage blend,CSO-SVC-02,Demo description for pricing row 401; safe for POC uploads.,38.06,GB-Mo,33.4928,GB-Mo,Standard
-DEMO-P-202601-00402,Mock AWS catalog line 402 - compute and storage blend,CSO-SVC-03,Demo description for pricing row 402; safe for POC uploads.,38.13,Each,33.5544,Each,Standard
-DEMO-P-202601-00403,Mock AWS catalog line 403 - compute and storage blend,CSO-SVC-04,Demo description for pricing row 403; safe for POC uploads.,38.2,GB-Mo,33.616,GB-Mo,Standard
-DEMO-P-202601-00404,Mock AWS catalog line 404 - compute and storage blend,CSO-SVC-05,Demo description for pricing row 404; safe for POC uploads.,38.27,Each,33.6776,Each,Standard
-DEMO-P-202601-00405,Mock AWS catalog line 405 - compute and storage blend,CSO-SVC-06,Demo description for pricing row 405; safe for POC uploads.,38.34,GB-Mo,33.7392,GB-Mo,
-DEMO-P-202601-00406,Mock AWS catalog line 406 - compute and storage blend,CSO-SVC-07,Demo description for pricing row 406; safe for POC uploads.,38.41,Each,33.8008,Each,Standard
-DEMO-P-202601-00407,Mock AWS catalog line 407 - compute and storage blend,CSO-SVC-08,Demo description for pricing row 407; safe for POC uploads.,38.48,GB-Mo,33.8624,GB-Mo,Standard
-DEMO-P-202601-00408,Mock AWS catalog line 408 - compute and storage blend,CSO-SVC-09,Demo description for pricing row 408; safe for POC uploads.,38.55,Each,33.924,Each,Standard
-DEMO-P-202601-00409,Mock AWS catalog line 409 - compute and storage blend,CSO-SVC-10,Demo description for pricing row 409; safe for POC uploads.,38.62,GB-Mo,33.9856,GB-Mo,Standard
-DEMO-P-202601-00410,Mock AWS catalog line 410 - compute and storage blend,CSO-SVC-11,Demo description for pricing row 410; safe for POC uploads.,38.69,Each,34.0472,Each,
-DEMO-P-202601-00411,Mock AWS catalog line 411 - compute and storage blend,CSO-SVC-12,Demo description for pricing row 411; safe for POC uploads.,38.76,GB-Mo,34.1088,GB-Mo,Standard
-DEMO-P-202601-00412,Mock AWS catalog line 412 - compute and storage blend,CSO-SVC-13,Demo description for pricing row 412; safe for POC uploads.,38.83,Each,34.1704,Each,Standard
-DEMO-P-202601-00413,Mock AWS catalog line 413 - compute and storage blend,CSO-SVC-14,Demo description for pricing row 413; safe for POC uploads.,38.9,GB-Mo,34.232,GB-Mo,Standard
-DEMO-P-202601-00414,Mock AWS catalog line 414 - compute and storage blend,CSO-SVC-15,Demo description for pricing row 414; safe for POC uploads.,38.97,Each,34.2936,Each,Standard
-DEMO-P-202601-00415,Mock AWS catalog line 415 - compute and storage blend,CSO-SVC-16,Demo description for pricing row 415; safe for POC uploads.,39.04,GB-Mo,34.3552,GB-Mo,
-DEMO-P-202601-00416,Mock AWS catalog line 416 - compute and storage blend,CSO-SVC-17,Demo description for pricing row 416; safe for POC uploads.,39.11,Each,34.4168,Each,Standard
-DEMO-P-202601-00417,Mock AWS catalog line 417 - compute and storage blend,CSO-SVC-18,Demo description for pricing row 417; safe for POC uploads.,39.18,GB-Mo,34.4784,GB-Mo,Standard
-DEMO-P-202601-00418,Mock AWS catalog line 418 - compute and storage blend,CSO-SVC-19,Demo description for pricing row 418; safe for POC uploads.,39.25,Each,34.54,Each,Standard
-DEMO-P-202601-00419,Mock AWS catalog line 419 - compute and storage blend,CSO-SVC-20,Demo description for pricing row 419; safe for POC uploads.,39.32,GB-Mo,34.6016,GB-Mo,Standard
-DEMO-P-202601-00420,Mock AWS catalog line 420 - compute and storage blend,CSO-SVC-21,Demo description for pricing row 420; safe for POC uploads.,39.39,Each,34.6632,Each,
-DEMO-P-202601-00421,Mock AWS catalog line 421 - compute and storage blend,CSO-SVC-22,Demo description for pricing row 421; safe for POC uploads.,39.46,GB-Mo,34.7248,GB-Mo,Standard
-DEMO-P-202601-00422,Mock AWS catalog line 422 - compute and storage blend,CSO-SVC-23,Demo description for pricing row 422; safe for POC uploads.,39.53,Each,34.7864,Each,Standard
-DEMO-P-202601-00423,Mock AWS catalog line 423 - compute and storage blend,CSO-SVC-24,Demo description for pricing row 423; safe for POC uploads.,39.6,GB-Mo,34.848,GB-Mo,Standard
-DEMO-P-202601-00424,Mock AWS catalog line 424 - compute and storage blend,CSO-SVC-25,Demo description for pricing row 424; safe for POC uploads.,39.67,Each,34.9096,Each,Standard
-DEMO-P-202601-00425,Mock AWS catalog line 425 - compute and storage blend,CSO-SVC-26,Demo description for pricing row 425; safe for POC uploads.,39.74,GB-Mo,34.9712,GB-Mo,
-DEMO-P-202601-00426,Mock AWS catalog line 426 - compute and storage blend,CSO-SVC-27,Demo description for pricing row 426; safe for POC uploads.,39.81,Each,35.0328,Each,Standard
-DEMO-P-202601-00427,Mock AWS catalog line 427 - compute and storage blend,CSO-SVC-28,Demo description for pricing row 427; safe for POC uploads.,39.88,GB-Mo,35.0944,GB-Mo,Standard
-DEMO-P-202601-00428,Mock AWS catalog line 428 - compute and storage blend,CSO-SVC-29,Demo description for pricing row 428; safe for POC uploads.,39.95,Each,35.156,Each,Standard
-DEMO-P-202601-00429,Mock AWS catalog line 429 - compute and storage blend,CSO-SVC-30,Demo description for pricing row 429; safe for POC uploads.,40.02,GB-Mo,35.2176,GB-Mo,Standard
-DEMO-P-202601-00430,Mock AWS catalog line 430 - compute and storage blend,CSO-SVC-31,Demo description for pricing row 430; safe for POC uploads.,40.09,Each,35.2792,Each,
-DEMO-P-202601-00431,Mock AWS catalog line 431 - compute and storage blend,CSO-SVC-32,Demo description for pricing row 431; safe for POC uploads.,40.16,GB-Mo,35.3408,GB-Mo,Standard
-DEMO-P-202601-00432,Mock AWS catalog line 432 - compute and storage blend,CSO-SVC-33,Demo description for pricing row 432; safe for POC uploads.,40.23,Each,35.4024,Each,Standard
-DEMO-P-202601-00433,Mock AWS catalog line 433 - compute and storage blend,CSO-SVC-34,Demo description for pricing row 433; safe for POC uploads.,40.3,GB-Mo,35.464,GB-Mo,Standard
-DEMO-P-202601-00434,Mock AWS catalog line 434 - compute and storage blend,CSO-SVC-35,Demo description for pricing row 434; safe for POC uploads.,40.37,Each,35.5256,Each,Standard
-DEMO-P-202601-00435,Mock AWS catalog line 435 - compute and storage blend,CSO-SVC-36,Demo description for pricing row 435; safe for POC uploads.,40.44,GB-Mo,35.5872,GB-Mo,
-DEMO-P-202601-00436,Mock AWS catalog line 436 - compute and storage blend,CSO-SVC-37,Demo description for pricing row 436; safe for POC uploads.,40.51,Each,35.6488,Each,Standard
-DEMO-P-202601-00437,Mock AWS catalog line 437 - compute and storage blend,CSO-SVC-38,Demo description for pricing row 437; safe for POC uploads.,40.58,GB-Mo,35.7104,GB-Mo,Standard
-DEMO-P-202601-00438,Mock AWS catalog line 438 - compute and storage blend,CSO-SVC-39,Demo description for pricing row 438; safe for POC uploads.,40.65,Each,35.772,Each,Standard
-DEMO-P-202601-00439,Mock AWS catalog line 439 - compute and storage blend,CSO-SVC-40,Demo description for pricing row 439; safe for POC uploads.,40.72,GB-Mo,35.8336,GB-Mo,Standard
-DEMO-P-202601-00440,Mock AWS catalog line 440 - compute and storage blend,CSO-SVC-01,Demo description for pricing row 440; safe for POC uploads.,40.79,Each,35.8952,Each,
-DEMO-P-202601-00441,Mock AWS catalog line 441 - compute and storage blend,CSO-SVC-02,Demo description for pricing row 441; safe for POC uploads.,40.86,GB-Mo,35.9568,GB-Mo,Standard
-DEMO-P-202601-00442,Mock AWS catalog line 442 - compute and storage blend,CSO-SVC-03,Demo description for pricing row 442; safe for POC uploads.,40.93,Each,36.0184,Each,Standard
-DEMO-P-202601-00443,Mock AWS catalog line 443 - compute and storage blend,CSO-SVC-04,Demo description for pricing row 443; safe for POC uploads.,41,GB-Mo,36.08,GB-Mo,Standard
-DEMO-P-202601-00444,Mock AWS catalog line 444 - compute and storage blend,CSO-SVC-05,Demo description for pricing row 444; safe for POC uploads.,41.07,Each,36.1416,Each,Standard
-DEMO-P-202601-00445,Mock AWS catalog line 445 - compute and storage blend,CSO-SVC-06,Demo description for pricing row 445; safe for POC uploads.,41.14,GB-Mo,36.2032,GB-Mo,
-DEMO-P-202601-00446,Mock AWS catalog line 446 - compute and storage blend,CSO-SVC-07,Demo description for pricing row 446; safe for POC uploads.,41.21,Each,36.2648,Each,Standard
-DEMO-P-202601-00447,Mock AWS catalog line 447 - compute and storage blend,CSO-SVC-08,Demo description for pricing row 447; safe for POC uploads.,41.28,GB-Mo,36.3264,GB-Mo,Standard
-DEMO-P-202601-00448,Mock AWS catalog line 448 - compute and storage blend,CSO-SVC-09,Demo description for pricing row 448; safe for POC uploads.,41.35,Each,36.388,Each,Standard
-DEMO-P-202601-00449,Mock AWS catalog line 449 - compute and storage blend,CSO-SVC-10,Demo description for pricing row 449; safe for POC uploads.,41.42,GB-Mo,36.4496,GB-Mo,Standard
-DEMO-P-202601-00450,Mock AWS catalog line 450 - compute and storage blend,CSO-SVC-11,Demo description for pricing row 450; safe for POC uploads.,41.49,Each,36.5112,Each,
-DEMO-P-202601-00451,Mock AWS catalog line 451 - compute and storage blend,CSO-SVC-12,Demo description for pricing row 451; safe for POC uploads.,41.56,GB-Mo,36.5728,GB-Mo,Standard
-DEMO-P-202601-00452,Mock AWS catalog line 452 - compute and storage blend,CSO-SVC-13,Demo description for pricing row 452; safe for POC uploads.,41.63,Each,36.6344,Each,Standard
-DEMO-P-202601-00453,Mock AWS catalog line 453 - compute and storage blend,CSO-SVC-14,Demo description for pricing row 453; safe for POC uploads.,41.7,GB-Mo,36.696,GB-Mo,Standard
-DEMO-P-202601-00454,Mock AWS catalog line 454 - compute and storage blend,CSO-SVC-15,Demo description for pricing row 454; safe for POC uploads.,41.77,Each,36.7576,Each,Standard
-DEMO-P-202601-00455,Mock AWS catalog line 455 - compute and storage blend,CSO-SVC-16,Demo description for pricing row 455; safe for POC uploads.,41.84,GB-Mo,36.8192,GB-Mo,
-DEMO-P-202601-00456,Mock AWS catalog line 456 - compute and storage blend,CSO-SVC-17,Demo description for pricing row 456; safe for POC uploads.,41.91,Each,36.8808,Each,Standard
-DEMO-P-202601-00457,Mock AWS catalog line 457 - compute and storage blend,CSO-SVC-18,Demo description for pricing row 457; safe for POC uploads.,41.98,GB-Mo,36.9424,GB-Mo,Standard
-DEMO-P-202601-00458,Mock AWS catalog line 458 - compute and storage blend,CSO-SVC-19,Demo description for pricing row 458; safe for POC uploads.,42.05,Each,37.004,Each,Standard
-DEMO-P-202601-00459,Mock AWS catalog line 459 - compute and storage blend,CSO-SVC-20,Demo description for pricing row 459; safe for POC uploads.,42.12,GB-Mo,37.0656,GB-Mo,Standard
-DEMO-P-202601-00460,Mock AWS catalog line 460 - compute and storage blend,CSO-SVC-21,Demo description for pricing row 460; safe for POC uploads.,42.19,Each,37.1272,Each,
-DEMO-P-202601-00461,Mock AWS catalog line 461 - compute and storage blend,CSO-SVC-22,Demo description for pricing row 461; safe for POC uploads.,42.26,GB-Mo,37.1888,GB-Mo,Standard
-DEMO-P-202601-00462,Mock AWS catalog line 462 - compute and storage blend,CSO-SVC-23,Demo description for pricing row 462; safe for POC uploads.,42.33,Each,37.2504,Each,Standard
-DEMO-P-202601-00463,Mock AWS catalog line 463 - compute and storage blend,CSO-SVC-24,Demo description for pricing row 463; safe for POC uploads.,42.4,GB-Mo,37.312,GB-Mo,Standard
-DEMO-P-202601-00464,Mock AWS catalog line 464 - compute and storage blend,CSO-SVC-25,Demo description for pricing row 464; safe for POC uploads.,42.47,Each,37.3736,Each,Standard
-DEMO-P-202601-00465,Mock AWS catalog line 465 - compute and storage blend,CSO-SVC-26,Demo description for pricing row 465; safe for POC uploads.,42.54,GB-Mo,37.4352,GB-Mo,
-DEMO-P-202601-00466,Mock AWS catalog line 466 - compute and storage blend,CSO-SVC-27,Demo description for pricing row 466; safe for POC uploads.,42.61,Each,37.4968,Each,Standard
-DEMO-P-202601-00467,Mock AWS catalog line 467 - compute and storage blend,CSO-SVC-28,Demo description for pricing row 467; safe for POC uploads.,42.68,GB-Mo,37.5584,GB-Mo,Standard
-DEMO-P-202601-00468,Mock AWS catalog line 468 - compute and storage blend,CSO-SVC-29,Demo description for pricing row 468; safe for POC uploads.,42.75,Each,37.62,Each,Standard
-DEMO-P-202601-00469,Mock AWS catalog line 469 - compute and storage blend,CSO-SVC-30,Demo description for pricing row 469; safe for POC uploads.,42.82,GB-Mo,37.6816,GB-Mo,Standard
-DEMO-P-202601-00470,Mock AWS catalog line 470 - compute and storage blend,CSO-SVC-31,Demo description for pricing row 470; safe for POC uploads.,42.89,Each,37.7432,Each,
-DEMO-P-202601-00471,Mock AWS catalog line 471 - compute and storage blend,CSO-SVC-32,Demo description for pricing row 471; safe for POC uploads.,42.96,GB-Mo,37.8048,GB-Mo,Standard
-DEMO-P-202601-00472,Mock AWS catalog line 472 - compute and storage blend,CSO-SVC-33,Demo description for pricing row 472; safe for POC uploads.,43.03,Each,37.8664,Each,Standard
-DEMO-P-202601-00473,Mock AWS catalog line 473 - compute and storage blend,CSO-SVC-34,Demo description for pricing row 473; safe for POC uploads.,43.1,GB-Mo,37.928,GB-Mo,Standard
-DEMO-P-202601-00474,Mock AWS catalog line 474 - compute and storage blend,CSO-SVC-35,Demo description for pricing row 474; safe for POC uploads.,43.17,Each,37.9896,Each,Standard
-DEMO-P-202601-00475,Mock AWS catalog line 475 - compute and storage blend,CSO-SVC-36,Demo description for pricing row 475; safe for POC uploads.,43.24,GB-Mo,38.0512,GB-Mo,
-DEMO-P-202601-00476,Mock AWS catalog line 476 - compute and storage blend,CSO-SVC-37,Demo description for pricing row 476; safe for POC uploads.,43.31,Each,38.1128,Each,Standard
-DEMO-P-202601-00477,Mock AWS catalog line 477 - compute and storage blend,CSO-SVC-38,Demo description for pricing row 477; safe for POC uploads.,43.38,GB-Mo,38.1744,GB-Mo,Standard
-DEMO-P-202601-00478,Mock AWS catalog line 478 - compute and storage blend,CSO-SVC-39,Demo description for pricing row 478; safe for POC uploads.,43.45,Each,38.236,Each,Standard
-DEMO-P-202601-00479,Mock AWS catalog line 479 - compute and storage blend,CSO-SVC-40,Demo description for pricing row 479; safe for POC uploads.,43.52,GB-Mo,38.2976,GB-Mo,Standard
-DEMO-P-202601-00480,Mock AWS catalog line 480 - compute and storage blend,CSO-SVC-01,Demo description for pricing row 480; safe for POC uploads.,43.59,Each,38.3592,Each,
-DEMO-P-202601-00481,Mock AWS catalog line 481 - compute and storage blend,CSO-SVC-02,Demo description for pricing row 481; safe for POC uploads.,43.66,GB-Mo,38.4208,GB-Mo,Standard
-DEMO-P-202601-00482,Mock AWS catalog line 482 - compute and storage blend,CSO-SVC-03,Demo description for pricing row 482; safe for POC uploads.,43.73,Each,38.4824,Each,Standard
-DEMO-P-202601-00483,Mock AWS catalog line 483 - compute and storage blend,CSO-SVC-04,Demo description for pricing row 483; safe for POC uploads.,43.8,GB-Mo,38.544,GB-Mo,Standard
-DEMO-P-202601-00484,Mock AWS catalog line 484 - compute and storage blend,CSO-SVC-05,Demo description for pricing row 484; safe for POC uploads.,43.87,Each,38.6056,Each,Standard
-DEMO-P-202601-00485,Mock AWS catalog line 485 - compute and storage blend,CSO-SVC-06,Demo description for pricing row 485; safe for POC uploads.,43.94,GB-Mo,38.6672,GB-Mo,
-DEMO-P-202601-00486,Mock AWS catalog line 486 - compute and storage blend,CSO-SVC-07,Demo description for pricing row 486; safe for POC uploads.,44.01,Each,38.7288,Each,Standard
-DEMO-P-202601-00487,Mock AWS catalog line 487 - compute and storage blend,CSO-SVC-08,Demo description for pricing row 487; safe for POC uploads.,44.08,GB-Mo,38.7904,GB-Mo,Standard
-DEMO-P-202601-00488,Mock AWS catalog line 488 - compute and storage blend,CSO-SVC-09,Demo description for pricing row 488; safe for POC uploads.,44.15,Each,38.852,Each,Standard
-DEMO-P-202601-00489,Mock AWS catalog line 489 - compute and storage blend,CSO-SVC-10,Demo description for pricing row 489; safe for POC uploads.,44.22,GB-Mo,38.9136,GB-Mo,Standard
-DEMO-P-202601-00490,Mock AWS catalog line 490 - compute and storage blend,CSO-SVC-11,Demo description for pricing row 490; safe for POC uploads.,44.29,Each,38.9752,Each,
-DEMO-P-202601-00491,Mock AWS catalog line 491 - compute and storage blend,CSO-SVC-12,Demo description for pricing row 491; safe for POC uploads.,44.36,GB-Mo,39.0368,GB-Mo,Standard
-DEMO-P-202601-00492,Mock AWS catalog line 492 - compute and storage blend,CSO-SVC-13,Demo description for pricing row 492; safe for POC uploads.,44.43,Each,39.0984,Each,Standard
-DEMO-P-202601-00493,Mock AWS catalog line 493 - compute and storage blend,CSO-SVC-14,Demo description for pricing row 493; safe for POC uploads.,44.5,GB-Mo,39.16,GB-Mo,Standard
-DEMO-P-202601-00494,Mock AWS catalog line 494 - compute and storage blend,CSO-SVC-15,Demo description for pricing row 494; safe for POC uploads.,44.57,Each,39.2216,Each,Standard
-DEMO-P-202601-00495,Mock AWS catalog line 495 - compute and storage blend,CSO-SVC-16,Demo description for pricing row 495; safe for POC uploads.,44.64,GB-Mo,39.2832,GB-Mo,
-DEMO-P-202601-00496,Mock AWS catalog line 496 - compute and storage blend,CSO-SVC-17,Demo description for pricing row 496; safe for POC uploads.,44.71,Each,39.3448,Each,Standard
-DEMO-P-202601-00497,Mock AWS catalog line 497 - compute and storage blend,CSO-SVC-18,Demo description for pricing row 497; safe for POC uploads.,44.78,GB-Mo,39.4064,GB-Mo,Standard
-DEMO-P-202601-00498,Mock AWS catalog line 498 - compute and storage blend,CSO-SVC-19,Demo description for pricing row 498; safe for POC uploads.,44.85,Each,39.468,Each,Standard
-DEMO-P-202601-00499,Mock AWS catalog line 499 - compute and storage blend,CSO-SVC-20,Demo description for pricing row 499; safe for POC uploads.,44.92,GB-Mo,39.5296,GB-Mo,Standard
-DEMO-P-202601-00500,Mock AWS catalog line 500 - compute and storage blend,CSO-SVC-21,Demo description for pricing row 500; safe for POC uploads.,44.99,Each,39.5912,Each,
-DEMO-P-202601-00501,Mock AWS catalog line 501 - compute and storage blend,CSO-SVC-22,Demo description for pricing row 501; safe for POC uploads.,45.06,GB-Mo,39.6528,GB-Mo,Standard
-DEMO-P-202601-00502,Mock AWS catalog line 502 - compute and storage blend,CSO-SVC-23,Demo description for pricing row 502; safe for POC uploads.,45.13,Each,39.7144,Each,Standard
-DEMO-P-202601-00503,Mock AWS catalog line 503 - compute and storage blend,CSO-SVC-24,Demo description for pricing row 503; safe for POC uploads.,45.2,GB-Mo,39.776,GB-Mo,Standard
-DEMO-P-202601-00504,Mock AWS catalog line 504 - compute and storage blend,CSO-SVC-25,Demo description for pricing row 504; safe for POC uploads.,45.27,Each,39.8376,Each,Standard
-DEMO-P-202601-00505,Mock AWS catalog line 505 - compute and storage blend,CSO-SVC-26,Demo description for pricing row 505; safe for POC uploads.,45.34,GB-Mo,39.8992,GB-Mo,
-DEMO-P-202601-00506,Mock AWS catalog line 506 - compute and storage blend,CSO-SVC-27,Demo description for pricing row 506; safe for POC uploads.,45.41,Each,39.9608,Each,Standard
-DEMO-P-202601-00507,Mock AWS catalog line 507 - compute and storage blend,CSO-SVC-28,Demo description for pricing row 507; safe for POC uploads.,45.48,GB-Mo,40.0224,GB-Mo,Standard
-DEMO-P-202601-00508,Mock AWS catalog line 508 - compute and storage blend,CSO-SVC-29,Demo description for pricing row 508; safe for POC uploads.,45.55,Each,40.084,Each,Standard
-DEMO-P-202601-00509,Mock AWS catalog line 509 - compute and storage blend,CSO-SVC-30,Demo description for pricing row 509; safe for POC uploads.,45.62,GB-Mo,40.1456,GB-Mo,Standard
-DEMO-P-202601-00510,Mock AWS catalog line 510 - compute and storage blend,CSO-SVC-31,Demo description for pricing row 510; safe for POC uploads.,45.69,Each,40.2072,Each,
-DEMO-P-202601-00511,Mock AWS catalog line 511 - compute and storage blend,CSO-SVC-32,Demo description for pricing row 511; safe for POC uploads.,45.76,GB-Mo,40.2688,GB-Mo,Standard
-DEMO-P-202601-00512,Mock AWS catalog line 512 - compute and storage blend,CSO-SVC-33,Demo description for pricing row 512; safe for POC uploads.,45.83,Each,40.3304,Each,Standard
-DEMO-P-202601-00513,Mock AWS catalog line 513 - compute and storage blend,CSO-SVC-34,Demo description for pricing row 513; safe for POC uploads.,45.9,GB-Mo,40.392,GB-Mo,Standard
-DEMO-P-202601-00514,Mock AWS catalog line 514 - compute and storage blend,CSO-SVC-35,Demo description for pricing row 514; safe for POC uploads.,45.97,Each,40.4536,Each,Standard
-DEMO-P-202601-00515,Mock AWS catalog line 515 - compute and storage blend,CSO-SVC-36,Demo description for pricing row 515; safe for POC uploads.,46.04,GB-Mo,40.5152,GB-Mo,
-DEMO-P-202601-00516,Mock AWS catalog line 516 - compute and storage blend,CSO-SVC-37,Demo description for pricing row 516; safe for POC uploads.,46.11,Each,40.5768,Each,Standard
-DEMO-P-202601-00517,Mock AWS catalog line 517 - compute and storage blend,CSO-SVC-38,Demo description for pricing row 517; safe for POC uploads.,46.18,GB-Mo,40.6384,GB-Mo,Standard
-DEMO-P-202601-00518,Mock AWS catalog line 518 - compute and storage blend,CSO-SVC-39,Demo description for pricing row 518; safe for POC uploads.,46.25,Each,40.7,Each,Standard
-DEMO-P-202601-00519,Mock AWS catalog line 519 - compute and storage blend,CSO-SVC-40,Demo description for pricing row 519; safe for POC uploads.,46.32,GB-Mo,40.7616,GB-Mo,Standard
-DEMO-P-202601-00520,Mock AWS catalog line 520 - compute and storage blend,CSO-SVC-01,Demo description for pricing row 520; safe for POC uploads.,46.39,Each,40.8232,Each,
+DEMO-P-202601-00001,Amazon Elasticache,Amazon Elasticache,,13.329,Month,9.997,Month,0.25
+DEMO-P-202601-00002,Amazon AppStream 2.0,Amazon AppStream 2.0,,28.002,Month,21.002,Month,0.25
+DEMO-P-202601-00003,AWS Glue DataBrew,AWS Glue DataBrew,,41.111,Month,30.833,Month,0.25
+DEMO-P-202601-00004,Amazon RDS,Amazon RDS,,29.934,Month,22.451,Month,0.25
+DEMO-P-202601-00005,Amazon ECS,Amazon ECS,,45.981,Month,34.486,Month,0.25
+DEMO-P-202601-00006,AWS Batch,AWS Batch,,32.778,Month,24.584,Month,0.25
+DEMO-P-202601-00007,AWS Glue,AWS Glue,,2.788,Month,2.091,Month,0.25
+DEMO-P-202601-00008,Amazon WorkSpaces,Amazon WorkSpaces,,41.216,Month,30.912,Month,0.25
+DEMO-P-202601-00009,Amazon Kinesis,Amazon Kinesis,,41.299,Month,30.974,Month,0.25
+DEMO-P-202601-00010,AWS Batch,AWS Batch,,30.832,Month,23.124,Month,0.25
+DEMO-P-202601-00011,AWS Lambda,AWS Lambda,,18.473,Month,13.855,Month,0.25
+DEMO-P-202601-00012,AWS IAM,AWS IAM,,19.978,Month,14.984,Month,0.25
+DEMO-P-202601-00013,Amazon Route 53,Amazon Route 53,,34.075,Month,25.556,Month,0.25
+DEMO-P-202601-00014,Amazon Kinesis,Amazon Kinesis,,15.428,Month,11.571,Month,0.25
+DEMO-P-202601-00015,AWS Elastic Beanstalk,AWS Elastic Beanstalk,,14.228,Month,10.671,Month,0.25
+DEMO-P-202601-00016,Amazon QuickSight,Amazon QuickSight,,19.843,Month,14.882,Month,0.25
+DEMO-P-202601-00017,Amazon CloudFront,Amazon CloudFront,,14.162,Month,10.622,Month,0.25
+DEMO-P-202601-00018,AWS Batch,AWS Batch,,5.137,Month,3.853,Month,0.25
+DEMO-P-202601-00019,AWS WAF,AWS WAF,,46.658,Month,34.993,Month,0.25
+DEMO-P-202601-00020,Amazon S3,Amazon S3,,23.252,Month,17.439,Month,0.25
+DEMO-P-202601-00021,Amazon Neptune,Amazon Neptune,,10.276,Month,7.707,Month,0.25
+DEMO-P-202601-00022,Amazon MQ,Amazon MQ,,34.957,Month,26.218,Month,0.25
+DEMO-P-202601-00023,Amazon VPC,Amazon VPC,,0.897,Month,0.673,Month,0.25
+DEMO-P-202601-00024,Amazon Aurora,Amazon Aurora,,13.019,Month,9.764,Month,0.25
+DEMO-P-202601-00025,Amazon ECS,Amazon ECS,,18.557,Month,13.918,Month,0.25
+DEMO-P-202601-00026,Amazon Kinesis,Amazon Kinesis,,45.153,Month,33.865,Month,0.25
+DEMO-P-202601-00027,Amazon DocumentDB,Amazon DocumentDB,,3.07,Month,2.302,Month,0.25
+DEMO-P-202601-00028,AWS Glue,AWS Glue,,1.694,Month,1.27,Month,0.25
+DEMO-P-202601-00029,AWS WAF,AWS WAF,,43.485,Month,32.614,Month,0.25
+DEMO-P-202601-00030,AWS AppSync,AWS AppSync,,46.517,Month,34.888,Month,0.25
+DEMO-P-202601-00031,AWS Direct Connect,AWS Direct Connect,,2.429,Month,1.822,Month,0.25
+DEMO-P-202601-00032,AWS AppSync,AWS AppSync,,16.726,Month,12.544,Month,0.25
+DEMO-P-202601-00033,AWS Step Functions,AWS Step Functions,,22.698,Month,17.023,Month,0.25
+DEMO-P-202601-00034,Amazon Route 53,Amazon Route 53,,32.105,Month,24.079,Month,0.25
+DEMO-P-202601-00035,Amazon MQ,Amazon MQ,,40.84,Month,30.63,Month,0.25
+DEMO-P-202601-00036,Amazon SQS,Amazon SQS,,15.191,Month,11.393,Month,0.25
+DEMO-P-202601-00037,Amazon DocumentDB,Amazon DocumentDB,,39.698,Month,29.773,Month,0.25
+DEMO-P-202601-00038,Amazon Elasticache,Amazon Elasticache,,38.67,Month,29.003,Month,0.25
+DEMO-P-202601-00039,Amazon DynamoDB,Amazon DynamoDB,,22.448,Month,16.836,Month,0.25
+DEMO-P-202601-00040,Amazon Aurora,Amazon Aurora,,25.659,Month,19.244,Month,0.25
+DEMO-P-202601-00041,Amazon CloudFront,Amazon CloudFront,,26.363,Month,19.772,Month,0.25
+DEMO-P-202601-00042,AWS Glue DataBrew,AWS Glue DataBrew,,12.444,Month,9.333,Month,0.25
+DEMO-P-202601-00043,AWS Glue DataBrew,AWS Glue DataBrew,,44.225,Month,33.169,Month,0.25
+DEMO-P-202601-00044,Amazon Lightsail,Amazon Lightsail,,0.618,Month,0.464,Month,0.25
+DEMO-P-202601-00045,AWS Step Functions,AWS Step Functions,,32.138,Month,24.103,Month,0.25
+DEMO-P-202601-00046,Amazon Aurora,Amazon Aurora,,3.257,Month,2.443,Month,0.25
+DEMO-P-202601-00047,Amazon SQS,Amazon SQS,,25.136,Month,18.852,Month,0.25
+DEMO-P-202601-00048,Amazon SageMaker,Amazon SageMaker,,6.196,Month,4.647,Month,0.25
+DEMO-P-202601-00049,Amazon SNS,Amazon SNS,,31.433,Month,23.575,Month,0.25
+DEMO-P-202601-00050,Amazon EKS,Amazon EKS,,44.67,Month,33.502,Month,0.25
+DEMO-P-202601-00051,Amazon QuickSight,Amazon QuickSight,,17.032,Month,12.774,Month,0.25
+DEMO-P-202601-00052,Amazon EC2,Amazon EC2,,18.988,Month,14.241,Month,0.25
+DEMO-P-202601-00053,AWS Glue DataBrew,AWS Glue DataBrew,,42.61,Month,31.957,Month,0.25
+DEMO-P-202601-00054,Amazon DynamoDB,Amazon DynamoDB,,14.443,Month,10.832,Month,0.25
+DEMO-P-202601-00055,Amazon EC2,Amazon EC2,,3.724,Month,2.793,Month,0.25
+DEMO-P-202601-00056,Amazon Athena,Amazon Athena,,25.088,Month,18.816,Month,0.25
+DEMO-P-202601-00057,Amazon DocumentDB,Amazon DocumentDB,,33.846,Month,25.384,Month,0.25
+DEMO-P-202601-00058,Amazon S3,Amazon S3,,21.462,Month,16.096,Month,0.25
+DEMO-P-202601-00059,AWS Elastic Beanstalk,AWS Elastic Beanstalk,,7.029,Month,5.272,Month,0.25
+DEMO-P-202601-00060,Amazon Route 53,Amazon Route 53,,7.615,Month,5.711,Month,0.25
+DEMO-P-202601-00061,Amazon Lightsail,Amazon Lightsail,,41.218,Month,30.914,Month,0.25
+DEMO-P-202601-00062,AWS Glue DataBrew,AWS Glue DataBrew,,7.916,Month,5.937,Month,0.25
+DEMO-P-202601-00063,AWS Lake Formation,AWS Lake Formation,,18.881,Month,14.161,Month,0.25
+DEMO-P-202601-00064,Amazon Redshift,Amazon Redshift,,44.219,Month,33.164,Month,0.25
+DEMO-P-202601-00065,Amazon Redshift,Amazon Redshift,,5.059,Month,3.794,Month,0.25
+DEMO-P-202601-00066,Amazon Neptune,Amazon Neptune,,49.762,Month,37.322,Month,0.25
+DEMO-P-202601-00067,Amazon DynamoDB,Amazon DynamoDB,,38.438,Month,28.829,Month,0.25
+DEMO-P-202601-00068,Amazon DynamoDB,Amazon DynamoDB,,47.362,Month,35.522,Month,0.25
+DEMO-P-202601-00069,AWS Glue DataBrew,AWS Glue DataBrew,,34.302,Month,25.727,Month,0.25
+DEMO-P-202601-00070,Amazon SageMaker,Amazon SageMaker,,21.717,Month,16.288,Month,0.25
+DEMO-P-202601-00071,Amazon Lightsail,Amazon Lightsail,,18.222,Month,13.667,Month,0.25
+DEMO-P-202601-00072,AWS WAF,AWS WAF,,36.863,Month,27.647,Month,0.25
+DEMO-P-202601-00073,Amazon Elasticache,Amazon Elasticache,,37.807,Month,28.355,Month,0.25
+DEMO-P-202601-00074,AWS Elastic Beanstalk,AWS Elastic Beanstalk,,26.202,Month,19.652,Month,0.25
+DEMO-P-202601-00075,Amazon ECS,Amazon ECS,,22.963,Month,17.222,Month,0.25
+DEMO-P-202601-00076,Amazon Neptune,Amazon Neptune,,12.025,Month,9.019,Month,0.25
+DEMO-P-202601-00077,Amazon S3,Amazon S3,,36.642,Month,27.482,Month,0.25
+DEMO-P-202601-00078,Amazon CloudWatch,Amazon CloudWatch,,46.343,Month,34.757,Month,0.25
+DEMO-P-202601-00079,AWS Lake Formation,AWS Lake Formation,,4.892,Month,3.669,Month,0.25
+DEMO-P-202601-00080,Amazon Neptune,Amazon Neptune,,34.823,Month,26.117,Month,0.25
+DEMO-P-202601-00081,Amazon EKS,Amazon EKS,,5.946,Month,4.46,Month,0.25
+DEMO-P-202601-00082,AWS KMS,AWS KMS,,48.453,Month,36.34,Month,0.25
+DEMO-P-202601-00083,Amazon MQ,Amazon MQ,,37.944,Month,28.458,Month,0.25
+DEMO-P-202601-00084,AWS AppSync,AWS AppSync,,0.159,Month,0.119,Month,0.25
+DEMO-P-202601-00085,Amazon VPC,Amazon VPC,,17.753,Month,13.315,Month,0.25
+DEMO-P-202601-00086,Amazon CloudFront,Amazon CloudFront,,18.183,Month,13.637,Month,0.25
+DEMO-P-202601-00087,Amazon VPC,Amazon VPC,,33.804,Month,25.353,Month,0.25
+DEMO-P-202601-00088,Amazon ECS,Amazon ECS,,9.106,Month,6.829,Month,0.25
+DEMO-P-202601-00089,Amazon DynamoDB,Amazon DynamoDB,,11.583,Month,8.687,Month,0.25
+DEMO-P-202601-00090,Amazon WorkSpaces,Amazon WorkSpaces,,2.062,Month,1.546,Month,0.25
+DEMO-P-202601-00091,AWS Direct Connect,AWS Direct Connect,,5.168,Month,3.876,Month,0.25
+DEMO-P-202601-00092,Amazon RDS,Amazon RDS,,31.8,Month,23.85,Month,0.25
+DEMO-P-202601-00093,Amazon Redshift,Amazon Redshift,,34.661,Month,25.996,Month,0.25
+DEMO-P-202601-00094,Amazon Neptune,Amazon Neptune,,35.042,Month,26.282,Month,0.25
+DEMO-P-202601-00095,Amazon RDS,Amazon RDS,,26.745,Month,20.059,Month,0.25
+DEMO-P-202601-00096,AWS WAF,AWS WAF,,6.483,Month,4.862,Month,0.25
+DEMO-P-202601-00097,AWS Glue DataBrew,AWS Glue DataBrew,,29.627,Month,22.22,Month,0.25
+DEMO-P-202601-00098,Amazon SQS,Amazon SQS,,16.729,Month,12.547,Month,0.25
+DEMO-P-202601-00099,AWS Amplify,AWS Amplify,,1.524,Month,1.143,Month,0.25
+DEMO-P-202601-00100,Amazon VPC,Amazon VPC,,1.532,Month,1.149,Month,0.25
+DEMO-P-202601-00101,Amazon VPC,Amazon VPC,,7.335,Month,5.501,Month,0.25
+DEMO-P-202601-00102,Amazon API Gateway,Amazon API Gateway,,42.033,Month,31.525,Month,0.25
+DEMO-P-202601-00103,Amazon SQS,Amazon SQS,,9.673,Month,7.255,Month,0.25
+DEMO-P-202601-00104,Amazon Aurora,Amazon Aurora,,41.082,Month,30.812,Month,0.25
+DEMO-P-202601-00105,AWS Step Functions,AWS Step Functions,,37.743,Month,28.307,Month,0.25
+DEMO-P-202601-00106,Amazon API Gateway,Amazon API Gateway,,22.089,Month,16.567,Month,0.25
+DEMO-P-202601-00107,AWS Lambda,AWS Lambda,,22.27,Month,16.703,Month,0.25
+DEMO-P-202601-00108,Amazon DynamoDB,Amazon DynamoDB,,20.722,Month,15.542,Month,0.25
+DEMO-P-202601-00109,Amazon Kinesis,Amazon Kinesis,,3.593,Month,2.695,Month,0.25
+DEMO-P-202601-00110,AWS Direct Connect,AWS Direct Connect,,45.465,Month,34.099,Month,0.25
+DEMO-P-202601-00111,AWS Batch,AWS Batch,,31.976,Month,23.982,Month,0.25
+DEMO-P-202601-00112,Amazon SQS,Amazon SQS,,47.313,Month,35.485,Month,0.25
+DEMO-P-202601-00113,Amazon Redshift,Amazon Redshift,,20.404,Month,15.303,Month,0.25
+DEMO-P-202601-00114,Amazon WorkSpaces,Amazon WorkSpaces,,40.934,Month,30.7,Month,0.25
+DEMO-P-202601-00115,Amazon VPC,Amazon VPC,,0.739,Month,0.554,Month,0.25
+DEMO-P-202601-00116,AWS Batch,AWS Batch,,13.263,Month,9.947,Month,0.25
+DEMO-P-202601-00117,AWS IAM,AWS IAM,,41.524,Month,31.143,Month,0.25
+DEMO-P-202601-00118,Amazon QuickSight,Amazon QuickSight,,43.097,Month,32.323,Month,0.25
+DEMO-P-202601-00119,AWS Step Functions,AWS Step Functions,,37.236,Month,27.927,Month,0.25
+DEMO-P-202601-00120,Amazon RDS,Amazon RDS,,43.068,Month,32.301,Month,0.25
+DEMO-P-202601-00121,Amazon CloudFront,Amazon CloudFront,,19.123,Month,14.342,Month,0.25
+DEMO-P-202601-00122,Amazon EKS,Amazon EKS,,11.651,Month,8.738,Month,0.25
+DEMO-P-202601-00123,Amazon Redshift,Amazon Redshift,,23.406,Month,17.554,Month,0.25
+DEMO-P-202601-00124,Amazon SNS,Amazon SNS,,49.783,Month,37.337,Month,0.25
+DEMO-P-202601-00125,Amazon EC2,Amazon EC2,,36.214,Month,27.16,Month,0.25
+DEMO-P-202601-00126,AWS Elastic Beanstalk,AWS Elastic Beanstalk,,20.999,Month,15.749,Month,0.25
+DEMO-P-202601-00127,Amazon SageMaker,Amazon SageMaker,,40.946,Month,30.709,Month,0.25
+DEMO-P-202601-00128,Amazon SageMaker,Amazon SageMaker,,2.729,Month,2.047,Month,0.25
+DEMO-P-202601-00129,Amazon CloudWatch,Amazon CloudWatch,,38.895,Month,29.171,Month,0.25
+DEMO-P-202601-00130,AWS Elastic Beanstalk,AWS Elastic Beanstalk,,18.662,Month,13.996,Month,0.25
+DEMO-P-202601-00131,AWS Amplify,AWS Amplify,,11.903,Month,8.927,Month,0.25
+DEMO-P-202601-00132,AWS Batch,AWS Batch,,19.852,Month,14.889,Month,0.25
+DEMO-P-202601-00133,Amazon RDS,Amazon RDS,,37.954,Month,28.465,Month,0.25
+DEMO-P-202601-00134,Amazon API Gateway,Amazon API Gateway,,41.419,Month,31.064,Month,0.25
+DEMO-P-202601-00135,Amazon Aurora,Amazon Aurora,,43.436,Month,32.577,Month,0.25
+DEMO-P-202601-00136,Amazon Neptune,Amazon Neptune,,12.23,Month,9.172,Month,0.25
+DEMO-P-202601-00137,Amazon Kinesis,Amazon Kinesis,,2.312,Month,1.734,Month,0.25
+DEMO-P-202601-00138,AWS Elastic Beanstalk,AWS Elastic Beanstalk,,44.983,Month,33.737,Month,0.25
+DEMO-P-202601-00139,Amazon RDS,Amazon RDS,,31.266,Month,23.45,Month,0.25
+DEMO-P-202601-00140,AWS Fargate,AWS Fargate,,44.676,Month,33.507,Month,0.25
+DEMO-P-202601-00141,Amazon CloudWatch,Amazon CloudWatch,,12.685,Month,9.514,Month,0.25
+DEMO-P-202601-00142,Amazon AppStream 2.0,Amazon AppStream 2.0,,11.321,Month,8.491,Month,0.25
+DEMO-P-202601-00143,AWS Step Functions,AWS Step Functions,,6.982,Month,5.237,Month,0.25
+DEMO-P-202601-00144,Amazon SageMaker,Amazon SageMaker,,28.212,Month,21.159,Month,0.25
+DEMO-P-202601-00145,AWS Elastic Beanstalk,AWS Elastic Beanstalk,,2.263,Month,1.697,Month,0.25
+DEMO-P-202601-00146,Amazon SageMaker,Amazon SageMaker,,4.33,Month,3.248,Month,0.25
+DEMO-P-202601-00147,Amazon VPC,Amazon VPC,,3.477,Month,2.608,Month,0.25
+DEMO-P-202601-00148,Amazon CloudWatch,Amazon CloudWatch,,31.442,Month,23.581,Month,0.25
+DEMO-P-202601-00149,AWS KMS,AWS KMS,,8.706,Month,6.529,Month,0.25
+DEMO-P-202601-00150,AWS Step Functions,AWS Step Functions,,42.231,Month,31.673,Month,0.25
+DEMO-P-202601-00151,Amazon MQ,Amazon MQ,,25.715,Month,19.286,Month,0.25
+DEMO-P-202601-00152,Amazon S3,Amazon S3,,45.969,Month,34.477,Month,0.25
+DEMO-P-202601-00153,AWS IAM,AWS IAM,,24.377,Month,18.283,Month,0.25
+DEMO-P-202601-00154,Amazon VPC,Amazon VPC,,49.763,Month,37.322,Month,0.25
+DEMO-P-202601-00155,Amazon Redshift,Amazon Redshift,,4.719,Month,3.539,Month,0.25
+DEMO-P-202601-00156,Amazon VPC,Amazon VPC,,16.054,Month,12.04,Month,0.25
+DEMO-P-202601-00157,AWS Direct Connect,AWS Direct Connect,,17.712,Month,13.284,Month,0.25
+DEMO-P-202601-00158,Amazon Aurora,Amazon Aurora,,47.248,Month,35.436,Month,0.25
+DEMO-P-202601-00159,Amazon ECS,Amazon ECS,,35.633,Month,26.725,Month,0.25
+DEMO-P-202601-00160,Amazon SNS,Amazon SNS,,1.405,Month,1.054,Month,0.25
+DEMO-P-202601-00161,Amazon Athena,Amazon Athena,,20.451,Month,15.338,Month,0.25
+DEMO-P-202601-00162,Amazon Elasticache,Amazon Elasticache,,2.206,Month,1.655,Month,0.25
+DEMO-P-202601-00163,AWS Glue DataBrew,AWS Glue DataBrew,,28.57,Month,21.428,Month,0.25
+DEMO-P-202601-00164,Amazon ECS,Amazon ECS,,26.655,Month,19.991,Month,0.25
+DEMO-P-202601-00165,Amazon Route 53,Amazon Route 53,,25.585,Month,19.189,Month,0.25
+DEMO-P-202601-00166,AWS Step Functions,AWS Step Functions,,32.943,Month,24.707,Month,0.25
+DEMO-P-202601-00167,AWS IAM,AWS IAM,,19.609,Month,14.707,Month,0.25
+DEMO-P-202601-00168,AWS Glue,AWS Glue,,47.719,Month,35.789,Month,0.25
+DEMO-P-202601-00169,AWS Glue DataBrew,AWS Glue DataBrew,,33.927,Month,25.445,Month,0.25
+DEMO-P-202601-00170,Amazon S3,Amazon S3,,26.05,Month,19.538,Month,0.25
+DEMO-P-202601-00171,Amazon Neptune,Amazon Neptune,,41.571,Month,31.178,Month,0.25
+DEMO-P-202601-00172,AWS Glue DataBrew,AWS Glue DataBrew,,49.653,Month,37.24,Month,0.25
+DEMO-P-202601-00173,AWS Direct Connect,AWS Direct Connect,,15.476,Month,11.607,Month,0.25
+DEMO-P-202601-00174,AWS Glue,AWS Glue,,12.232,Month,9.174,Month,0.25
+DEMO-P-202601-00175,Amazon CloudWatch,Amazon CloudWatch,,13.829,Month,10.372,Month,0.25
+DEMO-P-202601-00176,Amazon DynamoDB,Amazon DynamoDB,,44.373,Month,33.28,Month,0.25
+DEMO-P-202601-00177,Amazon AppStream 2.0,Amazon AppStream 2.0,,18.935,Month,14.201,Month,0.25
+DEMO-P-202601-00178,Amazon Athena,Amazon Athena,,4.981,Month,3.736,Month,0.25
+DEMO-P-202601-00179,Amazon ECS,Amazon ECS,,13.276,Month,9.957,Month,0.25
+DEMO-P-202601-00180,Amazon EKS,Amazon EKS,,38.092,Month,28.569,Month,0.25
+DEMO-P-202601-00181,AWS Amplify,AWS Amplify,,31.864,Month,23.898,Month,0.25
+DEMO-P-202601-00182,AWS Glue DataBrew,AWS Glue DataBrew,,31.625,Month,23.719,Month,0.25
+DEMO-P-202601-00183,Amazon DocumentDB,Amazon DocumentDB,,44.011,Month,33.008,Month,0.25
+DEMO-P-202601-00184,AWS WAF,AWS WAF,,31.935,Month,23.951,Month,0.25
+DEMO-P-202601-00185,Amazon Route 53,Amazon Route 53,,20.667,Month,15.5,Month,0.25
+DEMO-P-202601-00186,Amazon QuickSight,Amazon QuickSight,,8.687,Month,6.515,Month,0.25
+DEMO-P-202601-00187,Amazon Kinesis,Amazon Kinesis,,18.468,Month,13.851,Month,0.25
+DEMO-P-202601-00188,AWS Elastic Beanstalk,AWS Elastic Beanstalk,,37.457,Month,28.093,Month,0.25
+DEMO-P-202601-00189,Amazon Route 53,Amazon Route 53,,49.166,Month,36.874,Month,0.25
+DEMO-P-202601-00190,Amazon CloudWatch,Amazon CloudWatch,,36.343,Month,27.257,Month,0.25
+DEMO-P-202601-00191,Amazon DocumentDB,Amazon DocumentDB,,37.769,Month,28.327,Month,0.25
+DEMO-P-202601-00192,AWS Glue,AWS Glue,,6.019,Month,4.514,Month,0.25
+DEMO-P-202601-00193,Amazon EKS,Amazon EKS,,37.793,Month,28.345,Month,0.25
+DEMO-P-202601-00194,Amazon Redshift,Amazon Redshift,,7.836,Month,5.877,Month,0.25
+DEMO-P-202601-00195,Amazon ECS,Amazon ECS,,12.071,Month,9.053,Month,0.25
+DEMO-P-202601-00196,Amazon ECS,Amazon ECS,,32.672,Month,24.504,Month,0.25
+DEMO-P-202601-00197,Amazon ECS,Amazon ECS,,38.388,Month,28.791,Month,0.25
+DEMO-P-202601-00198,Amazon Kinesis,Amazon Kinesis,,12.938,Month,9.704,Month,0.25
+DEMO-P-202601-00199,AWS WAF,AWS WAF,,46.672,Month,35.004,Month,0.25
+DEMO-P-202601-00200,AWS Step Functions,AWS Step Functions,,47.679,Month,35.759,Month,0.25
+DEMO-P-202601-00201,AWS KMS,AWS KMS,,49.708,Month,37.281,Month,0.25
+DEMO-P-202601-00202,AWS Glue,AWS Glue,,6.004,Month,4.503,Month,0.25
+DEMO-P-202601-00203,Amazon Lightsail,Amazon Lightsail,,34.573,Month,25.93,Month,0.25
+DEMO-P-202601-00204,Amazon SNS,Amazon SNS,,45.352,Month,34.014,Month,0.25
+DEMO-P-202601-00205,Amazon API Gateway,Amazon API Gateway,,24.438,Month,18.328,Month,0.25
+DEMO-P-202601-00206,Amazon DocumentDB,Amazon DocumentDB,,4.345,Month,3.259,Month,0.25
+DEMO-P-202601-00207,AWS Glue DataBrew,AWS Glue DataBrew,,6.599,Month,4.949,Month,0.25
+DEMO-P-202601-00208,AWS Amplify,AWS Amplify,,14.233,Month,10.675,Month,0.25
+DEMO-P-202601-00209,Amazon API Gateway,Amazon API Gateway,,43.659,Month,32.744,Month,0.25
+DEMO-P-202601-00210,Amazon Redshift,Amazon Redshift,,42.326,Month,31.745,Month,0.25
+DEMO-P-202601-00211,Amazon Kinesis,Amazon Kinesis,,36.643,Month,27.482,Month,0.25
+DEMO-P-202601-00212,Amazon CloudFront,Amazon CloudFront,,43.776,Month,32.832,Month,0.25
+DEMO-P-202601-00213,Amazon MQ,Amazon MQ,,2.252,Month,1.689,Month,0.25
+DEMO-P-202601-00214,Amazon QuickSight,Amazon QuickSight,,25.129,Month,18.847,Month,0.25
+DEMO-P-202601-00215,Amazon MQ,Amazon MQ,,22.898,Month,17.174,Month,0.25
+DEMO-P-202601-00216,Amazon API Gateway,Amazon API Gateway,,19.252,Month,14.439,Month,0.25
+DEMO-P-202601-00217,Amazon Redshift,Amazon Redshift,,29.533,Month,22.15,Month,0.25
+DEMO-P-202601-00218,Amazon WorkSpaces,Amazon WorkSpaces,,19.584,Month,14.688,Month,0.25
+DEMO-P-202601-00219,AWS Batch,AWS Batch,,6.258,Month,4.694,Month,0.25
+DEMO-P-202601-00220,AWS Elastic Beanstalk,AWS Elastic Beanstalk,,34.46,Month,25.845,Month,0.25
+DEMO-P-202601-00221,Amazon Athena,Amazon Athena,,0.99,Month,0.742,Month,0.25
+DEMO-P-202601-00222,Amazon Elasticache,Amazon Elasticache,,49.014,Month,36.761,Month,0.25
+DEMO-P-202601-00223,Amazon Neptune,Amazon Neptune,,27.605,Month,20.704,Month,0.25
+DEMO-P-202601-00224,Amazon SQS,Amazon SQS,,4.597,Month,3.448,Month,0.25
+DEMO-P-202601-00225,Amazon WorkSpaces,Amazon WorkSpaces,,11.473,Month,8.605,Month,0.25
+DEMO-P-202601-00226,AWS Lambda,AWS Lambda,,13.795,Month,10.346,Month,0.25
+DEMO-P-202601-00227,AWS Elastic Beanstalk,AWS Elastic Beanstalk,,17.58,Month,13.185,Month,0.25
+DEMO-P-202601-00228,Amazon RDS,Amazon RDS,,3.041,Month,2.281,Month,0.25
+DEMO-P-202601-00229,AWS Step Functions,AWS Step Functions,,40.017,Month,30.013,Month,0.25
+DEMO-P-202601-00230,Amazon SageMaker,Amazon SageMaker,,2.944,Month,2.208,Month,0.25
+DEMO-P-202601-00231,Amazon Athena,Amazon Athena,,10.765,Month,8.074,Month,0.25
+DEMO-P-202601-00232,AWS Lake Formation,AWS Lake Formation,,45.701,Month,34.276,Month,0.25
+DEMO-P-202601-00233,AWS IAM,AWS IAM,,35.806,Month,26.854,Month,0.25
+DEMO-P-202601-00234,AWS Elastic Beanstalk,AWS Elastic Beanstalk,,6.967,Month,5.225,Month,0.25
+DEMO-P-202601-00235,AWS Amplify,AWS Amplify,,48.628,Month,36.471,Month,0.25
+DEMO-P-202601-00236,AWS Glue DataBrew,AWS Glue DataBrew,,33.383,Month,25.037,Month,0.25
+DEMO-P-202601-00237,Amazon SNS,Amazon SNS,,30.846,Month,23.134,Month,0.25
+DEMO-P-202601-00238,Amazon Kinesis,Amazon Kinesis,,14.614,Month,10.96,Month,0.25
+DEMO-P-202601-00239,Amazon EKS,Amazon EKS,,40.067,Month,30.05,Month,0.25
+DEMO-P-202601-00240,AWS Direct Connect,AWS Direct Connect,,36.936,Month,27.702,Month,0.25
+DEMO-P-202601-00241,Amazon Elasticache,Amazon Elasticache,,1.489,Month,1.117,Month,0.25
+DEMO-P-202601-00242,AWS KMS,AWS KMS,,14.292,Month,10.719,Month,0.25
+DEMO-P-202601-00243,Amazon Redshift,Amazon Redshift,,33.395,Month,25.046,Month,0.25
+DEMO-P-202601-00244,Amazon CloudWatch,Amazon CloudWatch,,45.209,Month,33.907,Month,0.25
+DEMO-P-202601-00245,Amazon ECS,Amazon ECS,,11.937,Month,8.953,Month,0.25
+DEMO-P-202601-00246,Amazon ECS,Amazon ECS,,39.095,Month,29.321,Month,0.25
+DEMO-P-202601-00247,AWS AppSync,AWS AppSync,,38.051,Month,28.538,Month,0.25
+DEMO-P-202601-00248,Amazon ECS,Amazon ECS,,1.507,Month,1.13,Month,0.25
+DEMO-P-202601-00249,Amazon Neptune,Amazon Neptune,,48.025,Month,36.019,Month,0.25
+DEMO-P-202601-00250,Amazon Aurora,Amazon Aurora,,42.884,Month,32.163,Month,0.25
+DEMO-P-202601-00251,AWS Lambda,AWS Lambda,,24.099,Month,18.074,Month,0.25
+DEMO-P-202601-00252,AWS Direct Connect,AWS Direct Connect,,39.855,Month,29.891,Month,0.25
+DEMO-P-202601-00253,Amazon Kinesis,Amazon Kinesis,,36.206,Month,27.155,Month,0.25
+DEMO-P-202601-00254,Amazon AppStream 2.0,Amazon AppStream 2.0,,29.831,Month,22.373,Month,0.25
+DEMO-P-202601-00255,Amazon ECS,Amazon ECS,,28.945,Month,21.709,Month,0.25
+DEMO-P-202601-00256,Amazon QuickSight,Amazon QuickSight,,41.795,Month,31.346,Month,0.25
+DEMO-P-202601-00257,AWS Glue DataBrew,AWS Glue DataBrew,,20.207,Month,15.155,Month,0.25
+DEMO-P-202601-00258,AWS Batch,AWS Batch,,14.483,Month,10.862,Month,0.25
+DEMO-P-202601-00259,AWS Elastic Beanstalk,AWS Elastic Beanstalk,,49.511,Month,37.133,Month,0.25
+DEMO-P-202601-00260,Amazon DocumentDB,Amazon DocumentDB,,34.857,Month,26.143,Month,0.25
+DEMO-P-202601-00261,Amazon Aurora,Amazon Aurora,,38.842,Month,29.131,Month,0.25
+DEMO-P-202601-00262,Amazon RDS,Amazon RDS,,6.098,Month,4.574,Month,0.25
+DEMO-P-202601-00263,Amazon Redshift,Amazon Redshift,,5.173,Month,3.88,Month,0.25
+DEMO-P-202601-00264,Amazon Athena,Amazon Athena,,11.506,Month,8.63,Month,0.25
+DEMO-P-202601-00265,Amazon Athena,Amazon Athena,,47.018,Month,35.264,Month,0.25
+DEMO-P-202601-00266,Amazon S3,Amazon S3,,37.186,Month,27.889,Month,0.25
+DEMO-P-202601-00267,Amazon AppStream 2.0,Amazon AppStream 2.0,,22.853,Month,17.14,Month,0.25
+DEMO-P-202601-00268,AWS Glue,AWS Glue,,7.29,Month,5.468,Month,0.25
+DEMO-P-202601-00269,Amazon Elasticache,Amazon Elasticache,,6.165,Month,4.624,Month,0.25
+DEMO-P-202601-00270,Amazon WorkSpaces,Amazon WorkSpaces,,0.546,Month,0.41,Month,0.25
+DEMO-P-202601-00271,Amazon SQS,Amazon SQS,,47.374,Month,35.531,Month,0.25
+DEMO-P-202601-00272,Amazon Athena,Amazon Athena,,17.553,Month,13.165,Month,0.25
+DEMO-P-202601-00273,Amazon RDS,Amazon RDS,,40.408,Month,30.306,Month,0.25
+DEMO-P-202601-00274,Amazon EC2,Amazon EC2,,2.423,Month,1.817,Month,0.25
+DEMO-P-202601-00275,Amazon QuickSight,Amazon QuickSight,,31.213,Month,23.41,Month,0.25
+DEMO-P-202601-00276,AWS Fargate,AWS Fargate,,44.073,Month,33.055,Month,0.25
+DEMO-P-202601-00277,Amazon CloudWatch,Amazon CloudWatch,,9.84,Month,7.38,Month,0.25
+DEMO-P-202601-00278,Amazon DynamoDB,Amazon DynamoDB,,16.212,Month,12.159,Month,0.25
+DEMO-P-202601-00279,Amazon MQ,Amazon MQ,,13.56,Month,10.17,Month,0.25
+DEMO-P-202601-00280,Amazon WorkSpaces,Amazon WorkSpaces,,7.816,Month,5.862,Month,0.25
+DEMO-P-202601-00281,Amazon SNS,Amazon SNS,,44.361,Month,33.271,Month,0.25
+DEMO-P-202601-00282,Amazon EKS,Amazon EKS,,11.298,Month,8.473,Month,0.25
+DEMO-P-202601-00283,Amazon Neptune,Amazon Neptune,,5.144,Month,3.858,Month,0.25
+DEMO-P-202601-00284,Amazon Redshift,Amazon Redshift,,27.817,Month,20.863,Month,0.25
+DEMO-P-202601-00285,Amazon WorkSpaces,Amazon WorkSpaces,,48.22,Month,36.165,Month,0.25
+DEMO-P-202601-00286,Amazon Athena,Amazon Athena,,36.209,Month,27.157,Month,0.25
+DEMO-P-202601-00287,AWS Fargate,AWS Fargate,,42.803,Month,32.102,Month,0.25
+DEMO-P-202601-00288,AWS Direct Connect,AWS Direct Connect,,8.669,Month,6.502,Month,0.25
+DEMO-P-202601-00289,Amazon SQS,Amazon SQS,,7.069,Month,5.302,Month,0.25
+DEMO-P-202601-00290,Amazon Redshift,Amazon Redshift,,4.612,Month,3.459,Month,0.25
+DEMO-P-202601-00291,AWS Direct Connect,AWS Direct Connect,,15.296,Month,11.472,Month,0.25
+DEMO-P-202601-00292,AWS Lake Formation,AWS Lake Formation,,25.559,Month,19.169,Month,0.25
+DEMO-P-202601-00293,AWS Amplify,AWS Amplify,,25.136,Month,18.852,Month,0.25
+DEMO-P-202601-00294,AWS Lake Formation,AWS Lake Formation,,9.335,Month,7.001,Month,0.25
+DEMO-P-202601-00295,AWS Step Functions,AWS Step Functions,,1.147,Month,0.86,Month,0.25
+DEMO-P-202601-00296,Amazon AppStream 2.0,Amazon AppStream 2.0,,29.835,Month,22.376,Month,0.25
+DEMO-P-202601-00297,AWS Batch,AWS Batch,,16.008,Month,12.006,Month,0.25
+DEMO-P-202601-00298,Amazon VPC,Amazon VPC,,38.381,Month,28.786,Month,0.25
+DEMO-P-202601-00299,Amazon VPC,Amazon VPC,,31.384,Month,23.538,Month,0.25
+DEMO-P-202601-00300,Amazon Aurora,Amazon Aurora,,18.163,Month,13.622,Month,0.25
+DEMO-P-202601-00301,Amazon Neptune,Amazon Neptune,,48.941,Month,36.706,Month,0.25
+DEMO-P-202601-00302,Amazon Redshift,Amazon Redshift,,35.227,Month,26.42,Month,0.25
+DEMO-P-202601-00303,Amazon Redshift,Amazon Redshift,,29.915,Month,22.436,Month,0.25
+DEMO-P-202601-00304,AWS Fargate,AWS Fargate,,34.822,Month,26.117,Month,0.25
+DEMO-P-202601-00305,Amazon VPC,Amazon VPC,,13.431,Month,10.073,Month,0.25
+DEMO-P-202601-00306,AWS Amplify,AWS Amplify,,7.363,Month,5.522,Month,0.25
+DEMO-P-202601-00307,AWS Batch,AWS Batch,,35.223,Month,26.417,Month,0.25
+DEMO-P-202601-00308,AWS Amplify,AWS Amplify,,29.913,Month,22.435,Month,0.25
+DEMO-P-202601-00309,Amazon RDS,Amazon RDS,,27.249,Month,20.437,Month,0.25
+DEMO-P-202601-00310,Amazon Lightsail,Amazon Lightsail,,13.737,Month,10.303,Month,0.25
+DEMO-P-202601-00311,Amazon S3,Amazon S3,,39.757,Month,29.818,Month,0.25
+DEMO-P-202601-00312,Amazon Athena,Amazon Athena,,13.134,Month,9.851,Month,0.25
+DEMO-P-202601-00313,AWS IAM,AWS IAM,,1.725,Month,1.294,Month,0.25
+DEMO-P-202601-00314,Amazon DocumentDB,Amazon DocumentDB,,46.553,Month,34.915,Month,0.25
+DEMO-P-202601-00315,Amazon Route 53,Amazon Route 53,,7.153,Month,5.365,Month,0.25
+DEMO-P-202601-00316,Amazon Athena,Amazon Athena,,47.954,Month,35.965,Month,0.25
+DEMO-P-202601-00317,Amazon Aurora,Amazon Aurora,,37.819,Month,28.364,Month,0.25
+DEMO-P-202601-00318,Amazon Athena,Amazon Athena,,42.722,Month,32.041,Month,0.25
+DEMO-P-202601-00319,AWS Glue DataBrew,AWS Glue DataBrew,,8.425,Month,6.319,Month,0.25
+DEMO-P-202601-00320,Amazon SQS,Amazon SQS,,46.402,Month,34.802,Month,0.25
+DEMO-P-202601-00321,Amazon QuickSight,Amazon QuickSight,,11.47,Month,8.603,Month,0.25
+DEMO-P-202601-00322,Amazon QuickSight,Amazon QuickSight,,46.793,Month,35.095,Month,0.25
+DEMO-P-202601-00323,AWS Glue,AWS Glue,,5.394,Month,4.046,Month,0.25
+DEMO-P-202601-00324,AWS Batch,AWS Batch,,2.473,Month,1.855,Month,0.25
+DEMO-P-202601-00325,AWS Direct Connect,AWS Direct Connect,,34.36,Month,25.77,Month,0.25
+DEMO-P-202601-00326,Amazon MQ,Amazon MQ,,41.331,Month,30.998,Month,0.25
+DEMO-P-202601-00327,Amazon Kinesis,Amazon Kinesis,,33.764,Month,25.323,Month,0.25
+DEMO-P-202601-00328,Amazon Neptune,Amazon Neptune,,11.895,Month,8.921,Month,0.25
+DEMO-P-202601-00329,Amazon SageMaker,Amazon SageMaker,,26.867,Month,20.15,Month,0.25
+DEMO-P-202601-00330,Amazon Route 53,Amazon Route 53,,39.752,Month,29.814,Month,0.25
+DEMO-P-202601-00331,Amazon WorkSpaces,Amazon WorkSpaces,,46.215,Month,34.661,Month,0.25
+DEMO-P-202601-00332,Amazon SageMaker,Amazon SageMaker,,11.358,Month,8.518,Month,0.25
+DEMO-P-202601-00333,Amazon VPC,Amazon VPC,,2.894,Month,2.171,Month,0.25
+DEMO-P-202601-00334,AWS WAF,AWS WAF,,9.214,Month,6.911,Month,0.25
+DEMO-P-202601-00335,AWS Step Functions,AWS Step Functions,,29.695,Month,22.271,Month,0.25
+DEMO-P-202601-00336,Amazon DocumentDB,Amazon DocumentDB,,14.058,Month,10.543,Month,0.25
+DEMO-P-202601-00337,Amazon SNS,Amazon SNS,,34.984,Month,26.238,Month,0.25
+DEMO-P-202601-00338,Amazon DocumentDB,Amazon DocumentDB,,31.25,Month,23.438,Month,0.25
+DEMO-P-202601-00339,Amazon RDS,Amazon RDS,,27.648,Month,20.736,Month,0.25
+DEMO-P-202601-00340,Amazon Route 53,Amazon Route 53,,4.449,Month,3.337,Month,0.25
+DEMO-P-202601-00341,AWS Lambda,AWS Lambda,,39.023,Month,29.267,Month,0.25
+DEMO-P-202601-00342,Amazon EC2,Amazon EC2,,10.481,Month,7.861,Month,0.25
+DEMO-P-202601-00343,AWS WAF,AWS WAF,,4.213,Month,3.16,Month,0.25
+DEMO-P-202601-00344,Amazon Route 53,Amazon Route 53,,31.844,Month,23.883,Month,0.25
+DEMO-P-202601-00345,Amazon MQ,Amazon MQ,,32.911,Month,24.683,Month,0.25
+DEMO-P-202601-00346,Amazon QuickSight,Amazon QuickSight,,17.687,Month,13.265,Month,0.25
+DEMO-P-202601-00347,Amazon SageMaker,Amazon SageMaker,,36.156,Month,27.117,Month,0.25
+DEMO-P-202601-00348,AWS IAM,AWS IAM,,10.406,Month,7.805,Month,0.25
+DEMO-P-202601-00349,AWS Fargate,AWS Fargate,,15.886,Month,11.915,Month,0.25
+DEMO-P-202601-00350,Amazon WorkSpaces,Amazon WorkSpaces,,39.257,Month,29.443,Month,0.25
+DEMO-P-202601-00351,Amazon Lightsail,Amazon Lightsail,,7.136,Month,5.352,Month,0.25
+DEMO-P-202601-00352,Amazon AppStream 2.0,Amazon AppStream 2.0,,38.2,Month,28.65,Month,0.25
+DEMO-P-202601-00353,AWS Lambda,AWS Lambda,,25.091,Month,18.818,Month,0.25
+DEMO-P-202601-00354,Amazon SageMaker,Amazon SageMaker,,29.07,Month,21.803,Month,0.25
+DEMO-P-202601-00355,Amazon RDS,Amazon RDS,,49.41,Month,37.057,Month,0.25
+DEMO-P-202601-00356,AWS Fargate,AWS Fargate,,2.198,Month,1.648,Month,0.25
+DEMO-P-202601-00357,Amazon DocumentDB,Amazon DocumentDB,,37.147,Month,27.86,Month,0.25
+DEMO-P-202601-00358,Amazon Athena,Amazon Athena,,33.246,Month,24.934,Month,0.25
+DEMO-P-202601-00359,Amazon EC2,Amazon EC2,,3.351,Month,2.513,Month,0.25
+DEMO-P-202601-00360,Amazon AppStream 2.0,Amazon AppStream 2.0,,6.768,Month,5.076,Month,0.25
+DEMO-P-202601-00361,Amazon Lightsail,Amazon Lightsail,,47.959,Month,35.969,Month,0.25
+DEMO-P-202601-00362,AWS Glue,AWS Glue,,20.417,Month,15.313,Month,0.25
+DEMO-P-202601-00363,Amazon EC2,Amazon EC2,,29.041,Month,21.781,Month,0.25
+DEMO-P-202601-00364,AWS WAF,AWS WAF,,1.676,Month,1.257,Month,0.25
+DEMO-P-202601-00365,Amazon WorkSpaces,Amazon WorkSpaces,,46.499,Month,34.874,Month,0.25
+DEMO-P-202601-00366,Amazon QuickSight,Amazon QuickSight,,14.956,Month,11.217,Month,0.25
+DEMO-P-202601-00367,Amazon DocumentDB,Amazon DocumentDB,,35.376,Month,26.532,Month,0.25
+DEMO-P-202601-00368,AWS KMS,AWS KMS,,22.562,Month,16.922,Month,0.25
+DEMO-P-202601-00369,AWS Amplify,AWS Amplify,,29.173,Month,21.88,Month,0.25
+DEMO-P-202601-00370,Amazon VPC,Amazon VPC,,4.571,Month,3.428,Month,0.25
+DEMO-P-202601-00371,Amazon EKS,Amazon EKS,,12.887,Month,9.665,Month,0.25
+DEMO-P-202601-00372,AWS IAM,AWS IAM,,34.683,Month,26.012,Month,0.25
+DEMO-P-202601-00373,Amazon Elasticache,Amazon Elasticache,,43.896,Month,32.922,Month,0.25
+DEMO-P-202601-00374,Amazon ECS,Amazon ECS,,38.074,Month,28.555,Month,0.25
+DEMO-P-202601-00375,Amazon AppStream 2.0,Amazon AppStream 2.0,,17.832,Month,13.374,Month,0.25
+DEMO-P-202601-00376,Amazon MQ,Amazon MQ,,17.545,Month,13.159,Month,0.25
+DEMO-P-202601-00377,AWS Batch,AWS Batch,,23.845,Month,17.884,Month,0.25
+DEMO-P-202601-00378,AWS Fargate,AWS Fargate,,34.795,Month,26.096,Month,0.25
+DEMO-P-202601-00379,AWS Elastic Beanstalk,AWS Elastic Beanstalk,,39.845,Month,29.884,Month,0.25
+DEMO-P-202601-00380,AWS Batch,AWS Batch,,5.174,Month,3.881,Month,0.25
+DEMO-P-202601-00381,AWS Lake Formation,AWS Lake Formation,,45.346,Month,34.009,Month,0.25
+DEMO-P-202601-00382,Amazon AppStream 2.0,Amazon AppStream 2.0,,9.071,Month,6.803,Month,0.25
+DEMO-P-202601-00383,AWS Glue,AWS Glue,,30.37,Month,22.777,Month,0.25
+DEMO-P-202601-00384,Amazon RDS,Amazon RDS,,23.622,Month,17.716,Month,0.25
+DEMO-P-202601-00385,Amazon S3,Amazon S3,,39.603,Month,29.702,Month,0.25
+DEMO-P-202601-00386,AWS AppSync,AWS AppSync,,34.579,Month,25.934,Month,0.25
+DEMO-P-202601-00387,Amazon SQS,Amazon SQS,,45.473,Month,34.105,Month,0.25
+DEMO-P-202601-00388,Amazon WorkSpaces,Amazon WorkSpaces,,40.321,Month,30.241,Month,0.25
+DEMO-P-202601-00389,AWS Batch,AWS Batch,,49.057,Month,36.793,Month,0.25
+DEMO-P-202601-00390,Amazon EKS,Amazon EKS,,42.501,Month,31.876,Month,0.25
+DEMO-P-202601-00391,Amazon SQS,Amazon SQS,,40.549,Month,30.412,Month,0.25
+DEMO-P-202601-00392,Amazon RDS,Amazon RDS,,27.041,Month,20.281,Month,0.25
+DEMO-P-202601-00393,AWS Glue DataBrew,AWS Glue DataBrew,,2.079,Month,1.559,Month,0.25
+DEMO-P-202601-00394,AWS Fargate,AWS Fargate,,10.393,Month,7.795,Month,0.25
+DEMO-P-202601-00395,Amazon Lightsail,Amazon Lightsail,,20.896,Month,15.672,Month,0.25
+DEMO-P-202601-00396,Amazon EKS,Amazon EKS,,36.127,Month,27.095,Month,0.25
+DEMO-P-202601-00397,AWS Amplify,AWS Amplify,,34.477,Month,25.858,Month,0.25
+DEMO-P-202601-00398,Amazon Neptune,Amazon Neptune,,48.622,Month,36.466,Month,0.25
+DEMO-P-202601-00399,Amazon S3,Amazon S3,,37.545,Month,28.159,Month,0.25
+DEMO-P-202601-00400,Amazon Lightsail,Amazon Lightsail,,34.818,Month,26.113,Month,0.25
+DEMO-P-202601-00401,AWS Glue DataBrew,AWS Glue DataBrew,,27.716,Month,20.787,Month,0.25
+DEMO-P-202601-00402,AWS Direct Connect,AWS Direct Connect,,20.604,Month,15.453,Month,0.25
+DEMO-P-202601-00403,AWS IAM,AWS IAM,,42.875,Month,32.156,Month,0.25
+DEMO-P-202601-00404,Amazon Route 53,Amazon Route 53,,26.04,Month,19.53,Month,0.25
+DEMO-P-202601-00405,AWS AppSync,AWS AppSync,,43.975,Month,32.981,Month,0.25
+DEMO-P-202601-00406,Amazon Lightsail,Amazon Lightsail,,30.043,Month,22.532,Month,0.25
+DEMO-P-202601-00407,Amazon EKS,Amazon EKS,,28.385,Month,21.289,Month,0.25
+DEMO-P-202601-00408,Amazon EC2,Amazon EC2,,47.397,Month,35.548,Month,0.25
+DEMO-P-202601-00409,AWS Step Functions,AWS Step Functions,,22.014,Month,16.511,Month,0.25
+DEMO-P-202601-00410,AWS AppSync,AWS AppSync,,19.448,Month,14.586,Month,0.25
+DEMO-P-202601-00411,Amazon DocumentDB,Amazon DocumentDB,,14.014,Month,10.511,Month,0.25
+DEMO-P-202601-00412,AWS AppSync,AWS AppSync,,11.857,Month,8.893,Month,0.25
+DEMO-P-202601-00413,Amazon EKS,Amazon EKS,,2.951,Month,2.213,Month,0.25
+DEMO-P-202601-00414,AWS Glue,AWS Glue,,13.729,Month,10.297,Month,0.25
+DEMO-P-202601-00415,Amazon EKS,Amazon EKS,,14.867,Month,11.15,Month,0.25
+DEMO-P-202601-00416,Amazon DynamoDB,Amazon DynamoDB,,9.851,Month,7.388,Month,0.25
+DEMO-P-202601-00417,Amazon Elasticache,Amazon Elasticache,,9.924,Month,7.443,Month,0.25
+DEMO-P-202601-00418,Amazon MQ,Amazon MQ,,7.816,Month,5.862,Month,0.25
+DEMO-P-202601-00419,AWS IAM,AWS IAM,,3.017,Month,2.263,Month,0.25
+DEMO-P-202601-00420,AWS Lambda,AWS Lambda,,5.293,Month,3.97,Month,0.25
+DEMO-P-202601-00421,Amazon Redshift,Amazon Redshift,,11.583,Month,8.687,Month,0.25
+DEMO-P-202601-00422,AWS Batch,AWS Batch,,46.559,Month,34.919,Month,0.25
+DEMO-P-202601-00423,Amazon API Gateway,Amazon API Gateway,,1.566,Month,1.175,Month,0.25
+DEMO-P-202601-00424,Amazon SQS,Amazon SQS,,31.813,Month,23.86,Month,0.25
+DEMO-P-202601-00425,Amazon AppStream 2.0,Amazon AppStream 2.0,,45.432,Month,34.074,Month,0.25
+DEMO-P-202601-00426,Amazon CloudWatch,Amazon CloudWatch,,37.327,Month,27.995,Month,0.25
+DEMO-P-202601-00427,AWS Direct Connect,AWS Direct Connect,,39.664,Month,29.748,Month,0.25
+DEMO-P-202601-00428,Amazon CloudFront,Amazon CloudFront,,42.956,Month,32.217,Month,0.25
+DEMO-P-202601-00429,Amazon MQ,Amazon MQ,,37.479,Month,28.109,Month,0.25
+DEMO-P-202601-00430,Amazon Neptune,Amazon Neptune,,42.972,Month,32.229,Month,0.25
+DEMO-P-202601-00431,Amazon RDS,Amazon RDS,,22.165,Month,16.624,Month,0.25
+DEMO-P-202601-00432,AWS AppSync,AWS AppSync,,21.328,Month,15.996,Month,0.25
+DEMO-P-202601-00433,Amazon SQS,Amazon SQS,,1.517,Month,1.138,Month,0.25
+DEMO-P-202601-00434,Amazon MQ,Amazon MQ,,43.369,Month,32.527,Month,0.25
+DEMO-P-202601-00435,Amazon Lightsail,Amazon Lightsail,,41.544,Month,31.158,Month,0.25
+DEMO-P-202601-00436,AWS Fargate,AWS Fargate,,22.295,Month,16.721,Month,0.25
+DEMO-P-202601-00437,Amazon CloudFront,Amazon CloudFront,,36.474,Month,27.355,Month,0.25
+DEMO-P-202601-00438,Amazon Kinesis,Amazon Kinesis,,11.906,Month,8.93,Month,0.25
+DEMO-P-202601-00439,Amazon Elasticache,Amazon Elasticache,,13.096,Month,9.822,Month,0.25
+DEMO-P-202601-00440,Amazon QuickSight,Amazon QuickSight,,15.556,Month,11.667,Month,0.25
+DEMO-P-202601-00441,Amazon API Gateway,Amazon API Gateway,,7.693,Month,5.77,Month,0.25
+DEMO-P-202601-00442,Amazon API Gateway,Amazon API Gateway,,45.33,Month,33.998,Month,0.25
+DEMO-P-202601-00443,AWS Amplify,AWS Amplify,,30.623,Month,22.967,Month,0.25
+DEMO-P-202601-00444,Amazon S3,Amazon S3,,2.527,Month,1.895,Month,0.25
+DEMO-P-202601-00445,Amazon QuickSight,Amazon QuickSight,,9.43,Month,7.072,Month,0.25
+DEMO-P-202601-00446,Amazon SQS,Amazon SQS,,24.324,Month,18.243,Month,0.25
+DEMO-P-202601-00447,Amazon S3,Amazon S3,,41.255,Month,30.941,Month,0.25
+DEMO-P-202601-00448,Amazon EKS,Amazon EKS,,21.548,Month,16.161,Month,0.25
+DEMO-P-202601-00449,Amazon API Gateway,Amazon API Gateway,,28.052,Month,21.039,Month,0.25
+DEMO-P-202601-00450,AWS Amplify,AWS Amplify,,39.365,Month,29.524,Month,0.25
+DEMO-P-202601-00451,AWS Lake Formation,AWS Lake Formation,,10.174,Month,7.63,Month,0.25
+DEMO-P-202601-00452,Amazon RDS,Amazon RDS,,42.57,Month,31.928,Month,0.25
+DEMO-P-202601-00453,Amazon Route 53,Amazon Route 53,,30.655,Month,22.991,Month,0.25
+DEMO-P-202601-00454,AWS WAF,AWS WAF,,13.378,Month,10.034,Month,0.25
+DEMO-P-202601-00455,AWS Step Functions,AWS Step Functions,,27.704,Month,20.778,Month,0.25
+DEMO-P-202601-00456,AWS Glue DataBrew,AWS Glue DataBrew,,26.184,Month,19.638,Month,0.25
+DEMO-P-202601-00457,AWS Lake Formation,AWS Lake Formation,,36.036,Month,27.027,Month,0.25
+DEMO-P-202601-00458,Amazon DocumentDB,Amazon DocumentDB,,46.494,Month,34.87,Month,0.25
+DEMO-P-202601-00459,Amazon Redshift,Amazon Redshift,,34.373,Month,25.78,Month,0.25
+DEMO-P-202601-00460,Amazon CloudFront,Amazon CloudFront,,10.5,Month,7.875,Month,0.25
+DEMO-P-202601-00461,Amazon SageMaker,Amazon SageMaker,,21.982,Month,16.486,Month,0.25
+DEMO-P-202601-00462,AWS Glue DataBrew,AWS Glue DataBrew,,1.871,Month,1.403,Month,0.25
+DEMO-P-202601-00463,Amazon Aurora,Amazon Aurora,,14.899,Month,11.174,Month,0.25
+DEMO-P-202601-00464,AWS Amplify,AWS Amplify,,13.705,Month,10.279,Month,0.25
+DEMO-P-202601-00465,AWS KMS,AWS KMS,,11.453,Month,8.59,Month,0.25
+DEMO-P-202601-00466,Amazon WorkSpaces,Amazon WorkSpaces,,29.382,Month,22.037,Month,0.25
+DEMO-P-202601-00467,AWS Glue DataBrew,AWS Glue DataBrew,,25.758,Month,19.319,Month,0.25
+DEMO-P-202601-00468,Amazon DynamoDB,Amazon DynamoDB,,42.138,Month,31.603,Month,0.25
+DEMO-P-202601-00469,Amazon SQS,Amazon SQS,,2.312,Month,1.734,Month,0.25
+DEMO-P-202601-00470,Amazon S3,Amazon S3,,25.58,Month,19.185,Month,0.25
+DEMO-P-202601-00471,Amazon CloudFront,Amazon CloudFront,,25.045,Month,18.784,Month,0.25
+DEMO-P-202601-00472,AWS Batch,AWS Batch,,21.226,Month,15.919,Month,0.25
+DEMO-P-202601-00473,AWS AppSync,AWS AppSync,,39.107,Month,29.33,Month,0.25
+DEMO-P-202601-00474,AWS IAM,AWS IAM,,31.975,Month,23.981,Month,0.25
+DEMO-P-202601-00475,AWS Lake Formation,AWS Lake Formation,,23.938,Month,17.953,Month,0.25
+DEMO-P-202601-00476,Amazon S3,Amazon S3,,38.822,Month,29.117,Month,0.25
+DEMO-P-202601-00477,AWS WAF,AWS WAF,,33.067,Month,24.8,Month,0.25
+DEMO-P-202601-00478,AWS Direct Connect,AWS Direct Connect,,21.087,Month,15.815,Month,0.25
+DEMO-P-202601-00479,AWS Fargate,AWS Fargate,,7.945,Month,5.959,Month,0.25
+DEMO-P-202601-00480,Amazon Elasticache,Amazon Elasticache,,11.627,Month,8.72,Month,0.25
+DEMO-P-202601-00481,Amazon WorkSpaces,Amazon WorkSpaces,,9.152,Month,6.864,Month,0.25
+DEMO-P-202601-00482,AWS Batch,AWS Batch,,16.583,Month,12.437,Month,0.25
+DEMO-P-202601-00483,Amazon DynamoDB,Amazon DynamoDB,,5.962,Month,4.471,Month,0.25
+DEMO-P-202601-00484,AWS WAF,AWS WAF,,38.874,Month,29.156,Month,0.25
+DEMO-P-202601-00485,Amazon EC2,Amazon EC2,,35.567,Month,26.675,Month,0.25
+DEMO-P-202601-00486,Amazon CloudWatch,Amazon CloudWatch,,49.348,Month,37.011,Month,0.25
+DEMO-P-202601-00487,Amazon Elasticache,Amazon Elasticache,,26.739,Month,20.054,Month,0.25
+DEMO-P-202601-00488,AWS Step Functions,AWS Step Functions,,23.041,Month,17.281,Month,0.25
+DEMO-P-202601-00489,Amazon S3,Amazon S3,,21.296,Month,15.972,Month,0.25
+DEMO-P-202601-00490,Amazon VPC,Amazon VPC,,30.898,Month,23.174,Month,0.25
+DEMO-P-202601-00491,AWS KMS,AWS KMS,,9.917,Month,7.438,Month,0.25
+DEMO-P-202601-00492,Amazon Route 53,Amazon Route 53,,18.345,Month,13.759,Month,0.25
+DEMO-P-202601-00493,Amazon S3,Amazon S3,,1.466,Month,1.099,Month,0.25
+DEMO-P-202601-00494,Amazon Route 53,Amazon Route 53,,41.918,Month,31.438,Month,0.25
+DEMO-P-202601-00495,Amazon EKS,Amazon EKS,,33.427,Month,25.07,Month,0.25
+DEMO-P-202601-00496,Amazon QuickSight,Amazon QuickSight,,26.166,Month,19.625,Month,0.25
+DEMO-P-202601-00497,Amazon Neptune,Amazon Neptune,,28.13,Month,21.098,Month,0.25
+DEMO-P-202601-00498,Amazon VPC,Amazon VPC,,5.602,Month,4.202,Month,0.25
+DEMO-P-202601-00499,Amazon AppStream 2.0,Amazon AppStream 2.0,,44.235,Month,33.176,Month,0.25
+DEMO-P-202601-00500,Amazon Neptune,Amazon Neptune,,4.855,Month,3.641,Month,0.25
+DEMO-P-202601-00501,Amazon SageMaker,Amazon SageMaker,,46.93,Month,35.197,Month,0.25
+DEMO-P-202601-00502,Amazon Kinesis,Amazon Kinesis,,40.593,Month,30.445,Month,0.25
+DEMO-P-202601-00503,AWS KMS,AWS KMS,,20.553,Month,15.415,Month,0.25
+DEMO-P-202601-00504,AWS Glue,AWS Glue,,32.291,Month,24.218,Month,0.25
+DEMO-P-202601-00505,Amazon DocumentDB,Amazon DocumentDB,,30.745,Month,23.059,Month,0.25
+DEMO-P-202601-00506,AWS Lake Formation,AWS Lake Formation,,44.368,Month,33.276,Month,0.25
+DEMO-P-202601-00507,Amazon Redshift,Amazon Redshift,,13.741,Month,10.306,Month,0.25
+DEMO-P-202601-00508,AWS Amplify,AWS Amplify,,34.015,Month,25.511,Month,0.25
+DEMO-P-202601-00509,AWS Fargate,AWS Fargate,,41.29,Month,30.968,Month,0.25
+DEMO-P-202601-00510,AWS Amplify,AWS Amplify,,7.79,Month,5.843,Month,0.25
+DEMO-P-202601-00511,Amazon RDS,Amazon RDS,,34.874,Month,26.156,Month,0.25
+DEMO-P-202601-00512,Amazon API Gateway,Amazon API Gateway,,26.414,Month,19.811,Month,0.25
+DEMO-P-202601-00513,Amazon SQS,Amazon SQS,,20.375,Month,15.281,Month,0.25
+DEMO-P-202601-00514,Amazon EC2,Amazon EC2,,13.092,Month,9.819,Month,0.25
+DEMO-P-202601-00515,Amazon Lightsail,Amazon Lightsail,,47.068,Month,35.301,Month,0.25
+DEMO-P-202601-00516,AWS Batch,AWS Batch,,36.659,Month,27.494,Month,0.25
+DEMO-P-202601-00517,Amazon QuickSight,Amazon QuickSight,,47.943,Month,35.957,Month,0.25
+DEMO-P-202601-00518,AWS IAM,AWS IAM,,34.665,Month,25.999,Month,0.25
+DEMO-P-202601-00519,Amazon EC2,Amazon EC2,,35.271,Month,26.453,Month,0.25
+DEMO-P-202601-00520,Amazon CloudWatch,Amazon CloudWatch,,28.695,Month,21.521,Month,0.25
+DEMO-P-202601-00521,Amazon WorkSpaces,Amazon WorkSpaces,,7.188,Month,5.391,Month,0.25
+DEMO-P-202601-00522,AWS Step Functions,AWS Step Functions,,33.154,Month,24.866,Month,0.25
+DEMO-P-202601-00523,AWS Glue DataBrew,AWS Glue DataBrew,,35.486,Month,26.614,Month,0.25
+DEMO-P-202601-00524,AWS Glue,AWS Glue,,35.514,Month,26.636,Month,0.25
+DEMO-P-202601-00525,Amazon AppStream 2.0,Amazon AppStream 2.0,,12.111,Month,9.083,Month,0.25
+DEMO-P-202601-00526,AWS IAM,AWS IAM,,42.762,Month,32.072,Month,0.25
+DEMO-P-202601-00527,Amazon SQS,Amazon SQS,,17.379,Month,13.034,Month,0.25
+DEMO-P-202601-00528,AWS Batch,AWS Batch,,15.642,Month,11.732,Month,0.25
+DEMO-P-202601-00529,Amazon CloudWatch,Amazon CloudWatch,,48.897,Month,36.673,Month,0.25
+DEMO-P-202601-00530,AWS Step Functions,AWS Step Functions,,14.842,Month,11.132,Month,0.25
+DEMO-P-202601-00531,Amazon QuickSight,Amazon QuickSight,,41.006,Month,30.755,Month,0.25
+DEMO-P-202601-00532,Amazon CloudWatch,Amazon CloudWatch,,41.297,Month,30.973,Month,0.25
+DEMO-P-202601-00533,Amazon Route 53,Amazon Route 53,,31.951,Month,23.963,Month,0.25
+DEMO-P-202601-00534,AWS Batch,AWS Batch,,26.449,Month,19.837,Month,0.25
+DEMO-P-202601-00535,AWS AppSync,AWS AppSync,,31.466,Month,23.599,Month,0.25
+DEMO-P-202601-00536,Amazon Athena,Amazon Athena,,22.121,Month,16.591,Month,0.25
+DEMO-P-202601-00537,Amazon WorkSpaces,Amazon WorkSpaces,,27.949,Month,20.962,Month,0.25
+DEMO-P-202601-00538,AWS Amplify,AWS Amplify,,39.576,Month,29.682,Month,0.25
+DEMO-P-202601-00539,Amazon SageMaker,Amazon SageMaker,,43.035,Month,32.276,Month,0.25
+DEMO-P-202601-00540,Amazon Aurora,Amazon Aurora,,31.144,Month,23.358,Month,0.25
+DEMO-P-202601-00541,AWS KMS,AWS KMS,,19.629,Month,14.722,Month,0.25
+DEMO-P-202601-00542,Amazon Lightsail,Amazon Lightsail,,29.135,Month,21.851,Month,0.25
+DEMO-P-202601-00543,AWS Lambda,AWS Lambda,,34.662,Month,25.996,Month,0.25
+DEMO-P-202601-00544,Amazon WorkSpaces,Amazon WorkSpaces,,37.189,Month,27.892,Month,0.25
+DEMO-P-202601-00545,AWS Lambda,AWS Lambda,,22.037,Month,16.528,Month,0.25
+DEMO-P-202601-00546,AWS Step Functions,AWS Step Functions,,14.789,Month,11.092,Month,0.25
+DEMO-P-202601-00547,Amazon DynamoDB,Amazon DynamoDB,,46.15,Month,34.612,Month,0.25
+DEMO-P-202601-00548,Amazon Athena,Amazon Athena,,48.973,Month,36.73,Month,0.25
+DEMO-P-202601-00549,AWS WAF,AWS WAF,,39.915,Month,29.936,Month,0.25
+DEMO-P-202601-00550,Amazon MQ,Amazon MQ,,40.303,Month,30.227,Month,0.25
+DEMO-P-202601-00551,Amazon WorkSpaces,Amazon WorkSpaces,,28.752,Month,21.564,Month,0.25
+DEMO-P-202601-00552,Amazon Athena,Amazon Athena,,40.109,Month,30.082,Month,0.25
+DEMO-P-202601-00553,Amazon RDS,Amazon RDS,,23.265,Month,17.449,Month,0.25
+DEMO-P-202601-00554,AWS Direct Connect,AWS Direct Connect,,38.264,Month,28.698,Month,0.25
+DEMO-P-202601-00555,Amazon Elasticache,Amazon Elasticache,,15.668,Month,11.751,Month,0.25
+DEMO-P-202601-00556,Amazon EC2,Amazon EC2,,30.321,Month,22.741,Month,0.25
+DEMO-P-202601-00557,Amazon SageMaker,Amazon SageMaker,,27.468,Month,20.601,Month,0.25
+DEMO-P-202601-00558,Amazon DynamoDB,Amazon DynamoDB,,28.74,Month,21.555,Month,0.25
+DEMO-P-202601-00559,AWS Glue DataBrew,AWS Glue DataBrew,,42.024,Month,31.518,Month,0.25
+DEMO-P-202601-00560,Amazon ECS,Amazon ECS,,21.606,Month,16.205,Month,0.25
+DEMO-P-202601-00561,AWS KMS,AWS KMS,,44.812,Month,33.609,Month,0.25
+DEMO-P-202601-00562,Amazon SageMaker,Amazon SageMaker,,20.407,Month,15.305,Month,0.25
+DEMO-P-202601-00563,Amazon ECS,Amazon ECS,,5.473,Month,4.105,Month,0.25
+DEMO-P-202601-00564,Amazon Lightsail,Amazon Lightsail,,21.958,Month,16.468,Month,0.25
+DEMO-P-202601-00565,AWS AppSync,AWS AppSync,,34.703,Month,26.027,Month,0.25
+DEMO-P-202601-00566,AWS Amplify,AWS Amplify,,43.142,Month,32.357,Month,0.25
+DEMO-P-202601-00567,AWS IAM,AWS IAM,,0.896,Month,0.672,Month,0.25
+DEMO-P-202601-00568,AWS AppSync,AWS AppSync,,40.509,Month,30.382,Month,0.25
+DEMO-P-202601-00569,Amazon AppStream 2.0,Amazon AppStream 2.0,,22.858,Month,17.143,Month,0.25
+DEMO-P-202601-00570,Amazon SNS,Amazon SNS,,44.895,Month,33.671,Month,0.25
+DEMO-P-202601-00571,Amazon SQS,Amazon SQS,,19.873,Month,14.905,Month,0.25
+DEMO-P-202601-00572,Amazon Kinesis,Amazon Kinesis,,39.67,Month,29.753,Month,0.25
+DEMO-P-202601-00573,Amazon Lightsail,Amazon Lightsail,,8.883,Month,6.662,Month,0.25
+DEMO-P-202601-00574,AWS KMS,AWS KMS,,11.801,Month,8.851,Month,0.25
+DEMO-P-202601-00575,Amazon Route 53,Amazon Route 53,,12.676,Month,9.507,Month,0.25
+DEMO-P-202601-00576,AWS Amplify,AWS Amplify,,5.632,Month,4.224,Month,0.25
+DEMO-P-202601-00577,Amazon Athena,Amazon Athena,,44.466,Month,33.349,Month,0.25
+DEMO-P-202601-00578,AWS AppSync,AWS AppSync,,34.126,Month,25.594,Month,0.25
+DEMO-P-202601-00579,Amazon Route 53,Amazon Route 53,,5.653,Month,4.24,Month,0.25
+DEMO-P-202601-00580,Amazon CloudWatch,Amazon CloudWatch,,33.133,Month,24.85,Month,0.25
+DEMO-P-202601-00581,Amazon SageMaker,Amazon SageMaker,,35.979,Month,26.984,Month,0.25
+DEMO-P-202601-00582,Amazon API Gateway,Amazon API Gateway,,12.248,Month,9.186,Month,0.25
+DEMO-P-202601-00583,Amazon Route 53,Amazon Route 53,,41.484,Month,31.113,Month,0.25
+DEMO-P-202601-00584,Amazon AppStream 2.0,Amazon AppStream 2.0,,0.133,Month,0.1,Month,0.25
+DEMO-P-202601-00585,AWS Glue DataBrew,AWS Glue DataBrew,,37.606,Month,28.205,Month,0.25
+DEMO-P-202601-00586,Amazon WorkSpaces,Amazon WorkSpaces,,34.65,Month,25.987,Month,0.25
+DEMO-P-202601-00587,AWS AppSync,AWS AppSync,,11.918,Month,8.938,Month,0.25
+DEMO-P-202601-00588,AWS AppSync,AWS AppSync,,12.43,Month,9.322,Month,0.25
+DEMO-P-202601-00589,Amazon ECS,Amazon ECS,,40.861,Month,30.646,Month,0.25
+DEMO-P-202601-00590,Amazon Neptune,Amazon Neptune,,48.258,Month,36.194,Month,0.25
+DEMO-P-202601-00591,Amazon DocumentDB,Amazon DocumentDB,,38.331,Month,28.748,Month,0.25
+DEMO-P-202601-00592,AWS Fargate,AWS Fargate,,42.729,Month,32.047,Month,0.25
+DEMO-P-202601-00593,Amazon VPC,Amazon VPC,,20.337,Month,15.253,Month,0.25
+DEMO-P-202601-00594,Amazon EC2,Amazon EC2,,15.3,Month,11.475,Month,0.25
+DEMO-P-202601-00595,AWS IAM,AWS IAM,,33.262,Month,24.947,Month,0.25
+DEMO-P-202601-00596,Amazon S3,Amazon S3,,49.247,Month,36.935,Month,0.25
+DEMO-P-202601-00597,AWS Glue DataBrew,AWS Glue DataBrew,,12.386,Month,9.29,Month,0.25
+DEMO-P-202601-00598,AWS Glue,AWS Glue,,44.059,Month,33.044,Month,0.25
+DEMO-P-202601-00599,Amazon Route 53,Amazon Route 53,,35.147,Month,26.36,Month,0.25
+DEMO-P-202601-00600,Amazon Kinesis,Amazon Kinesis,,9.092,Month,6.819,Month,0.25
+DEMO-P-202601-00601,Amazon SageMaker,Amazon SageMaker,,25.158,Month,18.869,Month,0.25
+DEMO-P-202601-00602,Amazon Redshift,Amazon Redshift,,38.008,Month,28.506,Month,0.25
+DEMO-P-202601-00603,AWS Glue DataBrew,AWS Glue DataBrew,,11.635,Month,8.726,Month,0.25
+DEMO-P-202601-00604,AWS Lake Formation,AWS Lake Formation,,24.918,Month,18.688,Month,0.25
+DEMO-P-202601-00605,Amazon DynamoDB,Amazon DynamoDB,,31.952,Month,23.964,Month,0.25
+DEMO-P-202601-00606,AWS Fargate,AWS Fargate,,48.452,Month,36.339,Month,0.25
+DEMO-P-202601-00607,Amazon EKS,Amazon EKS,,5.473,Month,4.105,Month,0.25
+DEMO-P-202601-00608,AWS Step Functions,AWS Step Functions,,28.48,Month,21.36,Month,0.25
+DEMO-P-202601-00609,Amazon API Gateway,Amazon API Gateway,,15.553,Month,11.665,Month,0.25
+DEMO-P-202601-00610,AWS KMS,AWS KMS,,30.561,Month,22.921,Month,0.25
+DEMO-P-202601-00611,Amazon API Gateway,Amazon API Gateway,,15.716,Month,11.787,Month,0.25
+DEMO-P-202601-00612,AWS Direct Connect,AWS Direct Connect,,36.798,Month,27.599,Month,0.25
+DEMO-P-202601-00613,AWS WAF,AWS WAF,,28.232,Month,21.174,Month,0.25
+DEMO-P-202601-00614,AWS Direct Connect,AWS Direct Connect,,8.687,Month,6.515,Month,0.25
+DEMO-P-202601-00615,Amazon MQ,Amazon MQ,,20.312,Month,15.234,Month,0.25
+DEMO-P-202601-00616,AWS Direct Connect,AWS Direct Connect,,12.96,Month,9.72,Month,0.25
+DEMO-P-202601-00617,AWS Fargate,AWS Fargate,,45.266,Month,33.95,Month,0.25
+DEMO-P-202601-00618,AWS Lake Formation,AWS Lake Formation,,0.888,Month,0.666,Month,0.25
+DEMO-P-202601-00619,Amazon RDS,Amazon RDS,,32.585,Month,24.439,Month,0.25
+DEMO-P-202601-00620,AWS Step Functions,AWS Step Functions,,13.251,Month,9.938,Month,0.25
+DEMO-P-202601-00621,AWS AppSync,AWS AppSync,,35.404,Month,26.553,Month,0.25
+DEMO-P-202601-00622,Amazon Route 53,Amazon Route 53,,32.228,Month,24.171,Month,0.25
+DEMO-P-202601-00623,Amazon MQ,Amazon MQ,,41.572,Month,31.179,Month,0.25
+DEMO-P-202601-00624,Amazon API Gateway,Amazon API Gateway,,13.531,Month,10.148,Month,0.25
+DEMO-P-202601-00625,Amazon DynamoDB,Amazon DynamoDB,,48.918,Month,36.688,Month,0.25
+DEMO-P-202601-00626,Amazon SNS,Amazon SNS,,9.909,Month,7.432,Month,0.25
+DEMO-P-202601-00627,AWS Lambda,AWS Lambda,,12.636,Month,9.477,Month,0.25
+DEMO-P-202601-00628,Amazon EC2,Amazon EC2,,43.281,Month,32.461,Month,0.25
+DEMO-P-202601-00629,Amazon EKS,Amazon EKS,,49.244,Month,36.933,Month,0.25
+DEMO-P-202601-00630,Amazon MQ,Amazon MQ,,31.621,Month,23.716,Month,0.25
+DEMO-P-202601-00631,Amazon CloudWatch,Amazon CloudWatch,,32.746,Month,24.559,Month,0.25
+DEMO-P-202601-00632,AWS Direct Connect,AWS Direct Connect,,12.663,Month,9.497,Month,0.25
+DEMO-P-202601-00633,Amazon EKS,Amazon EKS,,34.783,Month,26.087,Month,0.25
+DEMO-P-202601-00634,Amazon SQS,Amazon SQS,,19.753,Month,14.815,Month,0.25
+DEMO-P-202601-00635,Amazon CloudFront,Amazon CloudFront,,31.496,Month,23.622,Month,0.25
+DEMO-P-202601-00636,Amazon DocumentDB,Amazon DocumentDB,,22.659,Month,16.994,Month,0.25
+DEMO-P-202601-00637,Amazon Redshift,Amazon Redshift,,48.883,Month,36.662,Month,0.25
+DEMO-P-202601-00638,Amazon EKS,Amazon EKS,,46.616,Month,34.962,Month,0.25
+DEMO-P-202601-00639,AWS WAF,AWS WAF,,8.052,Month,6.039,Month,0.25
+DEMO-P-202601-00640,Amazon API Gateway,Amazon API Gateway,,38.657,Month,28.993,Month,0.25
+DEMO-P-202601-00641,Amazon WorkSpaces,Amazon WorkSpaces,,14.135,Month,10.601,Month,0.25
+DEMO-P-202601-00642,AWS AppSync,AWS AppSync,,1.538,Month,1.153,Month,0.25
+DEMO-P-202601-00643,Amazon DynamoDB,Amazon DynamoDB,,24.291,Month,18.218,Month,0.25
+DEMO-P-202601-00644,Amazon Kinesis,Amazon Kinesis,,3.561,Month,2.671,Month,0.25
+DEMO-P-202601-00645,Amazon DocumentDB,Amazon DocumentDB,,38.957,Month,29.218,Month,0.25
+DEMO-P-202601-00646,Amazon QuickSight,Amazon QuickSight,,5.958,Month,4.469,Month,0.25
+DEMO-P-202601-00647,AWS Lake Formation,AWS Lake Formation,,2.31,Month,1.732,Month,0.25
+DEMO-P-202601-00648,AWS Fargate,AWS Fargate,,27.548,Month,20.661,Month,0.25
+DEMO-P-202601-00649,Amazon Lightsail,Amazon Lightsail,,41.626,Month,31.219,Month,0.25
+DEMO-P-202601-00650,AWS IAM,AWS IAM,,9.628,Month,7.221,Month,0.25
+DEMO-P-202601-00651,Amazon EC2,Amazon EC2,,13.838,Month,10.378,Month,0.25
+DEMO-P-202601-00652,Amazon DocumentDB,Amazon DocumentDB,,15.47,Month,11.603,Month,0.25
+DEMO-P-202601-00653,Amazon EC2,Amazon EC2,,33.409,Month,25.057,Month,0.25
+DEMO-P-202601-00654,Amazon DynamoDB,Amazon DynamoDB,,33.42,Month,25.065,Month,0.25
+DEMO-P-202601-00655,Amazon MQ,Amazon MQ,,9.587,Month,7.19,Month,0.25
+DEMO-P-202601-00656,Amazon WorkSpaces,Amazon WorkSpaces,,38.637,Month,28.978,Month,0.25
+DEMO-P-202601-00657,AWS AppSync,AWS AppSync,,5.763,Month,4.322,Month,0.25
+DEMO-P-202601-00658,Amazon CloudFront,Amazon CloudFront,,47.402,Month,35.552,Month,0.25
+DEMO-P-202601-00659,Amazon Aurora,Amazon Aurora,,28.454,Month,21.34,Month,0.25
+DEMO-P-202601-00660,AWS Glue DataBrew,AWS Glue DataBrew,,45.706,Month,34.279,Month,0.25
+DEMO-P-202601-00661,Amazon API Gateway,Amazon API Gateway,,33.742,Month,25.306,Month,0.25
+DEMO-P-202601-00662,Amazon EC2,Amazon EC2,,13.959,Month,10.469,Month,0.25
+DEMO-P-202601-00663,Amazon EKS,Amazon EKS,,25.299,Month,18.974,Month,0.25
+DEMO-P-202601-00664,AWS AppSync,AWS AppSync,,46.634,Month,34.975,Month,0.25
+DEMO-P-202601-00665,AWS AppSync,AWS AppSync,,36.216,Month,27.162,Month,0.25
+DEMO-P-202601-00666,Amazon EC2,Amazon EC2,,32.725,Month,24.544,Month,0.25
+DEMO-P-202601-00667,AWS Direct Connect,AWS Direct Connect,,13.459,Month,10.094,Month,0.25
+DEMO-P-202601-00668,AWS KMS,AWS KMS,,5.979,Month,4.484,Month,0.25
+DEMO-P-202601-00669,Amazon EC2,Amazon EC2,,33.69,Month,25.267,Month,0.25
+DEMO-P-202601-00670,Amazon SageMaker,Amazon SageMaker,,26.356,Month,19.767,Month,0.25
+DEMO-P-202601-00671,Amazon API Gateway,Amazon API Gateway,,25.792,Month,19.344,Month,0.25
+DEMO-P-202601-00672,Amazon EC2,Amazon EC2,,2.777,Month,2.083,Month,0.25
+DEMO-P-202601-00673,AWS Lambda,AWS Lambda,,34.88,Month,26.16,Month,0.25
+DEMO-P-202601-00674,Amazon SQS,Amazon SQS,,47.926,Month,35.945,Month,0.25
+DEMO-P-202601-00675,Amazon SNS,Amazon SNS,,34.284,Month,25.713,Month,0.25
+DEMO-P-202601-00676,Amazon Elasticache,Amazon Elasticache,,32.752,Month,24.564,Month,0.25
+DEMO-P-202601-00677,AWS Fargate,AWS Fargate,,16.541,Month,12.406,Month,0.25
+DEMO-P-202601-00678,Amazon CloudWatch,Amazon CloudWatch,,33.422,Month,25.066,Month,0.25
+DEMO-P-202601-00679,Amazon Aurora,Amazon Aurora,,6.582,Month,4.936,Month,0.25
+DEMO-P-202601-00680,Amazon DynamoDB,Amazon DynamoDB,,25.969,Month,19.477,Month,0.25
+DEMO-P-202601-00681,Amazon DynamoDB,Amazon DynamoDB,,16.312,Month,12.234,Month,0.25
+DEMO-P-202601-00682,AWS Fargate,AWS Fargate,,20.565,Month,15.424,Month,0.25
+DEMO-P-202601-00683,Amazon Athena,Amazon Athena,,0.39,Month,0.292,Month,0.25
+DEMO-P-202601-00684,AWS KMS,AWS KMS,,15.725,Month,11.794,Month,0.25
+DEMO-P-202601-00685,Amazon VPC,Amazon VPC,,30.005,Month,22.504,Month,0.25
+DEMO-P-202601-00686,Amazon MQ,Amazon MQ,,42.363,Month,31.772,Month,0.25
+DEMO-P-202601-00687,Amazon Kinesis,Amazon Kinesis,,30.227,Month,22.67,Month,0.25
+DEMO-P-202601-00688,AWS AppSync,AWS AppSync,,19.031,Month,14.273,Month,0.25
+DEMO-P-202601-00689,AWS Glue,AWS Glue,,11.202,Month,8.402,Month,0.25
+DEMO-P-202601-00690,Amazon S3,Amazon S3,,45.454,Month,34.09,Month,0.25
+DEMO-P-202601-00691,Amazon RDS,Amazon RDS,,8.038,Month,6.029,Month,0.25
+DEMO-P-202601-00692,AWS Step Functions,AWS Step Functions,,4.854,Month,3.641,Month,0.25
+DEMO-P-202601-00693,Amazon Aurora,Amazon Aurora,,31.086,Month,23.314,Month,0.25
+DEMO-P-202601-00694,AWS KMS,AWS KMS,,30.17,Month,22.628,Month,0.25
+DEMO-P-202601-00695,AWS Batch,AWS Batch,,43.01,Month,32.258,Month,0.25
+DEMO-P-202601-00696,Amazon EC2,Amazon EC2,,12.128,Month,9.096,Month,0.25
+DEMO-P-202601-00697,AWS Fargate,AWS Fargate,,39.76,Month,29.82,Month,0.25
+DEMO-P-202601-00698,Amazon Route 53,Amazon Route 53,,1.377,Month,1.033,Month,0.25
+DEMO-P-202601-00699,Amazon RDS,Amazon RDS,,16.321,Month,12.241,Month,0.25
+DEMO-P-202601-00700,AWS Elastic Beanstalk,AWS Elastic Beanstalk,,32.406,Month,24.304,Month,0.25
+DEMO-P-202601-00701,AWS Direct Connect,AWS Direct Connect,,38.505,Month,28.879,Month,0.25
+DEMO-P-202601-00702,AWS WAF,AWS WAF,,14.952,Month,11.214,Month,0.25
+DEMO-P-202601-00703,AWS WAF,AWS WAF,,1.864,Month,1.398,Month,0.25
+DEMO-P-202601-00704,Amazon WorkSpaces,Amazon WorkSpaces,,32.567,Month,24.425,Month,0.25
+DEMO-P-202601-00705,Amazon QuickSight,Amazon QuickSight,,3.083,Month,2.312,Month,0.25
+DEMO-P-202601-00706,Amazon QuickSight,Amazon QuickSight,,30.701,Month,23.026,Month,0.25
+DEMO-P-202601-00707,AWS Direct Connect,AWS Direct Connect,,37.94,Month,28.455,Month,0.25
+DEMO-P-202601-00708,Amazon EKS,Amazon EKS,,30.412,Month,22.809,Month,0.25
+DEMO-P-202601-00709,Amazon DocumentDB,Amazon DocumentDB,,17.564,Month,13.173,Month,0.25
+DEMO-P-202601-00710,AWS AppSync,AWS AppSync,,49.247,Month,36.935,Month,0.25
+DEMO-P-202601-00711,Amazon EC2,Amazon EC2,,26.813,Month,20.11,Month,0.25
+DEMO-P-202601-00712,AWS Step Functions,AWS Step Functions,,46.882,Month,35.161,Month,0.25
+DEMO-P-202601-00713,AWS WAF,AWS WAF,,49.449,Month,37.087,Month,0.25
+DEMO-P-202601-00714,AWS Lambda,AWS Lambda,,29.715,Month,22.286,Month,0.25
+DEMO-P-202601-00715,Amazon Kinesis,Amazon Kinesis,,35.032,Month,26.274,Month,0.25
+DEMO-P-202601-00716,Amazon Neptune,Amazon Neptune,,41.409,Month,31.057,Month,0.25
+DEMO-P-202601-00717,Amazon Kinesis,Amazon Kinesis,,1.682,Month,1.261,Month,0.25
+DEMO-P-202601-00718,Amazon WorkSpaces,Amazon WorkSpaces,,3.252,Month,2.439,Month,0.25
+DEMO-P-202601-00719,AWS IAM,AWS IAM,,19.587,Month,14.69,Month,0.25
+DEMO-P-202601-00720,AWS Glue,AWS Glue,,6.115,Month,4.586,Month,0.25
+DEMO-P-202601-00721,Amazon EKS,Amazon EKS,,44.883,Month,33.662,Month,0.25
+DEMO-P-202601-00722,AWS Direct Connect,AWS Direct Connect,,34.466,Month,25.849,Month,0.25
+DEMO-P-202601-00723,AWS Step Functions,AWS Step Functions,,44.675,Month,33.506,Month,0.25
+DEMO-P-202601-00724,AWS WAF,AWS WAF,,20.766,Month,15.574,Month,0.25
+DEMO-P-202601-00725,Amazon CloudWatch,Amazon CloudWatch,,1.687,Month,1.265,Month,0.25
+DEMO-P-202601-00726,Amazon Redshift,Amazon Redshift,,20.329,Month,15.247,Month,0.25
+DEMO-P-202601-00727,AWS Fargate,AWS Fargate,,9.551,Month,7.163,Month,0.25
+DEMO-P-202601-00728,AWS AppSync,AWS AppSync,,14.701,Month,11.026,Month,0.25
+DEMO-P-202601-00729,AWS Elastic Beanstalk,AWS Elastic Beanstalk,,1.348,Month,1.011,Month,0.25
+DEMO-P-202601-00730,AWS Step Functions,AWS Step Functions,,12.277,Month,9.208,Month,0.25
+DEMO-P-202601-00731,AWS IAM,AWS IAM,,35.735,Month,26.801,Month,0.25
+DEMO-P-202601-00732,Amazon S3,Amazon S3,,2.13,Month,1.597,Month,0.25
+DEMO-P-202601-00733,Amazon MQ,Amazon MQ,,30.94,Month,23.205,Month,0.25
+DEMO-P-202601-00734,AWS Amplify,AWS Amplify,,39.656,Month,29.742,Month,0.25
+DEMO-P-202601-00735,Amazon RDS,Amazon RDS,,7.264,Month,5.448,Month,0.25
+DEMO-P-202601-00736,Amazon CloudWatch,Amazon CloudWatch,,20.406,Month,15.304,Month,0.25
+DEMO-P-202601-00737,AWS Batch,AWS Batch,,28.985,Month,21.739,Month,0.25
+DEMO-P-202601-00738,Amazon WorkSpaces,Amazon WorkSpaces,,27.651,Month,20.738,Month,0.25
+DEMO-P-202601-00739,Amazon Athena,Amazon Athena,,43.032,Month,32.274,Month,0.25
+DEMO-P-202601-00740,Amazon Route 53,Amazon Route 53,,30.133,Month,22.6,Month,0.25
+DEMO-P-202601-00741,AWS Glue,AWS Glue,,7.262,Month,5.446,Month,0.25
+DEMO-P-202601-00742,Amazon CloudWatch,Amazon CloudWatch,,15.905,Month,11.929,Month,0.25
+DEMO-P-202601-00743,Amazon Lightsail,Amazon Lightsail,,24.288,Month,18.216,Month,0.25
+DEMO-P-202601-00744,Amazon API Gateway,Amazon API Gateway,,38.603,Month,28.952,Month,0.25
+DEMO-P-202601-00745,Amazon Redshift,Amazon Redshift,,17.783,Month,13.337,Month,0.25
+DEMO-P-202601-00746,Amazon QuickSight,Amazon QuickSight,,4.59,Month,3.442,Month,0.25
+DEMO-P-202601-00747,Amazon CloudWatch,Amazon CloudWatch,,37.914,Month,28.436,Month,0.25
+DEMO-P-202601-00748,AWS IAM,AWS IAM,,3.57,Month,2.677,Month,0.25
+DEMO-P-202601-00749,AWS Direct Connect,AWS Direct Connect,,40.645,Month,30.484,Month,0.25
+DEMO-P-202601-00750,AWS Batch,AWS Batch,,35.467,Month,26.6,Month,0.25
+DEMO-P-202601-00751,Amazon Lightsail,Amazon Lightsail,,29.914,Month,22.436,Month,0.25
+DEMO-P-202601-00752,Amazon VPC,Amazon VPC,,13.45,Month,10.087,Month,0.25
+DEMO-P-202601-00753,Amazon API Gateway,Amazon API Gateway,,10.331,Month,7.748,Month,0.25
+DEMO-P-202601-00754,Amazon Elasticache,Amazon Elasticache,,7.61,Month,5.708,Month,0.25
+DEMO-P-202601-00755,Amazon WorkSpaces,Amazon WorkSpaces,,37.998,Month,28.498,Month,0.25
+DEMO-P-202601-00756,AWS Elastic Beanstalk,AWS Elastic Beanstalk,,25.237,Month,18.928,Month,0.25
+DEMO-P-202601-00757,Amazon VPC,Amazon VPC,,6.086,Month,4.565,Month,0.25
+DEMO-P-202601-00758,Amazon Route 53,Amazon Route 53,,40.265,Month,30.199,Month,0.25
+DEMO-P-202601-00759,Amazon Aurora,Amazon Aurora,,4.431,Month,3.323,Month,0.25
+DEMO-P-202601-00760,Amazon MQ,Amazon MQ,,4.547,Month,3.41,Month,0.25
+DEMO-P-202601-00761,Amazon Elasticache,Amazon Elasticache,,41.065,Month,30.799,Month,0.25
+DEMO-P-202601-00762,Amazon Neptune,Amazon Neptune,,22.693,Month,17.02,Month,0.25
+DEMO-P-202601-00763,Amazon WorkSpaces,Amazon WorkSpaces,,37.493,Month,28.12,Month,0.25
+DEMO-P-202601-00764,AWS Batch,AWS Batch,,15.728,Month,11.796,Month,0.25
+DEMO-P-202601-00765,Amazon EKS,Amazon EKS,,45.192,Month,33.894,Month,0.25
+DEMO-P-202601-00766,Amazon WorkSpaces,Amazon WorkSpaces,,34.13,Month,25.598,Month,0.25
+DEMO-P-202601-00767,Amazon QuickSight,Amazon QuickSight,,5.026,Month,3.769,Month,0.25
+DEMO-P-202601-00768,AWS Elastic Beanstalk,AWS Elastic Beanstalk,,42.33,Month,31.747,Month,0.25
+DEMO-P-202601-00769,AWS IAM,AWS IAM,,40.981,Month,30.736,Month,0.25
+DEMO-P-202601-00770,AWS Elastic Beanstalk,AWS Elastic Beanstalk,,0.271,Month,0.203,Month,0.25
+DEMO-P-202601-00771,AWS Batch,AWS Batch,,45.07,Month,33.803,Month,0.25
+DEMO-P-202601-00772,AWS Elastic Beanstalk,AWS Elastic Beanstalk,,1.106,Month,0.83,Month,0.25
+DEMO-P-202601-00773,AWS Amplify,AWS Amplify,,17.259,Month,12.944,Month,0.25
+DEMO-P-202601-00774,Amazon CloudFront,Amazon CloudFront,,48.224,Month,36.168,Month,0.25
+DEMO-P-202601-00775,Amazon VPC,Amazon VPC,,20.805,Month,15.604,Month,0.25
+DEMO-P-202601-00776,Amazon VPC,Amazon VPC,,38.15,Month,28.612,Month,0.25
+DEMO-P-202601-00777,Amazon DocumentDB,Amazon DocumentDB,,1.7,Month,1.275,Month,0.25
+DEMO-P-202601-00778,Amazon EC2,Amazon EC2,,39.009,Month,29.257,Month,0.25
+DEMO-P-202601-00779,Amazon S3,Amazon S3,,5.389,Month,4.042,Month,0.25
+DEMO-P-202601-00780,Amazon Aurora,Amazon Aurora,,20.029,Month,15.022,Month,0.25
+DEMO-P-202601-00781,AWS IAM,AWS IAM,,14.401,Month,10.801,Month,0.25
+DEMO-P-202601-00782,Amazon MQ,Amazon MQ,,36.807,Month,27.605,Month,0.25
+DEMO-P-202601-00783,AWS Glue,AWS Glue,,23.572,Month,17.679,Month,0.25
+DEMO-P-202601-00784,AWS Amplify,AWS Amplify,,41.183,Month,30.887,Month,0.25
+DEMO-P-202601-00785,AWS WAF,AWS WAF,,25.595,Month,19.196,Month,0.25
+DEMO-P-202601-00786,AWS Elastic Beanstalk,AWS Elastic Beanstalk,,20.606,Month,15.455,Month,0.25
+DEMO-P-202601-00787,Amazon SNS,Amazon SNS,,47.442,Month,35.581,Month,0.25
+DEMO-P-202601-00788,AWS Lake Formation,AWS Lake Formation,,15.499,Month,11.624,Month,0.25
+DEMO-P-202601-00789,AWS KMS,AWS KMS,,32.153,Month,24.115,Month,0.25
+DEMO-P-202601-00790,AWS Amplify,AWS Amplify,,13.454,Month,10.091,Month,0.25
+DEMO-P-202601-00791,Amazon DynamoDB,Amazon DynamoDB,,27.423,Month,20.567,Month,0.25
+DEMO-P-202601-00792,Amazon EC2,Amazon EC2,,2.969,Month,2.227,Month,0.25
+DEMO-P-202601-00793,Amazon CloudFront,Amazon CloudFront,,34.339,Month,25.754,Month,0.25
+DEMO-P-202601-00794,Amazon Neptune,Amazon Neptune,,15.21,Month,11.408,Month,0.25
+DEMO-P-202601-00795,Amazon EC2,Amazon EC2,,32.521,Month,24.391,Month,0.25
+DEMO-P-202601-00796,AWS Glue,AWS Glue,,30.561,Month,22.921,Month,0.25
+DEMO-P-202601-00797,AWS Amplify,AWS Amplify,,46.408,Month,34.806,Month,0.25
+DEMO-P-202601-00798,Amazon Lightsail,Amazon Lightsail,,49.858,Month,37.393,Month,0.25
+DEMO-P-202601-00799,AWS Batch,AWS Batch,,7.041,Month,5.281,Month,0.25
+DEMO-P-202601-00800,Amazon Redshift,Amazon Redshift,,13.525,Month,10.144,Month,0.25
+DEMO-P-202601-00801,Amazon Kinesis,Amazon Kinesis,,23.525,Month,17.644,Month,0.25
+DEMO-P-202601-00802,Amazon Lightsail,Amazon Lightsail,,6.787,Month,5.09,Month,0.25
+DEMO-P-202601-00803,AWS Elastic Beanstalk,AWS Elastic Beanstalk,,5.976,Month,4.482,Month,0.25
+DEMO-P-202601-00804,Amazon Athena,Amazon Athena,,15.175,Month,11.381,Month,0.25
+DEMO-P-202601-00805,Amazon API Gateway,Amazon API Gateway,,9.099,Month,6.824,Month,0.25
+DEMO-P-202601-00806,AWS Direct Connect,AWS Direct Connect,,25.453,Month,19.09,Month,0.25
+DEMO-P-202601-00807,AWS Glue,AWS Glue,,20.387,Month,15.29,Month,0.25
+DEMO-P-202601-00808,Amazon Aurora,Amazon Aurora,,33.895,Month,25.421,Month,0.25
+DEMO-P-202601-00809,AWS Elastic Beanstalk,AWS Elastic Beanstalk,,26.965,Month,20.224,Month,0.25
+DEMO-P-202601-00810,Amazon Aurora,Amazon Aurora,,45.986,Month,34.489,Month,0.25
+DEMO-P-202601-00811,Amazon Lightsail,Amazon Lightsail,,38.01,Month,28.508,Month,0.25
+DEMO-P-202601-00812,AWS Batch,AWS Batch,,8.495,Month,6.371,Month,0.25
+DEMO-P-202601-00813,Amazon CloudWatch,Amazon CloudWatch,,36.306,Month,27.229,Month,0.25
+DEMO-P-202601-00814,AWS Amplify,AWS Amplify,,32.494,Month,24.37,Month,0.25
+DEMO-P-202601-00815,Amazon WorkSpaces,Amazon WorkSpaces,,18.317,Month,13.738,Month,0.25
+DEMO-P-202601-00816,Amazon CloudFront,Amazon CloudFront,,8.315,Month,6.236,Month,0.25
+DEMO-P-202601-00817,AWS Step Functions,AWS Step Functions,,26.996,Month,20.247,Month,0.25
+DEMO-P-202601-00818,AWS Lambda,AWS Lambda,,49.41,Month,37.057,Month,0.25
+DEMO-P-202601-00819,Amazon Redshift,Amazon Redshift,,29.024,Month,21.768,Month,0.25
+DEMO-P-202601-00820,AWS Lake Formation,AWS Lake Formation,,49.892,Month,37.419,Month,0.25
+DEMO-P-202601-00821,Amazon VPC,Amazon VPC,,12.15,Month,9.113,Month,0.25
+DEMO-P-202601-00822,Amazon Aurora,Amazon Aurora,,13.217,Month,9.913,Month,0.25
+DEMO-P-202601-00823,Amazon WorkSpaces,Amazon WorkSpaces,,14.571,Month,10.928,Month,0.25
+DEMO-P-202601-00824,AWS IAM,AWS IAM,,37.225,Month,27.919,Month,0.25
+DEMO-P-202601-00825,AWS Glue,AWS Glue,,19.607,Month,14.705,Month,0.25
+DEMO-P-202601-00826,Amazon Elasticache,Amazon Elasticache,,31.963,Month,23.972,Month,0.25
+DEMO-P-202601-00827,Amazon Kinesis,Amazon Kinesis,,17.053,Month,12.79,Month,0.25
+DEMO-P-202601-00828,AWS Amplify,AWS Amplify,,44.204,Month,33.153,Month,0.25
+DEMO-P-202601-00829,Amazon AppStream 2.0,Amazon AppStream 2.0,,3.266,Month,2.45,Month,0.25
+DEMO-P-202601-00830,Amazon WorkSpaces,Amazon WorkSpaces,,1.481,Month,1.111,Month,0.25
+DEMO-P-202601-00831,Amazon DynamoDB,Amazon DynamoDB,,6.26,Month,4.695,Month,0.25
+DEMO-P-202601-00832,Amazon WorkSpaces,Amazon WorkSpaces,,43.521,Month,32.641,Month,0.25
+DEMO-P-202601-00833,AWS Direct Connect,AWS Direct Connect,,33.355,Month,25.016,Month,0.25
+DEMO-P-202601-00834,Amazon RDS,Amazon RDS,,28.658,Month,21.494,Month,0.25
+DEMO-P-202601-00835,AWS Elastic Beanstalk,AWS Elastic Beanstalk,,25.466,Month,19.099,Month,0.25
+DEMO-P-202601-00836,Amazon EKS,Amazon EKS,,40.305,Month,30.229,Month,0.25
+DEMO-P-202601-00837,AWS Lake Formation,AWS Lake Formation,,24.527,Month,18.395,Month,0.25
+DEMO-P-202601-00838,Amazon Aurora,Amazon Aurora,,26.041,Month,19.531,Month,0.25
+DEMO-P-202601-00839,Amazon DynamoDB,Amazon DynamoDB,,36.079,Month,27.059,Month,0.25
+DEMO-P-202601-00840,AWS IAM,AWS IAM,,5.985,Month,4.489,Month,0.25
+DEMO-P-202601-00841,Amazon RDS,Amazon RDS,,20.154,Month,15.116,Month,0.25
+DEMO-P-202601-00842,AWS Batch,AWS Batch,,0.667,Month,0.5,Month,0.25
+DEMO-P-202601-00843,AWS KMS,AWS KMS,,43.101,Month,32.326,Month,0.25
+DEMO-P-202601-00844,Amazon MQ,Amazon MQ,,27.673,Month,20.755,Month,0.25
+DEMO-P-202601-00845,Amazon RDS,Amazon RDS,,15.048,Month,11.286,Month,0.25
+DEMO-P-202601-00846,Amazon RDS,Amazon RDS,,3.399,Month,2.549,Month,0.25
+DEMO-P-202601-00847,Amazon RDS,Amazon RDS,,22.829,Month,17.122,Month,0.25
+DEMO-P-202601-00848,Amazon Neptune,Amazon Neptune,,8.278,Month,6.209,Month,0.25
+DEMO-P-202601-00849,Amazon Neptune,Amazon Neptune,,3.85,Month,2.888,Month,0.25
+DEMO-P-202601-00850,Amazon WorkSpaces,Amazon WorkSpaces,,3.517,Month,2.638,Month,0.25
+DEMO-P-202601-00851,Amazon Elasticache,Amazon Elasticache,,35.12,Month,26.34,Month,0.25
+DEMO-P-202601-00852,AWS AppSync,AWS AppSync,,24.47,Month,18.352,Month,0.25
+DEMO-P-202601-00853,AWS Glue,AWS Glue,,27.077,Month,20.308,Month,0.25
+DEMO-P-202601-00854,Amazon CloudFront,Amazon CloudFront,,16.924,Month,12.693,Month,0.25
+DEMO-P-202601-00855,AWS Batch,AWS Batch,,42.204,Month,31.653,Month,0.25
+DEMO-P-202601-00856,AWS Step Functions,AWS Step Functions,,37.777,Month,28.333,Month,0.25
+DEMO-P-202601-00857,AWS Lake Formation,AWS Lake Formation,,40.846,Month,30.634,Month,0.25
+DEMO-P-202601-00858,AWS Glue DataBrew,AWS Glue DataBrew,,45.755,Month,34.316,Month,0.25
+DEMO-P-202601-00859,Amazon VPC,Amazon VPC,,8.929,Month,6.697,Month,0.25
+DEMO-P-202601-00860,Amazon WorkSpaces,Amazon WorkSpaces,,20.319,Month,15.239,Month,0.25
+DEMO-P-202601-00861,Amazon Aurora,Amazon Aurora,,42.663,Month,31.997,Month,0.25
+DEMO-P-202601-00862,Amazon SNS,Amazon SNS,,43.715,Month,32.786,Month,0.25
+DEMO-P-202601-00863,Amazon MQ,Amazon MQ,,7.773,Month,5.83,Month,0.25
+DEMO-P-202601-00864,AWS Glue,AWS Glue,,47.763,Month,35.822,Month,0.25
+DEMO-P-202601-00865,Amazon Redshift,Amazon Redshift,,40.352,Month,30.264,Month,0.25
+DEMO-P-202601-00866,Amazon Kinesis,Amazon Kinesis,,1.517,Month,1.138,Month,0.25
+DEMO-P-202601-00867,AWS Lake Formation,AWS Lake Formation,,41.655,Month,31.241,Month,0.25
+DEMO-P-202601-00868,AWS Fargate,AWS Fargate,,4.885,Month,3.664,Month,0.25
+DEMO-P-202601-00869,AWS IAM,AWS IAM,,46.797,Month,35.098,Month,0.25
+DEMO-P-202601-00870,AWS Lake Formation,AWS Lake Formation,,37.662,Month,28.246,Month,0.25
+DEMO-P-202601-00871,Amazon MQ,Amazon MQ,,39.828,Month,29.871,Month,0.25
+DEMO-P-202601-00872,AWS AppSync,AWS AppSync,,28.494,Month,21.37,Month,0.25
+DEMO-P-202601-00873,Amazon Neptune,Amazon Neptune,,16.918,Month,12.688,Month,0.25
+DEMO-P-202601-00874,Amazon AppStream 2.0,Amazon AppStream 2.0,,39.723,Month,29.792,Month,0.25
+DEMO-P-202601-00875,Amazon DynamoDB,Amazon DynamoDB,,14.175,Month,10.631,Month,0.25
+DEMO-P-202601-00876,Amazon S3,Amazon S3,,47.112,Month,35.334,Month,0.25
+DEMO-P-202601-00877,Amazon RDS,Amazon RDS,,28.096,Month,21.072,Month,0.25
+DEMO-P-202601-00878,AWS Glue,AWS Glue,,30.847,Month,23.135,Month,0.25
+DEMO-P-202601-00879,Amazon MQ,Amazon MQ,,49.933,Month,37.45,Month,0.25
+DEMO-P-202601-00880,AWS Lake Formation,AWS Lake Formation,,37.16,Month,27.87,Month,0.25
+DEMO-P-202601-00881,Amazon SageMaker,Amazon SageMaker,,47.006,Month,35.255,Month,0.25
+DEMO-P-202601-00882,Amazon CloudFront,Amazon CloudFront,,24.884,Month,18.663,Month,0.25
+DEMO-P-202601-00883,Amazon EKS,Amazon EKS,,30.071,Month,22.553,Month,0.25
+DEMO-P-202601-00884,AWS IAM,AWS IAM,,42.971,Month,32.228,Month,0.25
+DEMO-P-202601-00885,AWS Fargate,AWS Fargate,,36.05,Month,27.037,Month,0.25
+DEMO-P-202601-00886,AWS Lake Formation,AWS Lake Formation,,46.874,Month,35.156,Month,0.25
+DEMO-P-202601-00887,AWS Elastic Beanstalk,AWS Elastic Beanstalk,,43.862,Month,32.897,Month,0.25
+DEMO-P-202601-00888,AWS WAF,AWS WAF,,42.013,Month,31.51,Month,0.25
+DEMO-P-202601-00889,Amazon EKS,Amazon EKS,,0.421,Month,0.316,Month,0.25
+DEMO-P-202601-00890,AWS KMS,AWS KMS,,46.221,Month,34.666,Month,0.25
+DEMO-P-202601-00891,AWS Batch,AWS Batch,,10.151,Month,7.613,Month,0.25
+DEMO-P-202601-00892,Amazon Redshift,Amazon Redshift,,9.066,Month,6.8,Month,0.25
+DEMO-P-202601-00893,Amazon DynamoDB,Amazon DynamoDB,,40.649,Month,30.487,Month,0.25
+DEMO-P-202601-00894,AWS Lake Formation,AWS Lake Formation,,5.819,Month,4.364,Month,0.25
+DEMO-P-202601-00895,Amazon S3,Amazon S3,,28.575,Month,21.431,Month,0.25
+DEMO-P-202601-00896,Amazon SageMaker,Amazon SageMaker,,36.566,Month,27.425,Month,0.25
+DEMO-P-202601-00897,Amazon SQS,Amazon SQS,,47.913,Month,35.935,Month,0.25
+DEMO-P-202601-00898,Amazon Kinesis,Amazon Kinesis,,32.782,Month,24.586,Month,0.25
+DEMO-P-202601-00899,Amazon SNS,Amazon SNS,,32.077,Month,24.058,Month,0.25
+DEMO-P-202601-00900,Amazon CloudWatch,Amazon CloudWatch,,22.116,Month,16.587,Month,0.25
+DEMO-P-202601-00901,AWS Batch,AWS Batch,,39.959,Month,29.969,Month,0.25
+DEMO-P-202601-00902,Amazon SNS,Amazon SNS,,28.091,Month,21.068,Month,0.25
+DEMO-P-202601-00903,AWS WAF,AWS WAF,,39.139,Month,29.354,Month,0.25
+DEMO-P-202601-00904,Amazon RDS,Amazon RDS,,4.15,Month,3.113,Month,0.25
+DEMO-P-202601-00905,Amazon EC2,Amazon EC2,,11.226,Month,8.42,Month,0.25
+DEMO-P-202601-00906,AWS KMS,AWS KMS,,12.568,Month,9.426,Month,0.25
+DEMO-P-202601-00907,Amazon Elasticache,Amazon Elasticache,,35.221,Month,26.416,Month,0.25
+DEMO-P-202601-00908,AWS Batch,AWS Batch,,49.916,Month,37.437,Month,0.25
+DEMO-P-202601-00909,AWS Lake Formation,AWS Lake Formation,,0.639,Month,0.479,Month,0.25
+DEMO-P-202601-00910,AWS Fargate,AWS Fargate,,38.726,Month,29.044,Month,0.25
+DEMO-P-202601-00911,AWS Amplify,AWS Amplify,,48.482,Month,36.361,Month,0.25
+DEMO-P-202601-00912,Amazon AppStream 2.0,Amazon AppStream 2.0,,1.569,Month,1.177,Month,0.25
+DEMO-P-202601-00913,Amazon SageMaker,Amazon SageMaker,,38.96,Month,29.22,Month,0.25
+DEMO-P-202601-00914,AWS IAM,AWS IAM,,46.985,Month,35.239,Month,0.25
+DEMO-P-202601-00915,Amazon CloudWatch,Amazon CloudWatch,,35.694,Month,26.771,Month,0.25
+DEMO-P-202601-00916,Amazon Redshift,Amazon Redshift,,19.272,Month,14.454,Month,0.25
+DEMO-P-202601-00917,AWS Glue DataBrew,AWS Glue DataBrew,,22.995,Month,17.246,Month,0.25
+DEMO-P-202601-00918,Amazon SageMaker,Amazon SageMaker,,24.35,Month,18.263,Month,0.25
+DEMO-P-202601-00919,AWS Fargate,AWS Fargate,,8.017,Month,6.013,Month,0.25
+DEMO-P-202601-00920,Amazon Redshift,Amazon Redshift,,27.12,Month,20.34,Month,0.25
+DEMO-P-202601-00921,AWS WAF,AWS WAF,,29.967,Month,22.475,Month,0.25
+DEMO-P-202601-00922,AWS Fargate,AWS Fargate,,19.236,Month,14.427,Month,0.25
+DEMO-P-202601-00923,Amazon S3,Amazon S3,,41.447,Month,31.085,Month,0.25
+DEMO-P-202601-00924,AWS Step Functions,AWS Step Functions,,33.704,Month,25.278,Month,0.25
+DEMO-P-202601-00925,AWS Glue,AWS Glue,,22.56,Month,16.92,Month,0.25
+DEMO-P-202601-00926,Amazon SQS,Amazon SQS,,7.404,Month,5.553,Month,0.25
+DEMO-P-202601-00927,Amazon QuickSight,Amazon QuickSight,,34.951,Month,26.213,Month,0.25
+DEMO-P-202601-00928,Amazon WorkSpaces,Amazon WorkSpaces,,1.358,Month,1.018,Month,0.25
+DEMO-P-202601-00929,Amazon SNS,Amazon SNS,,8.527,Month,6.395,Month,0.25
+DEMO-P-202601-00930,Amazon EKS,Amazon EKS,,30.185,Month,22.639,Month,0.25
+DEMO-P-202601-00931,Amazon Lightsail,Amazon Lightsail,,25.052,Month,18.789,Month,0.25
+DEMO-P-202601-00932,Amazon ECS,Amazon ECS,,39.696,Month,29.772,Month,0.25
+DEMO-P-202601-00933,AWS Step Functions,AWS Step Functions,,27.059,Month,20.294,Month,0.25
+DEMO-P-202601-00934,AWS Amplify,AWS Amplify,,33.655,Month,25.241,Month,0.25
+DEMO-P-202601-00935,AWS IAM,AWS IAM,,2.71,Month,2.032,Month,0.25
+DEMO-P-202601-00936,Amazon AppStream 2.0,Amazon AppStream 2.0,,8.826,Month,6.62,Month,0.25
+DEMO-P-202601-00937,Amazon MQ,Amazon MQ,,40.738,Month,30.553,Month,0.25
+DEMO-P-202601-00938,AWS Glue DataBrew,AWS Glue DataBrew,,33.747,Month,25.31,Month,0.25
+DEMO-P-202601-00939,Amazon Redshift,Amazon Redshift,,13.927,Month,10.445,Month,0.25
+DEMO-P-202601-00940,Amazon SNS,Amazon SNS,,48.106,Month,36.08,Month,0.25
+DEMO-P-202601-00941,Amazon SQS,Amazon SQS,,38.031,Month,28.523,Month,0.25
+DEMO-P-202601-00942,AWS Lambda,AWS Lambda,,37.726,Month,28.294,Month,0.25
+DEMO-P-202601-00943,AWS Glue DataBrew,AWS Glue DataBrew,,26.592,Month,19.944,Month,0.25
+DEMO-P-202601-00944,Amazon Elasticache,Amazon Elasticache,,31.301,Month,23.476,Month,0.25
+DEMO-P-202601-00945,Amazon QuickSight,Amazon QuickSight,,22.165,Month,16.624,Month,0.25
+DEMO-P-202601-00946,Amazon RDS,Amazon RDS,,21.031,Month,15.773,Month,0.25
+DEMO-P-202601-00947,AWS Step Functions,AWS Step Functions,,7.008,Month,5.256,Month,0.25
+DEMO-P-202601-00948,AWS Fargate,AWS Fargate,,46.949,Month,35.212,Month,0.25
+DEMO-P-202601-00949,Amazon MQ,Amazon MQ,,34.367,Month,25.775,Month,0.25
+DEMO-P-202601-00950,AWS Lambda,AWS Lambda,,0.663,Month,0.497,Month,0.25
+DEMO-P-202601-00951,Amazon API Gateway,Amazon API Gateway,,5.394,Month,4.046,Month,0.25
+DEMO-P-202601-00952,Amazon Route 53,Amazon Route 53,,29.306,Month,21.98,Month,0.25
+DEMO-P-202601-00953,Amazon AppStream 2.0,Amazon AppStream 2.0,,26.448,Month,19.836,Month,0.25
+DEMO-P-202601-00954,Amazon SageMaker,Amazon SageMaker,,48.141,Month,36.106,Month,0.25
+DEMO-P-202601-00955,Amazon ECS,Amazon ECS,,37.733,Month,28.3,Month,0.25
+DEMO-P-202601-00956,Amazon RDS,Amazon RDS,,43.285,Month,32.464,Month,0.25
+DEMO-P-202601-00957,Amazon Route 53,Amazon Route 53,,34.2,Month,25.65,Month,0.25
+DEMO-P-202601-00958,Amazon Athena,Amazon Athena,,17.004,Month,12.753,Month,0.25
+DEMO-P-202601-00959,Amazon EKS,Amazon EKS,,41.282,Month,30.961,Month,0.25
+DEMO-P-202601-00960,AWS Lake Formation,AWS Lake Formation,,10.304,Month,7.728,Month,0.25
+DEMO-P-202601-00961,Amazon RDS,Amazon RDS,,6.794,Month,5.095,Month,0.25
+DEMO-P-202601-00962,AWS AppSync,AWS AppSync,,27.835,Month,20.876,Month,0.25
+DEMO-P-202601-00963,Amazon MQ,Amazon MQ,,29.803,Month,22.352,Month,0.25
+DEMO-P-202601-00964,AWS Batch,AWS Batch,,4.834,Month,3.625,Month,0.25
+DEMO-P-202601-00965,Amazon DocumentDB,Amazon DocumentDB,,13.737,Month,10.303,Month,0.25
+DEMO-P-202601-00966,Amazon Neptune,Amazon Neptune,,4.983,Month,3.737,Month,0.25
+DEMO-P-202601-00967,Amazon CloudWatch,Amazon CloudWatch,,17.188,Month,12.891,Month,0.25
+DEMO-P-202601-00968,Amazon SQS,Amazon SQS,,24.486,Month,18.364,Month,0.25
+DEMO-P-202601-00969,Amazon Athena,Amazon Athena,,16.627,Month,12.47,Month,0.25
+DEMO-P-202601-00970,AWS Amplify,AWS Amplify,,6.618,Month,4.963,Month,0.25
+DEMO-P-202601-00971,Amazon Elasticache,Amazon Elasticache,,31.376,Month,23.532,Month,0.25
+DEMO-P-202601-00972,Amazon EC2,Amazon EC2,,13.861,Month,10.396,Month,0.25
+DEMO-P-202601-00973,Amazon Elasticache,Amazon Elasticache,,39.864,Month,29.898,Month,0.25
+DEMO-P-202601-00974,Amazon API Gateway,Amazon API Gateway,,47.056,Month,35.292,Month,0.25
+DEMO-P-202601-00975,Amazon S3,Amazon S3,,49.075,Month,36.806,Month,0.25
+DEMO-P-202601-00976,AWS Fargate,AWS Fargate,,20.152,Month,15.114,Month,0.25
+DEMO-P-202601-00977,AWS AppSync,AWS AppSync,,14.304,Month,10.728,Month,0.25
+DEMO-P-202601-00978,Amazon Route 53,Amazon Route 53,,27.044,Month,20.283,Month,0.25
+DEMO-P-202601-00979,AWS Glue,AWS Glue,,44.436,Month,33.327,Month,0.25
+DEMO-P-202601-00980,Amazon Lightsail,Amazon Lightsail,,40.025,Month,30.019,Month,0.25
+DEMO-P-202601-00981,Amazon ECS,Amazon ECS,,45.688,Month,34.266,Month,0.25
+DEMO-P-202601-00982,Amazon SNS,Amazon SNS,,46.458,Month,34.843,Month,0.25
+DEMO-P-202601-00983,Amazon AppStream 2.0,Amazon AppStream 2.0,,29.377,Month,22.033,Month,0.25
+DEMO-P-202601-00984,Amazon MQ,Amazon MQ,,44.839,Month,33.629,Month,0.25
+DEMO-P-202601-00985,Amazon EC2,Amazon EC2,,39.723,Month,29.792,Month,0.25
+DEMO-P-202601-00986,Amazon API Gateway,Amazon API Gateway,,29.906,Month,22.429,Month,0.25
+DEMO-P-202601-00987,Amazon QuickSight,Amazon QuickSight,,8.814,Month,6.611,Month,0.25
+DEMO-P-202601-00988,Amazon SageMaker,Amazon SageMaker,,35.436,Month,26.577,Month,0.25
+DEMO-P-202601-00989,AWS Elastic Beanstalk,AWS Elastic Beanstalk,,5.749,Month,4.312,Month,0.25
+DEMO-P-202601-00990,Amazon MQ,Amazon MQ,,32.7,Month,24.525,Month,0.25
+DEMO-P-202601-00991,Amazon MQ,Amazon MQ,,0.29,Month,0.217,Month,0.25
+DEMO-P-202601-00992,Amazon DocumentDB,Amazon DocumentDB,,33.312,Month,24.984,Month,0.25
+DEMO-P-202601-00993,Amazon CloudWatch,Amazon CloudWatch,,36.387,Month,27.29,Month,0.25
+DEMO-P-202601-00994,Amazon VPC,Amazon VPC,,10.584,Month,7.938,Month,0.25
+DEMO-P-202601-00995,Amazon Redshift,Amazon Redshift,,24.994,Month,18.745,Month,0.25
+DEMO-P-202601-00996,AWS AppSync,AWS AppSync,,35.926,Month,26.945,Month,0.25

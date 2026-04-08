@@ -150,8 +150,6 @@ public with sharing class CatalogUploadService {
         @AuraEnabled
         public Integer rowsInserted;
         @AuraEnabled
-        public Integer rowsSkippedUnchanged;
-        @AuraEnabled
         public List<String> errors;
     }
 
@@ -166,7 +164,6 @@ public with sharing class CatalogUploadService {
         FileProcessResult out = new FileProcessResult();
         out.success = false;
         out.rowsInserted = 0;
-        out.rowsSkippedUnchanged = 0;
         out.errors = new List<String>();
 
         if (csvBody == null) {
@@ -318,19 +315,7 @@ public with sharing class CatalogUploadService {
                 return out;
             }
 
-            String baselineMonth = resolvePriorBaselineMonth(pfn.importMonth, pfn.csp, pfn.schema);
-            Map<String, PricingChangeService.PricingRowSnap> basePricing = new Map<String, PricingChangeService.PricingRowSnap>();
-            Map<String, ExceptionChangeService.ExceptionRowSnap> baseExceptions = new Map<String, ExceptionChangeService.ExceptionRowSnap>();
-            if (baselineMonth != null) {
-                if (pfn.schema == 'pricing') {
-                    basePricing = PricingChangeService.latestPricingForMonthAndCsp(baselineMonth, pfn.csp);
-                } else if (pfn.schema == 'exceptions') {
-                    baseExceptions = ExceptionChangeService.latestExceptionsForMonthAndCsp(baselineMonth, pfn.csp);
-                }
-            }
-
             Integer inserted = 0;
-            Integer skippedUnchanged = 0;
             List<SObject> batch = new List<SObject>();
 
             for (Integer r = 1; r < lines.size(); r++) {
@@ -388,39 +373,6 @@ public with sharing class CatalogUploadService {
                     continue;
                 }
 
-                if (pfn.schema == 'pricing' && !basePricing.isEmpty()) {
-                    Pricing_Item__c pi = (Pricing_Item__c) row;
-                    String catNum = pi.Catalog_Item_Number__c != null ? pi.Catalog_Item_Number__c.trim() : '';
-                    if (!String.isBlank(catNum)) {
-                        String snapKey = pfn.csp + '|' + catNum.toLowerCase();
-                        PricingChangeService.PricingRowSnap prevSnap = basePricing.get(snapKey);
-                        if (prevSnap != null) {
-                            PricingChangeService.PricingRowSnap candSnap = PricingChangeService.snapFromPricingItem(pi);
-                            if (PricingChangeService.pricingSnapContentEquals(prevSnap, candSnap)) {
-                                skippedUnchanged++;
-                                continue;
-                            }
-                        }
-                    }
-                } else if (pfn.schema == 'exceptions' && !baseExceptions.isEmpty()) {
-                    Exception_Item__c ei = (Exception_Item__c) row;
-                    String uidTrim = ei.Exception_Unique_Id__c != null ? ei.Exception_Unique_Id__c.trim() : '';
-                    if (!String.isBlank(uidTrim)) {
-                        String snapKey = pfn.csp + '|' + uidTrim.toLowerCase();
-                        ExceptionChangeService.ExceptionRowSnap prevSnap = baseExceptions.get(snapKey);
-                        if (prevSnap != null) {
-                            ExceptionChangeService.ExceptionRowSnap candSnap = ExceptionChangeService.snapFromExceptionItem(
-                                ei,
-                                uidTrim
-                            );
-                            if (ExceptionChangeService.exceptionSnapContentEquals(prevSnap, candSnap)) {
-                                skippedUnchanged++;
-                                continue;
-                            }
-                        }
-                    }
-                }
-
                 batch.add(row);
                 if (batch.size() >= 200) {
                     inserted += insertBatch(batch, out.errors);
@@ -438,33 +390,9 @@ public with sharing class CatalogUploadService {
             out.success = out.errors.isEmpty();
             out.catalogImportId = header.Id;
             out.rowsInserted = inserted;
-            out.rowsSkippedUnchanged = skippedUnchanged;
-            if (out.success) {
-                if (inserted == 0 && skippedUnchanged > 0 && baselineMonth != null) {
-                    out.message =
-                        '0 rows imported; ' +
-                        skippedUnchanged +
-                        ' skipped (unchanged vs ' +
-                        baselineMonth +
-                        ').';
-                } else if (inserted > 0 && skippedUnchanged > 0 && baselineMonth != null) {
-                    out.message =
-                        'Imported ' +
-                        inserted +
-                        ' row(s); ' +
-                        skippedUnchanged +
-                        ' skipped (unchanged vs ' +
-                        baselineMonth +
-                        ').';
-                } else {
-                    out.message = 'Imported ' + inserted + ' row(s).';
-                }
-            } else {
-                out.message = 'Completed with errors; see errors list. Rows inserted: ' + inserted + '.';
-                if (skippedUnchanged > 0 && baselineMonth != null) {
-                    out.message += ' Skipped (unchanged vs ' + baselineMonth + '): ' + skippedUnchanged + '.';
-                }
-            }
+            out.message = out.success
+                ? 'Imported ' + inserted + ' row(s).'
+                : 'Completed with errors; see errors list. Rows inserted: ' + inserted + '.';
             return out;
         } catch (Exception e) {
             header.Status__c = 'error';
@@ -477,28 +405,6 @@ public with sharing class CatalogUploadService {
             out.errors.add(e.getMessage());
             return out;
         }
-    }
-
-    /**
-     * Latest prior import month for the same CSP + schema (lexicographic YYYY-MM ordering).
-     */
-    private static String resolvePriorBaselineMonth(String fileMonth, String cspLower, String schema) {
-        if (String.isBlank(fileMonth) || String.isBlank(cspLower) || String.isBlank(schema)) {
-            return null;
-        }
-        List<AggregateResult> ars = [
-            SELECT MAX(Import_Month__c) mx
-            FROM Catalog_Import__c
-            WHERE
-                Schema__c = :schema
-                AND CSP__c = :cspLower
-                AND Import_Month__c < :fileMonth
-        ];
-        if (ars.isEmpty()) {
-            return null;
-        }
-        Object o = ars[0].get('mx');
-        return o == null ? null : String.valueOf(o);
     }
 
     private static Integer insertBatch(List<SObject> rows, List<String> errCollector) {

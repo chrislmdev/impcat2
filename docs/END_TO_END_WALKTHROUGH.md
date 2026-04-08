@@ -51,13 +51,11 @@ Header fields such as **`Imported_At__c`**, **`Row_Count__c`**, **`Status__c`**,
    - Parse the CSV header row and map columns to allowed API names (pricing also supports a small set of aliases, e.g. commercial list price).
    - For each data row: construct `Pricing_Item__c` or `Exception_Item__c`, set **`Catalog_Import__c`** and **`CSP__c`** from the filename.
    - **Pricing only:** **`FinOpsFocusCategory`** sets **`Focus_Category__c`** from explicit focus/service/category columns and/or title, short name, and description.
-   - **Skip unchanged:** If a **prior** `Catalog_Import__c` exists for the same CSP and schema with **`Import_Month__c` strictly before** this file’s month, Apex loads a **baseline snapshot** for that prior month (same CSP). Rows whose natural key and **compared fields** match the baseline (same rules as the diff engine) are **not inserted**; the result includes a **skipped** count. First month for that CSP+schema still inserts all valid rows.
-   - Valid rows are inserted in batches. The header’s **`Row_Count__c`** reflects **inserted** rows only; **`Status__c`** is `done` or `error` if validation/DML errors occurred.
-7. The UI shows success, rows inserted, skipped (unchanged), Catalog import Id, and messages/errors per file.
+   - **Every** valid row is inserted (full snapshot for that import). **Catalog Changes** compares stored rows month to month, so unchanged lines should appear in both months’ files if you expect them not to show as removed.
+   - Rows are inserted in batches. The header’s **`Row_Count__c`** is the inserted row count; **`Status__c`** is `done` or `error` if validation/DML errors occurred.
+7. The UI shows success, rows inserted, Catalog import Id, and messages/errors per file.
 
 **Limits:** In-app upload caps file size and row count (see `CatalogUploadService`). Very large catalogs are intended for Bulk API / integration: [MULESOFT_CATALOG_INGEST.md](./MULESOFT_CATALOG_INGEST.md).
-
-**Storage shape:** The **latest** month in the org may be **delta-only** (unchanged lines omitted). **Pricing** and **Exceptions** tabs show **only stored rows** for the filters you use—not a merged full catalog across months.
 
 ---
 
@@ -116,10 +114,10 @@ flowchart LR
   E --> CC
 ```
 
-1. **Bulk upload** January pricing and exceptions → snapshots under `2026-01` (and full insert when no prior month).
-2. **Bulk upload** February files → new headers; unchanged lines may be skipped; new/changed lines inserted.
+1. **Bulk upload** January pricing and exceptions → full line snapshots under `2026-01`.
+2. **Bulk upload** February files → new headers; all valid CSV lines are inserted again for February (full snapshot for that month).
 3. **Pricing / Exceptions** → inspect what is **actually stored** per month/CSP.
-4. **Catalog Changes** → Jan vs Feb → **added**, **removed**, **updated** aligned with the same field rules as import skip logic.
+4. **Catalog Changes** → Jan vs Feb → **added**, **removed**, **updated** using the same field rules as the diff engine (see §6).
 
 ---
 

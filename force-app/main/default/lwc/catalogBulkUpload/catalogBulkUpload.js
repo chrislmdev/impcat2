@@ -223,8 +223,6 @@ export default class CatalogBulkUpload extends LightningElement {
                         successLabel: success ? 'Yes' : 'No',
                         pillClass: success ? 'cp-pill cp-pill-yes' : 'cp-pill cp-pill-no',
                         rowsInserted: res.rowsInserted != null ? res.rowsInserted : 0,
-                        rowsSkippedUnchanged:
-                            res.rowsSkippedUnchanged != null ? res.rowsSkippedUnchanged : 0,
                         catalogImportId: res.catalogImportId || '',
                         message: [res.message, errs].filter(Boolean).join(' — ')
                     }
