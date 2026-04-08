@@ -1,131 +1,89 @@
 <template>
-    <div class={rootClass}>
-        <lightning-card title="Catalog Changes" icon-name="standard:metrics">
-            <div slot="actions" class="cp-toolbar-actions">
-                <div class="cp-theme-bar">
-                    <span class="cp-theme-label">Theme</span>
-                    <lightning-button-group>
-                        <lightning-button-icon
-                            icon-name="utility:desktop"
-                            alternative-text="Match system"
-                            title="Match system"
-                            variant={systemButtonVariant}
-                            onclick={handleThemeSystem}
-                        ></lightning-button-icon>
-                        <lightning-button-icon
-                            icon-name="utility:light_bulb"
-                            alternative-text="Light"
-                            title="Light"
-                            variant={lightButtonVariant}
-                            onclick={handleThemeLight}
-                        ></lightning-button-icon>
-                        <lightning-button-icon
-                            icon-name="utility:world"
-                            alternative-text="Dark"
-                            title="Dark"
-                            variant={darkButtonVariant}
-                            onclick={handleThemeDark}
-                        ></lightning-button-icon>
-                    </lightning-button-group>
-                </div>
-                <lightning-button label="Export CSV" onclick={handleExportCsv} disabled={exportDisabled}></lightning-button>
-                <lightning-button label="Export PDF" onclick={handleExportPdf} disabled={exportDisabled}></lightning-button>
+    <lightning-card title="Catalog Changes" icon-name="standard:metrics">
+        <div class="slds-p-horizontal_medium slds-p-bottom_small">
+            <div class="slds-m-bottom_small">
+                <span class="slds-text-title_caps slds-m-right_x-small">View</span>
+                <lightning-button
+                    variant={pricingButtonVariant}
+                    label="Pricing deltas"
+                    class="slds-m-right_xx-small"
+                    onclick={handleModePricing}
+                ></lightning-button>
+                <lightning-button
+                    variant={exceptionsButtonVariant}
+                    label="Exception deltas"
+                    onclick={handleModeExceptions}
+                ></lightning-button>
             </div>
-            <div class="slds-p-horizontal_medium slds-p-bottom_small">
-                <p class="cp-info">
-                    Exports include the rows currently loaded in the grid (same limit as the server query). Switch Pricing /
-                    Exception deltas to export the active view.
-                </p>
-                <div class="slds-m-bottom_small">
-                    <span class="slds-text-title_caps slds-m-right_x-small">View</span>
-                    <lightning-button
-                        variant={pricingButtonVariant}
-                        label="Pricing deltas"
-                        class="slds-m-right_xx-small"
-                        onclick={handleModePricing}
-                    ></lightning-button>
-                    <lightning-button
-                        variant={exceptionsButtonVariant}
-                        label="Exception deltas"
-                        onclick={handleModeExceptions}
-                    ></lightning-button>
+            <div class="slds-grid slds-gutters_x-small slds-wrap">
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-4">
+                    <lightning-combobox
+                        name="monthFrom"
+                        label="From month"
+                        value={monthFrom}
+                        placeholder="Select month"
+                        options={monthOptions}
+                        onchange={handleMonthFrom}
+                    ></lightning-combobox>
                 </div>
-                <div class="slds-grid slds-gutters_x-small slds-wrap">
-                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-4">
-                        <lightning-combobox
-                            name="monthFrom"
-                            label="From month"
-                            value={monthFrom}
-                            placeholder="Select month"
-                            options={monthOptions}
-                            onchange={handleMonthFrom}
-                        ></lightning-combobox>
-                    </div>
-                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-4">
-                        <lightning-combobox
-                            name="monthTo"
-                            label="To month"
-                            value={monthTo}
-                            placeholder="Select month"
-                            options={monthOptions}
-                            onchange={handleMonthTo}
-                        ></lightning-combobox>
-                    </div>
-                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-4">
-                        <lightning-combobox
-                            name="csp"
-                            label="CSP"
-                            value={cspFilter}
-                            placeholder="All"
-                            options={cspOptions}
-                            onchange={handleCspChange}
-                        ></lightning-combobox>
-                    </div>
-                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-4">
-                        <lightning-combobox
-                            name="changeType"
-                            label="Change type"
-                            value={changeTypeFilter}
-                            options={changeTypeOptions}
-                            onchange={handleChangeType}
-                        ></lightning-combobox>
-                    </div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-4">
+                    <lightning-combobox
+                        name="monthTo"
+                        label="To month"
+                        value={monthTo}
+                        placeholder="Select month"
+                        options={monthOptions}
+                        onchange={handleMonthTo}
+                    ></lightning-combobox>
                 </div>
-                <template if:true={compareHint}>
-                    <p class="slds-text-color_weak slds-m-top_x-small slds-text-body_small">{compareHint}</p>
-                </template>
-                <template if:true={error}>
-                    <p class="slds-text-color_error slds-m-top_x-small">{errorMessage}</p>
-                </template>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-4">
+                    <lightning-combobox
+                        name="csp"
+                        label="CSP"
+                        value={cspFilter}
+                        placeholder="All"
+                        options={cspOptions}
+                        onchange={handleCspChange}
+                    ></lightning-combobox>
+                </div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-4">
+                    <lightning-combobox
+                        name="changeType"
+                        label="Change type"
+                        value={changeTypeFilter}
+                        options={changeTypeOptions}
+                        onchange={handleChangeType}
+                    ></lightning-combobox>
+                </div>
             </div>
-            <div class="slds-border_top">
-                <template if:true={isPricingMode}>
-                    <lightning-datatable
-                        key-field="rowKey"
-                        data={pricingRows}
-                        columns={pricingColumns}
-                        hide-checkbox-column
-                        show-row-number-column
-                        sorted-by={pricingSortedBy}
-                        sorted-direction={pricingSortDirection}
-                        onsort={handlePricingSort}
-                    >
-                    </lightning-datatable>
-                </template>
-                <template if:false={isPricingMode}>
-                    <lightning-datatable
-                        key-field="rowKey"
-                        data={exceptionRows}
-                        columns={exceptionColumns}
-                        hide-checkbox-column
-                        show-row-number-column
-                        sorted-by={exceptionSortedBy}
-                        sorted-direction={exceptionSortDirection}
-                        onsort={handleExceptionSort}
-                    >
-                    </lightning-datatable>
-                </template>
-            </div>
-        </lightning-card>
-    </div>
+            <template if:true={compareHint}>
+                <p class="slds-text-color_weak slds-m-top_x-small slds-text-body_small">{compareHint}</p>
+            </template>
+            <template if:true={error}>
+                <p class="slds-text-color_error slds-m-top_x-small">{errorMessage}</p>
+            </template>
+        </div>
+        <div class="slds-border_top">
+            <template if:true={isPricingMode}>
+                <lightning-datatable
+                    key-field="rowKey"
+                    data={pricingRows}
+                    columns={pricingColumns}
+                    hide-checkbox-column
+                    show-row-number-column
+                >
+                </lightning-datatable>
+            </template>
+            <template if:false={isPricingMode}>
+                <lightning-datatable
+                    key-field="rowKey"
+                    data={exceptionRows}
+                    columns={exceptionColumns}
+                    hide-checkbox-column
+                    show-row-number-column
+                >
+                </lightning-datatable>
+            </template>
+        </div>
+    </lightning-card>
 </template>

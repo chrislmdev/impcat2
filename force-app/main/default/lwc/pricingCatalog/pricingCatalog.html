@@ -1,99 +1,40 @@
 <template>
-    <div class={rootClass}>
-        <lightning-card title="Pricing Catalog" icon-name="custom:custom18">
-            <div slot="actions" class="cp-toolbar-actions">
-                <div class="cp-theme-bar">
-                    <span class="cp-theme-label">Theme</span>
-                    <lightning-button-group>
-                        <lightning-button-icon
-                            icon-name="utility:desktop"
-                            alternative-text="Match system"
-                            title="Match system"
-                            variant={systemButtonVariant}
-                            onclick={handleThemeSystem}
-                        ></lightning-button-icon>
-                        <lightning-button-icon
-                            icon-name="utility:light_bulb"
-                            alternative-text="Light"
-                            title="Light"
-                            variant={lightButtonVariant}
-                            onclick={handleThemeLight}
-                        ></lightning-button-icon>
-                        <lightning-button-icon
-                            icon-name="utility:world"
-                            alternative-text="Dark"
-                            title="Dark"
-                            variant={darkButtonVariant}
-                            onclick={handleThemeDark}
-                        ></lightning-button-icon>
-                    </lightning-button-group>
+    <lightning-card title="Pricing Catalog" icon-name="custom:custom18">
+        <div class="slds-p-horizontal_medium slds-p-bottom_small">
+            <div class="slds-grid slds-gutters_x-small slds-wrap">
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-3">
+                    <lightning-combobox
+                        name="csp"
+                        label="CSP"
+                        value={cspFilter}
+                        placeholder="All CSPs"
+                        options={cspOptions}
+                        onchange={handleCspChange}
+                    ></lightning-combobox>
                 </div>
-                <lightning-button label="Export CSV" onclick={handleExportCsv} disabled={exportDisabled}></lightning-button>
-                <lightning-button label="Export PDF" onclick={handleExportPdf} disabled={exportDisabled}></lightning-button>
-            </div>
-            <div class="slds-p-horizontal_medium slds-p-bottom_small">
-                <p class="cp-info">
-                    Exports include up to 2,000 rows currently loaded (filters apply). For full org extracts use Data
-                    Export or reports.
-                </p>
-                <div class="slds-grid slds-gutters_x-small slds-wrap">
-                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-6">
-                        <lightning-combobox
-                            name="csp"
-                            label="CSP"
-                            value={cspFilter}
-                            placeholder="All CSPs"
-                            options={cspOptions}
-                            onchange={handleCspChange}
-                        ></lightning-combobox>
-                    </div>
-                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-6">
-                        <lightning-combobox
-                            name="importMonth"
-                            label="Import month"
-                            value={importMonthFilter}
-                            placeholder="All months"
-                            options={monthFilterOptions}
-                            onchange={handleMonthFilterChange}
-                        ></lightning-combobox>
-                    </div>
-                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-6">
-                        <lightning-combobox
-                            name="focusCategory"
-                            label="Category"
-                            value={focusCategoryFilter}
-                            placeholder="All categories"
-                            options={categoryFilterOptions}
-                            onchange={handleCategoryFilterChange}
-                        ></lightning-combobox>
-                    </div>
-                    <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-2">
-                        <lightning-input
-                            type="search"
-                            label="Search"
-                            value={searchKey}
-                            placeholder="Title, catalog #, short name…"
-                            onchange={handleSearchChange}
-                        ></lightning-input>
-                    </div>
+                <div class="slds-col slds-size_1-of-1 slds-medium-size_2-of-3">
+                    <lightning-input
+                        type="search"
+                        label="Search"
+                        value={searchKey}
+                        placeholder="Title, catalog #, short name…"
+                        onchange={handleSearchChange}
+                    ></lightning-input>
                 </div>
-                <template if:true={error}>
-                    <p class="slds-text-color_error slds-m-top_x-small">{errorMessage}</p>
-                </template>
             </div>
-            <div class="slds-border_top">
-                <lightning-datatable
-                    key-field="Id"
-                    data={rows}
-                    columns={columns}
-                    hide-checkbox-column
-                    show-row-number-column
-                    sorted-by={sortedBy}
-                    sorted-direction={sortedDirection}
-                    onsort={handleSort}
-                >
-                </lightning-datatable>
-            </div>
-        </lightning-card>
-    </div>
+            <template if:true={error}>
+                <p class="slds-text-color_error slds-m-top_x-small">{errorMessage}</p>
+            </template>
+        </div>
+        <div class="slds-border_top">
+            <lightning-datatable
+                key-field="Id"
+                data={rows}
+                columns={columns}
+                hide-checkbox-column
+                show-row-number-column
+            >
+            </lightning-datatable>
+        </div>
+    </lightning-card>
 </template>

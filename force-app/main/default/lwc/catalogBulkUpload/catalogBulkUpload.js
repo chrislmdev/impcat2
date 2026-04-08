@@ -1,27 +1,7 @@
 import { LightningElement, track } from 'lwc';
-import { loadStyle, loadScript } from 'lightning/platformResourceLoader';
 import processFile from '@salesforce/apex/CatalogUploadService.processFile';
-import { readStoredThemeMode, persistThemeMode, computeEffectiveTheme } from './themeUtil';
 
-/** Same-origin /resource/{name} — deploy this LWC without static resources in the same package. */
-function buildCloudPrismAssetUrls() {
-    const origin = typeof window !== 'undefined' && window.location ? window.location.origin : '';
-    const r = (name) => `${origin}/resource/${encodeURIComponent(name)}`;
-    return {
-        theme: r('CloudPrismThemeStyles'),
-        jspdfUmd: r('jspdfUmd'),
-        jspdfAutotable: r('jspdfAutotable'),
-        exportLib: r('cloudPrismExportLib')
-    };
-}
-
-const UPLOAD_EXPORT_COLS = [
-    { label: 'File', fieldName: 'fileName' },
-    { label: 'OK', fieldName: 'successLabel' },
-    { label: 'Rows', fieldName: 'rowsInserted' },
-    { label: 'Catalog import Id', fieldName: 'catalogImportId' },
-    { label: 'Message', fieldName: 'message' }
-];
+const THEME_KEY = 'cloudprism.catalogBulkUpload.theme';
 
 function readFileAsText(file) {
     return new Promise((resolve, reject) => {
@@ -83,12 +63,16 @@ export default class CatalogBulkUpload extends LightningElement {
     themeMode = 'system';
     effectiveTheme = 'light';
     dragDepth = 0;
-    _assetUrls = {};
-    _themeStyleLoaded = false;
-    jspdfScriptsLoaded = false;
 
     connectedCallback() {
-        this.themeMode = readStoredThemeMode();
+        try {
+            const stored = localStorage.getItem(THEME_KEY);
+            if (stored === 'light' || stored === 'dark' || stored === 'system') {
+                this.themeMode = stored;
+            }
+        } catch (e) {
+            /* localStorage unavailable */
+        }
         this._applyEffectiveTheme();
         this._mq = window.matchMedia('(prefers-color-scheme: dark)');
         this._boundMq = () => {
@@ -97,14 +81,6 @@ export default class CatalogBulkUpload extends LightningElement {
             }
         };
         this._mq.addEventListener('change', this._boundMq);
-
-        this._assetUrls = buildCloudPrismAssetUrls();
-        if (this._assetUrls.theme && !this._themeStyleLoaded) {
-            this._themeStyleLoaded = true;
-            loadStyle(this, this._assetUrls.theme).catch(() => {
-                /* ignore */
-            });
-        }
     }
 
     disconnectedCallback() {
@@ -114,24 +90,36 @@ export default class CatalogBulkUpload extends LightningElement {
     }
 
     _applyEffectiveTheme() {
-        this.effectiveTheme = computeEffectiveTheme(this.themeMode);
+        if (this.themeMode === 'system') {
+            this.effectiveTheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+        } else {
+            this.effectiveTheme = this.themeMode;
+        }
+    }
+
+    _persistTheme() {
+        try {
+            localStorage.setItem(THEME_KEY, this.themeMode);
+        } catch (e) {
+            /* ignore */
+        }
     }
 
     handleThemeSystem() {
         this.themeMode = 'system';
-        persistThemeMode(this.themeMode);
+        this._persistTheme();
         this._applyEffectiveTheme();
     }
 
     handleThemeLight() {
         this.themeMode = 'light';
-        persistThemeMode(this.themeMode);
+        this._persistTheme();
         this.effectiveTheme = 'light';
     }
 
     handleThemeDark() {
         this.themeMode = 'dark';
-        persistThemeMode(this.themeMode);
+        this._persistTheme();
         this.effectiveTheme = 'dark';
     }
 
@@ -159,10 +147,6 @@ export default class CatalogBulkUpload extends LightningElement {
 
     get hasResults() {
         return this.resultRows && this.resultRows.length > 0;
-    }
-
-    get exportDisabled() {
-        return !this.hasResults;
     }
 
     get bannerBody() {
@@ -250,73 +234,5 @@ export default class CatalogBulkUpload extends LightningElement {
         } finally {
             this.working = false;
         }
-    }
-
-    async handleExportCsv() {
-        if (!this.hasResults) {
-            return;
-        }
-        try {
-            await this._ensureExportLib();
-            window.CloudPrismExport.downloadCsv('bulk-upload-results', UPLOAD_EXPORT_COLS, this.resultRows);
-        } catch (e) {
-            // eslint-disable-next-line no-console
-            console.error(e);
-        }
-    }
-
-    async handleExportPdf() {
-        if (!this.hasResults) {
-            return;
-        }
-        try {
-            await this._ensureExportScripts();
-            window.CloudPrismExport.downloadPdf(
-                'bulk-upload-results',
-                'Bulk catalog upload — results',
-                UPLOAD_EXPORT_COLS,
-                this.resultRows
-            );
-        } catch (e) {
-            // eslint-disable-next-line no-console
-            console.error(e);
-        }
-    }
-
-    _getAssetUrls() {
-        if (this._assetUrls && this._assetUrls.exportLib) {
-            return this._assetUrls;
-        }
-        this._assetUrls = buildCloudPrismAssetUrls();
-        return this._assetUrls;
-    }
-
-    async _ensureExportLib() {
-        if (window.CloudPrismExport) {
-            return;
-        }
-        const urls = this._getAssetUrls();
-        if (!urls.exportLib) {
-            throw new Error('cloudPrismExportLib static resource missing in org.');
-        }
-        await loadScript(this, urls.exportLib);
-    }
-
-    async _ensureExportScripts() {
-        if (this.jspdfScriptsLoaded) {
-            return;
-        }
-        const urls = this._getAssetUrls();
-        if (!urls.jspdfUmd || !urls.jspdfAutotable || !urls.exportLib) {
-            throw new Error('jspdfUmd, jspdfAutotable, or cloudPrismExportLib static resource missing in org.');
-        }
-        if (!window.jspdf || !window.jspdf.jsPDF) {
-            await loadScript(this, urls.jspdfUmd);
-        }
-        await loadScript(this, urls.jspdfAutotable);
-        if (!window.CloudPrismExport) {
-            await loadScript(this, urls.exportLib);
-        }
-        this.jspdfScriptsLoaded = true;
     }
 }

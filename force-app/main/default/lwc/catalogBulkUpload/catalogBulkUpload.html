@@ -5,35 +5,31 @@
                 <h1 class="cp-heading">Bulk catalog upload</h1>
                 <p class="cp-sub">Import CSV snapshots into Catalog Import headers and line items — styled for clarity, with a theme you control.</p>
             </div>
-            <div class="cp-toolbar-actions">
-                <div class="cp-theme-bar">
-                    <span class="cp-theme-label">Theme</span>
-                    <lightning-button-group>
-                        <lightning-button-icon
-                            icon-name="utility:desktop"
-                            alternative-text="Match system"
-                            title="Match system"
-                            variant={systemButtonVariant}
-                            onclick={handleThemeSystem}
-                        ></lightning-button-icon>
-                        <lightning-button-icon
-                            icon-name="utility:light_bulb"
-                            alternative-text="Light"
-                            title="Light"
-                            variant={lightButtonVariant}
-                            onclick={handleThemeLight}
-                        ></lightning-button-icon>
-                        <lightning-button-icon
-                            icon-name="utility:world"
-                            alternative-text="Dark"
-                            title="Dark"
-                            variant={darkButtonVariant}
-                            onclick={handleThemeDark}
-                        ></lightning-button-icon>
-                    </lightning-button-group>
-                </div>
-                <lightning-button label="Export CSV" onclick={handleExportCsv} disabled={exportDisabled}></lightning-button>
-                <lightning-button label="Export PDF" onclick={handleExportPdf} disabled={exportDisabled}></lightning-button>
+            <div class="cp-theme-bar">
+                <span class="cp-theme-label">Theme</span>
+                <lightning-button-group>
+                    <lightning-button-icon
+                        icon-name="utility:desktop"
+                        alternative-text="Match system"
+                        title="Match system"
+                        variant={systemButtonVariant}
+                        onclick={handleThemeSystem}
+                    ></lightning-button-icon>
+                    <lightning-button-icon
+                        icon-name="utility:light_bulb"
+                        alternative-text="Light"
+                        title="Light"
+                        variant={lightButtonVariant}
+                        onclick={handleThemeLight}
+                    ></lightning-button-icon>
+                    <lightning-button-icon
+                        icon-name="utility:world"
+                        alternative-text="Dark"
+                        title="Dark"
+                        variant={darkButtonVariant}
+                        onclick={handleThemeDark}
+                    ></lightning-button-icon>
+                </lightning-button-group>
             </div>
         </header>
 
@@ -79,9 +75,6 @@
         <template if:true={hasResults}>
             <div class="cp-results-wrap">
                 <h2 class="cp-results-title">Results</h2>
-                <p class="cp-info cp-results-export-hint">
-                    Export CSV/PDF includes the result rows shown below (current session only).
-                </p>
                 <div class="cp-table-wrap">
                     <table class="cp-table">
                         <thead>
