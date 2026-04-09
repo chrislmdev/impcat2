@@ -10,6 +10,7 @@
     <isNavPersonalizationDisabled>true</isNavPersonalizationDisabled>
     <label>CloudPrism</label>
     <navType>Standard</navType>
+    <tabs>Cloud_Prism_Services</tabs>
     <tabs>Cloud_Prism_Pricing</tabs>
     <tabs>Cloud_Prism_Exceptions</tabs>
     <tabs>Cloud_Prism_Changes</tabs>
