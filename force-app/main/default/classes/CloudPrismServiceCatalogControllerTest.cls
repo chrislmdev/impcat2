@@ -29,4 +29,13 @@ private class CloudPrismServiceCatalogControllerTest {
         List<CloudPrismServiceCatalogController.ServiceCatalogRow> m = CloudPrismServiceCatalogController.buildMockRows();
         System.assert(m.size() > 5);
     }
+
+    @IsTest
+    static void getRosettaParentRows_mapsFields() {
+        List<Map<String, Object>> rows = CloudPrismServiceCatalogController.getRosettaParentRows();
+        System.assert(!rows.isEmpty());
+        Map<String, Object> first = rows[0];
+        System.assertEquals('aws', first.get('csp'));
+        System.assert(first.containsKey('popularityscore'));
+    }
 }

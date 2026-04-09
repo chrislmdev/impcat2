@@ -9,6 +9,10 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>CloudPrismServiceCatalogPageCtrl</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>ExceptionChangeService</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -20,7 +24,11 @@
         <apexClass>CatalogUploadService</apexClass>
         <enabled>true</enabled>
     </classAccesses>
-    <description>Access to CloudPrism POC custom objects, Apex, and LWCs</description>
+    <pageAccesses>
+        <apexPage>CloudPrismServiceCatalog</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <description>Access to CloudPrism POC custom objects, Apex, LWCs, and Visualforce</description>
     <hasActivationRequired>false</hasActivationRequired>
     <label>CloudPrism POC</label>
     <objectPermissions>
@@ -189,6 +197,10 @@
         <field>Exception_Item__c.Impact_Level__c</field>
         <readable>true</readable>
     </fieldPermissions>
+    <tabSettings>
+        <tab>CloudPrism_Service_Catalog</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
     <tabSettings>
         <tab>Cloud_Prism_Services</tab>
         <visibility>Visible</visibility>

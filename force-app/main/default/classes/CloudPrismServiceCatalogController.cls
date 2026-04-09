@@ -24,6 +24,36 @@ public with sharing class CloudPrismServiceCatalogController {
         public String catalogItemNumber { get; set; }
     }
 
+    /**
+     * Maps catalog rows to the RosettaStone / parent-CSV field names used by the HTML services renderer.
+     */
+    public static List<Map<String, Object>> getRosettaParentRows() {
+        List<Map<String, Object>> out = new List<Map<String, Object>>();
+        for (ServiceCatalogRow r : getServiceCatalogRows()) {
+            out.add(toRosettaMap(r));
+        }
+        return out;
+    }
+
+    private static Map<String, Object> toRosettaMap(ServiceCatalogRow r) {
+        return new Map<String, Object>{
+            'csp' => r.csp,
+            'csp_injected' => r.csp,
+            'csoparentservice' => r.serviceName,
+            'csOParentService' => r.serviceName,
+            'csoshortname' => r.serviceName,
+            'focus_category' => r.focusCategory,
+            'category' => r.focusCategory,
+            'comparison_subcategory' => r.comparisonSubcategory,
+            'description' => r.description,
+            'impactlevel' => r.impactLevel,
+            'ImpactLevel' => r.impactLevel,
+            'catalogitemnumber' => r.catalogItemNumber,
+            'popularityscore' => r.popularityScore,
+            'id' => r.id
+        };
+    }
+
     @AuraEnabled(cacheable=true)
     public static List<ServiceCatalogRow> getServiceCatalogRows() {
         List<Service_Catalog_Entry__c> recs = [
