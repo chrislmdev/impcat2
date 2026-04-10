@@ -44,11 +44,12 @@
         <div class="svc-page-intro">
             <h2 class="svc-page-title">Cloud service offerings comparison</h2>
             <p class="svc-page-sub">
-                <strong>Category</strong> is the FinOps FOCUS 1.3 service category (from <code>Category__c</code>).
-                <strong>Subcategory</strong> is a contract comparison bucket (e.g. Containers, Virtual Machines) from
-                <code>Subcategory__c</code>. One row per category + subcategory; CSP columns list matching offerings and
-                impact levels.
-                <strong>Description</strong> uses the first non-empty description in each group when catalog lines align.
+                <strong>Category</strong> is the FinOps FOCUS 1.3 service category (from mapping
+                <code>Category__c</code> or inferred). <strong>Subcategory</strong> is a contract comparison bucket (e.g.
+                Containers, Virtual Machines)—set column <code>Subcategory__c</code> on import to override inference. One
+                row per category + subcategory; CSP columns list matching offerings and impact levels.
+                <strong>Description</strong> prefers pricing text when catalog lines align, else parent or short name
+                (first non-empty <code>Description__c</code> in each group).
             </p>
         </div>
 
@@ -153,8 +154,41 @@
                 </div>
 
                 <div class="toolbar-theme">
-                    <button type="button" class="theme-toggle" onclick={toggleTheme} aria-pressed={themePressedAria}>
-                        <span class="tog-label">{themeToggleLabel}</span>
+                    <button
+                        type="button"
+                        class="theme-toggle"
+                        onclick={toggleTheme}
+                        aria-label="Toggle light and dark color theme"
+                        aria-pressed={themePressedAria}
+                    >
+                        <svg
+                            class={togSunClass}
+                            width="14"
+                            height="14"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            aria-hidden="true"
+                        >
+                            <circle cx="12" cy="12" r="4" />
+                            <path
+                                d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M6.34 17.66l-1.41 1.41M19.07 4.93l-1.41 1.41"
+                            />
+                        </svg>
+                        <span class="tog-sep" aria-hidden="true"></span>
+                        <svg
+                            class={togMoonClass}
+                            width="14"
+                            height="14"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            aria-hidden="true"
+                        >
+                            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+                        </svg>
                     </button>
                     <span class="focus-pill"
                         >FOCUS 1.3 ·
@@ -200,7 +234,7 @@
                             <strong>{metaCategoryCount}</strong> FOCUS categories ({metaTotalGroups} total groups)
                         </div>
 
-                        <table class="sc-table" id="svcTable">
+                        <table class="sc-table">
                             <thead>
                                 <tr>
                                     <th class={thCategorySortClass} onclick={handleSortCategory}>

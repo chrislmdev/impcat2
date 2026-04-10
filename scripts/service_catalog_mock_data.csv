@@ -1,0 +1,30 @@
+CSP__c,Service__c,Category__c,Subcategory__c,Description__c,Impact_Level__c
+AWS,Amazon EC2,Compute,Virtual Machines,General-purpose and compute-optimized instances for workloads.,IL5
+AWS,Amazon ECS,Compute,Containers,Managed container orchestration with deep AWS integration.,IL5
+AWS,AWS Lambda,Compute,Serverless,Run code without provisioning servers; pay per invocation.,IL4
+Azure,Azure Virtual Machines,Compute,Virtual Machines,Windows and Linux VMs with hybrid benefits.,IL5
+Azure,Azure Kubernetes Service,Compute,Containers,Managed Kubernetes with Azure AD integration.,IL5
+Azure,Azure Functions,Compute,Serverless,Event-driven serverless compute on Azure.,IL4
+GCP,Compute Engine,Compute,Virtual Machines,Custom machine types and live migration.,IL5
+GCP,Google Kubernetes Engine,Compute,Containers,Autopilot and standard GKE clusters.,IL5
+GCP,Cloud Run,Compute,Serverless,Containerized apps with scale-to-zero.,IL4
+Oracle,Oracle Cloud Compute,Compute,Virtual Machines,Flexible VM shapes for enterprise workloads.,IL6
+AWS,Amazon S3,Storage,Object Storage,Durable object storage with versioning and lifecycle rules.,IL5
+Azure,Azure Blob Storage,Storage,Object Storage,Hot cool and archive tiers for unstructured data.,IL5
+GCP,Cloud Storage,Storage,Object Storage,Unified object store with dual-region options.,IL4
+Oracle,Object Storage,Storage,Object Storage,OCI object storage with encryption at rest.,IL6
+AWS,Amazon RDS,Databases,Relational,Managed MySQL Postgres Oracle and SQL Server.,IL5
+Azure,Azure SQL Database,Databases,Relational,Fully managed SQL with serverless option.,IL5
+GCP,Cloud SQL,Databases,Relational,Managed Postgres MySQL and SQL Server.,IL4
+AWS,Amazon VPC,Networking,Virtual Network,Isolated networks subnets routing and security groups.,IL5
+Azure,Virtual Network,Networking,Virtual Network,Hub-spoke and peering patterns for hybrid cloud.,IL5
+GCP,VPC Network,Networking,Virtual Network,Global VPC with firewall rules and Cloud NAT.,IL4
+AWS,AWS Direct Connect,Networking,Hybrid Connectivity,Dedicated network connection to AWS.,IL6
+Azure,ExpressRoute,Networking,Hybrid Connectivity,Private connectivity to Microsoft cloud.,IL6
+GCP,Cloud Interconnect,Networking,Hybrid Connectivity,Partner and dedicated interconnect to GCP.,IL6
+AWS,Amazon API Gateway,Integration,APIs,REST HTTP and WebSocket APIs with throttling.,IL4
+Azure,API Management,Integration,APIs,Gateway policies analytics and developer portal.,IL4
+GCP,Apigee,Integration,APIs,Full lifecycle API management for enterprises.,IL5
+AWS,AWS KMS,Security,Encryption,Key management and envelope encryption for services.,IL6
+Azure,Azure Key Vault,Security,Secrets,Certificates keys and secrets with HSM backing.,IL6
+GCP,Cloud KMS,Security,Encryption,Centralized key management integrated with IAM.,IL6

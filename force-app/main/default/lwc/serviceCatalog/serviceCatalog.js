@@ -1,4 +1,6 @@
 import { LightningElement, wire, track } from 'lwc';
+import { loadStyle } from 'lightning/platformResourceLoader';
+import serviceCatalogGoogleFonts from '@salesforce/resourceUrl/ServiceCatalogGoogleFonts';
 import getCatalogRows from '@salesforce/apex/ServiceCatalogController.getCatalogRows';
 
 const TOP_N = 3;
@@ -150,6 +152,17 @@ export default class ServiceCatalog extends LightningElement {
     rawRows = [];
     error;
     loadComplete = false;
+    fontsLoaded = false;
+
+    renderedCallback() {
+        if (this.fontsLoaded) {
+            return;
+        }
+        this.fontsLoaded = true;
+        loadStyle(this, serviceCatalogGoogleFonts).catch(() => {
+            /* fonts.googleapis.com may require CSP Trusted Sites in the org */
+        });
+    }
 
     _windowClick = (e) => {
         if (this.msOpen == null) {
@@ -292,12 +305,17 @@ export default class ServiceCatalog extends LightningElement {
         }));
     }
 
-    get themeToggleLabel() {
-        return this.themeLight ? 'Dark mode' : 'Light mode';
-    }
-
     get themePressedAria() {
         return this.themeLight ? 'true' : 'false';
+    }
+
+    /** Sun active in light theme, moon active in dark — matches index.html #themeToggle */
+    get togSunClass() {
+        return 'tog-icon tog-sun' + (this.themeLight ? ' active' : '');
+    }
+
+    get togMoonClass() {
+        return 'tog-icon tog-moon' + (!this.themeLight ? ' active' : '');
     }
 
     get metaFilteredCount() {
@@ -473,7 +491,7 @@ export default class ServiceCatalog extends LightningElement {
     }
 
     /**
-     * Single #svcTable body: category band rows + data rows (+ optional show more/less), matching index.html renderServices.
+     * Single comparison table body: category band rows + data rows (+ optional show more/less), matching index.html renderServices.
      */
     get svcUnifiedRows() {
         const groups = this.getFilteredGroups();

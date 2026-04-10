@@ -1,4 +1,4 @@
-/* RosettaStone services catalog look — scoped to avoid SLDS collisions. IBM Plex: add Static Resource + @font-face if org CSP blocks Google Fonts. */
+/* RosettaStone index.html — page-services tokens & layout (scoped under .sc-scope). Fonts: ServiceCatalogGoogleFonts static resource. */
 :host {
     display: block;
 }
@@ -7,6 +7,7 @@
     --bg: #090c12;
     --surface: #0f1219;
     --surface2: #161b25;
+    --surface3: #1c2230;
     --border: #1e2535;
     --border2: #273040;
     --text: #e2e8f0;
@@ -14,6 +15,7 @@
     --text-muted: #4b5975;
     --accent: #3b82f6;
     --accent2: #06b6d4;
+    --accent-glow: rgba(59, 130, 246, 0.15);
     --aws: #ff9900;
     --azure: #0096d6;
     --gcp: #34a853;
@@ -24,8 +26,9 @@
     --il5: #a855f7;
     --il6: #ef4444;
     --new-col: #f59e0b;
-    --mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-    --sans: 'IBM Plex Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+    --panel: #161b25;
+    --mono: 'IBM Plex Mono', monospace;
+    --sans: 'IBM Plex Sans', sans-serif;
     --radius: 6px;
     background: var(--bg);
     color: var(--text);
@@ -33,12 +36,20 @@
     font-size: 14px;
     line-height: 1.5;
     min-height: 200px;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+.sc-scope *,
+.sc-scope *::before,
+.sc-scope *::after {
+    box-sizing: border-box;
 }
 
 .svc-page-intro {
     max-width: 1500px;
     margin: 0 auto 16px;
-    padding: 16px 24px 0;
+    padding: 0 4px;
 }
 
 .svc-page-title {
@@ -66,6 +77,9 @@
     background: var(--surface);
     border-bottom: 1px solid var(--border);
     padding: 10px 24px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 .toolbar-inner {
@@ -184,66 +198,23 @@
     font-size: 11px;
     color: var(--text-muted);
     margin-bottom: 10px;
-}
-
-.cat-block {
-    margin-bottom: 20px;
-}
-
-.cat-head-row {
-    margin-bottom: 0;
-}
-
-.cat-toggle {
     display: flex;
     align-items: center;
-    gap: 10px;
-    width: 100%;
-    text-align: left;
-    padding: 10px 14px;
-    font-family: var(--mono);
-    font-size: 12px;
-    font-weight: 600;
-    letter-spacing: 0.03em;
-    color: var(--text);
-    background: linear-gradient(90deg, rgba(59, 130, 246, 0.14), rgba(59, 130, 246, 0.04));
-    border: 1px solid var(--border);
-    border-bottom: none;
-    border-radius: 8px 8px 0 0;
-    border-left: 4px solid var(--accent);
-    cursor: pointer;
+    gap: 12px;
+    flex-wrap: wrap;
 }
 
-.cat-toggle:hover {
-    filter: brightness(1.05);
-}
-
-.chev {
-    flex-shrink: 0;
-    opacity: 0.85;
-}
-
-.cat-title {
-    flex: 1;
-}
-
-.cat-meta {
-    font-size: 10px;
-    font-weight: 500;
-    color: var(--text-muted);
-}
-
-.cat-table-shell {
-    border: 1px solid var(--border);
-    border-top: none;
-    border-radius: 0 0 8px 8px;
-    overflow: hidden;
+.result-meta strong {
+    color: var(--text-dim);
 }
 
 .sc-table {
     width: 100%;
     border-collapse: collapse;
     min-width: 900px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
 }
 
 .sc-table thead {
@@ -262,10 +233,20 @@
     text-transform: uppercase;
     white-space: nowrap;
     border-right: 1px solid var(--border);
+    cursor: pointer;
+    user-select: none;
+    transition:
+        color 0.15s,
+        background 0.15s;
 }
 
 .sc-table th:last-child {
     border-right: none;
+}
+
+.sc-table th:hover {
+    color: var(--text-dim);
+    background: var(--surface2);
 }
 
 .th-aws {
@@ -330,7 +311,6 @@
     color: var(--text-muted);
     max-width: 220px;
     line-height: 1.45;
-    font-style: italic;
 }
 
 .svc-cell {
@@ -514,20 +494,21 @@
 }
 
 .poc-banner {
-    background: linear-gradient(90deg, rgba(245, 158, 11, 0.2), rgba(245, 158, 11, 0.06));
-    border-bottom: 1px solid rgba(245, 158, 11, 0.35);
-    padding: 8px 24px;
-    font-size: 11px;
-    color: var(--text-dim);
+    background: rgba(245, 158, 11, 0.07);
+    border-bottom: 1px solid rgba(245, 158, 11, 0.18);
+    padding: 7px 24px;
     text-align: center;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: #d97706;
 }
 
 .poc-banner strong {
-    color: #fbbf24;
+    font-weight: 600;
 }
 
 .poc-banner a {
-    color: var(--accent2);
+    color: #f59e0b;
     text-decoration: none;
 }
 
@@ -537,56 +518,61 @@
 
 .svc-toolbar-hint {
     font-size: 10px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.06em;
     color: var(--text-muted);
+    margin-right: 6px;
     white-space: nowrap;
 }
 
 .toolbar-sep {
     width: 1px;
-    height: 22px;
+    height: 24px;
     background: var(--border2);
-    margin: 0 4px;
     flex-shrink: 0;
 }
 
-/* Multi-select dropdowns */
+/* Multi-select — index.html .ms-* */
 .ms-wrap {
     position: relative;
+    display: inline-block;
 }
 
 .ms-btn {
-    display: inline-flex;
+    display: flex;
     align-items: center;
     gap: 6px;
-    padding: 6px 10px;
-    font-family: var(--mono);
-    font-size: 11px;
-    font-weight: 600;
-    color: var(--text-dim);
     background: var(--surface2);
     border: 1px solid var(--border2);
     border-radius: var(--radius);
+    color: var(--text-dim);
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 7px 10px;
     cursor: pointer;
     white-space: nowrap;
-    max-width: 200px;
+    transition: border-color 0.15s;
+    user-select: none;
+    min-width: 120px;
+    max-width: 220px;
 }
 
-.ms-btn:hover {
+.ms-btn:hover,
+.ms-btn.open {
     border-color: var(--accent);
     color: var(--text);
 }
 
-.ms-btn.open {
-    border-color: var(--accent);
-    color: var(--accent2);
+.ms-btn .ms-arrow {
+    margin-left: auto;
+    font-size: 9px;
+    transition:
+        transform 0.15s,
+        opacity 0.15s;
+    opacity: 0.5;
 }
 
-.ms-arrow {
-    font-size: 9px;
-    opacity: 0.85;
+.ms-btn.open .ms-arrow {
+    transform: rotate(180deg);
+    opacity: 1;
 }
 
 .ms-dropdown {
@@ -594,32 +580,73 @@
     position: absolute;
     top: calc(100% + 4px);
     left: 0;
-    z-index: 20;
-    min-width: 220px;
-    max-height: 280px;
-    overflow-y: auto;
-    padding: 6px 0;
+    z-index: 300;
     background: var(--surface);
     border: 1px solid var(--border2);
-    border-radius: var(--radius);
-    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+    border-radius: 8px;
+    min-width: 190px;
+    max-height: 280px;
+    overflow-y: auto;
+    padding: 6px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
 }
 
 .ms-dropdown.open {
     display: block;
+    animation: ms-in 0.12s ease;
 }
 
-.ms-clear {
-    padding: 6px 12px;
-    font-family: var(--mono);
-    font-size: 10px;
-    font-weight: 600;
-    color: var(--accent2);
+@keyframes ms-in {
+    from {
+        opacity: 0;
+        transform: translateY(-4px);
+    }
+    to {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+.ms-option {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 8px;
+    border-radius: 5px;
     cursor: pointer;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--text-dim);
+    transition: background 0.1s;
+    user-select: none;
 }
 
-.ms-clear:hover {
+.ms-option:hover {
+    background: var(--surface2);
     color: var(--text);
+}
+
+.ms-option.selected {
+    color: var(--text);
+}
+
+.ms-check {
+    width: 14px;
+    height: 14px;
+    border: 1px solid var(--border2);
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 9px;
+    transition: all 0.1s;
+}
+
+.ms-option.selected .ms-check {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #fff;
 }
 
 .ms-sep {
@@ -628,37 +655,19 @@
     margin: 4px 0;
 }
 
-.ms-option {
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    padding: 6px 12px;
-    font-size: 11px;
-    color: var(--text-dim);
+.ms-clear {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--text-muted);
+    padding: 4px 8px;
     cursor: pointer;
+    text-align: center;
+    border-radius: 4px;
 }
 
-.ms-option:hover {
+.ms-clear:hover {
+    color: var(--accent);
     background: var(--surface2);
-}
-
-.ms-option.selected {
-    color: var(--text);
-    background: rgba(59, 130, 246, 0.08);
-}
-
-.ms-check {
-    width: 12px;
-    height: 12px;
-    border: 1px solid var(--border2);
-    border-radius: 2px;
-    flex-shrink: 0;
-}
-
-.ms-option.selected .ms-check {
-    background: var(--accent);
-    border-color: var(--accent);
-    box-shadow: inset 0 0 0 2px var(--surface);
 }
 
 .ms-option-dot {
@@ -694,31 +703,21 @@
     flex-shrink: 0;
 }
 
-/* Sortable column headers */
-.sc-table th.sortable {
-    cursor: pointer;
-    user-select: none;
-}
-
-.sc-table th.sortable:hover {
-    color: var(--text);
-    background: rgba(59, 130, 246, 0.06);
-}
-
-.sc-table th.sortable.sorted {
-    color: var(--accent2);
-}
-
-.si {
+.sc-table th .si {
     margin-left: 4px;
-    font-size: 10px;
-    opacity: 0.9;
+    opacity: 0.35;
+    font-size: 9px;
+}
+
+.sc-table th.sortable.sorted .si {
+    opacity: 1;
+    color: var(--accent);
 }
 
 .toolbar-theme {
     display: flex;
     align-items: center;
-    gap: 10px;
+    gap: 12px;
     margin-left: auto;
     flex-wrap: wrap;
 }
@@ -726,32 +725,58 @@
 .theme-toggle {
     display: inline-flex;
     align-items: center;
-    padding: 6px 10px;
+    gap: 6px;
+    padding: 5px 11px;
+    border-radius: 999px;
+    border: 1px solid var(--border2);
+    background: var(--surface2);
+    cursor: pointer;
+    color: var(--text-muted);
     font-family: var(--mono);
     font-size: 10px;
-    font-weight: 600;
+    font-weight: 500;
     letter-spacing: 0.04em;
     text-transform: uppercase;
-    color: var(--text-dim);
-    background: var(--surface2);
-    border: 1px solid var(--border2);
-    border-radius: var(--radius);
-    cursor: pointer;
+    transition:
+        border-color 0.15s,
+        background 0.15s,
+        color 0.15s;
+    flex-shrink: 0;
 }
 
 .theme-toggle:hover {
     border-color: var(--accent);
-    color: var(--text);
+    color: var(--text-dim);
+}
+
+.theme-toggle .tog-icon {
+    display: block;
+    opacity: 0.4;
+    transition:
+        opacity 0.15s,
+        color 0.15s;
+}
+
+.theme-toggle .tog-icon.active {
+    opacity: 1;
+    color: var(--accent);
+}
+
+.theme-toggle .tog-sep {
+    width: 1px;
+    height: 14px;
+    background: var(--border2);
+    flex-shrink: 0;
 }
 
 .focus-pill {
     font-family: var(--mono);
     font-size: 10px;
     color: var(--text-muted);
-    padding: 4px 10px;
-    border: 1px solid var(--border);
-    border-radius: 999px;
-    background: rgba(59, 130, 246, 0.06);
+    border: 1px solid var(--border2);
+    border-radius: 4px;
+    padding: 3px 8px;
+    letter-spacing: 0.04em;
 }
 
 .focus-pill a {
@@ -767,20 +792,43 @@
     background: var(--il3);
 }
 
-/* Light theme */
+/* html[data-theme="light"] parity */
 .sc-scope.theme-light {
-    --bg: #f8fafc;
+    --bg: #f1f5f9;
     --surface: #ffffff;
-    --surface2: #f1f5f9;
+    --surface2: #f8fafc;
+    --surface3: #f1f5f9;
+    --panel: #ffffff;
     --border: #e2e8f0;
     --border2: #cbd5e1;
     --text: #0f172a;
-    --text-dim: #334155;
+    --text-dim: #475569;
     --text-muted: #64748b;
+    --accent: #2563eb;
+    --accent2: #0891b2;
+    --accent-glow: rgba(37, 99, 235, 0.1);
 }
 
-/* Single #svcTable — category band rows (RosettaStone index.html) */
-.sc-scope #svcTable tbody tr.svc-cat-band td {
+.sc-scope.theme-light .poc-banner {
+    background: rgba(245, 158, 11, 0.12);
+    border-bottom-color: rgba(245, 158, 11, 0.28);
+    color: #b45309;
+}
+
+.sc-scope.theme-light .poc-banner a {
+    color: #d97706;
+}
+
+.sc-scope.theme-light .poc-banner strong {
+    color: inherit;
+}
+
+.sc-scope.theme-light .ms-dropdown {
+    box-shadow: 0 10px 40px rgba(15, 23, 42, 0.12);
+}
+
+/* Main comparison table — category band rows (RosettaStone index.html #svcTable parity) */
+.sc-scope .sc-table tbody tr.svc-cat-band td {
     padding: 0;
     border-right: none;
     vertical-align: middle;
@@ -788,15 +836,14 @@
     border-bottom: 1px solid var(--border);
 }
 
-.sc-scope #svcTable tbody tr.svc-cat-band:hover td {
+.sc-scope .sc-table tbody tr.svc-cat-band:hover td {
     background: linear-gradient(90deg, rgba(59, 130, 246, 0.14), rgba(59, 130, 246, 0.04));
 }
 
 .svc-cat-band-inner {
     display: flex;
     align-items: center;
-    justify-content: space-between;
-    gap: 12px;
+    gap: 8px;
     flex-wrap: wrap;
     padding: 10px 14px;
     font-size: 12px;
@@ -806,23 +853,30 @@
     border-left: 4px solid var(--accent);
 }
 
+.cat-band-title {
+    flex: 1;
+    min-width: 0;
+}
+
 .cat-band-meta {
+    margin-left: auto;
     font-size: 10px;
     font-weight: 500;
     color: var(--text-muted);
+    font-family: var(--mono);
 }
 
-.sc-scope #svcTable tbody tr:not(.svc-cat-band) .td-cat {
+.sc-scope .sc-table tbody tr:not(.svc-cat-band) .td-cat {
     font-weight: 500;
     color: var(--text-dim);
 }
 
-.sc-scope #svcTable tbody tr:not(.svc-cat-band) .td-desc {
+.sc-scope .sc-table tbody tr:not(.svc-cat-band) .td-desc {
     font-style: italic;
     color: var(--text-muted);
 }
 
-.sc-scope #svcTable tbody tr.show-more-row td {
+.sc-scope .sc-table tbody tr.show-more-row td {
     padding: 10px 14px;
     background: var(--surface2);
     border-top: 1px solid var(--border);
