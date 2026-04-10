@@ -1,5 +1,6 @@
-# Removes Service Catalog from the org: deploys current force-app (strips app nav), then deletes
-# org-only Lightning tab + FlexiPage + LWC + Visualforce stack.
+# Removes legacy Service Catalog artifacts from the org: deploys current force-app (strips app nav), then deletes
+# org-only metadata including Service_Catalog_Entry__c (orphan object not in source; use Service_Catalog__c instead),
+# plus old Lightning tab + FlexiPage + LWC + Visualforce/HTML catalog stack listed in destructiveChanges-service-catalog.xml.
 # Run from repo root:
 #   .\scripts\deploy-remove-service-catalog-from-org.ps1
 # Optional: -TargetOrg myAlias

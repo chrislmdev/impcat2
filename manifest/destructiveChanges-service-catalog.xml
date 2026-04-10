@@ -1,4 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- Service_Catalog_Entry__c is legacy/orphan (not in repo); active catalog is Service_Catalog__c.
+     This manifest removes org-only Entry object + tab and old HTML/VF catalog stack when paired with deploy. -->
 <Package xmlns="http://soap.sforce.com/2006/04/metadata">
     <types>
         <members>Cloud_Prism_Services</members>
