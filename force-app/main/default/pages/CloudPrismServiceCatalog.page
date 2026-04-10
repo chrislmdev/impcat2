@@ -1,0 +1,230 @@
+<apex:page
+  controller="CloudPrismServiceCatalogPageCtrl"
+  showHeader="false"
+  sidebar="false"
+  standardStylesheets="false"
+  docType="html-5.0"
+  applyHtmlTag="false"
+  applyBodyTag="false"
+  cache="false"
+>
+  <html lang="en">
+    <head>
+      <meta charset="utf-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
+      <title>Cloud Prism | Service Catalog</title>
+      <link
+        href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&amp;family=IBM+Plex+Sans:wght@300;400;500;600&amp;display=swap"
+        rel="stylesheet"
+      />
+      <apex:stylesheet value="{!URLFOR($Resource.CloudPrismServiceCatalogCSS)}" />
+    </head>
+    <body class="cp-svc-page">
+      <div class="poc-banner">
+        Cloud Prism proof-of-concept — HTML catalog (RosettaStone styling) backed by
+        <strong>Service_Catalog_Entry__c</strong>.
+      </div>
+
+      <svg xmlns="http://www.w3.org/2000/svg" style="display: none">
+        <symbol id="logo-aws" viewBox="0 0 24 24">
+          <path
+            fill="#FF9900"
+            d="M6.763 10.036c0 .296.032.535.088.71.064.176.144.368.256.576.04.064.056.128.056.184 0 .08-.048.16-.152.24l-.504.336a.383.383 0 0 1-.208.072c-.08 0-.16-.04-.24-.112a2.47 2.47 0 0 1-.288-.376 6.18 6.18 0 0 1-.248-.472c-.624.736-1.408 1.104-2.352 1.104-.672 0-1.208-.192-1.6-.576-.392-.384-.592-.896-.592-1.536 0-.68.24-1.232.728-1.648.488-.416 1.136-.624 1.96-.624.272 0 .552.024.848.064.296.04.6.104.920.176v-.584c0-.608-.128-1.032-.376-1.28-.256-.248-.688-.368-1.304-.368-.28 0-.568.032-.864.104-.296.072-.584.16-.864.272a2.294 2.294 0 0 1-.28.104.488.488 0 0 1-.128.024c-.112 0-.168-.08-.168-.248v-.392c0-.128.016-.224.056-.28a.597.597 0 0 1 .224-.168c.28-.144.616-.264 1.008-.36A4.85 4.85 0 0 1 3.872 6c.968 0 1.68.22 2.14.66.456.44.688 1.1.688 1.98v2.396zm-3.24 1.212c.264 0 .536-.048.824-.144.288-.096.544-.272.760-.512.128-.152.224-.32.272-.512.048-.192.08-.424.08-.696v-.336a6.66 6.66 0 0 0-.736-.056 6.79 6.79 0 0 0-.736.04c-.504.072-.872.232-1.112.488-.24.256-.36.6-.36 1.04 0 .416.104.728.32.944.208.208.504.312.888.312l-.2-.568zm6.111.567c-.144 0-.24-.024-.304-.08-.064-.048-.12-.16-.168-.312L7.586 7.5a1.398 1.398 0 0 1-.072-.32c0-.128.064-.2.192-.2h.784c.152 0 .256.024.312.08.064.048.112.16.16.312l1.2 4.743 1.112-4.743c.04-.16.088-.264.152-.312a.533.533 0 0 1 .32-.08h.64c.152 0 .256.024.32.08.064.048.12.16.152.312l1.128 4.8 1.24-4.8c.048-.16.104-.264.16-.312a.52.52 0 0 1 .312-.08h.744c.128 0 .2.064.2.2 0 .04-.008.08-.016.128a1.137 1.137 0 0 1-.056.2l-1.696 5.924c-.048.16-.104.264-.168.312a.52.52 0 0 1-.304.08h-.688c-.152 0-.256-.024-.32-.08-.064-.056-.12-.16-.152-.32l-1.104-4.584-1.096 4.576c-.04.16-.088.264-.152.32a.545.545 0 0 1-.32.08h-.688zm9.024.184c-.416 0-.832-.048-1.232-.144-.4-.096-.712-.2-.92-.32-.128-.072-.216-.152-.248-.224a.56.56 0 0 1-.048-.232v-.408c0-.168.064-.248.184-.248.048 0 .096.008.144.024.048.016.12.048.2.08.272.12.568.216.888.28.328.064.648.096.976.096.52 0 .92-.088 1.2-.264a.86.86 0 0 0 .424-.768.778.778 0 0 0-.212-.556c-.144-.152-.416-.288-.808-.416l-1.16-.36c-.584-.184-1.016-.456-1.288-.816a1.953 1.953 0 0 1-.408-1.192c0-.344.072-.648.216-.912.144-.264.336-.496.576-.688.24-.2.512-.344.824-.448.312-.104.640-.152.984-.152.168 0 .344.008.512.032.176.024.336.056.496.088.152.04.296.08.432.128.136.048.24.096.312.144a.65.65 0 0 1 .216.192.43.43 0 0 1 .064.24v.376c0 .168-.064.256-.184.256a.83.83 0 0 1-.304-.096 3.652 3.652 0 0 0-1.528-.312c-.472 0-.84.08-1.096.24-.256.16-.384.408-.384.752 0 .216.08.4.232.552.152.152.44.304.856.44l1.136.36c.576.184.992.44 1.248.768.256.328.376.704.376 1.12 0 .352-.072.672-.208.952-.144.28-.336.528-.584.728-.248.208-.544.36-.888.464-.36.112-.744.168-1.16.168z"
+          />
+          <path
+            fill="#FF9900"
+            d="M20.16 17.003c-2.395 1.77-5.877 2.713-8.875 2.713-4.197 0-7.973-1.55-10.826-4.13-.224-.2-.024-.476.248-.32 3.08 1.793 6.889 2.873 10.817 2.873 2.652 0 5.568-.552 8.249-1.697.408-.168.744.272.387.56zm1.097-1.248c-.304-.392-2.017-.184-2.784-.096-.232.032-.272-.176-.056-.328 1.36-.952 3.592-.68 3.848-.36.256.32-.064 2.56-1.344 3.624-.196.168-.384.08-.296-.136.288-.72.928-2.32.632-2.704z"
+          />
+        </symbol>
+        <symbol id="logo-azure" viewBox="0 0 24 24">
+          <path
+            fill="#0078D4"
+            d="M22.379 23.343a1.62 1.62 0 0 0 1.617-1.09l.004-.014-8.138-9.234-4.794 4.481 8.186 5.589a1.617 1.617 0 0 0 1.125.268zM13.302 15.62l-3.896-9.913-7.545 17.428a1.62 1.62 0 0 0 1.49.208l.014-.005zM17.44.658a1.62 1.62 0 0 0-2.55.364l-.007.013-7.524 17.378 5.627-5.26z"
+          />
+        </symbol>
+        <symbol id="logo-gcp" viewBox="0 0 24 24">
+          <path
+            fill="#4285F4"
+            d="M12.19 2.38a9.344 9.344 0 0 0-9.234 6.893c.053-.02-.055.013 0 0C.959 9.805 0 11.046 0 12.507c0 2.16 1.71 3.838 3.85 3.838h7.817c-.014-.053.007.054 0 0v-2.773H3.85c-.593 0-1.076-.483-1.076-1.077 0-.39.218-.731.543-.918.33-.187.616-.428.616-.428s-.087.087-.043.044c.247-.247.537-.443.862-.574a3.22 3.22 0 0 1 1.225-.246c.116 0 .229.008.34.022.082.011.166.027.247.047l.02.005s.022.007.033.01l.02.006.02.007c.037.013.07.027.104.044l.023.011.01.005.014.008.013.007.012.007.035.023.01.007a.49.49 0 0 0 .028.02c.09.063.168.138.236.22l.013.018.023.032.013.02.01.016.009.015.007.012.015.025.006.011.007.013a1.093 1.093 0 0 0 1.972-.953 3.247 3.247 0 0 0-.11-.224l-.008-.014-.012-.022-.01-.017-.011-.018-.013-.02-.015-.023-.016-.024-.018-.025-.015-.02a3.22 3.22 0 0 0-.23-.27c-.041-.044-.083-.086-.127-.126l-.013-.012-.035-.031-.012-.01-.036-.03-.013-.01-.036-.028-.014-.011-.012-.009-.024-.017-.036-.025a5.026 5.026 0 0 0-.386-.232 5.12 5.12 0 0 0-.39-.174l-.026-.01-.043-.016-.025-.009-.042-.014-.025-.008-.04-.013-.027-.008-.041-.011-.027-.007-.02-.005a5.186 5.186 0 0 0-1.235-.148c-.35 0-.692.043-1.02.124l-.016.004a5.18 5.18 0 0 0-.398.12l-.015.005a5.186 5.186 0 0 0-.89.427 5.26 5.26 0 0 0-.415.3l-.014.012A7.618 7.618 0 0 1 12.19 4.154a7.617 7.617 0 0 1 7.617 7.617c0 4.209-3.408 7.617-7.617 7.617H9.667v2.773h2.523C17.45 22.16 22 17.61 22 12.19c0-5.42-4.55-9.81-9.81-9.81z"
+          />
+          <path fill="#EA4335" d="M9.667 19.388v2.773h2.523c.968 0 1.905-.143 2.789-.406l-2.39-2.773c-.146.008-.293.012-.44.012z" />
+          <path fill="#FBBC05" d="M15.38 18.754l2.389 2.773a9.809 9.809 0 0 0 4.23-7.337H18.9a7.617 7.617 0 0 1-3.52 4.564z" />
+          <path fill="#34A853" d="M18.9 11.413H22a9.809 9.809 0 0 0-4.23-7.337l-2.389 2.773A7.617 7.617 0 0 1 18.9 11.413z" />
+        </symbol>
+        <symbol id="logo-oracle" viewBox="0 0 24 24">
+          <path
+            fill="#F80000"
+            d="M12 0C5.372 0 0 5.373 0 12s5.372 12 12 12 12-5.373 12-12S18.628 0 12 0zm-1.2 6h2.4c3.314 0 6 2.687 6 6s-2.686 6-6 6h-2.4c-3.314 0-6-2.687-6-6s2.686-6 6-6zm0 2.4c-1.987 0-3.6 1.613-3.6 3.6s1.613 3.6 3.6 3.6h2.4c1.987 0 3.6-1.613 3.6-3.6s-1.613-3.6-3.6-3.6z"
+          />
+        </symbol>
+      </svg>
+
+      <div id="page-services" class="page active">
+        <div class="svc-page-intro">
+          <h2 class="svc-page-title">Cloud service offerings comparison</h2>
+          <p class="svc-page-sub">
+            <strong>Category</strong> is the FinOps FOCUS service category (from
+            <code>Focus_Category__c</code>). <strong>Subcategory</strong> is the comparison bucket
+            (<code>Comparison_Subcategory__c</code>). CSP cells list offerings and impact levels; the top
+            <strong>three</strong> services by <code>Popularity_Score__c</code> show first with an expand control
+            for the rest.
+          </p>
+        </div>
+        <div class="toolbar">
+          <div class="toolbar-inner">
+            <div class="search-wrap">
+              <span class="search-icon">🔍</span>
+              <input
+                type="text"
+                id="svcSearch"
+                placeholder="Search services, categories…"
+                oninput="renderServices()"
+              />
+            </div>
+
+            <div class="ms-wrap" id="ms-cat-wrap">
+              <div class="ms-btn" id="ms-cat-btn" onclick="toggleMs('cat')">
+                <span id="ms-cat-label">All categories</span>
+                <span class="ms-arrow">▾</span>
+              </div>
+              <div class="ms-dropdown" id="ms-cat-drop">
+                <div class="ms-clear" onclick="clearMs('cat')">Clear all</div>
+                <div class="ms-sep"></div>
+                <div id="ms-cat-opts"></div>
+              </div>
+            </div>
+
+            <span class="svc-toolbar-hint">Filter by impact level</span>
+            <div class="ms-wrap" id="ms-il-wrap">
+              <div class="ms-btn" id="ms-il-btn" onclick="toggleMs('il')">
+                <span id="ms-il-label">All levels</span>
+                <span class="ms-arrow">▾</span>
+              </div>
+              <div class="ms-dropdown" id="ms-il-drop">
+                <div class="ms-clear" onclick="clearMs('il')">Clear all</div>
+                <div class="ms-sep"></div>
+                <div id="ms-il-opts">
+                  <div class="ms-option" data-ms="il" data-val="IL2" onclick="toggleMsOpt('il','IL2',this)">
+                    <span class="ms-check"></span><span class="ms-option-dot" style="background:var(--il2)"></span>IL2
+                  </div>
+                  <div class="ms-option" data-ms="il" data-val="IL3" onclick="toggleMsOpt('il','IL3',this)">
+                    <span class="ms-check"></span><span class="ms-option-dot" style="background:var(--accent2)"></span>IL3
+                  </div>
+                  <div class="ms-option" data-ms="il" data-val="IL4" onclick="toggleMsOpt('il','IL4',this)">
+                    <span class="ms-check"></span><span class="ms-option-dot" style="background:var(--il4)"></span>IL4
+                  </div>
+                  <div class="ms-option" data-ms="il" data-val="IL5" onclick="toggleMsOpt('il','IL5',this)">
+                    <span class="ms-check"></span><span class="ms-option-dot" style="background:var(--il5)"></span>IL5
+                  </div>
+                  <div class="ms-option" data-ms="il" data-val="IL6" onclick="toggleMsOpt('il','IL6',this)">
+                    <span class="ms-check"></span><span class="ms-option-dot" style="background:var(--il6)"></span>IL6
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="ms-wrap" id="ms-csp-wrap">
+              <div class="ms-btn" id="ms-csp-btn" onclick="toggleMs('csp')">
+                <span id="ms-csp-label">All CSPs</span>
+                <span class="ms-arrow">▾</span>
+              </div>
+              <div class="ms-dropdown" id="ms-csp-drop">
+                <div class="ms-clear" onclick="clearMs('csp')">Clear all</div>
+                <div class="ms-sep"></div>
+                <div id="ms-csp-opts">
+                  <div class="ms-option" data-ms="csp" data-val="aws" onclick="toggleMsOpt('csp','aws',this)">
+                    <span class="ms-check"></span><svg width="13" height="13"><use href="#logo-aws" /></svg>AWS
+                  </div>
+                  <div class="ms-option" data-ms="csp" data-val="azure" onclick="toggleMsOpt('csp','azure',this)">
+                    <span class="ms-check"></span><svg width="13" height="13"><use href="#logo-azure" /></svg>Azure
+                  </div>
+                  <div class="ms-option" data-ms="csp" data-val="gcp" onclick="toggleMsOpt('csp','gcp',this)">
+                    <span class="ms-check"></span><svg width="13" height="13"><use href="#logo-gcp" /></svg>GCP
+                  </div>
+                  <div class="ms-option" data-ms="csp" data-val="oracle" onclick="toggleMsOpt('csp','oracle',this)">
+                    <span class="ms-check"></span><svg width="13" height="13"><use href="#logo-oracle" /></svg>Oracle
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="toolbar-sep"></div>
+            <div class="il-legend">
+              <span class="legend-key">Key</span>
+              <span class="il-chip"><span class="il-dot" style="background:var(--il2)"></span>IL2</span>
+              <span class="il-chip"><span class="il-dot" style="background:var(--accent2)"></span>IL3</span>
+              <span class="il-chip"><span class="il-dot" style="background:var(--il4)"></span>IL4</span>
+              <span class="il-chip"><span class="il-dot" style="background:var(--il5)"></span>IL5</span>
+              <span class="il-chip"><span class="il-dot" style="background:var(--il6)"></span>IL6</span>
+              <span class="legend-detail">IL5 highlight · newly authorized</span>
+              <span class="new-chip">✦ New service (30d)</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="table-wrap">
+          <div class="result-meta" id="svcMeta"></div>
+          <table id="svcTable">
+            <thead>
+              <tr>
+                <th class="sortable" data-col="category">Category<span class="si">↕</span></th>
+                <th class="sortable" data-col="subcategory">Subcategory<span class="si">↕</span></th>
+                <th>Description</th>
+                <th class="th-aws">
+                  <div class="csp-hdr">
+                    <svg width="16" height="16"><use href="#logo-aws" /></svg>AWS
+                  </div>
+                </th>
+                <th class="th-azure">
+                  <div class="csp-hdr">
+                    <svg width="16" height="16"><use href="#logo-azure" /></svg>Azure
+                  </div>
+                </th>
+                <th class="th-gcp">
+                  <div class="csp-hdr">
+                    <svg width="16" height="16"><use href="#logo-gcp" /></svg>GCP
+                  </div>
+                </th>
+                <th class="th-oracle">
+                  <div class="csp-hdr">
+                    <svg width="16" height="16"><use href="#logo-oracle" /></svg>Oracle
+                  </div>
+                </th>
+              </tr>
+            </thead>
+            <tbody id="svcBody"></tbody>
+          </table>
+          <div id="svcEmpty" class="empty-state" style="display: none">
+            <div class="es-icon">◻</div>
+            <p>No services match your filters.</p>
+          </div>
+        </div>
+      </div>
+
+      <apex:includeScript value="{!URLFOR($Resource.CloudPrismServiceCatalogJS)}" />
+      <script type="text/javascript">
+        function cpLoadCatalogFromRemote() {
+          Visualforce.remoting.Manager.invokeAction(
+            "{!$RemoteAction.CloudPrismServiceCatalogPageCtrl.getCatalogJsonRemote}",
+            function (result, event) {
+              if (typeof window.initCloudPrismServiceCatalog !== "function") {
+                return;
+              }
+              if (event.status) {
+                window.initCloudPrismServiceCatalog(result);
+              } else {
+                window.initCloudPrismServiceCatalog("[]");
+              }
+            },
+            { buffer: false, escape: false, timeout: 120000 }
+          );
+        }
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", cpLoadCatalogFromRemote);
+        } else {
+          cpLoadCatalogFromRemote();
+        }
+      </script>
+    </body>
+  </html>
+</apex:page>

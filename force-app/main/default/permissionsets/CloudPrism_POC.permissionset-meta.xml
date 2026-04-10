@@ -5,6 +5,14 @@
         <enabled>true</enabled>
     </classAccesses>
     <classAccesses>
+        <apexClass>CloudPrismServiceCatalogController</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
+        <apexClass>CloudPrismServiceCatalogPageCtrl</apexClass>
+        <enabled>true</enabled>
+    </classAccesses>
+    <classAccesses>
         <apexClass>ExceptionChangeService</apexClass>
         <enabled>true</enabled>
     </classAccesses>
@@ -16,7 +24,11 @@
         <apexClass>CatalogUploadService</apexClass>
         <enabled>true</enabled>
     </classAccesses>
-    <description>Access to CloudPrism POC custom objects, Apex, and LWCs</description>
+    <pageAccesses>
+        <apexPage>CloudPrismServiceCatalog</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
+    <description>Access to CloudPrism POC custom objects, Apex, LWCs, and Visualforce</description>
     <hasActivationRequired>false</hasActivationRequired>
     <label>CloudPrism POC</label>
     <objectPermissions>
@@ -44,6 +56,15 @@
         <allowRead>true</allowRead>
         <modifyAllRecords>true</modifyAllRecords>
         <object>Exception_Item__c</object>
+        <viewAllRecords>true</viewAllRecords>
+    </objectPermissions>
+    <objectPermissions>
+        <allowCreate>true</allowCreate>
+        <allowDelete>true</allowDelete>
+        <allowEdit>true</allowEdit>
+        <allowRead>true</allowRead>
+        <modifyAllRecords>true</modifyAllRecords>
+        <object>Service_Catalog_Entry__c</object>
         <viewAllRecords>true</viewAllRecords>
     </objectPermissions>
     <fieldPermissions>
@@ -128,6 +149,26 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Service_Catalog_Entry__c.Catalog_Item_Number__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Service_Catalog_Entry__c.Description__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Service_Catalog_Entry__c.Impact_Level__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Service_Catalog_Entry__c.Popularity_Score__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Exception_Item__c.CSO_Short_Name__c</field>
         <readable>true</readable>
     </fieldPermissions>
@@ -157,7 +198,15 @@
         <readable>true</readable>
     </fieldPermissions>
     <tabSettings>
+        <tab>CloudPrism_Service_Catalog</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+    <tabSettings>
         <tab>Cloud_Prism_Upload</tab>
+        <visibility>Visible</visibility>
+    </tabSettings>
+    <tabSettings>
+        <tab>Service_Catalog_Entry__c</tab>
         <visibility>Visible</visibility>
     </tabSettings>
     <tabSettings>
