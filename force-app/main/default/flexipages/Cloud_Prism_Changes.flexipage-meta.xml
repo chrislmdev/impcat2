@@ -10,7 +10,7 @@
         <name>main</name>
         <type>Region</type>
     </flexiPageRegions>
-    <masterLabel>Cloud Prism Catalog Changes</masterLabel>
+    <masterLabel>Cloud Accelerator — Catalog Changes</masterLabel>
     <template>
         <name>flexipage:defaultAppHomeTemplate</name>
     </template>

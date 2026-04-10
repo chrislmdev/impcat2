@@ -34,22 +34,11 @@
             </symbol>
         </svg>
 
-        <div class="poc-banner">
-            ⚠ <strong>Proof of Concept</strong> — Data is for demonstration only. Categories aligned to
-            <a href="https://focus.finops.org/focus-specification/v1-3/#servicecategory" target="_blank" rel="noopener"
-                >FOCUS 1.3</a
-            >. Verify against official CSP documentation.
-        </div>
-
         <div class="svc-page-intro">
-            <h2 class="svc-page-title">Cloud service offerings comparison</h2>
+            <h2 class="svc-page-title">Service catalog</h2>
             <p class="svc-page-sub">
-                <strong>Category</strong> is the FinOps FOCUS 1.3 service category (from mapping
-                <code>Category__c</code> or inferred). <strong>Subcategory</strong> is a contract comparison bucket (e.g.
-                Containers, Virtual Machines)—set column <code>Subcategory__c</code> on import to override inference. One
-                row per category + subcategory; CSP columns list matching offerings and impact levels.
-                <strong>Description</strong> prefers pricing text when catalog lines align, else parent or short name
-                (first non-empty <code>Description__c</code> in each group).
+                Compare cloud offerings across AWS, Azure, GCP, and Oracle by FOCUS-aligned category and subcategory,
+                with impact levels from your <code>Service_Catalog__c</code> data.
             </p>
         </div>
 
@@ -399,10 +388,10 @@
         <footer class="sc-page-footer">
             <div class="footer-inner">
                 <span
-                    >Service data based on public documentation. Categories aligned to
+                    >Categories follow
                     <a href="https://focus.finops.org/focus-specification/v1-3/#servicecategory" target="_blank" rel="noopener"
                         >FOCUS 1.3</a
-                    >.</span
+                    >; verify details with each CSP.</span
                 >
                 <span>Last updated: <strong>{footerYearLabel}</strong></span>
             </div>

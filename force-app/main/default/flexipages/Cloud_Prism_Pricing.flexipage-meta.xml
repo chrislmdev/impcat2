@@ -10,7 +10,7 @@
         <name>main</name>
         <type>Region</type>
     </flexiPageRegions>
-    <masterLabel>Cloud Prism Pricing Catalog</masterLabel>
+    <masterLabel>Cloud Accelerator — Pricing Catalog</masterLabel>
     <template>
         <name>flexipage:defaultAppHomeTemplate</name>
     </template>

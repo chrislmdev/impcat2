@@ -493,29 +493,6 @@
     overflow: hidden;
 }
 
-.poc-banner {
-    background: rgba(245, 158, 11, 0.07);
-    border-bottom: 1px solid rgba(245, 158, 11, 0.18);
-    padding: 7px 24px;
-    text-align: center;
-    font-family: var(--mono);
-    font-size: 11px;
-    color: #d97706;
-}
-
-.poc-banner strong {
-    font-weight: 600;
-}
-
-.poc-banner a {
-    color: #f59e0b;
-    text-decoration: none;
-}
-
-.poc-banner a:hover {
-    text-decoration: underline;
-}
-
 .svc-toolbar-hint {
     font-size: 10px;
     color: var(--text-muted);
@@ -807,20 +784,6 @@
     --accent: #2563eb;
     --accent2: #0891b2;
     --accent-glow: rgba(37, 99, 235, 0.1);
-}
-
-.sc-scope.theme-light .poc-banner {
-    background: rgba(245, 158, 11, 0.12);
-    border-bottom-color: rgba(245, 158, 11, 0.28);
-    color: #b45309;
-}
-
-.sc-scope.theme-light .poc-banner a {
-    color: #d97706;
-}
-
-.sc-scope.theme-light .poc-banner strong {
-    color: inherit;
 }
 
 .sc-scope.theme-light .ms-dropdown {

@@ -10,7 +10,7 @@
     <isNavPersonalizationDisabled>true</isNavPersonalizationDisabled>
     <isNavTabPersistenceDisabled>false</isNavTabPersistenceDisabled>
     <isOmniPinnedViewEnabled>false</isOmniPinnedViewEnabled>
-    <label>CloudPrism</label>
+    <label>Cloud Accelerator Tool</label>
     <navType>Standard</navType>
     <tabs>Cloud_Prism_Pricing</tabs>
     <tabs>Cloud_Prism_Service_Catalog</tabs>

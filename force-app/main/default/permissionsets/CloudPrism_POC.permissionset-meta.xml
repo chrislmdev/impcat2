@@ -20,9 +20,9 @@
         <apexClass>CatalogUploadService</apexClass>
         <enabled>true</enabled>
     </classAccesses>
-    <description>Access to CloudPrism POC custom objects, Apex, LWCs, and Visualforce</description>
+    <description>Access to Cloud Accelerator Tool custom objects, Apex, LWCs, and Visualforce</description>
     <hasActivationRequired>false</hasActivationRequired>
-    <label>CloudPrism POC</label>
+    <label>Cloud Accelerator Tool</label>
     <objectPermissions>
         <allowCreate>true</allowCreate>
         <allowDelete>true</allowDelete>

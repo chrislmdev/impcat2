@@ -10,7 +10,7 @@
         <name>main</name>
         <type>Region</type>
     </flexiPageRegions>
-    <masterLabel>Cloud Prism Exceptions</masterLabel>
+    <masterLabel>Cloud Accelerator — Exceptions</masterLabel>
     <template>
         <name>flexipage:defaultAppHomeTemplate</name>
     </template>
