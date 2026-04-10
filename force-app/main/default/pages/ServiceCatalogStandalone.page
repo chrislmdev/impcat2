@@ -1,0 +1,65 @@
+<apex:page
+    showHeader="false"
+    sidebar="false"
+    standardStylesheets="false"
+    docType="html-5.0"
+    applyHtmlTag="false"
+    applyBodyTag="false"
+    cache="false"
+    title="Services Catalog"
+>
+    <html xmlns="http://www.w3.org/1999/xhtml" lang="en">
+        <head>
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <apex:includeLightning />
+            <style type="text/css">
+                html,
+                body {
+                    margin: 0;
+                    padding: 0;
+                    min-height: 100vh;
+                    background: #090c12;
+                }
+            </style>
+        </head>
+        <body>
+            <div id="catalogRoot"></div>
+            <script type="text/javascript">
+                (function () {
+                    function lightningBaseUrl() {
+                        var o = window.location.origin;
+                        if (window.location.hostname.indexOf('.lightning.force.com') >= 0) {
+                            return o;
+                        }
+                        o = o.replace('.develop.my.salesforce.com', '.develop.lightning.force.com');
+                        o = o.replace('.my.salesforce.com', '.lightning.force.com');
+                        return o;
+                    }
+                    function boot() {
+                        if (typeof $Lightning === 'undefined') {
+                            window.setTimeout(boot, 50);
+                            return;
+                        }
+                        $Lightning.use(
+                            'c:ServiceCatalogOutApp',
+                            function () {
+                                $Lightning.createComponent(
+                                    'c:serviceCatalog',
+                                    {},
+                                    'catalogRoot',
+                                    function () {}
+                                );
+                            },
+                            lightningBaseUrl()
+                        );
+                    }
+                    if (document.readyState === 'loading') {
+                        document.addEventListener('DOMContentLoaded', boot);
+                    } else {
+                        boot();
+                    }
+                })();
+            </script>
+        </body>
+    </html>
+</apex:page>

@@ -231,6 +231,10 @@
         <tab>Cloud_Prism_Changes</tab>
         <visibility>Visible</visibility>
     </tabSettings>
+    <pageAccesses>
+        <apexPage>ServiceCatalogStandalone</apexPage>
+        <enabled>true</enabled>
+    </pageAccesses>
     <applicationVisibilities>
         <application>CloudPrism</application>
         <visible>true</visible>
