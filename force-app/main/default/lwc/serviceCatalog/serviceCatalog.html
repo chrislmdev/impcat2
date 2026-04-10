@@ -1,0 +1,206 @@
+<template>
+    <div class="sc-scope">
+        <div class="svc-page-intro">
+            <h2 class="svc-page-title">Cloud service offerings comparison</h2>
+            <p class="svc-page-sub">
+                <strong>Category</strong> is the FinOps FOCUS service category.
+                <strong>Subcategory</strong> is a contract comparison bucket.
+                <strong>Description</strong> is taken from catalog data per category and subcategory.
+            </p>
+        </div>
+
+        <div class="toolbar">
+            <div class="toolbar-inner">
+                <div class="search-wrap">
+                    <span class="search-icon" aria-hidden="true">🔍</span>
+                    <input
+                        type="text"
+                        class="sc-search-input"
+                        placeholder="Search services, categories…"
+                        value={searchKey}
+                        oninput={handleSearchInput}
+                    />
+                </div>
+                <div class="il-legend" aria-hidden="true">
+                    <span class="legend-key">Impact</span>
+                    <span class="il-chip"><span class="il-dot il-dot-il2"></span>IL2</span>
+                    <span class="il-chip"><span class="il-dot il-dot-il4"></span>IL4</span>
+                    <span class="il-chip"><span class="il-dot il-dot-il5"></span>IL5</span>
+                    <span class="il-chip"><span class="il-dot il-dot-il6"></span>IL6</span>
+                    <span class="il-chip"><span class="il-dot il-dot-comm"></span>COMM</span>
+                </div>
+            </div>
+        </div>
+
+        <template if:true={loading}>
+            <div class="sc-loading">Loading catalog…</div>
+        </template>
+
+        <template if:true={hasError}>
+            <div class="sc-error" role="alert">{errorMessage}</div>
+        </template>
+
+        <template if:true={isEmpty}>
+            <div class="empty-state">
+                <div class="es-icon">◻</div>
+                <p>No service catalog rows yet. Import data into <strong>Service_Catalog__c</strong>.</p>
+            </div>
+        </template>
+
+        <template if:false={loading}>
+            <template if:false={hasError}>
+                <template if:false={isEmpty}>
+                    <div class="table-wrap">
+                        <div class="result-meta">{metaLine}</div>
+
+                        <template for:each={categorySections} for:item="cat">
+                            <section class="cat-block" key={cat.key}>
+                                <div class="cat-head-row">
+                                    <button
+                                        type="button"
+                                        class="cat-toggle"
+                                        data-category={cat.name}
+                                        onclick={toggleCategory}
+                                        aria-expanded={cat.expanded}
+                                    >
+                                        <span class="chev" aria-hidden="true">{cat.chevron}</span>
+                                        <span class="cat-title">{cat.name}</span>
+                                        <span class="cat-meta">{cat.rowCountLabel}</span>
+                                    </button>
+                                </div>
+
+                                <template if:true={cat.expanded}>
+                                    <div class="cat-table-shell">
+                                        <table class="sc-table">
+                                            <thead>
+                                                <tr>
+                                                    <th>Category</th>
+                                                    <th>Subcategory</th>
+                                                    <th>Description</th>
+                                                    <th class="th-aws">
+                                                        <div class="csp-hdr">AWS</div>
+                                                    </th>
+                                                    <th class="th-azure">
+                                                        <div class="csp-hdr">Azure</div>
+                                                    </th>
+                                                    <th class="th-gcp">
+                                                        <div class="csp-hdr">GCP</div>
+                                                    </th>
+                                                    <th class="th-oracle">
+                                                        <div class="csp-hdr">Oracle</div>
+                                                    </th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <template for:each={cat.visibleGroups} for:item="row">
+                                                    <tr key={row.groupKey}>
+                                                        <td class="td-cat">{row.category}</td>
+                                                        <td class="td-sub">{row.subcategoryLabel}</td>
+                                                        <td class="td-desc">{row.description}</td>
+                                                        <td class="svc-cell td-aws-c">
+                                                            <template if:true={row.awsEntries.length}>
+                                                                <template for:each={row.awsEntries} for:item="ent">
+                                                                    <div class="se" key={ent.serviceName}>
+                                                                        <div class="sn">{ent.serviceName}</div>
+                                                                        <div class="sm">
+                                                                            <template for:each={ent.badges} for:item="bd">
+                                                                                <span key={bd.label} class={bd.cssClass}>{bd.label}</span>
+                                                                            </template>
+                                                                        </div>
+                                                                    </div>
+                                                                </template>
+                                                            </template>
+                                                            <template if:false={row.awsEntries.length}>
+                                                                <span class="none-ind">·</span>
+                                                            </template>
+                                                        </td>
+                                                        <td class="svc-cell td-azure-c">
+                                                            <template if:true={row.azureEntries.length}>
+                                                                <template for:each={row.azureEntries} for:item="ent">
+                                                                    <div class="se" key={ent.serviceName}>
+                                                                        <div class="sn">{ent.serviceName}</div>
+                                                                        <div class="sm">
+                                                                            <template for:each={ent.badges} for:item="bd">
+                                                                                <span key={bd.label} class={bd.cssClass}>{bd.label}</span>
+                                                                            </template>
+                                                                        </div>
+                                                                    </div>
+                                                                </template>
+                                                            </template>
+                                                            <template if:false={row.azureEntries.length}>
+                                                                <span class="none-ind">·</span>
+                                                            </template>
+                                                        </td>
+                                                        <td class="svc-cell td-gcp-c">
+                                                            <template if:true={row.gcpEntries.length}>
+                                                                <template for:each={row.gcpEntries} for:item="ent">
+                                                                    <div class="se" key={ent.serviceName}>
+                                                                        <div class="sn">{ent.serviceName}</div>
+                                                                        <div class="sm">
+                                                                            <template for:each={ent.badges} for:item="bd">
+                                                                                <span key={bd.label} class={bd.cssClass}>{bd.label}</span>
+                                                                            </template>
+                                                                        </div>
+                                                                    </div>
+                                                                </template>
+                                                            </template>
+                                                            <template if:false={row.gcpEntries.length}>
+                                                                <span class="none-ind">·</span>
+                                                            </template>
+                                                        </td>
+                                                        <td class="svc-cell td-oracle-c">
+                                                            <template if:true={row.oracleEntries.length}>
+                                                                <template for:each={row.oracleEntries} for:item="ent">
+                                                                    <div class="se" key={ent.serviceName}>
+                                                                        <div class="sn">{ent.serviceName}</div>
+                                                                        <div class="sm">
+                                                                            <template for:each={ent.badges} for:item="bd">
+                                                                                <span key={bd.label} class={bd.cssClass}>{bd.label}</span>
+                                                                            </template>
+                                                                        </div>
+                                                                    </div>
+                                                                </template>
+                                                            </template>
+                                                            <template if:false={row.oracleEntries.length}>
+                                                                <span class="none-ind">·</span>
+                                                            </template>
+                                                        </td>
+                                                    </tr>
+                                                </template>
+                                            </tbody>
+                                        </table>
+
+                                        <template if:true={cat.showMore}>
+                                            <div class="show-more-row">
+                                                <button
+                                                    type="button"
+                                                    class="btn-show-more"
+                                                    data-category={cat.name}
+                                                    onclick={toggleShowMore}
+                                                >
+                                                    Show {cat.hiddenCount} more in this category
+                                                </button>
+                                            </div>
+                                        </template>
+                                        <template if:true={cat.showLess}>
+                                            <div class="show-more-row">
+                                                <button
+                                                    type="button"
+                                                    class="btn-show-more"
+                                                    data-category={cat.name}
+                                                    onclick={toggleShowMore}
+                                                >
+                                                    Show less
+                                                </button>
+                                            </div>
+                                        </template>
+                                    </div>
+                                </template>
+                            </section>
+                        </template>
+                    </div>
+                </template>
+            </template>
+        </template>
+    </div>
+</template>
