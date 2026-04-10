@@ -1,12 +1,11 @@
 @IsTest
 private class CloudPrismServiceCatalogPageCtrlTest {
     @IsTest
-    static void pageController_serializesCatalog() {
+    static void getCatalogJsonRemote_returns_json_array() {
         Test.startTest();
-        CloudPrismServiceCatalogPageCtrl c = new CloudPrismServiceCatalogPageCtrl();
+        String json = CloudPrismServiceCatalogPageCtrl.getCatalogJsonRemote();
         Test.stopTest();
-        System.assertNotEquals(null, c.catalogJsonB64);
-        String raw = EncodingUtil.base64Decode(c.catalogJsonB64).toString();
-        System.assert(raw.startsWith('['));
+        System.assertNotEquals(null, json);
+        System.assert(json.startsWith('['));
     }
 }

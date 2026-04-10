@@ -1,11 +1,10 @@
 /**
- * Visualforce host for the RosettaStone-style HTML service catalog; bootstraps JSON via base64 to avoid script injection issues.
+ * Visualforce host for the RosettaStone-style HTML service catalog.
+ * Catalog JSON is loaded via @RemoteAction so it works reliably inside Lightning iframes (no inline merge payload).
  */
 public with sharing class CloudPrismServiceCatalogPageCtrl {
-    public String catalogJsonB64 { get; private set; }
-
-    public CloudPrismServiceCatalogPageCtrl() {
-        List<Map<String, Object>> rows = CloudPrismServiceCatalogController.getRosettaParentRows();
-        catalogJsonB64 = EncodingUtil.base64Encode(Blob.valueOf(JSON.serialize(rows)));
+    @RemoteAction
+    public static String getCatalogJsonRemote() {
+        return JSON.serialize(CloudPrismServiceCatalogController.getRosettaParentRows());
     }
 }

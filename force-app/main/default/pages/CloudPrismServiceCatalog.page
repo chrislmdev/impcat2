@@ -201,10 +201,30 @@
         </div>
       </div>
 
-      <script>
-        window.__CP_CATALOG_B64 = "{!JSENCODE(catalogJsonB64)}";
-      </script>
       <apex:includeScript value="{!URLFOR($Resource.CloudPrismServiceCatalogJS)}" />
+      <script type="text/javascript">
+        function cpLoadCatalogFromRemote() {
+          Visualforce.remoting.Manager.invokeAction(
+            "{!$RemoteAction.CloudPrismServiceCatalogPageCtrl.getCatalogJsonRemote}",
+            function (result, event) {
+              if (typeof window.initCloudPrismServiceCatalog !== "function") {
+                return;
+              }
+              if (event.status) {
+                window.initCloudPrismServiceCatalog(result);
+              } else {
+                window.initCloudPrismServiceCatalog("[]");
+              }
+            },
+            { buffer: false, escape: false, timeout: 120000 }
+          );
+        }
+        if (document.readyState === "loading") {
+          document.addEventListener("DOMContentLoaded", cpLoadCatalogFromRemote);
+        } else {
+          cpLoadCatalogFromRemote();
+        }
+      </script>
     </body>
   </html>
 </apex:page>

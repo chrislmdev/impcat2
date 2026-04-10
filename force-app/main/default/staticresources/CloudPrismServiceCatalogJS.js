@@ -5,14 +5,17 @@
   var csoPricingData = [];
 
   var csOParentServiceData = [];
-  try {
-    var b64 = typeof window.__CP_CATALOG_B64 === "string" ? window.__CP_CATALOG_B64 : "";
-    if (b64) {
-      csOParentServiceData = JSON.parse(atob(b64));
+
+  /** Called from Visualforce after RemoteAction loads JSON (works inside Lightning iframes). */
+  window.initCloudPrismServiceCatalog = function (jsonString) {
+    try {
+      csOParentServiceData = JSON.parse(jsonString || "[]");
+    } catch (e) {
+      csOParentServiceData = [];
     }
-  } catch (e) {
-    csOParentServiceData = [];
-  }
+    populateCats();
+    renderServices();
+  };
 
   var CAT_ICONS = {
     Compute:
@@ -614,7 +617,6 @@
   }
 
   document.addEventListener("DOMContentLoaded", function () {
-    populateCats();
     document.querySelectorAll(".sortable").forEach(function (th) {
       th.addEventListener("click", function () {
         var col = th.dataset.col;
@@ -631,6 +633,5 @@
         renderServices();
       });
     });
-    renderServices();
   });
 })();
