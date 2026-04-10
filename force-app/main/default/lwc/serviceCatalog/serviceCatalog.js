@@ -26,8 +26,8 @@ function normalizeCsp(raw) {
 function groupRows(rows) {
     const map = {};
     for (const r of rows) {
-        const cat = (r.category || '').trim();
-        const sub = (r.subcategory || '').trim();
+        const cat = (r.Category__c || '').trim();
+        const sub = (r.Subcategory__c || '').trim();
         const key = `${cat.toLowerCase()}|${sub.toLowerCase()}`;
         if (!map[key]) {
             map[key] = {
@@ -42,17 +42,17 @@ function groupRows(rows) {
             };
         }
         const g = map[key];
-        const csp = normalizeCsp(r.csp);
+        const csp = normalizeCsp(r.CSP__c);
         const cell = {
-            id: r.id,
-            serviceName: r.service || '',
-            impactLevel: r.impactLevel || ''
+            id: r.Id,
+            serviceName: r.Service__c || '',
+            impactLevel: r.Impact_Level__c || ''
         };
         if (csp && g[csp]) {
             g[csp].push(cell);
         }
-        if (r.description && !g.description) {
-            g.description = r.description;
+        if (r.Description__c && !g.description) {
+            g.description = r.Description__c;
         }
     }
     return Object.values(map);

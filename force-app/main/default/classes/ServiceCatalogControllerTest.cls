@@ -25,16 +25,16 @@ private class ServiceCatalogControllerTest {
         insertRowsFromMockJson();
 
         Test.startTest();
-        List<ServiceCatalogController.CatalogRow> rows = ServiceCatalogController.getCatalogRows();
+        List<Service_Catalog__c> rows = ServiceCatalogController.getCatalogRows();
         Test.stopTest();
 
         System.assertEquals(12, rows.size(), 'Expected one row per mock record');
         Boolean sawAws = false;
-        for (ServiceCatalogController.CatalogRow r : rows) {
-            System.assertNotEquals(null, r.id);
-            if (r.csp == 'AWS' && r.service != null && r.service.contains('EC2')) {
+        for (Service_Catalog__c r : rows) {
+            System.assertNotEquals(null, r.Id);
+            if (r.CSP__c == 'AWS' && r.Service__c != null && r.Service__c.contains('EC2')) {
                 sawAws = true;
-                System.assert(r.impactLevel != null && r.impactLevel.contains('IL4'));
+                System.assert(r.Impact_Level__c != null && r.Impact_Level__c.contains('IL4'));
             }
         }
         System.assert(sawAws, 'Expected at least one AWS compute row');
