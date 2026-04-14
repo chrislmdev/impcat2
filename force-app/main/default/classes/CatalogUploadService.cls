@@ -113,6 +113,14 @@ public with sharing class CatalogUploadService {
     };
 
     /**
+     * Extra CSV header fingerprints -> canonical API for exceptions only.
+     * Standard catalog schema uses business names that do not match Exception_*__c API fingerprints.
+     */
+    private static final Map<String, String> EXCEPTION_HEADER_ALIASES = new Map<String, String>{
+        'exceptionsecurityconsiderations' => 'Exception_Security__c'
+    };
+
+    /**
      * Lowercase, strip optional trailing __c, keep only alphanumerics (underscores/spaces removed).
      * Used to match human-friendly CSV headers to canonical API names.
      */
@@ -320,6 +328,11 @@ public with sharing class CatalogUploadService {
                     canonical = fpToCanonical.get(fp);
                     if (canonical == null && pfn.schema == 'pricing') {
                         String aliasTarget = PRICING_HEADER_ALIASES.get(fp);
+                        if (aliasTarget != null && allowed.contains(aliasTarget)) {
+                            canonical = aliasTarget;
+                        }
+                    } else if (canonical == null && pfn.schema == 'exceptions') {
+                        String aliasTarget = EXCEPTION_HEADER_ALIASES.get(fp);
                         if (aliasTarget != null && allowed.contains(aliasTarget)) {
                             canonical = aliasTarget;
                         }

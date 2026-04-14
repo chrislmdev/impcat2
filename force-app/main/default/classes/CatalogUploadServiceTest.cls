@@ -102,6 +102,26 @@ private class CatalogUploadServiceTest {
     }
 
     @IsTest
+    static void processFile_exceptions_acceptsExceptionSecurityConsiderationsAlias() {
+        String csv =
+            'Exception_Unique_Id__c,CSO_Short_Name__c,ExceptionSecurityConsiderations\n' +
+            'EX-SEC,svc1,Review IL5 controls before use\n';
+        CatalogUploadService.FileProcessResult r = CatalogUploadService.processFile(
+            '2026-03_aws_exceptions.csv',
+            csv
+        );
+        System.assertEquals(true, r.success, r.message + ' ' + r.errors);
+        System.assertEquals(1, r.rowsInserted);
+        Exception_Item__c row = [
+            SELECT Exception_Security__c
+            FROM Exception_Item__c
+            WHERE Catalog_Import__c = :r.catalogImportId
+            LIMIT 1
+        ];
+        System.assertEquals('Review IL5 controls before use', row.Exception_Security__c);
+    }
+
+    @IsTest
     static void processFile_exceptions_acceptsDurationAndSuggestedPlanHeaders() {
         String csv =
             'ExceptionuniqueID,ExceptionRequestedDuration,ExceptionSuggestedPlan\n' +
