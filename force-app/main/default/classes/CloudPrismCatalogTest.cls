@@ -30,7 +30,14 @@ private class CloudPrismCatalogTest {
             Status__c = 'done',
             Imported_At__c = Datetime.newInstance(2026, 2, 10, 12, 0, 0)
         );
-        insert new List<Catalog_Import__c>{ janP, febP, janE, febE };
+        Catalog_Import__c janPar = new Catalog_Import__c(
+            Import_Month__c = '2026-01',
+            CSP__c = 'aws',
+            Schema__c = 'parent',
+            Status__c = 'done',
+            Imported_At__c = Datetime.newInstance(2026, 1, 12, 12, 0, 0)
+        );
+        insert new List<Catalog_Import__c>{ janP, febP, janE, febE, janPar };
 
         insert new List<Pricing_Item__c>{
             new Pricing_Item__c(
@@ -106,6 +113,17 @@ private class CloudPrismCatalogTest {
                 Exception_Status__c = 'Pending'
             )
         };
+
+        insert new List<Parent_Item__c>{
+            new Parent_Item__c(
+                Catalog_Import__c = janPar.Id,
+                CSP__c = 'aws',
+                Title__c = 'Parent offering Alpha',
+                CSO_Short_Name__c = 'SvcAlpha',
+                Category__c = 'Compute',
+                Impact_Level__c = 'IL4'
+            )
+        };
     }
 
     @IsTest
@@ -173,5 +191,18 @@ private class CloudPrismCatalogTest {
         List<String> m = CloudPrismCatalogController.getDistinctImportMonths('pricing');
         System.assert(m.contains('2026-01'));
         System.assert(m.contains('2026-02'));
+    }
+
+    @IsTest
+    static void controllerReturnsParentRows() {
+        List<Parent_Item__c> pr = CloudPrismCatalogController.getParentItems('aws', 'Alpha', 50);
+        System.assertEquals(1, pr.size());
+        System.assertEquals('Parent offering Alpha', pr[0].Title__c);
+    }
+
+    @IsTest
+    static void controllerReturnsParentImportMonths() {
+        List<String> m = CloudPrismCatalogController.getDistinctImportMonths('parent');
+        System.assert(m.contains('2026-01'));
     }
 }

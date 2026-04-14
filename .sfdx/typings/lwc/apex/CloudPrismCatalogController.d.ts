@@ -4,6 +4,9 @@ declare module "@salesforce/apex/CloudPrismCatalogController.getPricingItems" {
 declare module "@salesforce/apex/CloudPrismCatalogController.getExceptionItems" {
   export default function getExceptionItems(param: {csp: any, searchKey: any, rowLimit: any}): Promise<any>;
 }
+declare module "@salesforce/apex/CloudPrismCatalogController.getParentItems" {
+  export default function getParentItems(param: {csp: any, searchKey: any, rowLimit: any}): Promise<any>;
+}
 declare module "@salesforce/apex/CloudPrismCatalogController.getDistinctImportMonths" {
   export default function getDistinctImportMonths(param: {schemaName: any}): Promise<any>;
 }

@@ -131,38 +131,30 @@ private class CatalogUploadServiceTest {
     }
 
     @IsTest
-    static void processFile_parentSchema_noRows() {
+    static void processFile_parentSchema_emptyBody_errors() {
         CatalogUploadService.FileProcessResult r = CatalogUploadService.processFile(
             '2026-02_aws_parent.csv',
             ''
         );
-        System.assertEquals(true, r.success);
-        System.assertEquals(0, r.rowsInserted);
-        System.assert(
-            r.message != null && r.message.contains('not imported'),
-            'expected parent POC message: ' + r.message
-        );
-        Catalog_Import__c h = [
-            SELECT Status__c, Schema__c, Row_Count__c
-            FROM Catalog_Import__c
-            WHERE Id = :r.catalogImportId
-        ];
-        System.assertEquals('done', h.Status__c);
-        System.assertEquals('parent', h.Schema__c);
-        System.assertEquals(0, h.Row_Count__c);
+        System.assertEquals(false, r.success);
+        System.assert(r.message != null && r.message.contains('empty'), r.message);
     }
 
     @IsTest
-    static void processFile_parentSchema_reportsSkippedDataRows() {
-        String csv =
-            'csOParentService,csoShortName,catalogitemNumber\n' +
-            'a,b,1\n' +
-            'c,d,2\n';
+    static void processFile_parentSchema_importsRows() {
+        String csv = 'title,cspName\n' + 'My parent row,aws-org\n' + 'Second title,gcp-org\n';
         CatalogUploadService.FileProcessResult r = CatalogUploadService.processFile('2026-03_aws_parent.csv', csv);
-        System.assertEquals(true, r.success);
-        System.assertEquals(0, r.rowsInserted);
-        System.assert(r.message.contains('2'), 'expected skipped count in message: ' + r.message);
-        System.assert(r.message.contains('skipped'), r.message);
+        System.assertEquals(true, r.success, r.message + ' ' + r.errors);
+        System.assertEquals(2, r.rowsInserted);
+        Parent_Item__c one = [
+            SELECT Title__c, CSP_Name__c
+            FROM Parent_Item__c
+            WHERE Catalog_Import__c = :r.catalogImportId
+            ORDER BY Title__c
+            LIMIT 1
+        ];
+        System.assertEquals('My parent row', one.Title__c);
+        System.assertEquals('aws-org', one.CSP_Name__c);
     }
 
     @IsTest

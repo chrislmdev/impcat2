@@ -53,9 +53,47 @@ public with sharing class CloudPrismCatalogController {
     }
 
     @AuraEnabled(cacheable=true)
+    public static List<Parent_Item__c> getParentItems(String csp, String searchKey, Integer rowLimit) {
+        Integer lim = rowLimit != null && rowLimit > 0 ? Math.min(rowLimit, 2000) : 500;
+        String q = String.isNotBlank(searchKey) ? '%' + String.escapeSingleQuotes(searchKey.trim()) + '%' : null;
+        String c = String.isNotBlank(csp) ? csp.toLowerCase().trim() : null;
+
+        String soql =
+            'SELECT Id, Name, CSP__c, CSP_Name__c, Offering_Indicator__c, Title__c, CSO_Short_Name__c, Description__c, ' +
+            'Category__c, Impact_Level__c, Contract_CLIN__c, Section_508_Compliance__c, Method_Of_Add__c, CSO_Change_Type__c, ' +
+            'IL2_Pa_Doc_Title__c, IL2_Cso_Name_On_Pa__c, IL2_Authorizing_Agency__c, IL2_Authorization_Timeline__c, ' +
+            'IL4_Pa_Doc_Title__c, IL4_Cso_Name_On_Pa__c, IL4_Authorizing_Agency__c, IL4_Authorization_Timeline__c, ' +
+            'IL5_Pa_Doc_Title__c, IL5_Cso_Name_On_Pa__c, IL5_Authorizing_Agency__c, IL5_Authorization_Timeline__c, ' +
+            'IL6_Pa_Doc_Title__c, IL6_Cso_Name_On_Pa__c, IL6_Authorizing_Agency__c, IL6_Authorization_Timeline__c, ' +
+            'TS_Pa_Doc_Title__c, TS_Cso_Name_On_Pa__c, TS_Authorizing_Agency__c, TS_Authorization_Timeline__c, ' +
+            'Product_URL__c, Notes__c, Available_For_Usage__c, ' +
+            'Catalog_Import__r.Import_Month__c, Catalog_Import__r.Imported_At__c ' +
+            'FROM Parent_Item__c WHERE Catalog_Import__r.Schema__c = \'parent\'';
+
+        if (c != null) {
+            soql += ' AND CSP__c = :c';
+        }
+        if (q != null) {
+            // Long Text Area fields cannot appear in SOQL WHERE.
+            soql +=
+                ' AND (CSP_Name__c LIKE :q OR Offering_Indicator__c LIKE :q OR Title__c LIKE :q OR CSO_Short_Name__c LIKE :q OR ' +
+                'Category__c LIKE :q OR Impact_Level__c LIKE :q OR Contract_CLIN__c LIKE :q OR Section_508_Compliance__c LIKE :q OR ' +
+                'Method_Of_Add__c LIKE :q OR CSO_Change_Type__c LIKE :q OR ' +
+                'IL2_Pa_Doc_Title__c LIKE :q OR IL2_Cso_Name_On_Pa__c LIKE :q OR IL2_Authorizing_Agency__c LIKE :q OR IL2_Authorization_Timeline__c LIKE :q OR ' +
+                'IL4_Pa_Doc_Title__c LIKE :q OR IL4_Cso_Name_On_Pa__c LIKE :q OR IL4_Authorizing_Agency__c LIKE :q OR IL4_Authorization_Timeline__c LIKE :q OR ' +
+                'IL5_Pa_Doc_Title__c LIKE :q OR IL5_Cso_Name_On_Pa__c LIKE :q OR IL5_Authorizing_Agency__c LIKE :q OR IL5_Authorization_Timeline__c LIKE :q OR ' +
+                'IL6_Pa_Doc_Title__c LIKE :q OR IL6_Cso_Name_On_Pa__c LIKE :q OR IL6_Authorizing_Agency__c LIKE :q OR IL6_Authorization_Timeline__c LIKE :q OR ' +
+                'TS_Pa_Doc_Title__c LIKE :q OR TS_Cso_Name_On_Pa__c LIKE :q OR TS_Authorizing_Agency__c LIKE :q OR TS_Authorization_Timeline__c LIKE :q OR ' +
+                'Product_URL__c LIKE :q OR Available_For_Usage__c LIKE :q)';
+        }
+        soql += ' ORDER BY CSP__c, Title__c LIMIT :lim';
+        return Database.query(soql);
+    }
+
+    @AuraEnabled(cacheable=true)
     public static List<String> getDistinctImportMonths(String schemaName) {
         String sch = String.isNotBlank(schemaName) ? schemaName.toLowerCase().trim() : 'pricing';
-        if (sch != 'pricing' && sch != 'exceptions') {
+        if (sch != 'pricing' && sch != 'exceptions' && sch != 'parent') {
             sch = 'pricing';
         }
         Set<String> months = new Set<String>();

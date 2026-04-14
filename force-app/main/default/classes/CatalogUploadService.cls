@@ -41,6 +41,43 @@ public with sharing class CatalogUploadService {
         'Exception_Suggested_Plan__c'
     };
 
+    private static final Set<String> PARENT_HEADERS = new Set<String>{
+        'CSP_Name__c',
+        'Offering_Indicator__c',
+        'Title__c',
+        'CSO_Short_Name__c',
+        'Description__c',
+        'Category__c',
+        'Impact_Level__c',
+        'Contract_CLIN__c',
+        'Section_508_Compliance__c',
+        'Method_Of_Add__c',
+        'CSO_Change_Type__c',
+        'IL2_Pa_Doc_Title__c',
+        'IL2_Cso_Name_On_Pa__c',
+        'IL2_Authorizing_Agency__c',
+        'IL2_Authorization_Timeline__c',
+        'IL4_Pa_Doc_Title__c',
+        'IL4_Cso_Name_On_Pa__c',
+        'IL4_Authorizing_Agency__c',
+        'IL4_Authorization_Timeline__c',
+        'IL5_Pa_Doc_Title__c',
+        'IL5_Cso_Name_On_Pa__c',
+        'IL5_Authorizing_Agency__c',
+        'IL5_Authorization_Timeline__c',
+        'IL6_Pa_Doc_Title__c',
+        'IL6_Cso_Name_On_Pa__c',
+        'IL6_Authorizing_Agency__c',
+        'IL6_Authorization_Timeline__c',
+        'TS_Pa_Doc_Title__c',
+        'TS_Cso_Name_On_Pa__c',
+        'TS_Authorizing_Agency__c',
+        'TS_Authorization_Timeline__c',
+        'Product_URL__c',
+        'Notes__c',
+        'Available_For_Usage__c'
+    };
+
     private static final Set<String> DECIMAL_FIELDS = new Set<String>{
         'List_Unit_Price__c',
         'JWCC_Unit_Price__c'
@@ -125,7 +162,7 @@ public with sharing class CatalogUploadService {
     }
 
     /**
-     * For parent-schema files: non-blank lines minus one (assumed header). POC does not import these rows.
+     * For tests / diagnostics: non-blank lines minus one (assumed header).
      */
     @TestVisible
     static Integer countAssumedParentDataRowsAfterHeader(String body) {
@@ -214,25 +251,6 @@ public with sharing class CatalogUploadService {
         insert header;
 
         try {
-            if (pfn.schema == 'parent') {
-                header.Status__c = 'done';
-                header.Row_Count__c = 0;
-                update header;
-                out.success = true;
-                out.catalogImportId = header.Id;
-                out.rowsInserted = 0;
-                Integer skippedRows = countAssumedParentDataRowsAfterHeader(csvBody);
-                out.message =
-                    'Catalog import header saved. Parent-schema CSV rows are not imported in this POC (no Salesforce object for those lines; only the Catalog_Import__c header is stored).';
-                if (skippedRows > 0) {
-                    out.message +=
-                        ' Your file had ' +
-                        skippedRows +
-                        ' non-empty data row(s) after the first line that were skipped.';
-                }
-                return out;
-            }
-
             if (String.isBlank(csvBody) || csvBody.trim().length() == 0) {
                 header.Status__c = 'error';
                 update header;
@@ -256,8 +274,23 @@ public with sharing class CatalogUploadService {
                 headers.add(h != null ? h.trim() : '');
             }
 
-            Set<String> allowed = pfn.schema == 'pricing' ? PRICING_HEADERS : EXCEPTION_HEADERS;
-            String requiredKey = pfn.schema == 'pricing' ? 'Catalog_Item_Number__c' : 'Exception_Unique_Id__c';
+            Set<String> allowed;
+            if (pfn.schema == 'pricing') {
+                allowed = PRICING_HEADERS;
+            } else if (pfn.schema == 'exceptions') {
+                allowed = EXCEPTION_HEADERS;
+            } else {
+                allowed = PARENT_HEADERS;
+            }
+
+            String requiredKey;
+            if (pfn.schema == 'pricing') {
+                requiredKey = 'Catalog_Item_Number__c';
+            } else if (pfn.schema == 'exceptions') {
+                requiredKey = 'Exception_Unique_Id__c';
+            } else {
+                requiredKey = 'Title__c';
+            }
 
             Map<String, String> fpToCanonical;
             try {
@@ -329,8 +362,10 @@ public with sharing class CatalogUploadService {
                 SObject row;
                 if (pfn.schema == 'pricing') {
                     row = new Pricing_Item__c();
-                } else {
+                } else if (pfn.schema == 'exceptions') {
                     row = new Exception_Item__c();
+                } else {
+                    row = new Parent_Item__c();
                 }
                 row.put('Catalog_Import__c', header.Id);
                 row.put('CSP__c', pfn.csp);
