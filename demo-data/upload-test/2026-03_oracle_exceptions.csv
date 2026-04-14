@@ -1,0 +1,9 @@
+Exception_Unique_Id__c,CSO_Short_Name__c,Impact_Level__c,Exception_Status__c,Exception_PWS_Requirement__c,Exception_Basis_For_Request__c,Exception_Security__c,Exception_Requested_Duration__c,Exception_Suggested_Plan__c
+MOCK-OCI-E-31E1F2A3,OCI Compute,IL2|IL4,Approved,Section 5.3.1,Bare metal for latency-sensitive HPC,Moderate,90 days,Shielded instances and hardened image
+MOCK-OCI-E-42F2A3B4,Object Storage,IL4|IL5,Pending,Section 5.4.2,Object versioning for audit trail,High,365 days,Replication policy to second region
+MOCK-OCI-E-53A3B4C5,OCI Functions,IL2,Approved,Section 5.2.0,Serverless ETL triggers,Low,45 days,Subnet-only egress
+MOCK-OCI-E-64B4C5D6,Autonomous Database,IL4|IL6,Approved,Section 5.6.1,Wallet-based app connectivity,High,18 months,Quarterly ATP patching window
+MOCK-OCI-E-75C5D6E7,NoSQL,IL4,Pending,Section 5.7.3,Wide-column store for telemetry,Moderate,120 days,Private endpoint required
+MOCK-OCI-E-86D6E7F8,OKE,IL5|IL6,Denied,Section 5.8.1,Host network mode requested,High,0,Use ClusterIP and network policies
+MOCK-OCI-E-97E7F8A9,FastConnect,IL4,Approved,Section 5.1.2,10 Gbps to agency core,Moderate,45 days,BGP MED tuning
+MOCK-OCI-E-A8F8A9B0,CDN,IL2,Pending,Section 5.9.0,Edge caching for static portal,Low,30 days,Geo blocking rules

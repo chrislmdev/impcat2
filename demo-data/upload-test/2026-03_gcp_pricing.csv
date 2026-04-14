@@ -1,0 +1,11 @@
+Catalog_Item_Number__c,Title__c,CSO_Short_Name__c,Description__c,List_Unit_Price__c,Pricing_Unit__c,JWCC_Unit_Price__c,JWCC_Unit_Of_Issue__c,Discount_Premium_Fee__c,Focus_Category__c,Service_Category__c
+MOCK-GCP-P-001,Compute Engine N2 Standard,GCE,,0.0476,Hour,0.0357,Hour,0%,Compute,compute
+MOCK-GCP-P-002,Cloud Storage Standard,Cloud Storage,,0.020,GB-Month,0.015,GB-Month,0%,Storage,storage
+MOCK-GCP-P-003,Cloud Functions 2nd Gen,Cloud Functions,,0.0000025,GHz-s,0.0000019,GHz-s,0%,Compute,serverless
+MOCK-GCP-P-004,Cloud SQL for PostgreSQL,Cloud SQL,,0.115,vCPU-Hour,0.086,vCPU-Hour,0%,Database,database
+MOCK-GCP-P-005,Firestore Standard,Firestore,,0.18,100K reads,0.135,100K reads,0%,Database,database
+MOCK-GCP-P-006,Cloud Interconnect 10G,Interconnect,,2.25,Hour,1.69,Hour,0%,Networking,networking
+MOCK-GCP-P-007,Cloud CDN Egress,Cloud CDN,,0.08,GB,0.06,GB,0%,Networking,cdn
+MOCK-GCP-P-008,BigQuery On-Demand Analysis,BigQuery,,6.25,TB scanned,4.69,TB scanned,0%,Analytics,analytics
+MOCK-GCP-P-009,GKE Autopilot Pod,GKE,,0.10,vCPU-Hour,0.075,vCPU-Hour,0%,Containers,kubernetes
+MOCK-GCP-P-010,Secret Manager Access,Secret Manager,,0.06,10K accesses,0.045,10K accesses,0%,Security,secrets

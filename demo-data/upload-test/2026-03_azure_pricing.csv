@@ -1,0 +1,11 @@
+Catalog_Item_Number__c,Title__c,CSO_Short_Name__c,Description__c,List_Unit_Price__c,Pricing_Unit__c,JWCC_Unit_Price__c,JWCC_Unit_Of_Issue__c,Discount_Premium_Fee__c,Focus_Category__c,Service_Category__c
+MOCK-AZU-P-001,Virtual Machines Dsv5 Series,Azure VM,,0.21,Hour,0.158,Hour,0%,Compute,compute
+MOCK-AZU-P-002,Blob Storage Hot LRS,Blob Storage,,0.0184,GB-Month,0.0138,GB-Month,0%,Storage,storage
+MOCK-AZU-P-003,Azure Functions Consumption,Functions,,0.000016,GB-s,0.000012,GB-s,0%,Compute,serverless
+MOCK-AZU-P-004,Azure SQL Database GP,SQL Database,,0.50,vCore-Hour,0.375,vCore-Hour,0%,Database,database
+MOCK-AZU-P-005,Cosmos DB RU/s,Cosmos DB,,0.008,100 RU/s-Hour,0.006,100 RU/s-Hour,0%,Database,database
+MOCK-AZU-P-006,ExpressRoute Circuit,ExpressRoute,,0.34,Hour,0.255,Hour,0%,Networking,networking
+MOCK-AZU-P-007,Azure Front Door,Front Door,,0.25,GB,0.19,GB,0%,Networking,cdn
+MOCK-AZU-P-008,Synapse SQL Pool,Synapse,,1.51,DWU-Hour,1.13,DWU-Hour,0%,Analytics,analytics
+MOCK-AZU-P-009,AKS Control Plane Free Tier,AKS,,0,Cluster-Hour,0,Cluster-Hour,0%,Containers,kubernetes
+MOCK-AZU-P-010,Key Vault Operations,Key Vault,,0.03,10K transactions,0.0225,10K transactions,0%,Security,secrets

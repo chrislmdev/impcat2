@@ -1,0 +1,9 @@
+Exception_Unique_Id__c,CSO_Short_Name__c,Impact_Level__c,Exception_Status__c,Exception_PWS_Requirement__c,Exception_Basis_For_Request__c,Exception_Security__c,Exception_Requested_Duration__c,Exception_Suggested_Plan__c
+MOCK-GCP-E-21C1D2E3,Compute Engine,IL2|IL4,Approved,Section 5.3.1,Batch analytics on CUI data,Moderate,90 days,Confidential VM and OS Login
+MOCK-GCP-E-32D2E3F4,Cloud Storage,IL4|IL5,Pending,Section 5.4.2,Cross-bucket replication for DR,High,180 days,Dual-region buckets with CMEK
+MOCK-GCP-E-43E3F4A5,Cloud Functions,IL2,Denied,Section 5.2.0,Outbound internet by default,High,0,Serverless VPC connector and NAT only
+MOCK-GCP-E-54F4A5B6,Cloud SQL,IL4|IL6,Approved,Section 5.6.1,Postgres with column ACLs,High,24 months,Automated backup encryption test
+MOCK-GCP-E-65A5B6C7,BigQuery,IL4,Approved,Section 5.7.3,Analyst access to sensitive datasets,Moderate,120 days,Authorized views and row policies
+MOCK-GCP-E-76B6C7D8,GKE,IL5|IL6,Pending,Section 5.8.1,Privileged pods for monitoring,High,270 days,Workload Identity and policy bundle
+MOCK-GCP-E-87C7D8E9,Cloud Interconnect,IL4,Approved,Section 5.1.2,Partner interconnect to agency POP,Moderate,60 days,VLAN attachment redundancy
+MOCK-GCP-E-98D8E9F0,Cloud CDN,IL2,Pending,Section 5.9.0,Cache static assets near users,Low,30 days,Signed URLs and cache key controls

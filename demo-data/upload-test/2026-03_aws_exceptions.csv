@@ -1,0 +1,9 @@
+Exception_Unique_Id__c,CSO_Short_Name__c,Impact_Level__c,Exception_Status__c,Exception_PWS_Requirement__c,Exception_Basis_For_Request__c,Exception_Security__c,Exception_Requested_Duration__c,Exception_Suggested_Plan__c
+MOCK-AWS-E-01A2B3C4,Amazon EC2,IL2|IL4,Approved,Section 5.3.1,Legacy workload migration,Moderate,90 days,Phased cutover with rollback window
+MOCK-AWS-E-02B3C4D5,Amazon S3,IL4|IL5,Pending,Section 5.4.2,Cross-domain data sharing,High,180 days,IL5 boundary review then approval
+MOCK-AWS-E-03C4D5E6,AWS Lambda,IL2,Denied,Section 5.2.0,Unsupported runtime in enclave,High,0,Retire function or containerize on EKS
+MOCK-AWS-E-04D5E6F7,Amazon RDS,IL4|IL6,Approved,Section 5.6.1,DR replica in alternate region,High,12 months,Annual revalidation and pen test
+MOCK-AWS-E-05E6F7A8,AWS KMS,IL2|IL4|IL5,Pending,Section 5.7.3,Key hierarchy for multi-tenant app,Moderate,45 days,HSM partition design review
+MOCK-AWS-E-06F7A8B9,Amazon EKS,IL5|IL6,Approved,Section 5.8.1,Classified workload namespace isolation,High,270 days,Service mesh plus policy engine
+MOCK-AWS-E-07A8B9C0,AWS Direct Connect,IL4,Approved,Section 5.1.2,Dedicated circuit to agency DC,Moderate,60 days,BGP community tags for QoS
+MOCK-AWS-E-08B9C0D1,Amazon CloudFront,IL2,Pending,Section 5.9.0,Public content with PII adjacent risk,Low,30 days,WAF ruleset and log retention review

@@ -1,0 +1,9 @@
+Exception_Unique_Id__c,CSO_Short_Name__c,Impact_Level__c,Exception_Status__c,Exception_PWS_Requirement__c,Exception_Basis_For_Request__c,Exception_Security__c,Exception_Requested_Duration__c,Exception_Suggested_Plan__c
+MOCK-AZU-E-11A1B2C3,Azure Virtual Machines,IL2|IL4,Approved,Section 5.3.1,Windows Server lift-and-shift,Moderate,120 days,Azure Policy and Defender for Cloud
+MOCK-AZU-E-22B2C3D4,Azure Blob Storage,IL4|IL5,Pending,Section 5.4.2,Immutable legal hold bucket,High,365 days,Private endpoint and CMK only
+MOCK-AZU-E-33C3D4E5,Azure Functions,IL2,Approved,Section 5.2.0,Event-driven integration broker,Low,60 days,Managed identity and VNet integration
+MOCK-AZU-E-44D4E5F6,Azure SQL Database,IL4|IL6,Approved,Section 5.6.1,Always Encrypted columns for SSN,High,18 months,Key rotation runbook
+MOCK-AZU-E-55E5F6A7,Azure Cosmos DB,IL4,Pending,Section 5.7.3,Multi-region writes for latency,Moderate,90 days,RU autoscale and diagnostic logs
+MOCK-AZU-E-66F6A7B8,Azure Kubernetes Service,IL5|IL6,Denied,Section 5.8.1,HostPath volumes not allowed,High,0,Move to CSI driver with managed disks
+MOCK-AZU-E-77A7B8C9,ExpressRoute,IL4,Approved,Section 5.1.2,Private peering to agency VNet,Moderate,45 days,MACsec where available
+MOCK-AZU-E-88B8C9D0,Azure Front Door,IL2,Pending,Section 5.9.0,Global entry for citizen portal,Low,30 days,Bot protection and WAF policy
