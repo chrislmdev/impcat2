@@ -1,4 +1,6 @@
 import { LightningElement, wire, track } from 'lwc';
+import { ShowToastEvent } from 'lightning/platformShowToastEvent';
+import { catalogExportFilename, downloadCsv } from 'c/exportTableCsv';
 import getPricingItems from '@salesforce/apex/CloudPrismCatalogController.getPricingItems';
 
 const COLS = [
@@ -106,6 +108,25 @@ export default class PricingCatalog extends LightningElement {
 
     handleSearchChange(event) {
         this.searchKey = event.detail.value;
+    }
+
+    get exportDisabled() {
+        return !this.rows || this.rows.length === 0;
+    }
+
+    handleExportCsv() {
+        downloadCsv({
+            filename: catalogExportFilename('pricing-catalog'),
+            columns: COLS,
+            rows: this.rows
+        });
+        this.dispatchEvent(
+            new ShowToastEvent({
+                title: 'Export started',
+                message: `Downloading ${this.rows.length} row(s). Server limit is 500 rows per query.`,
+                variant: 'success'
+            })
+        );
     }
 
     get errorMessage() {

@@ -22,6 +22,16 @@
                     ></lightning-input>
                 </div>
             </div>
+            <div class="slds-grid slds-grid_align-end slds-m-top_small">
+                <lightning-button
+                    variant="neutral"
+                    label="Export to Excel"
+                    title="Download the current grid as a CSV file (opens in Excel). Exports at most 500 rows per server query."
+                    icon-name="utility:download"
+                    disabled={exportDisabled}
+                    onclick={handleExportCsv}
+                ></lightning-button>
+            </div>
             <template if:true={error}>
                 <p class="slds-text-color_error slds-m-top_x-small">{errorMessage}</p>
             </template>
