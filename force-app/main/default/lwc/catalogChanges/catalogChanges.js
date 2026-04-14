@@ -295,7 +295,7 @@ export default class CatalogChanges extends LightningElement {
     handleCopyForJira() {
         const columns = this.isPricingMode ? PRICING_COLS : EXCEPTION_COLS;
         const rows = this.isPricingMode ? this.pricingRows : this.exceptionRows;
-        const text = buildJiraClipboardText({
+        const ctx = {
             mode: this.mode,
             monthFrom: this.monthFrom,
             monthTo: this.monthTo,
@@ -303,10 +303,13 @@ export default class CatalogChanges extends LightningElement {
             changeTypeLabel: labelForValue(this.changeTypeOptions, this.changeTypeFilter),
             columns,
             rows
-        });
-        this._dispatchClipboardCopy(text, {
+        };
+        const html = buildJiraClipboardHtml(ctx);
+        const plain = buildJiraClipboardText(ctx);
+        this._dispatchClipboardCopyRich(html, plain, {
             successTitle: 'Copied to clipboard',
-            successMessage: 'Markdown table — paste into Jira description.',
+            successMessage:
+                'HTML table — paste into Jira or Excel for a formatted grid. Plain-text Markdown is also on the clipboard.',
             errorMessage:
                 'Your browser may block clipboard access. Try again or copy from the table manually.'
         });
@@ -334,6 +337,28 @@ export default class CatalogChanges extends LightningElement {
 
     _dispatchClipboardCopy(text, { successTitle, successMessage, errorMessage }) {
         copyTextToClipboard(text)
+            .then(() => {
+                this.dispatchEvent(
+                    new ShowToastEvent({
+                        title: successTitle,
+                        message: successMessage,
+                        variant: 'success'
+                    })
+                );
+            })
+            .catch(() => {
+                this.dispatchEvent(
+                    new ShowToastEvent({
+                        title: 'Copy failed',
+                        message: errorMessage,
+                        variant: 'error'
+                    })
+                );
+            });
+    }
+
+    _dispatchClipboardCopyRich(html, plain, { successTitle, successMessage, errorMessage }) {
+        copyRichToClipboard(html, plain)
             .then(() => {
                 this.dispatchEvent(
                     new ShowToastEvent({
@@ -417,8 +442,88 @@ function buildJiraClipboardText(ctx) {
     return buildClipboardHeader(ctx) + buildMarkdownTable(ctx.columns, ctx.rows);
 }
 
+function escapeHtml(str) {
+    return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;');
+}
+
+function escapeHtmlCell(val) {
+    if (val == null || val === undefined) {
+        return '';
+    }
+    const s = String(val).replace(/\r\n/g, ' ').replace(/[\n\r\t]/g, ' ');
+    return escapeHtml(s);
+}
+
+function buildHtmlTable(columns, rows) {
+    const fields = columns.map((c) => c.fieldName);
+    const ths = columns.map((c) => `<th>${escapeHtmlCell(c.label)}</th>`).join('');
+    const trHead = `<thead><tr>${ths}</tr></thead>`;
+    const trs = rows
+        .map(
+            (row) =>
+                '<tr>' +
+                fields.map((f) => `<td>${escapeHtmlCell(row[f])}</td>`).join('') +
+                '</tr>'
+        )
+        .join('');
+    return (
+        '<table border="1" cellpadding="4" cellspacing="0" ' +
+        'style="border-collapse:collapse;font-family:Segoe UI,Arial,sans-serif;font-size:12px">' +
+        trHead +
+        '<tbody>' +
+        trs +
+        '</tbody></table>'
+    );
+}
+
+function buildJiraClipboardHtml(ctx) {
+    const title = ctx.mode === 'pricing' ? 'Pricing deltas' : 'Exception deltas';
+    const headBlock =
+        '<p style="margin:0 0 8px 0"><strong>' +
+        escapeHtml(`CloudPrism — Catalog changes (${title})`) +
+        '</strong></p>' +
+        '<p style="margin:0 0 4px 0">' +
+        escapeHtml(`From: ${ctx.monthFrom}   To: ${ctx.monthTo}`) +
+        '</p>' +
+        '<p style="margin:0 0 12px 0">' +
+        escapeHtml(`CSP: ${ctx.cspLabel}   Change type: ${ctx.changeTypeLabel}`) +
+        '</p>';
+    const inner = headBlock + buildHtmlTable(ctx.columns, ctx.rows);
+    return (
+        '<!DOCTYPE html><html><head><meta charset="utf-8"></head><body style="font-family:Segoe UI,Arial,sans-serif;font-size:12px">' +
+        inner +
+        '</body></html>'
+    );
+}
+
 function buildTsvClipboardText(ctx) {
     return buildClipboardHeader(ctx) + buildTsv(ctx.columns, ctx.rows);
+}
+
+/**
+ * Writes real HTML table + plain Markdown fallback (Excel/Jira use HTML; plain for text-only targets).
+ */
+function copyRichToClipboard(html, plain) {
+    if (
+        navigator.clipboard &&
+        typeof navigator.clipboard.write === 'function' &&
+        typeof ClipboardItem !== 'undefined'
+    ) {
+        try {
+            const item = new ClipboardItem({
+                'text/html': new Blob([html], { type: 'text/html' }),
+                'text/plain': new Blob([plain], { type: 'text/plain' })
+            });
+            return navigator.clipboard.write([item]);
+        } catch (e) {
+            /* fall through to plain text */
+        }
+    }
+    return copyTextToClipboard(plain);
 }
 
 function copyTextToClipboard(text) {
