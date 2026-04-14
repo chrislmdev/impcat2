@@ -115,18 +115,28 @@ export default class PricingCatalog extends LightningElement {
     }
 
     handleExportCsv() {
-        downloadCsv({
-            filename: catalogExportFilename('pricing-catalog'),
-            columns: COLS,
-            rows: this.rows
-        });
-        this.dispatchEvent(
-            new ShowToastEvent({
-                title: 'Export started',
-                message: `Downloading ${this.rows.length} row(s). Server limit is 500 rows per query.`,
-                variant: 'success'
-            })
-        );
+        try {
+            downloadCsv({
+                filename: catalogExportFilename('pricing-catalog'),
+                columns: COLS,
+                rows: this.rows
+            });
+            this.dispatchEvent(
+                new ShowToastEvent({
+                    title: 'Export started',
+                    message: `Downloading ${this.rows.length} row(s). Server limit is 500 rows per query.`,
+                    variant: 'success'
+                })
+            );
+        } catch (e) {
+            this.dispatchEvent(
+                new ShowToastEvent({
+                    title: 'Export failed',
+                    message: e && e.message ? e.message : 'Could not generate the file download.',
+                    variant: 'error'
+                })
+            );
+        }
     }
 
     get errorMessage() {

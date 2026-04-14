@@ -21,15 +21,43 @@ export function downloadCsv({ filename, columns, rows }) {
     }
     const csv = '\uFEFF' + lines.join('\r\n');
     const blob = new Blob([csv], { type: 'text/csv;charset=utf-8' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
+    const urlApi = typeof URL !== 'undefined' ? URL : window.URL;
+    const doc = typeof document !== 'undefined' ? document : null;
+    if (!doc || !doc.body) {
+        throw new Error('Browser cannot access the document to start a download.');
+    }
+
+    // Legacy Edge / IE11 (rare): saves without a temporary URL.
+    const nav = window.navigator;
+    if (nav && typeof nav.msSaveOrOpenBlob === 'function') {
+        nav.msSaveOrOpenBlob(blob, name);
+        return;
+    }
+
+    const url = urlApi.createObjectURL(blob);
+    const a = doc.createElement('a');
     a.href = url;
     a.download = name;
     a.setAttribute('download', name);
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
+    a.style.display = 'none';
+    doc.body.appendChild(a);
+    // Defer click; revoking the blob URL in the same turn can cancel the download.
+    window.setTimeout(() => {
+        try {
+            a.click();
+        } finally {
+            if (a.parentNode) {
+                a.parentNode.removeChild(a);
+            }
+            window.setTimeout(() => {
+                try {
+                    urlApi.revokeObjectURL(url);
+                } catch (ignore) {
+                    /* noop */
+                }
+            }, 2500);
+        }
+    }, 0);
 }
 
 function cellValue(row, fieldName) {
