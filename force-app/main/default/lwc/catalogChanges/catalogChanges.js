@@ -1,4 +1,5 @@
 import { LightningElement, wire, track } from 'lwc';
+import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 import getDistinctImportMonths from '@salesforce/apex/CloudPrismCatalogController.getDistinctImportMonths';
 import getCatalogChangeRows from '@salesforce/apex/CloudPrismCatalogController.getCatalogChangeRows';
 
@@ -93,6 +94,26 @@ export default class CatalogChanges extends LightningElement {
 
     get isPricingMode() {
         return this.mode === 'pricing';
+    }
+
+    /** Valid From/To months selected and wire did not return an error. */
+    get compareReady() {
+        return (
+            Boolean(this.monthFrom && this.monthTo && this.monthFrom < this.monthTo) &&
+            this.error === undefined
+        );
+    }
+
+    get showPricingEmpty() {
+        return this.isPricingMode && this.compareReady && this.pricingRows.length === 0;
+    }
+
+    get showExceptionEmpty() {
+        return !this.isPricingMode && this.compareReady && this.exceptionRows.length === 0;
+    }
+
+    get copySummaryDisabled() {
+        return !this.compareReady;
     }
 
     @wire(getDistinctImportMonths, { schemaName: '$schemaForMonths' })
@@ -270,6 +291,102 @@ export default class CatalogChanges extends LightningElement {
     get exceptionsButtonVariant() {
         return this.mode === 'exceptions' ? 'brand' : 'neutral';
     }
+
+    handleCopyForJira() {
+        const columns = this.isPricingMode ? PRICING_COLS : EXCEPTION_COLS;
+        const rows = this.isPricingMode ? this.pricingRows : this.exceptionRows;
+        const text = buildJiraClipboardText({
+            mode: this.mode,
+            monthFrom: this.monthFrom,
+            monthTo: this.monthTo,
+            cspLabel: labelForValue(this.cspOptions, this.cspFilter),
+            changeTypeLabel: labelForValue(this.changeTypeOptions, this.changeTypeFilter),
+            columns,
+            rows
+        });
+        copyTextToClipboard(text)
+            .then(() => {
+                this.dispatchEvent(
+                    new ShowToastEvent({
+                        title: 'Copied to clipboard',
+                        message: 'Tab-separated text with headers — paste into Jira or Excel.',
+                        variant: 'success'
+                    })
+                );
+            })
+            .catch(() => {
+                this.dispatchEvent(
+                    new ShowToastEvent({
+                        title: 'Copy failed',
+                        message: 'Your browser may block clipboard access. Try again or copy from the table manually.',
+                        variant: 'error'
+                    })
+                );
+            });
+    }
+}
+
+function labelForValue(options, value) {
+    if (!options || !options.length) {
+        return value || '';
+    }
+    const v = value == null ? '' : String(value);
+    const hit = options.find((o) => o.value === v);
+    return hit ? hit.label : v || '—';
+}
+
+function escapeTsvCell(val) {
+    if (val == null || val === undefined) {
+        return '';
+    }
+    return String(val).replace(/\r\n/g, ' ').replace(/[\n\r\t]/g, ' ');
+}
+
+function buildTsv(columns, rows) {
+    const labels = columns.map((c) => c.label);
+    const fields = columns.map((c) => c.fieldName);
+    const lines = [labels.join('\t')];
+    for (const row of rows) {
+        lines.push(fields.map((f) => escapeTsvCell(row[f])).join('\t'));
+    }
+    return lines.join('\n');
+}
+
+function buildJiraClipboardText(ctx) {
+    const title = ctx.mode === 'pricing' ? 'Pricing deltas' : 'Exception deltas';
+    const head = [
+        `CloudPrism — Catalog changes (${title})`,
+        `From: ${ctx.monthFrom}   To: ${ctx.monthTo}`,
+        `CSP: ${ctx.cspLabel}   Change type: ${ctx.changeTypeLabel}`,
+        ''
+    ].join('\n');
+    return head + buildTsv(ctx.columns, ctx.rows);
+}
+
+function copyTextToClipboard(text) {
+    if (navigator.clipboard && typeof navigator.clipboard.writeText === 'function') {
+        return navigator.clipboard.writeText(text);
+    }
+    return new Promise((resolve, reject) => {
+        try {
+            const ta = document.createElement('textarea');
+            ta.value = text;
+            ta.setAttribute('readonly', '');
+            ta.style.position = 'fixed';
+            ta.style.left = '-9999px';
+            document.body.appendChild(ta);
+            ta.select();
+            const ok = document.execCommand('copy');
+            document.body.removeChild(ta);
+            if (ok) {
+                resolve();
+            } else {
+                reject(new Error('execCommand copy failed'));
+            }
+        } catch (e) {
+            reject(e);
+        }
+    });
 }
 
 function pair(a, b) {

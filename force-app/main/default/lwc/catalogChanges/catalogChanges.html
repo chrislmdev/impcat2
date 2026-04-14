@@ -1,18 +1,28 @@
 <template>
     <lightning-card title="Catalog Changes" icon-name="standard:metrics">
         <div class="slds-p-horizontal_medium slds-p-bottom_small">
-            <div class="slds-m-bottom_small">
-                <span class="slds-text-title_caps slds-m-right_x-small">View</span>
+            <div class="slds-m-bottom_small slds-grid slds-grid_align-spread slds-grid_vertical-align-center">
+                <div>
+                    <span class="slds-text-title_caps slds-m-right_x-small">View</span>
+                    <lightning-button
+                        variant={pricingButtonVariant}
+                        label="Pricing deltas"
+                        class="slds-m-right_xx-small"
+                        onclick={handleModePricing}
+                    ></lightning-button>
+                    <lightning-button
+                        variant={exceptionsButtonVariant}
+                        label="Exception deltas"
+                        onclick={handleModeExceptions}
+                    ></lightning-button>
+                </div>
                 <lightning-button
-                    variant={pricingButtonVariant}
-                    label="Pricing deltas"
-                    class="slds-m-right_xx-small"
-                    onclick={handleModePricing}
-                ></lightning-button>
-                <lightning-button
-                    variant={exceptionsButtonVariant}
-                    label="Exception deltas"
-                    onclick={handleModeExceptions}
+                    variant="neutral"
+                    label="Copy for Jira"
+                    title="Copies summary and tab-separated column headers + rows for pasting into Jira or Excel"
+                    icon-name="utility:copy"
+                    disabled={copySummaryDisabled}
+                    onclick={handleCopyForJira}
                 ></lightning-button>
             </div>
             <div class="slds-grid slds-gutters_x-small slds-wrap">
@@ -65,30 +75,44 @@
         </div>
         <div class="slds-border_top">
             <template if:true={isPricingMode}>
-                <lightning-datatable
-                    key-field="rowKey"
-                    data={pricingRows}
-                    columns={pricingColumns}
-                    hide-checkbox-column
-                    show-row-number-column
-                    sorted-by={pricingSortedBy}
-                    sorted-direction={pricingSortDirection}
-                    onsort={handlePricingSort}
-                >
-                </lightning-datatable>
+                <template if:true={showPricingEmpty}>
+                    <div class="slds-p-around_medium slds-text-align_center slds-text-color_weak">
+                        No pricing changes for the selected months and filters.
+                    </div>
+                </template>
+                <template if:false={showPricingEmpty}>
+                    <lightning-datatable
+                        key-field="rowKey"
+                        data={pricingRows}
+                        columns={pricingColumns}
+                        hide-checkbox-column
+                        show-row-number-column
+                        sorted-by={pricingSortedBy}
+                        sorted-direction={pricingSortDirection}
+                        onsort={handlePricingSort}
+                    >
+                    </lightning-datatable>
+                </template>
             </template>
             <template if:false={isPricingMode}>
-                <lightning-datatable
-                    key-field="rowKey"
-                    data={exceptionRows}
-                    columns={exceptionColumns}
-                    hide-checkbox-column
-                    show-row-number-column
-                    sorted-by={exceptionSortedBy}
-                    sorted-direction={exceptionSortDirection}
-                    onsort={handleExceptionSort}
-                >
-                </lightning-datatable>
+                <template if:true={showExceptionEmpty}>
+                    <div class="slds-p-around_medium slds-text-align_center slds-text-color_weak">
+                        No exception changes for the selected months and filters.
+                    </div>
+                </template>
+                <template if:false={showExceptionEmpty}>
+                    <lightning-datatable
+                        key-field="rowKey"
+                        data={exceptionRows}
+                        columns={exceptionColumns}
+                        hide-checkbox-column
+                        show-row-number-column
+                        sorted-by={exceptionSortedBy}
+                        sorted-direction={exceptionSortDirection}
+                        onsort={handleExceptionSort}
+                    >
+                    </lightning-datatable>
+                </template>
             </template>
         </div>
     </lightning-card>
