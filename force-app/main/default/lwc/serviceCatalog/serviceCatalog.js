@@ -1,6 +1,6 @@
 import { LightningElement, wire, track } from 'lwc';
 import { loadStyle } from 'lightning/platformResourceLoader';
-import serviceCatalogGoogleFonts from '@salesforce/resourceUrl/ServiceCatalogGoogleFonts';
+import serviceCatalogFonts from '@salesforce/resourceUrl/ServiceCatalogFonts';
 import getCatalogRows from '@salesforce/apex/ServiceCatalogController.getCatalogRows';
 
 const TOP_N = 3;
@@ -159,10 +159,14 @@ export default class ServiceCatalog extends LightningElement {
             return;
         }
         this.fontsLoaded = true;
-        loadStyle(this, serviceCatalogGoogleFonts).catch(() => {
-            /* fonts.googleapis.com may require CSP Trusted Sites in the org */
+        loadStyle(this, `${serviceCatalogFonts}/serviceCatalogFonts.css`).catch(() => {
+            /* static resource fonts failed to load */
         });
     }
+
+    focusSpecLinkClick = (event) => {
+        event.preventDefault();
+    };
 
     _windowClick = (e) => {
         if (this.msOpen == null) {
