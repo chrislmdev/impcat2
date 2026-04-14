@@ -13,7 +13,7 @@
     <label>Cloud Accelerator Tool</label>
     <navType>Standard</navType>
     <tabs>Cloud_Prism_Pricing</tabs>
-    <tabs>Cloud_Prism_Service_Catalog</tabs>
+    <!--<tabs>Cloud_Prism_Service_Catalog</tabs>-->
     <tabs>Cloud_Prism_Exceptions</tabs>
     <tabs>Cloud_Prism_Parent</tabs>
     <tabs>Cloud_Prism_Changes</tabs>
