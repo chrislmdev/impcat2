@@ -21,7 +21,9 @@ const EXCEPTION_COLS = [
     { label: 'Short name', fieldName: 'csoshortname', type: 'text', sortable: true },
     { label: 'Type', fieldName: 'change_type', type: 'text', initialWidth: 100, sortable: true },
     { label: 'Status (prev → curr)', fieldName: 'statusPair', type: 'text', wrapText: true, sortable: true },
-    { label: 'Impact (prev → curr)', fieldName: 'impactPair', type: 'text', wrapText: true, sortable: true }
+    { label: 'Impact (prev → curr)', fieldName: 'impactPair', type: 'text', wrapText: true, sortable: true },
+    { label: 'Duration (prev → curr)', fieldName: 'durationPair', type: 'text', wrapText: true, sortable: true },
+    { label: 'Plan (prev → curr)', fieldName: 'planPair', type: 'text', wrapText: true, sortable: true }
 ];
 
 const PRICING_SORT_KEYS = {
@@ -178,6 +180,8 @@ export default class CatalogChanges extends LightningElement {
                 ...r,
                 statusPair: pair(r.exceptionstatus_prev, r.exceptionstatus_curr),
                 impactPair: pair(r.impactlevel_prev, r.impactlevel_curr),
+                durationPair: pair(r.requestedduration_prev, r.requestedduration_curr),
+                planPair: pair(r.suggestedplan_prev, r.suggestedplan_curr),
                 rowKey: (r.csp || '') + '|' + (r.exceptionuniqueid || '') + '|' + i
             }));
             this._rawPricingRows = [];

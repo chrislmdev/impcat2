@@ -83,7 +83,9 @@ private class CloudPrismCatalogTest {
                 Exception_Unique_Id__c = 'EX-1',
                 CSO_Short_Name__c = 'Lambda',
                 Impact_Level__c = 'IL4',
-                Exception_Status__c = 'Pending'
+                Exception_Status__c = 'Pending',
+                Exception_Requested_Duration__c = '30 days',
+                Exception_Suggested_Plan__c = 'Plan A'
             ),
             new Exception_Item__c(
                 Catalog_Import__c = febE.Id,
@@ -91,7 +93,9 @@ private class CloudPrismCatalogTest {
                 Exception_Unique_Id__c = 'EX-1',
                 CSO_Short_Name__c = 'Lambda',
                 Impact_Level__c = 'IL4',
-                Exception_Status__c = 'Approved'
+                Exception_Status__c = 'Approved',
+                Exception_Requested_Duration__c = '90 days',
+                Exception_Suggested_Plan__c = 'Plan B'
             ),
             new Exception_Item__c(
                 Catalog_Import__c = febE.Id,
@@ -136,11 +140,20 @@ private class CloudPrismCatalogTest {
         Test.stopTest();
 
         Map<String, String> typesByEx = new Map<String, String>();
+        ExceptionChangeService.ExceptionChangeRow ex1Row;
         for (ExceptionChangeService.ExceptionChangeRow r : rows) {
             typesByEx.put(r.exceptionuniqueid, r.change_type);
+            if (r.exceptionuniqueid == 'EX-1') {
+                ex1Row = r;
+            }
         }
         System.assertEquals('updated', typesByEx.get('EX-1'));
         System.assertEquals('added', typesByEx.get('EX-2'));
+        System.assertNotEquals(null, ex1Row);
+        System.assertEquals('30 days', ex1Row.requestedduration_prev);
+        System.assertEquals('90 days', ex1Row.requestedduration_curr);
+        System.assertEquals('Plan A', ex1Row.suggestedplan_prev);
+        System.assertEquals('Plan B', ex1Row.suggestedplan_curr);
     }
 
     @IsTest

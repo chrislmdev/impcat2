@@ -196,6 +196,16 @@
     </fieldPermissions>
     <fieldPermissions>
         <editable>true</editable>
+        <field>Exception_Item__c.Exception_Requested_Duration__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
+        <field>Exception_Item__c.Exception_Suggested_Plan__c</field>
+        <readable>true</readable>
+    </fieldPermissions>
+    <fieldPermissions>
+        <editable>true</editable>
         <field>Exception_Item__c.Impact_Level__c</field>
         <readable>true</readable>
     </fieldPermissions>

@@ -21,6 +21,19 @@ const COLS = [
         type: 'text',
         wrapText: true,
         sortable: true
+    },
+    {
+        label: 'Requested duration',
+        fieldName: 'Exception_Requested_Duration__c',
+        type: 'text',
+        sortable: true
+    },
+    {
+        label: 'Suggested plan',
+        fieldName: 'Exception_Suggested_Plan__c',
+        type: 'text',
+        wrapText: true,
+        sortable: true
     }
 ];
 

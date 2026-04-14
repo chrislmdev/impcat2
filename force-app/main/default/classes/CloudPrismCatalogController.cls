@@ -36,6 +36,7 @@ public with sharing class CloudPrismCatalogController {
         String soql =
             'SELECT Id, Name, CSP__c, Exception_Unique_Id__c, CSO_Short_Name__c, Impact_Level__c, Exception_Status__c, ' +
             'Exception_PWS_Requirement__c, Exception_Basis_For_Request__c, Exception_Security__c, ' +
+            'Exception_Requested_Duration__c, Exception_Suggested_Plan__c, ' +
             'Catalog_Import__r.Import_Month__c, Catalog_Import__r.Imported_At__c ' +
             'FROM Exception_Item__c WHERE Catalog_Import__r.Schema__c = \'exceptions\'';
 
@@ -45,7 +46,7 @@ public with sharing class CloudPrismCatalogController {
         if (q != null) {
             // Long Text Area fields cannot appear in SOQL WHERE.
             soql +=
-                ' AND (Exception_Unique_Id__c LIKE :q OR CSO_Short_Name__c LIKE :q OR Impact_Level__c LIKE :q OR Exception_Status__c LIKE :q)';
+                ' AND (Exception_Unique_Id__c LIKE :q OR CSO_Short_Name__c LIKE :q OR Impact_Level__c LIKE :q OR Exception_Status__c LIKE :q OR Exception_Requested_Duration__c LIKE :q)';
         }
         soql += ' ORDER BY CSP__c, Exception_Unique_Id__c LIMIT :lim';
         return Database.query(soql);

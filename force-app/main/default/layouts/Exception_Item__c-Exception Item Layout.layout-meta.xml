@@ -34,6 +34,10 @@
                 <behavior>Edit</behavior>
                 <field>Exception_Status__c</field>
             </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Exception_Requested_Duration__c</field>
+            </layoutItems>
         </layoutColumns>
         <layoutColumns>
             <layoutItems>
@@ -47,6 +51,10 @@
             <layoutItems>
                 <behavior>Edit</behavior>
                 <field>Exception_Security__c</field>
+            </layoutItems>
+            <layoutItems>
+                <behavior>Edit</behavior>
+                <field>Exception_Suggested_Plan__c</field>
             </layoutItems>
         </layoutColumns>
         <style>TwoColumnsTopToBottom</style>

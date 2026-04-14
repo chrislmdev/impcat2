@@ -102,6 +102,27 @@ private class CatalogUploadServiceTest {
     }
 
     @IsTest
+    static void processFile_exceptions_acceptsDurationAndSuggestedPlanHeaders() {
+        String csv =
+            'ExceptionuniqueID,ExceptionRequestedDuration,ExceptionSuggestedPlan\n' +
+            'EX-2,90 days,Phase rollout then review\n';
+        CatalogUploadService.FileProcessResult r = CatalogUploadService.processFile(
+            '2026-03_aws_exceptions.csv',
+            csv
+        );
+        System.assertEquals(true, r.success, r.message + ' ' + r.errors);
+        System.assertEquals(1, r.rowsInserted);
+        Exception_Item__c row = [
+            SELECT Exception_Requested_Duration__c, Exception_Suggested_Plan__c
+            FROM Exception_Item__c
+            WHERE Catalog_Import__c = :r.catalogImportId
+            LIMIT 1
+        ];
+        System.assertEquals('90 days', row.Exception_Requested_Duration__c);
+        System.assertEquals('Phase rollout then review', row.Exception_Suggested_Plan__c);
+    }
+
+    @IsTest
     static void processFile_rejectsDuplicateColumnsSameField() {
         String csv = 'Catalog_Item_Number__c,Title__c,title\n' + 'SKU-A,Old,New\n';
         CatalogUploadService.FileProcessResult r = CatalogUploadService.processFile('2026-02_aws_pricing.csv', csv);

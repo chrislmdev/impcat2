@@ -9,6 +9,8 @@ public with sharing class ExceptionChangeService {
         public String pws;
         public String basis;
         public String security;
+        public String requestedduration;
+        public String suggestedplan;
         public String csoshortname;
     }
 
@@ -23,6 +25,10 @@ public with sharing class ExceptionChangeService {
         @AuraEnabled public String impactlevel_curr;
         @AuraEnabled public String exceptionstatus_prev;
         @AuraEnabled public String exceptionstatus_curr;
+        @AuraEnabled public String requestedduration_prev;
+        @AuraEnabled public String requestedduration_curr;
+        @AuraEnabled public String suggestedplan_prev;
+        @AuraEnabled public String suggestedplan_curr;
     }
 
     public static Map<String, ExceptionRowSnap> latestExceptionsForMonth(String importMonth) {
@@ -40,7 +46,9 @@ public with sharing class ExceptionChangeService {
                 Exception_Status__c,
                 Exception_PWS_Requirement__c,
                 Exception_Basis_For_Request__c,
-                Exception_Security__c
+                Exception_Security__c,
+                Exception_Requested_Duration__c,
+                Exception_Suggested_Plan__c
             FROM Exception_Item__c
             WHERE
                 Catalog_Import__r.Import_Month__c = :importMonth
@@ -72,6 +80,8 @@ public with sharing class ExceptionChangeService {
         s.pws = e.Exception_PWS_Requirement__c != null ? e.Exception_PWS_Requirement__c : '';
         s.basis = e.Exception_Basis_For_Request__c != null ? e.Exception_Basis_For_Request__c : '';
         s.security = e.Exception_Security__c != null ? e.Exception_Security__c : '';
+        s.requestedduration = e.Exception_Requested_Duration__c != null ? e.Exception_Requested_Duration__c : '';
+        s.suggestedplan = e.Exception_Suggested_Plan__c != null ? e.Exception_Suggested_Plan__c : '';
         s.csoshortname = e.CSO_Short_Name__c;
         return s;
     }
@@ -117,6 +127,8 @@ public with sharing class ExceptionChangeService {
                     pr.pws != cr.pws ||
                     pr.basis != cr.basis ||
                     pr.security != cr.security ||
+                    pr.requestedduration != cr.requestedduration ||
+                    pr.suggestedplan != cr.suggestedplan ||
                     (pr.csoshortname != cr.csoshortname);
                 if (!changed) {
                     continue;
@@ -145,6 +157,14 @@ public with sharing class ExceptionChangeService {
             row.exceptionstatus_curr = cr != null && String.isNotBlank(cr.exceptionstatus)
                 ? cr.exceptionstatus
                 : null;
+            row.requestedduration_prev = pr != null && String.isNotBlank(pr.requestedduration)
+                ? pr.requestedduration
+                : null;
+            row.requestedduration_curr = cr != null && String.isNotBlank(cr.requestedduration)
+                ? cr.requestedduration
+                : null;
+            row.suggestedplan_prev = pr != null && String.isNotBlank(pr.suggestedplan) ? pr.suggestedplan : null;
+            row.suggestedplan_curr = cr != null && String.isNotBlank(cr.suggestedplan) ? cr.suggestedplan : null;
 
             results.add(row);
         }

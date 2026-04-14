@@ -132,7 +132,9 @@ for (String csp : csps) {
             Impact_Level__c = 'IL4',
             Exception_Status__c = 'Pending',
             Exception_PWS_Requirement__c = tag + ' sample PWS',
-            Exception_Basis_For_Request__c = 'Sample basis'
+            Exception_Basis_For_Request__c = 'Sample basis',
+            Exception_Requested_Duration__c = '30 days',
+            Exception_Suggested_Plan__c = 'Initial mitigation'
         )
     );
     exceptionRows.add(
@@ -144,7 +146,9 @@ for (String csp : csps) {
             Impact_Level__c = 'IL2',
             Exception_Status__c = 'Pending',
             Exception_PWS_Requirement__c = 'Removed in Feb snapshot',
-            Exception_Basis_For_Request__c = 'N/A'
+            Exception_Basis_For_Request__c = 'N/A',
+            Exception_Requested_Duration__c = '60 days',
+            Exception_Suggested_Plan__c = 'Retire workload'
         )
     );
     exceptionRows.add(
@@ -156,7 +160,9 @@ for (String csp : csps) {
             Impact_Level__c = 'IL4',
             Exception_Status__c = 'Approved',
             Exception_PWS_Requirement__c = tag + ' sample PWS',
-            Exception_Basis_For_Request__c = 'Sample basis'
+            Exception_Basis_For_Request__c = 'Sample basis',
+            Exception_Requested_Duration__c = '90 days',
+            Exception_Suggested_Plan__c = 'Extended monitoring'
         )
     );
     exceptionRows.add(
@@ -168,7 +174,9 @@ for (String csp : csps) {
             Impact_Level__c = 'IL5',
             Exception_Status__c = 'Pending',
             Exception_PWS_Requirement__c = 'New in Feb',
-            Exception_Basis_For_Request__c = 'N/A'
+            Exception_Basis_For_Request__c = 'N/A',
+            Exception_Requested_Duration__c = '180 days',
+            Exception_Suggested_Plan__c = 'Pilot then scale'
         )
     );
 }

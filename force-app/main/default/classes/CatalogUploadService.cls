@@ -36,7 +36,9 @@ public with sharing class CatalogUploadService {
         'Exception_Status__c',
         'Exception_PWS_Requirement__c',
         'Exception_Basis_For_Request__c',
-        'Exception_Security__c'
+        'Exception_Security__c',
+        'Exception_Requested_Duration__c',
+        'Exception_Suggested_Plan__c'
     };
 
     private static final Set<String> DECIMAL_FIELDS = new Set<String>{
