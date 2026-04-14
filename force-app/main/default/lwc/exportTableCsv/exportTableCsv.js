@@ -20,7 +20,8 @@ export function downloadCsv({ filename, columns, rows }) {
         lines.push(columns.map((c) => formatCsvField(cellValue(row, c.fieldName))).join(','));
     }
     const csv = '\uFEFF' + lines.join('\r\n');
-    const blob = new Blob([csv], { type: 'text/csv;charset=utf-8' });
+    // LWS allowlist: text/csv and charset params are blocked — use text/plain (no MIME params).
+    const blob = new Blob([csv], { type: 'text/plain' });
     const urlApi = typeof URL !== 'undefined' ? URL : window.URL;
     const doc = typeof document !== 'undefined' ? document : null;
     if (!doc || !doc.body) {
