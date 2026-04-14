@@ -304,12 +304,41 @@ export default class CatalogChanges extends LightningElement {
             columns,
             rows
         });
+        this._dispatchClipboardCopy(text, {
+            successTitle: 'Copied to clipboard',
+            successMessage: 'Markdown table — paste into Jira description.',
+            errorMessage:
+                'Your browser may block clipboard access. Try again or copy from the table manually.'
+        });
+    }
+
+    handleCopyAsTsv() {
+        const columns = this.isPricingMode ? PRICING_COLS : EXCEPTION_COLS;
+        const rows = this.isPricingMode ? this.pricingRows : this.exceptionRows;
+        const text = buildTsvClipboardText({
+            mode: this.mode,
+            monthFrom: this.monthFrom,
+            monthTo: this.monthTo,
+            cspLabel: labelForValue(this.cspOptions, this.cspFilter),
+            changeTypeLabel: labelForValue(this.changeTypeOptions, this.changeTypeFilter),
+            columns,
+            rows
+        });
+        this._dispatchClipboardCopy(text, {
+            successTitle: 'Copied to clipboard',
+            successMessage: 'Tab-separated text with headers — paste into Excel.',
+            errorMessage:
+                'Your browser may block clipboard access. Try again or copy from the table manually.'
+        });
+    }
+
+    _dispatchClipboardCopy(text, { successTitle, successMessage, errorMessage }) {
         copyTextToClipboard(text)
             .then(() => {
                 this.dispatchEvent(
                     new ShowToastEvent({
-                        title: 'Copied to clipboard',
-                        message: 'Tab-separated text with headers — paste into Jira or Excel.',
+                        title: successTitle,
+                        message: successMessage,
                         variant: 'success'
                     })
                 );
@@ -318,7 +347,7 @@ export default class CatalogChanges extends LightningElement {
                 this.dispatchEvent(
                     new ShowToastEvent({
                         title: 'Copy failed',
-                        message: 'Your browser may block clipboard access. Try again or copy from the table manually.',
+                        message: errorMessage,
                         variant: 'error'
                     })
                 );
@@ -352,15 +381,44 @@ function buildTsv(columns, rows) {
     return lines.join('\n');
 }
 
-function buildJiraClipboardText(ctx) {
+/** Pipes break Markdown tables; use broken bar so pasted Jira tables stay valid. */
+function escapeMarkdownCell(val) {
+    if (val == null || val === undefined) {
+        return '';
+    }
+    return String(val)
+        .replace(/\r\n/g, ' ')
+        .replace(/[\n\r\t]/g, ' ')
+        .replace(/\|/g, '\u00A6');
+}
+
+function buildMarkdownTable(columns, rows) {
+    const labels = columns.map((c) => escapeMarkdownCell(c.label));
+    const fields = columns.map((c) => c.fieldName);
+    const headerLine = '| ' + labels.join(' | ') + ' |';
+    const sepLine = '| ' + labels.map(() => '---').join(' | ') + ' |';
+    const dataLines = rows.map(
+        (row) => '| ' + fields.map((f) => escapeMarkdownCell(row[f])).join(' | ') + ' |'
+    );
+    return [headerLine, sepLine, ...dataLines].join('\n');
+}
+
+function buildClipboardHeader(ctx) {
     const title = ctx.mode === 'pricing' ? 'Pricing deltas' : 'Exception deltas';
-    const head = [
+    return [
         `CloudPrism — Catalog changes (${title})`,
         `From: ${ctx.monthFrom}   To: ${ctx.monthTo}`,
         `CSP: ${ctx.cspLabel}   Change type: ${ctx.changeTypeLabel}`,
         ''
     ].join('\n');
-    return head + buildTsv(ctx.columns, ctx.rows);
+}
+
+function buildJiraClipboardText(ctx) {
+    return buildClipboardHeader(ctx) + buildMarkdownTable(ctx.columns, ctx.rows);
+}
+
+function buildTsvClipboardText(ctx) {
+    return buildClipboardHeader(ctx) + buildTsv(ctx.columns, ctx.rows);
 }
 
 function copyTextToClipboard(text) {

@@ -16,14 +16,24 @@
                         onclick={handleModeExceptions}
                     ></lightning-button>
                 </div>
-                <lightning-button
-                    variant="neutral"
-                    label="Copy for Jira"
-                    title="Copies summary and tab-separated column headers + rows for pasting into Jira or Excel"
-                    icon-name="utility:copy"
-                    disabled={copySummaryDisabled}
-                    onclick={handleCopyForJira}
-                ></lightning-button>
+                <div class="slds-button-group" role="group">
+                    <lightning-button
+                        variant="neutral"
+                        label="Copy for Jira"
+                        title="Copies a Markdown table (with headers) for pasting into Jira"
+                        icon-name="utility:copy"
+                        disabled={copySummaryDisabled}
+                        onclick={handleCopyForJira}
+                    ></lightning-button>
+                    <lightning-button
+                        variant="neutral"
+                        label="Copy as TSV (Excel)"
+                        title="Copies tab-separated column headers and rows for pasting into Excel"
+                        icon-name="utility:table"
+                        disabled={copySummaryDisabled}
+                        onclick={handleCopyAsTsv}
+                    ></lightning-button>
+                </div>
             </div>
             <div class="slds-grid slds-gutters_x-small slds-wrap">
                 <div class="slds-col slds-size_1-of-1 slds-medium-size_1-of-4">
