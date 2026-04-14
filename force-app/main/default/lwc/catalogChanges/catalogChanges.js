@@ -459,20 +459,26 @@ function escapeHtmlCell(val) {
 }
 
 function buildHtmlTable(columns, rows) {
+    const cell =
+        'border:1px solid #383838;padding:6px 8px;vertical-align:top;box-sizing:border-box;';
+    const thCell = cell + 'background-color:#e8e8e8;font-weight:bold;';
     const fields = columns.map((c) => c.fieldName);
-    const ths = columns.map((c) => `<th>${escapeHtmlCell(c.label)}</th>`).join('');
+    const ths = columns
+        .map((c) => `<th style="${thCell}">${escapeHtmlCell(c.label)}</th>`)
+        .join('');
     const trHead = `<thead><tr>${ths}</tr></thead>`;
     const trs = rows
         .map(
             (row) =>
                 '<tr>' +
-                fields.map((f) => `<td>${escapeHtmlCell(row[f])}</td>`).join('') +
+                fields.map((f) => `<td style="${cell}">${escapeHtmlCell(row[f])}</td>`).join('') +
                 '</tr>'
         )
         .join('');
     return (
-        '<table border="1" cellpadding="4" cellspacing="0" ' +
-        'style="border-collapse:collapse;font-family:Segoe UI,Arial,sans-serif;font-size:12px">' +
+        '<table cellpadding="0" cellspacing="0" ' +
+        'style="border-collapse:collapse;border:1px solid #383838;' +
+        'font-family:Segoe UI,Arial,sans-serif;font-size:12px;width:100%">' +
         trHead +
         '<tbody>' +
         trs +

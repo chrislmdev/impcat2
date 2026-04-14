@@ -1,7 +1,7 @@
 <template>
     <lightning-card title="Catalog Changes" icon-name="standard:metrics">
         <div class="slds-p-horizontal_medium slds-p-bottom_small">
-            <div class="slds-m-bottom_small slds-grid slds-grid_align-spread slds-grid_vertical-align-center">
+            <div class="slds-m-bottom_small catalog-changes-toolbar">
                 <div>
                     <span class="slds-text-title_caps slds-m-right_x-small">View</span>
                     <lightning-button
@@ -16,11 +16,11 @@
                         onclick={handleModeExceptions}
                     ></lightning-button>
                 </div>
-                <div class="slds-button-group" role="group">
+                <div class="catalog-changes-toolbar__copy">
                     <lightning-button
                         variant="neutral"
                         label="Copy for Jira"
-                        title="Copies an HTML table (Excel-style grid) plus plain-text Markdown for Jira"
+                        title="Copies an HTML table with visible cell borders plus plain-text Markdown"
                         icon-name="utility:copy"
                         disabled={copySummaryDisabled}
                         onclick={handleCopyForJira}
