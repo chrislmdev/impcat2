@@ -14,9 +14,10 @@
 # Interactive wizard (requires sf on PATH):
 #   ./write-demo-csv.sh --interactive
 #   ./write-demo-csv.sh -i
-#   Prompts for year, month, CSP, org, line ending; writes:
-#     catalog_import_<csp>_<YYYY-MM>.csv
-#     pricing_items_<csp>_<YYYY-MM>.csv
+#   ./write-demo-csv.sh --interactive --pricing-csv /path/to/your_pricing.csv
+#   Prompts for year, month, CSP, org, line ending; always writes catalog_import_<csp>_<YYYY-MM>.csv.
+#   Pricing: four DEMO sample rows (default), or your production CSV (--pricing-csv or prompt).
+#   Production CSV must use Pricing_Item__c API headers; Catalog_Import__c = placeholder until replace.
 #   Then parent bulk import, sf data bulk results (under .bulk-results/), replace-pricing-parent-id.sh,
 #   and child bulk import. Passes the pricing CSV path to the replace script as the second argument.
 #
@@ -44,7 +45,7 @@ write_utf8() {
 }
 
 export_demo_csv_files() {
-  local ending="$1" import_month="$2" csp="$3" catalog_path="$4" pricing_path="$5" parent_ph="$6" source_file="$7" imported_at="$8" imported_by="$9" row_count="${10:-0}"
+  local ending="$1" import_month="$2" csp="$3" catalog_path="$4" pricing_path="$5" parent_ph="$6" source_file="$7" imported_at="$8" imported_by="$9" row_count="${10:-0}" catalog_only="${11:-0}"
   local nl
   case "$ending" in
     LF) nl=$'\n' ;;
@@ -64,6 +65,10 @@ export_demo_csv_files() {
   write_utf8 "$nl" "$catalog_path" \
     'Import_Month__c,CSP__c,Schema__c,Status__c,Source_File__c,Imported_At__c,Imported_By__c,Row_Count__c' \
     "${import_month},${csp},pricing,processing,${source_file},${imported_at},${imported_by},${row_count}"
+
+  if [[ "$catalog_only" == "1" ]]; then
+    return 0
+  fi
 
   write_utf8 "$nl" "$pricing_path" \
     'Catalog_Import__c,CSP__c,Catalog_Item_Number__c,Title__c,CSO_Short_Name__c,Description__c,List_Unit_Price__c,Pricing_Unit__c,JWCC_Unit_Price__c,JWCC_Unit_Of_Issue__c,Discount_Premium_Fee__c,Focus_Category__c,Service_Category__c' \
@@ -110,6 +115,8 @@ interactive_wizard() {
     echo "Salesforce CLI (sf) not found on PATH. Install: https://developer.salesforce.com/tools/salesforcecli" >&2
     exit 1
   fi
+
+  local prod_from_cli="${1:-${PRODUCTION_PRICING_CSV:-}}"
 
   echo ""
   echo "=== Bulk import wizard (pricing only) ==="
@@ -163,11 +170,34 @@ interactive_wizard() {
   read -r -p "Imported_By__c [${default_by}]: " by_in
   if [[ -z "${by_in// }" ]]; then by_in="$default_by"; fi
 
-  local catalog_name pricing_name catalog_path pricing_path
+  local catalog_name pricing_name catalog_path pricing_path use_prod
+  use_prod=0
   catalog_name="catalog_import_${csp}_${import_month}.csv"
-  pricing_name="pricing_items_${csp}_${import_month}.csv"
   catalog_path="${SCRIPT_DIR}/${catalog_name}"
-  pricing_path="${SCRIPT_DIR}/${pricing_name}"
+
+  if [[ -n "${prod_from_cli// }" ]]; then
+    if [[ ! -f "$prod_from_cli" ]]; then
+      echo "Production pricing file not found: $prod_from_cli" >&2
+      exit 1
+    fi
+    pricing_path="$(cd "$(dirname "$prod_from_cli")" && pwd)/$(basename "$prod_from_cli")"
+    pricing_name="$(basename "$pricing_path")"
+    use_prod=1
+  else
+    read -r -p "Path to production pricing CSV (optional; Enter for 4 demo sample rows): " prod_answer
+    if [[ -n "${prod_answer// }" ]]; then
+      if [[ ! -f "$prod_answer" ]]; then
+        echo "File not found: $prod_answer" >&2
+        exit 1
+      fi
+      pricing_path="$(cd "$(dirname "$prod_answer")" && pwd)/$(basename "$prod_answer")"
+      pricing_name="$(basename "$pricing_path")"
+      use_prod=1
+    else
+      pricing_name="pricing_items_${csp}_${import_month}.csv"
+      pricing_path="${SCRIPT_DIR}/${pricing_name}"
+    fi
+  fi
 
   echo ""
   echo "--- Summary ---"
@@ -175,8 +205,13 @@ interactive_wizard() {
   echo "  CSP:             $csp"
   echo "  Schema:          pricing (fixed)"
   echo "  Source_File__c:  $src_in"
-  echo "  Files:           $catalog_name"
-  echo "                   $pricing_name"
+  echo "  Catalog file:    $catalog_name"
+  if (( use_prod == 1 )); then
+    echo "  Pricing file:    $pricing_path (your data — not overwritten by this script)"
+    echo "                   Ensure Catalog_Import__c column = $PLACEHOLDER before import."
+  else
+    echo "  Pricing file:    $pricing_name (demo sample rows)"
+  fi
   echo ""
   read -r -p "Continue? (y/n): " ok
   if [[ ! "$ok" =~ ^[yY] ]]; then echo "Cancelled."; exit 0; fi
@@ -200,12 +235,18 @@ interactive_wizard() {
     exit 1
   fi
 
-  export_demo_csv_files "$ending" "$import_month" "$csp" "$catalog_path" "$pricing_path" "$PLACEHOLDER" "$src_in" "$at_in" "$by_in" 0
-
-  echo ""
-  echo "Wrote:"
-  echo "  $catalog_path"
-  echo "  $pricing_path"
+  if (( use_prod == 1 )); then
+    export_demo_csv_files "$ending" "$import_month" "$csp" "$catalog_path" "$pricing_path" "$PLACEHOLDER" "$src_in" "$at_in" "$by_in" 0 1
+    echo ""
+    echo "Wrote catalog: $catalog_path"
+    echo "Using your pricing file (unchanged): $pricing_path"
+  else
+    export_demo_csv_files "$ending" "$import_month" "$csp" "$catalog_path" "$pricing_path" "$PLACEHOLDER" "$src_in" "$at_in" "$by_in" 0 0
+    echo ""
+    echo "Wrote:"
+    echo "  $catalog_path"
+    echo "  $pricing_path"
+  fi
   echo ""
   echo "NOTE: Bulk JOB Id (750...) is only for downloading results."
   echo "      RECORD Id (sf__Id, often a0...) goes in the pricing file."
@@ -264,9 +305,37 @@ interactive_wizard() {
 }
 
 # ---- argument parsing ----
-if [[ "${1:-}" == "--interactive" || "${1:-}" == "-i" ]]; then
-  interactive_wizard
+INTERACTIVE=0
+PROD_PRICING=""
+while [[ $# -gt 0 ]]; do
+  case "$1" in
+    --interactive|-i)
+      INTERACTIVE=1
+      shift
+      ;;
+    --pricing-csv)
+      if [[ $# -lt 2 ]]; then echo "Missing path after --pricing-csv" >&2; exit 1; fi
+      PROD_PRICING="$2"
+      shift 2
+      ;;
+    *)
+      break
+      ;;
+  esac
+done
+
+if [[ $INTERACTIVE -eq 1 ]]; then
+  if [[ -n "${PROD_PRICING// }" ]]; then
+    interactive_wizard "$PROD_PRICING"
+  else
+    interactive_wizard
+  fi
   exit 0
+fi
+
+if [[ -n "${PROD_PRICING// }" ]]; then
+  echo "--pricing-csv requires --interactive" >&2
+  exit 1
 fi
 
 ENDING="${1:-${LINE_ENDING:-LF}}"
@@ -277,7 +346,7 @@ case "$ENDING" in
   CRLF) ;;
   *)
     echo "Usage: $0 [LF|CRLF]" >&2
-    echo "       $0 --interactive" >&2
+    echo "       $0 --interactive [--pricing-csv /path/to/pricing.csv]" >&2
     echo "  Or:  LINE_ENDING=LF|CRLF $0" >&2
     exit 1
     ;;

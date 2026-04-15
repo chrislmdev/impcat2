@@ -10,16 +10,18 @@
 #
 # Interactive wizard (requires sf on PATH):
 #   .\write-demo-csv.ps1 -Interactive
-#   Prompts for year, month, CSP, org, line ending; writes:
-#     catalog_import_<csp>_<YYYY-MM>.csv
-#     pricing_items_<csp>_<YYYY-MM>.csv
-#   Then runs parent bulk import, sf data bulk results (under .bulk-results\), replace-pricing-parent-id.ps1,
-#   and child bulk import. Passes -CsvPath to the replace script explicitly.
+#   .\write-demo-csv.ps1 -Interactive -ProductionPricingCsv "C:\exports\my_pricing.csv"
+#   Optional env: $env:PRODUCTION_PRICING_CSV (same as -ProductionPricingCsv if param omitted)
+#   Prompts for year, month, CSP, org, line ending; always writes ONE catalog_import_<csp>_<YYYY-MM>.csv.
+#   Pricing file: either four DEMO sample rows (default) OR your production CSV (-ProductionPricingCsv or prompt).
+#   Production CSV must use Pricing_Item__c API column headers; Catalog_Import__c column = placeholder until replace.
+#   Then: parent bulk import, sf data bulk results (under .bulk-results\), replace-pricing-parent-id.ps1, child import.
 #
 # IMPORTANT: On pricing rows, Catalog_Import__c must be the record Id (sf__Id from *-success-records.csv),
 #            not the Bulk ingest Job Id (750...).
 param(
     [switch]$Interactive,
+    [string]$ProductionPricingCsv,
     [ValidateSet('CRLF', 'LF')]
     [string]$LineEnding = 'CRLF'
 )
@@ -59,7 +61,8 @@ function Export-DemoCsvFiles {
         [string]$SourceFile,
         [string]$ImportedAt,
         [string]$ImportedBy,
-        [int]$RowCount = 0
+        [int]$RowCount = 0,
+        [switch]$CatalogOnly
     )
 
     $nl = Get-Newline -Ending $LineEnding
@@ -70,6 +73,10 @@ function Export-DemoCsvFiles {
         "$ImportMonth,$Csp,pricing,processing,$SourceFile,$ImportedAt,$ImportedBy,$RowCount"
     )
     [System.IO.File]::WriteAllText($CatalogPath, (($catalogLines -join $nl) + $nl), $Enc)
+
+    if ($CatalogOnly) {
+        return
+    }
 
     $pricingLines = @(
         'Catalog_Import__c,CSP__c,Catalog_Item_Number__c,Title__c,CSO_Short_Name__c,Description__c,List_Unit_Price__c,Pricing_Unit__c,JWCC_Unit_Price__c,JWCC_Unit_Of_Issue__c,Discount_Premium_Fee__c,Focus_Category__c,Service_Category__c'
@@ -103,6 +110,15 @@ function Read-SfIdFromSuccessCsv {
 }
 
 function Invoke-InteractiveWizard {
+    param(
+        [AllowEmptyString()]
+        [string]$ProductionPricingCsv
+    )
+
+    if ([string]::IsNullOrWhiteSpace($ProductionPricingCsv) -and $env:PRODUCTION_PRICING_CSV) {
+        $ProductionPricingCsv = $env:PRODUCTION_PRICING_CSV
+    }
+
     if (-not (Test-SfAvailable)) {
         Write-Host 'Salesforce CLI (sf) not found on PATH. Install: https://developer.salesforce.com/tools/salesforcecli' -ForegroundColor Red
         exit 1
@@ -167,9 +183,30 @@ function Invoke-InteractiveWizard {
     if ([string]::IsNullOrWhiteSpace($byIn)) { $byIn = $defaultBy }
 
     $catalogName = "catalog_import_${csp}_${importMonth}.csv"
-    $pricingName = "pricing_items_${csp}_${importMonth}.csv"
     $catalogPath = Join-Path $ScriptRoot $catalogName
-    $pricingPath = Join-Path $ScriptRoot $pricingName
+
+    $prodPathResolved = $null
+    if (-not [string]::IsNullOrWhiteSpace($ProductionPricingCsv)) {
+        try {
+            $prodPathResolved = (Resolve-Path -LiteralPath $ProductionPricingCsv.Trim()).Path
+        } catch {
+            Write-Error "ProductionPricingCsv not found: $ProductionPricingCsv"
+            exit 1
+        }
+    } else {
+        $askProd = Read-Host 'Path to production pricing CSV (optional; Enter for 4 demo sample rows)'
+        if (-not [string]::IsNullOrWhiteSpace($askProd)) {
+            try {
+                $prodPathResolved = (Resolve-Path -LiteralPath $askProd.Trim()).Path
+            } catch {
+                Write-Error "File not found: $askProd"
+                exit 1
+            }
+        }
+    }
+
+    $pricingPath = if ($prodPathResolved) { $prodPathResolved } else { Join-Path $ScriptRoot "pricing_items_${csp}_${importMonth}.csv" }
+    $pricingLabel = if ($prodPathResolved) { $prodPathResolved } else { "pricing_items_${csp}_${importMonth}.csv" }
 
     Write-Host ''
     Write-Host '--- Summary ---'
@@ -177,8 +214,13 @@ function Invoke-InteractiveWizard {
     Write-Host "  CSP:             $csp"
     Write-Host "  Schema:          pricing (fixed)"
     Write-Host "  Source_File__c:  $srcIn"
-    Write-Host "  Files:           $catalogName"
-    Write-Host "                   $pricingName"
+    Write-Host "  Catalog file:    $catalogName"
+    if ($prodPathResolved) {
+        Write-Host "  Pricing file:    $pricingLabel (your data — not overwritten by this script)"
+        Write-Host "                   Ensure Catalog_Import__c column = $Placeholder before import."
+    } else {
+        Write-Host "  Pricing file:    $pricingLabel (demo sample rows)"
+    }
     Write-Host ''
     $ok = Read-Host 'Continue? (y/n)'
     if ($ok -notmatch '^[yY]') {
@@ -205,12 +247,20 @@ function Invoke-InteractiveWizard {
         }
     }
 
-    Export-DemoCsvFiles -ImportMonth $importMonth -Csp $csp -LineEnding $LineEnding `
-        -CatalogPath $catalogPath -PricingPath $pricingPath -ParentIdPlaceholder $Placeholder `
-        -SourceFile $srcIn -ImportedAt $atIn -ImportedBy $byIn -RowCount 0
-
-    Write-Host ''
-    Write-Host "Wrote:`n  $catalogPath`n  $pricingPath"
+    if ($prodPathResolved) {
+        Export-DemoCsvFiles -ImportMonth $importMonth -Csp $csp -LineEnding $LineEnding `
+            -CatalogPath $catalogPath -PricingPath $pricingPath -ParentIdPlaceholder $Placeholder `
+            -SourceFile $srcIn -ImportedAt $atIn -ImportedBy $byIn -RowCount 0 -CatalogOnly
+        Write-Host ''
+        Write-Host "Wrote catalog: $catalogPath"
+        Write-Host "Using your pricing file (unchanged): $pricingPath"
+    } else {
+        Export-DemoCsvFiles -ImportMonth $importMonth -Csp $csp -LineEnding $LineEnding `
+            -CatalogPath $catalogPath -PricingPath $pricingPath -ParentIdPlaceholder $Placeholder `
+            -SourceFile $srcIn -ImportedAt $atIn -ImportedBy $byIn -RowCount 0
+        Write-Host ''
+        Write-Host "Wrote:`n  $catalogPath`n  $pricingPath"
+    }
     Write-Host ''
     Write-Host 'NOTE: The Bulk JOB Id (often starts with 750) is only for downloading results.' -ForegroundColor Yellow
     Write-Host '      The RECORD Id for Catalog_Import__c (sf__Id, often starts with a0) goes in the pricing file.' -ForegroundColor Yellow
@@ -297,7 +347,7 @@ function Invoke-InteractiveWizard {
 }
 
 if ($Interactive) {
-    Invoke-InteractiveWizard
+    Invoke-InteractiveWizard -ProductionPricingCsv $ProductionPricingCsv
     exit 0
 }
 

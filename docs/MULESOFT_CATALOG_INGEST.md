@@ -59,13 +59,16 @@ Optional env vars for `write-demo-csv.sh`: `CATALOG_IMPORT_ID=a0XXX` (skip manua
 
 **Prerequisites:** [Salesforce CLI](https://developer.salesforce.com/tools/salesforcecli) (`sf`) on your PATH; an authenticated org (`sf org login web` or similar). **Pricing / `Pricing_Item__c` only** — exceptions and other schemas are not covered by this wizard.
 
-The scripts prompt for **calendar year**, **month**, **CSP** (`aws` / `azure` / `gcp` / `oracle`), optional **Source_File__c** / **Imported_At__c** / **Imported_By__c**, then **org alias**, **line ending**, and walk through parent import, **`sf data bulk results`**, **`sf__Id`** extraction, patching the pricing CSV, and child import. Output files are named `catalog_import_<csp>_<YYYY-MM>.csv` and `pricing_items_<csp>_<YYYY-MM>.csv`. Bulk results are written under `demo-data/bulk-api-test/.bulk-results/` to avoid clashing with other folders.
+The scripts prompt for **calendar year**, **month**, **CSP** (`aws` / `azure` / `gcp` / `oracle`), optional **Source_File__c** / **Imported_At__c** / **Imported_By__c**, then **org alias**, **line ending**, and walk through parent import, **`sf data bulk results`**, **`sf__Id`** extraction, patching the pricing CSV, and child import. The wizard always writes one parent file: `catalog_import_<csp>_<YYYY-MM>.csv`. For **pricing**, you can use the built-in four demo rows (`pricing_items_<csp>_<YYYY-MM>.csv`) or supply your own production CSV (see [Production (real pricing data)](#production-real-pricing-data) below). Bulk results are written under `demo-data/bulk-api-test/.bulk-results/` to avoid clashing with other folders.
 
 **Windows (PowerShell)** — if execution policy blocks scripts: `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned` (one-time).
 
 ```powershell
 cd <repo-root>
 .\demo-data\bulk-api-test\write-demo-csv.ps1 -Interactive
+# Optional: point at your export (same headers as Bulk API expects for Pricing_Item__c):
+.\demo-data\bulk-api-test\write-demo-csv.ps1 -Interactive -ProductionPricingCsv "C:\path\to\your_pricing.csv"
+# Or: $env:PRODUCTION_PRICING_CSV = "C:\path\to\your_pricing.csv" then -Interactive without -ProductionPricingCsv.
 ```
 
 **macOS / Linux**
@@ -74,7 +77,21 @@ cd <repo-root>
 cd <repo-root>
 chmod +x demo-data/bulk-api-test/write-demo-csv.sh demo-data/bulk-api-test/replace-pricing-parent-id.sh
 ./demo-data/bulk-api-test/write-demo-csv.sh --interactive
+# Optional:
+./demo-data/bulk-api-test/write-demo-csv.sh --interactive --pricing-csv /path/to/your_pricing.csv
+# Or set PRODUCTION_PRICING_CSV before running (bash; same as --pricing-csv).
 ```
+
+### Production (real pricing data)
+
+These helpers are safe for **production** loads when you follow the same rules as any Bulk API job:
+
+- **Headers** must match Salesforce **field API names** on `Pricing_Item__c` (for example `Catalog_Import__c`, `CSP__c`, `Catalog_Item_Number__c`, …), consistent with Data Loader and the in-app bulk upload.
+- **Parent link before replace:** every child row’s **`Catalog_Import__c`** column should contain the placeholder `PASTE_SF__ID_FROM_PARENT_SUCCESS_CSV` (or your chosen single token) until you have run the parent import and **`replace-pricing-parent-id`** (or a manual find/replace) with the real **`sf__Id`** from `*-success-records.csv`. Do not put the Bulk ingest **Job Id** (`750…`) in that column.
+- **Sandbox first:** validate end-to-end on a full sandbox copy before running the same files against production.
+- **Volume:** very large pricing files belong in a proper integration (MuleSoft, etc.); the wizard is still valid for generating the **parent** CSV and walking the CLI steps while you **bring your own** pricing file.
+
+When you pass **`-ProductionPricingCsv`** (PowerShell) or **`--pricing-csv`** (bash), the wizard writes **only** the new `catalog_import_<csp>_<YYYY-MM>.csv` next to the script and **does not overwrite** your pricing file.
 
 **One-shot replace (already have `sf__Id`):** [`replace-pricing-parent-id.sh`](../demo-data/bulk-api-test/replace-pricing-parent-id.sh) `[new_id] [optional/path/to/pricing.csv]`. If you omit the path, the script picks the only `pricing_items_*.csv` in that folder, or **asks you to choose** if several exist. Windows: [`replace-pricing-parent-id.ps1`](../demo-data/bulk-api-test/replace-pricing-parent-id.ps1) `-NewId a0XXX` (optional `-CsvPath` — same auto-pick / prompt behavior).
 
