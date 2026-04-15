@@ -1,0 +1,9 @@
+{
+  "description": "Map YOUR source file column headers (exact strings as they appear in row 1) to Pricing_Item__c Salesforce API names. Omit entries for columns that already use the correct API name.",
+  "column_mappings": {
+    "Example_Parent_Key": "Catalog_Import__c",
+    "Example_Cloud": "CSP__c",
+    "Example_SKU": "Catalog_Item_Number__c",
+    "Example_Title": "Title__c"
+  }
+}

@@ -5,12 +5,12 @@
 #   .\replace-pricing-parent-id.ps1 -NewId a0XXXXXXXXXXXXXXX
 #       If -CsvPath is omitted: auto-selects the sole pricing_items_*.csv next to this script,
 #       or prompts you to pick if multiple match.
-#   .\replace-pricing-parent-id.ps1 -NewId a0XXX -CsvPath "demo-data\bulk-api-test\pricing_items_gcp_2026-03.csv"
+#   .\replace-pricing-parent-id.ps1 -NewId a0XXX -CsvPath "demo-data\bulk-api-test\pricing_for_bulk_gcp_2026-03.csv"
 #       Explicit path when you already know which file to patch.
 #   .\replace-pricing-parent-id.ps1 a0XXX -OldId "previousId"
 #       Positional -NewId works: .\replace-pricing-parent-id.ps1 a0XXX
 #
-# Full wizard: .\write-demo-csv.ps1 -Interactive (passes -CsvPath for the file it just wrote)
+# Full wizard: .\write-bulk-import-csv.ps1 -Interactive (passes -CsvPath for the converted file)
 param(
     [Parameter(Mandatory = $true, Position = 0)]
     [string]$NewId,
@@ -24,17 +24,17 @@ Set-StrictMode -Version Latest
 $ErrorActionPreference = 'Stop'
 
 function Resolve-PricingCsvPath {
-    $cands = @(Get-ChildItem -LiteralPath $PSScriptRoot -Filter 'pricing_items_*.csv' -File |
+    $cands = @(Get-ChildItem -LiteralPath $PSScriptRoot -Filter 'pricing_*.csv' -File |
             Sort-Object LastWriteTime -Descending)
     if ($cands.Count -eq 0) {
-        Write-Error "No pricing_items_*.csv in $PSScriptRoot. Run write-demo-csv.ps1 / write-demo-csv.sh to generate one, or pass -CsvPath."
+        Write-Error "No pricing_*.csv in $PSScriptRoot. Run write-bulk-import-csv.ps1 / write-bulk-import-csv.sh, or pass -CsvPath."
         exit 1
     }
     if ($cands.Count -eq 1) {
         Write-Host "Using pricing file: $($cands[0].Name)"
         return $cands[0].FullName
     }
-    Write-Host 'Multiple pricing_items_*.csv files found — which one should be updated?'
+    Write-Host 'Multiple pricing_*.csv files found — which one should be updated?'
     for ($i = 0; $i -lt $cands.Count; $i++) {
         Write-Host ("  {0}) {1}" -f ($i + 1), $cands[$i].Name)
     }

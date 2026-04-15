@@ -1,28 +1,24 @@
 #!/usr/bin/env bash
-# Demo Bulk API 2.0 CSVs for Catalog_Import__c + Pricing_Item__c (pricing schema only; no exceptions).
+# Bulk API 2.0: Catalog_Import__c parent row + Pricing_Item__c column conversion for sf data import bulk.
 #
-# Non-interactive:
-#   ./write-demo-csv.sh              # LF; fixed demo files (Import_Month 2025-12, CSP aws)
-#   ./write-demo-csv.sh CRLF
-#   LINE_ENDING=CRLF ./write-demo-csv.sh
-#   CATALOG_IMPORT_ID=a0XXX ./write-demo-csv.sh   # pre-fill parent Id in pricing file (optional)
-#   Writes next to this script:
-#     catalog_import_aws_2025-12.csv
-#     pricing_items_aws_2025-12.csv
-#   Match line ending with: sf data import bulk ... --line-ending LF|CRLF
+# Non-interactive (parent snapshot only; defaults IMPORT_MONTH=2025-12 CSP=aws):
+#   ./write-bulk-import-csv.sh
+#   ./write-bulk-import-csv.sh CRLF
+#   IMPORT_MONTH=2026-03 CSP=gcp ./write-bulk-import-csv.sh
 #
-# Interactive wizard (requires sf on PATH):
-#   ./write-demo-csv.sh --interactive
-#   ./write-demo-csv.sh -i
-#   ./write-demo-csv.sh --interactive --pricing-csv /path/to/your_pricing.csv
-#   Prompts for year, month, CSP, org, line ending; always writes catalog_import_<csp>_<YYYY-MM>.csv.
-#   Pricing: four DEMO sample rows (default), or your production CSV (--pricing-csv or prompt).
-#   Production CSV must use Pricing_Item__c API headers; Catalog_Import__c = placeholder until replace.
-#   Then parent bulk import, sf data bulk results (under .bulk-results/), replace-pricing-parent-id.sh,
-#   and child bulk import. Passes the pricing CSV path to the replace script as the second argument.
+# Convert source pricing to Salesforce API columns (Python 3 required):
+#   ./write-bulk-import-csv.sh --pricing-csv /path/source.csv [--column-map map.json]
+#   Output: pricing_for_bulk_${CSP}_${IMPORT_MONTH}.csv next to this script.
 #
-# IMPORTANT: Catalog_Import__c on child rows must be the record Id (sf__Id from *-success-records.csv),
-#            not the Bulk ingest Job Id (750...).
+# Interactive wizard (sf + python3 on PATH):
+#   ./write-bulk-import-csv.sh --interactive
+#   ./write-bulk-import-csv.sh --interactive --pricing-csv /path/source.csv [--column-map map.json]
+#
+# Env: PRICING_CSV, PRICING_COLUMN_MAP (optional; same as flags for interactive).
+#
+# See pricing_column_map.example.json — map source headers to API names. Without a map, headers must be *__c.
+#
+# IMPORTANT: Catalog_Import__c on pricing rows must be the record Id after replace-pricing-parent-id.sh, not Job Id 750...
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -44,38 +40,30 @@ write_utf8() {
   join_lines "$nl" "$@" >"$file"
 }
 
-export_demo_csv_files() {
-  local ending="$1" import_month="$2" csp="$3" catalog_path="$4" pricing_path="$5" parent_ph="$6" source_file="$7" imported_at="$8" imported_by="$9" row_count="${10:-0}" catalog_only="${11:-0}"
+write_catalog_csv() {
+  local ending="$1" import_month="$2" csp="$3" catalog_path="$4" source_file="$5" imported_at="$6" imported_by="$7" row_count="${8:-0}"
   local nl
   case "$ending" in
     LF) nl=$'\n' ;;
     CRLF) nl=$'\r\n' ;;
     *) echo "Bad ending: $ending" >&2; return 1 ;;
   esac
-
-  local tag
-  case "$csp" in
-    aws) tag=AWS ;;
-    azure) tag=AZURE ;;
-    gcp) tag=GCP ;;
-    oracle) tag=ORA ;;
-    *) echo "Invalid CSP: $csp" >&2; return 1 ;;
-  esac
-
   write_utf8 "$nl" "$catalog_path" \
     'Import_Month__c,CSP__c,Schema__c,Status__c,Source_File__c,Imported_At__c,Imported_By__c,Row_Count__c' \
     "${import_month},${csp},pricing,processing,${source_file},${imported_at},${imported_by},${row_count}"
+}
 
-  if [[ "$catalog_only" == "1" ]]; then
-    return 0
+run_convert_pricing() {
+  local src="$1" out="$2" map_arg="$3" ending="$4"
+  if ! command -v python3 >/dev/null 2>&1; then
+    echo "python3 is required for column conversion. Install Python 3 or use write-bulk-import-csv.ps1 on Windows." >&2
+    exit 1
   fi
-
-  write_utf8 "$nl" "$pricing_path" \
-    'Catalog_Import__c,CSP__c,Catalog_Item_Number__c,Title__c,CSO_Short_Name__c,Description__c,List_Unit_Price__c,Pricing_Unit__c,JWCC_Unit_Price__c,JWCC_Unit_Of_Issue__c,Discount_Premium_Fee__c,Focus_Category__c,Service_Category__c' \
-    "${parent_ph},${csp},DEMO-${tag}-EC2-T3MICRO,t3.micro mock,${tag} compute,General purpose burstable; demo row,0.0104,Hour,0.0092,Hour,-12%,Compute,Compute" \
-    "${parent_ph},${csp},DEMO-${tag}-S3-STD,S3 Standard storage mock,${tag} storage,Object storage per GB-month; demo,0.023,GB-Mo,0.0202,GB-Mo,,Storage,Storage" \
-    "${parent_ph},${csp},DEMO-${tag}-RDS-MYSQL,db.t3.micro MySQL mock,${tag} database,Managed relational DB; demo,0.017,Hour,0.015,Hour,-10%,Database,Database" \
-    "${parent_ph},${csp},DEMO-${tag}-VPC-ENDPOINT,Interface VPC endpoint mock,${tag} network,Private connectivity; demo,0.01,Hour,0.0088,Hour,,Networking,Networking"
+  local -a pyargs=( "$SCRIPT_DIR/convert_pricing_csv_to_api.py" "$src" "$out" --line-ending "$ending" )
+  if [[ -n "$map_arg" ]]; then
+    pyargs+=( --map "$map_arg" )
+  fi
+  python3 "${pyargs[@]}"
 }
 
 read_sf_id_from_success() {
@@ -116,11 +104,12 @@ interactive_wizard() {
     exit 1
   fi
 
-  local prod_from_cli="${1:-${PRODUCTION_PRICING_CSV:-}}"
+  local pricing_from_cli="${1:-${PRICING_CSV:-}}"
+  local map_from_cli="${2:-${PRICING_COLUMN_MAP:-}}"
 
   echo ""
   echo "=== Bulk import wizard (pricing only) ==="
-  echo "You will need: import month, CSP, org alias, and the Bulk Job Id from sf output."
+  echo "You need: source pricing CSV, import month, CSP, org alias, Bulk Job Id from sf output."
   echo ""
 
   local year month mm import_month csp src_in at_in by_in default_source default_by utc_now
@@ -166,52 +155,52 @@ interactive_wizard() {
   read -r -p "Imported_At__c UTC [${utc_now}]: " at_in
   if [[ -z "${at_in// }" ]]; then at_in="$utc_now"; fi
 
-  default_by="${USER:-bulk_import_wizard}"
+  default_by="${USER:-bulk_import}"
   read -r -p "Imported_By__c [${default_by}]: " by_in
   if [[ -z "${by_in// }" ]]; then by_in="$default_by"; fi
 
-  local catalog_name pricing_name catalog_path pricing_path use_prod
-  use_prod=0
-  catalog_name="catalog_import_${csp}_${import_month}.csv"
-  catalog_path="${SCRIPT_DIR}/${catalog_name}"
+  if [[ -z "${pricing_from_cli// }" ]]; then
+    read -r -p "Path to source pricing CSV (your export): " pricing_from_cli
+  fi
+  if [[ -z "${pricing_from_cli// }" ]]; then
+    echo "Source pricing CSV is required." >&2
+    exit 1
+  fi
+  if [[ ! -f "$pricing_from_cli" ]]; then
+    echo "Pricing file not found: $pricing_from_cli" >&2
+    exit 1
+  fi
+  pricing_from_cli="$(cd "$(dirname "$pricing_from_cli")" && pwd)/$(basename "$pricing_from_cli")"
 
-  if [[ -n "${prod_from_cli// }" ]]; then
-    if [[ ! -f "$prod_from_cli" ]]; then
-      echo "Production pricing file not found: $prod_from_cli" >&2
+  if [[ -z "${map_from_cli// }" ]]; then
+    read -r -p "Path to column map JSON (optional; Enter if headers are already *__c): " map_from_cli
+  fi
+  local map_resolved=""
+  if [[ -n "${map_from_cli// }" ]]; then
+    if [[ ! -f "$map_from_cli" ]]; then
+      echo "Column map not found: $map_from_cli" >&2
       exit 1
     fi
-    pricing_path="$(cd "$(dirname "$prod_from_cli")" && pwd)/$(basename "$prod_from_cli")"
-    pricing_name="$(basename "$pricing_path")"
-    use_prod=1
-  else
-    read -r -p "Path to production pricing CSV (optional; Enter for 4 demo sample rows): " prod_answer
-    if [[ -n "${prod_answer// }" ]]; then
-      if [[ ! -f "$prod_answer" ]]; then
-        echo "File not found: $prod_answer" >&2
-        exit 1
-      fi
-      pricing_path="$(cd "$(dirname "$prod_answer")" && pwd)/$(basename "$prod_answer")"
-      pricing_name="$(basename "$pricing_path")"
-      use_prod=1
-    else
-      pricing_name="pricing_items_${csp}_${import_month}.csv"
-      pricing_path="${SCRIPT_DIR}/${pricing_name}"
-    fi
+    map_resolved="$(cd "$(dirname "$map_from_cli")" && pwd)/$(basename "$map_from_cli")"
   fi
+
+  local catalog_name catalog_path bulk_pricing_path
+  catalog_name="catalog_import_${csp}_${import_month}.csv"
+  catalog_path="${SCRIPT_DIR}/${catalog_name}"
+  bulk_pricing_path="${SCRIPT_DIR}/pricing_for_bulk_${csp}_${import_month}.csv"
 
   echo ""
   echo "--- Summary ---"
   echo "  Import_Month__c: $import_month"
   echo "  CSP:             $csp"
-  echo "  Schema:          pricing (fixed)"
   echo "  Source_File__c:  $src_in"
   echo "  Catalog file:    $catalog_name"
-  if (( use_prod == 1 )); then
-    echo "  Pricing file:    $pricing_path (your data — not overwritten by this script)"
-    echo "                   Ensure Catalog_Import__c column = $PLACEHOLDER before import."
-  else
-    echo "  Pricing file:    $pricing_name (demo sample rows)"
+  echo "  Source pricing:  $pricing_from_cli"
+  echo "  Converted file:  $bulk_pricing_path"
+  if [[ -n "$map_resolved" ]]; then
+    echo "  Column map:      $map_resolved"
   fi
+  echo "  Placeholder:     $PLACEHOLDER in Catalog_Import__c until parent succeeds."
   echo ""
   read -r -p "Continue? (y/n): " ok
   if [[ ! "$ok" =~ ^[yY] ]]; then echo "Cancelled."; exit 0; fi
@@ -235,21 +224,17 @@ interactive_wizard() {
     exit 1
   fi
 
-  if (( use_prod == 1 )); then
-    export_demo_csv_files "$ending" "$import_month" "$csp" "$catalog_path" "$pricing_path" "$PLACEHOLDER" "$src_in" "$at_in" "$by_in" 0 1
-    echo ""
-    echo "Wrote catalog: $catalog_path"
-    echo "Using your pricing file (unchanged): $pricing_path"
-  else
-    export_demo_csv_files "$ending" "$import_month" "$csp" "$catalog_path" "$pricing_path" "$PLACEHOLDER" "$src_in" "$at_in" "$by_in" 0 0
-    echo ""
-    echo "Wrote:"
-    echo "  $catalog_path"
-    echo "  $pricing_path"
-  fi
+  run_convert_pricing "$pricing_from_cli" "$bulk_pricing_path" "$map_resolved" "$ending"
+
+  write_catalog_csv "$ending" "$import_month" "$csp" "$catalog_path" "$src_in" "$at_in" "$by_in" 0
+
+  echo ""
+  echo "Wrote:"
+  echo "  $catalog_path"
+  echo "  $bulk_pricing_path (Salesforce API columns)"
   echo ""
   echo "NOTE: Bulk JOB Id (750...) is only for downloading results."
-  echo "      RECORD Id (sf__Id, often a0...) goes in the pricing file."
+  echo "      RECORD Id (sf__Id, often a0...) goes in Catalog_Import__c on pricing rows."
   echo ""
 
   sf data import bulk --sobject Catalog_Import__c --file "$catalog_path" --target-org "$org" --wait 10m --line-ending "$ending"
@@ -290,10 +275,10 @@ interactive_wizard() {
     exit 1
   fi
 
-  "$SCRIPT_DIR/replace-pricing-parent-id.sh" "$sf_id" "$pricing_path"
+  "$SCRIPT_DIR/replace-pricing-parent-id.sh" "$sf_id" "$bulk_pricing_path"
 
   echo ""
-  sf data import bulk --sobject Pricing_Item__c --file "$pricing_path" --target-org "$org" --wait 10m --line-ending "$ending"
+  sf data import bulk --sobject Pricing_Item__c --file "$bulk_pricing_path" --target-org "$org" --wait 10m --line-ending "$ending"
   local child_st=$?
   if (( child_st != 0 )); then
     echo "Pricing import failed. Check output. sf data bulk results -o $org --job-id <id>" >&2
@@ -306,7 +291,8 @@ interactive_wizard() {
 
 # ---- argument parsing ----
 INTERACTIVE=0
-PROD_PRICING=""
+PRICING=""
+COLUMN_MAP=""
 while [[ $# -gt 0 ]]; do
   case "$1" in
     --interactive|-i)
@@ -315,7 +301,12 @@ while [[ $# -gt 0 ]]; do
       ;;
     --pricing-csv)
       if [[ $# -lt 2 ]]; then echo "Missing path after --pricing-csv" >&2; exit 1; fi
-      PROD_PRICING="$2"
+      PRICING="$2"
+      shift 2
+      ;;
+    --column-map)
+      if [[ $# -lt 2 ]]; then echo "Missing path after --column-map" >&2; exit 1; fi
+      COLUMN_MAP="$2"
       shift 2
       ;;
     *)
@@ -324,18 +315,45 @@ while [[ $# -gt 0 ]]; do
   esac
 done
 
+IMPORT_MONTH="${IMPORT_MONTH:-2025-12}"
+CSP="${CSP:-aws}"
+
 if [[ $INTERACTIVE -eq 1 ]]; then
-  if [[ -n "${PROD_PRICING// }" ]]; then
-    interactive_wizard "$PROD_PRICING"
-  else
-    interactive_wizard
-  fi
+  interactive_wizard "${PRICING:-}" "${COLUMN_MAP:-}"
   exit 0
 fi
 
-if [[ -n "${PROD_PRICING// }" ]]; then
-  echo "--pricing-csv requires --interactive" >&2
+if [[ -n "${COLUMN_MAP// }" ]] && [[ -z "${PRICING// }" ]]; then
+  echo "--column-map requires --pricing-csv or --interactive" >&2
   exit 1
+fi
+
+if [[ -n "${PRICING// }" ]]; then
+  if [[ -n "${COLUMN_MAP// }" ]] && [[ ! -f "$COLUMN_MAP" ]]; then
+    echo "Column map not found: $COLUMN_MAP" >&2
+    exit 1
+  fi
+  if [[ ! -f "$PRICING" ]]; then
+    echo "Pricing file not found: $PRICING" >&2
+    exit 1
+  fi
+  ENDING="${1:-${LINE_ENDING:-LF}}"
+  ENDING="$(printf '%s' "$ENDING" | tr '[:lower:]' '[:upper:]')"
+  case "$ENDING" in
+    LF|CRLF) ;;
+    *)
+      echo "After --pricing-csv, optional line ending: LF | CRLF (default LF)." >&2
+      exit 1
+      ;;
+  esac
+  OUT="${SCRIPT_DIR}/pricing_for_bulk_${CSP}_${IMPORT_MONTH}.csv"
+  MAP_ARG=""
+  if [[ -n "${COLUMN_MAP// }" ]]; then
+    MAP_ARG="$COLUMN_MAP"
+  fi
+  run_convert_pricing "$(cd "$(dirname "$PRICING")" && pwd)/$(basename "$PRICING")" "$OUT" "$MAP_ARG" "$ENDING"
+  echo "Converted pricing written: $OUT ($ENDING)"
+  exit 0
 fi
 
 ENDING="${1:-${LINE_ENDING:-LF}}"
@@ -346,22 +364,20 @@ case "$ENDING" in
   CRLF) ;;
   *)
     echo "Usage: $0 [LF|CRLF]" >&2
-    echo "       $0 --interactive [--pricing-csv /path/to/pricing.csv]" >&2
-    echo "  Or:  LINE_ENDING=LF|CRLF $0" >&2
+    echo "       $0 --interactive [--pricing-csv path [--column-map path]]" >&2
+    echo "       $0 --pricing-csv path [--column-map path] [LF|CRLF]" >&2
+    echo "  Env: IMPORT_MONTH CSP LINE_ENDING" >&2
     exit 1
     ;;
 esac
 
-CATALOG_IMPORT_ID="${CATALOG_IMPORT_ID:-$PLACEHOLDER}"
-
-export_demo_csv_files "$ENDING" "2025-12" "aws" \
-  "${SCRIPT_DIR}/catalog_import_aws_2025-12.csv" \
-  "${SCRIPT_DIR}/pricing_items_aws_2025-12.csv" \
-  "$CATALOG_IMPORT_ID" \
-  "2025-12_aws_pricing.csv" \
-  "2025-12-15T10:00:00.000Z" \
-  "bulk_test_import" \
+utc="$(date -u +"%Y-%m-%dT%H:%M:%S.000Z" 2>/dev/null || date -u +"%Y-%m-%dT%H:%M:%SZ")"
+write_catalog_csv "$ENDING" "$IMPORT_MONTH" "$CSP" "${SCRIPT_DIR}/catalog_import_${CSP}_${IMPORT_MONTH}.csv" \
+  "${IMPORT_MONTH}_${CSP}_pricing.csv" \
+  "$utc" \
+  "${USER:-bulk_import}" \
   0
 
-echo "Wrote UTF-8 ${ENDING}: catalog_import_aws_2025-12.csv, pricing_items_aws_2025-12.csv"
+echo "Wrote UTF-8 ${ENDING}: catalog_import_${CSP}_${IMPORT_MONTH}.csv"
+echo "Convert pricing: $0 --pricing-csv <source.csv> [--column-map map.json]"
 echo "Use: sf data import bulk ... --line-ending ${ENDING}"

@@ -35,7 +35,7 @@ Align automation with the interactive convention:
 
 CSV column headers should match **Salesforce field API names**, consistent with Data Loader and the bulk-upload LWC.
 
-### Salesforce CLI: line endings and demo CSV helpers
+### Salesforce CLI: line endings and bulk import CSV helpers
 
 Bulk API 2.0 requires the CSV **bytes** to match the job’s **`--line-ending`** value. If they differ, you get `ClientInputError: LineEnding is invalid on user data`.
 
@@ -44,56 +44,59 @@ Bulk API 2.0 requires the CSV **bytes** to match the job’s **`--line-ending`**
 | Windows | **CRLF** | `--line-ending CRLF` |
 | macOS / Linux | **LF** | `--line-ending LF` |
 
-Regenerate the sample files under [`demo-data/bulk-api-test/`](../demo-data/bulk-api-test/) after editing:
+Files under [`demo-data/bulk-api-test/`](../demo-data/bulk-api-test/):
 
-| Script | OS | Default ending |
-|--------|-----|----------------|
-| [`write-demo-csv.ps1`](../demo-data/bulk-api-test/write-demo-csv.ps1) | Windows (PowerShell) | CRLF |
-| [`write-demo-csv.sh`](../demo-data/bulk-api-test/write-demo-csv.sh) | macOS / Linux (bash) | LF (`./write-demo-csv.sh CRLF` for Windows-style files) |
+| Artifact | Purpose |
+|----------|---------|
+| [`write-bulk-import-csv.ps1`](../demo-data/bulk-api-test/write-bulk-import-csv.ps1) | Windows: parent CSV template, optional pricing **column remap**, interactive wizard (default line ending **CRLF**) |
+| [`write-bulk-import-csv.sh`](../demo-data/bulk-api-test/write-bulk-import-csv.sh) | macOS / Linux: same (`./write-bulk-import-csv.sh CRLF` for Windows-style parent file) |
+| [`convert_pricing_csv_to_api.py`](../demo-data/bulk-api-test/convert_pricing_csv_to_api.py) | Bash path uses Python 3 to remap headers; PowerShell can remap without Python |
+| [`pricing_column_map.example.json`](../demo-data/bulk-api-test/pricing_column_map.example.json) | Copy to your own map: **source column title → Salesforce API name** |
 
-From the `demo-data/bulk-api-test` directory on a Mac, once per clone: `chmod +x write-demo-csv.sh replace-pricing-parent-id.sh`.
+From `demo-data/bulk-api-test` on a Mac, once per clone: `chmod +x write-bulk-import-csv.sh replace-pricing-parent-id.sh`.
 
-Optional env vars for `write-demo-csv.sh`: `CATALOG_IMPORT_ID=a0XXX` (skip manual find/replace if you already have the parent Id).
+Optional env for `write-bulk-import-csv.sh`: `IMPORT_MONTH`, `CSP`, `LINE_ENDING`; for the wizard, `PRICING_CSV` and `PRICING_COLUMN_MAP` match `--pricing-csv` and `--column-map`.
 
 ### Guided wizard (pricing only, non-technical)
 
-**Prerequisites:** [Salesforce CLI](https://developer.salesforce.com/tools/salesforcecli) (`sf`) on your PATH; an authenticated org (`sf org login web` or similar). **Pricing / `Pricing_Item__c` only** — exceptions and other schemas are not covered by this wizard.
+**Prerequisites:** [Salesforce CLI](https://developer.salesforce.com/tools/salesforcecli) (`sf`) on your PATH; an authenticated org (`sf org login web` or similar). **Bash wizard also requires Python 3** for header remapping (`convert_pricing_csv_to_api.py`). **Pricing / `Pricing_Item__c` only** — exceptions and other schemas are not covered by this wizard.
 
-The scripts prompt for **calendar year**, **month**, **CSP** (`aws` / `azure` / `gcp` / `oracle`), optional **Source_File__c** / **Imported_At__c** / **Imported_By__c**, then **org alias**, **line ending**, and walk through parent import, **`sf data bulk results`**, **`sf__Id`** extraction, patching the pricing CSV, and child import. The wizard always writes one parent file: `catalog_import_<csp>_<YYYY-MM>.csv`. For **pricing**, you can use the built-in four demo rows (`pricing_items_<csp>_<YYYY-MM>.csv`) or supply your own production CSV (see [Production (real pricing data)](#production-real-pricing-data) below). Bulk results are written under `demo-data/bulk-api-test/.bulk-results/` to avoid clashing with other folders.
+The scripts prompt for **calendar year**, **month**, **CSP** (`aws` / `azure` / `gcp` / `oracle`), **path to your source pricing export** (required), optional **column map JSON** (if your file does not already use `*__c` API names), optional **Source_File__c** / **Imported_At__c** / **Imported_By__c**, then **org alias**, **line ending**, and walk through parent import, **`sf data bulk results`**, **`sf__Id`** extraction, patching the converted pricing file, and child import. The wizard writes `catalog_import_<csp>_<YYYY-MM>.csv` and a converted `pricing_for_bulk_<csp>_<YYYY-MM>.csv` next to the script (your original export is not modified). Bulk results are written under `demo-data/bulk-api-test/.bulk-results/`.
 
 **Windows (PowerShell)** — if execution policy blocks scripts: `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned` (one-time).
 
 ```powershell
 cd <repo-root>
-.\demo-data\bulk-api-test\write-demo-csv.ps1 -Interactive
-# Optional: point at your export (same headers as Bulk API expects for Pricing_Item__c):
-.\demo-data\bulk-api-test\write-demo-csv.ps1 -Interactive -ProductionPricingCsv "C:\path\to\your_pricing.csv"
-# Or: $env:PRODUCTION_PRICING_CSV = "C:\path\to\your_pricing.csv" then -Interactive without -ProductionPricingCsv.
+.\demo-data\bulk-api-test\write-bulk-import-csv.ps1 -Interactive
+# Prefill paths (optional):
+.\demo-data\bulk-api-test\write-bulk-import-csv.ps1 -Interactive -PricingCsv "C:\exports\source.csv" -ColumnMapPath "C:\exports\my_map.json"
+# Or env: $env:PRICING_CSV / $env:PRICING_COLUMN_MAP before -Interactive
 ```
 
 **macOS / Linux**
 
 ```bash
 cd <repo-root>
-chmod +x demo-data/bulk-api-test/write-demo-csv.sh demo-data/bulk-api-test/replace-pricing-parent-id.sh
-./demo-data/bulk-api-test/write-demo-csv.sh --interactive
-# Optional:
-./demo-data/bulk-api-test/write-demo-csv.sh --interactive --pricing-csv /path/to/your_pricing.csv
-# Or set PRODUCTION_PRICING_CSV before running (bash; same as --pricing-csv).
+chmod +x demo-data/bulk-api-test/write-bulk-import-csv.sh demo-data/bulk-api-test/replace-pricing-parent-id.sh
+./demo-data/bulk-api-test/write-bulk-import-csv.sh --interactive
+./demo-data/bulk-api-test/write-bulk-import-csv.sh --interactive --pricing-csv /path/source.csv --column-map /path/map.json
+# Or: PRICING_CSV=... PRICING_COLUMN_MAP=... ./demo-data/bulk-api-test/write-bulk-import-csv.sh --interactive
 ```
 
-### Production (real pricing data)
+### Source columns → Salesforce API names
 
-These helpers are safe for **production** loads when you follow the same rules as any Bulk API job:
+Exports from upstream systems often use **business column names**, not field API names. Copy [`pricing_column_map.example.json`](../demo-data/bulk-api-test/pricing_column_map.example.json) and set **`column_mappings`** so each **exact source header** (row 1 of your CSV) maps to the target **`Pricing_Item__c`** API name (for example `Catalog_Import__c`, `CSP__c`). If a column is **already** named with a valid API name (`Something__c`), you can omit it from the map.
 
-- **Headers** must match Salesforce **field API names** on `Pricing_Item__c` (for example `Catalog_Import__c`, `CSP__c`, `Catalog_Item_Number__c`, …), consistent with Data Loader and the in-app bulk upload.
-- **Parent link before replace:** every child row’s **`Catalog_Import__c`** column should contain the placeholder `PASTE_SF__ID_FROM_PARENT_SUCCESS_CSV` (or your chosen single token) until you have run the parent import and **`replace-pricing-parent-id`** (or a manual find/replace) with the real **`sf__Id`** from `*-success-records.csv`. Do not put the Bulk ingest **Job Id** (`750…`) in that column.
-- **Sandbox first:** validate end-to-end on a full sandbox copy before running the same files against production.
-- **Volume:** very large pricing files belong in a proper integration (MuleSoft, etc.); the wizard is still valid for generating the **parent** CSV and walking the CLI steps while you **bring your own** pricing file.
+- **PowerShell:** `.\write-bulk-import-csv.ps1 -PricingCsv .\source.csv -ColumnMapPath .\my_map.json` writes `pricing_for_bulk_<CSP>_<IMPORT_MONTH>.csv` (defaults `CSP=aws`, `IMPORT_MONTH=2025-12`).
+- **Bash:** same with `--pricing-csv` / `--column-map`; requires **Python 3**.
 
-When you pass **`-ProductionPricingCsv`** (PowerShell) or **`--pricing-csv`** (bash), the wizard writes **only** the new `catalog_import_<csp>_<YYYY-MM>.csv` next to the script and **does not overwrite** your pricing file.
+**Production checklist**
 
-**One-shot replace (already have `sf__Id`):** [`replace-pricing-parent-id.sh`](../demo-data/bulk-api-test/replace-pricing-parent-id.sh) `[new_id] [optional/path/to/pricing.csv]`. If you omit the path, the script picks the only `pricing_items_*.csv` in that folder, or **asks you to choose** if several exist. Windows: [`replace-pricing-parent-id.ps1`](../demo-data/bulk-api-test/replace-pricing-parent-id.ps1) `-NewId a0XXX` (optional `-CsvPath` — same auto-pick / prompt behavior).
+- **Parent link before replace:** every child row’s **`Catalog_Import__c`** value should be the placeholder `PASTE_SF__ID_FROM_PARENT_SUCCESS_CSV` (or a single token you pass to **`replace-pricing-parent-id`** as `-OldId` / `OLD_ID`) until you patch with the real **`sf__Id`** from `*-success-records.csv`. Do not put the Bulk ingest **Job Id** (`750…`) in that field.
+- **Sandbox first:** validate end-to-end on a full sandbox copy before production.
+- **Volume:** very large files usually belong in MuleSoft or another integration; these scripts still help with the parent row and CLI mechanics.
+
+**One-shot replace (already have `sf__Id`):** [`replace-pricing-parent-id.sh`](../demo-data/bulk-api-test/replace-pricing-parent-id.sh) `[new_id] [optional/path/to/pricing.csv]`. If you omit the path, the script picks among `pricing_*.csv` in that folder, or **prompts** if several exist. Windows: [`replace-pricing-parent-id.ps1`](../demo-data/bulk-api-test/replace-pricing-parent-id.ps1) `-NewId a0XXX` (optional `-CsvPath`).
 
 ### Step-by-step: Salesforce CLI pricing import (parent, then children)
 
@@ -113,6 +116,8 @@ Use this when loading **`Catalog_Import__c`** first, then **`Pricing_Item__c`** 
    sf data import bulk --sobject Catalog_Import__c --file "demo-data/bulk-api-test/catalog_import_aws_2025-12.csv" --target-org YOUR_ORG_ALIAS --wait 10m --line-ending LF
    ```
 
+   `catalog_import_<csp>_<YYYY-MM>.csv` is emitted by `write-bulk-import-csv.ps1` / `.sh` (defaults `aws` / `2025-12`, or `-ImportMonth` / `IMPORT_MONTH` and `-Csp` / `CSP`).
+
    Wait until the job finishes successfully.
 
 2. **Download results** for that bulk job using the **Bulk ingest Job Id** from the CLI output (often starts with `750` — use this id only to call `sf data bulk results`, not as a lookup on child rows):
@@ -128,8 +133,8 @@ Use this when loading **`Catalog_Import__c`** first, then **`Pricing_Item__c`** 
 
 4. **Point the child CSV at that parent Id**
 
-   - **Manual:** in `demo-data/bulk-api-test/pricing_items_aws_2025-12.csv`, find/replace the placeholder in the **`Catalog_Import__c`** column with **`sf__Id`**. Prefer **VS Code** or **Notepad++**; avoid **Excel** for this edit (it can break CSV structure or line endings).
-   - **macOS / Linux:** `./replace-pricing-parent-id.sh 'a0XXXXXXXXXXXXXXX'` (optional second arg: explicit path; otherwise auto-pick or prompt among `pricing_items_*.csv`).
+   - **Manual:** in `demo-data/bulk-api-test/pricing_for_bulk_aws_2025-12.csv` (or whatever converted file you produced), find/replace the placeholder in the **`Catalog_Import__c`** column with **`sf__Id`**. Prefer **VS Code** or **Notepad++**; avoid **Excel** for this edit (it can break CSV structure or line endings).
+   - **macOS / Linux:** `./replace-pricing-parent-id.sh 'a0XXXXXXXXXXXXXXX'` (optional second arg: explicit path; otherwise auto-pick or prompt among `pricing_*.csv`).
    - **Windows:** `.\replace-pricing-parent-id.ps1 -NewId 'a0XXXXXXXXXXXXXXX'` (optional `-CsvPath`; otherwise same auto-pick / prompt).
 
 5. **Import pricing lines** (again, **line-ending must match the file**):
@@ -137,13 +142,13 @@ Use this when loading **`Catalog_Import__c`** first, then **`Pricing_Item__c`** 
    **Windows**
 
    ```powershell
-   sf data import bulk --sobject Pricing_Item__c --file "demo-data/bulk-api-test/pricing_items_aws_2025-12.csv" --target-org YOUR_ORG_ALIAS --wait 10m --line-ending CRLF
+   sf data import bulk --sobject Pricing_Item__c --file "demo-data/bulk-api-test/pricing_for_bulk_aws_2025-12.csv" --target-org YOUR_ORG_ALIAS --wait 10m --line-ending CRLF
    ```
 
    **macOS / Linux**
 
    ```bash
-   sf data import bulk --sobject Pricing_Item__c --file "demo-data/bulk-api-test/pricing_items_aws_2025-12.csv" --target-org YOUR_ORG_ALIAS --wait 10m --line-ending LF
+   sf data import bulk --sobject Pricing_Item__c --file "demo-data/bulk-api-test/pricing_for_bulk_aws_2025-12.csv" --target-org YOUR_ORG_ALIAS --wait 10m --line-ending LF
    ```
 
 6. **If rows fail:** run `sf data bulk results` with the **new** job id and inspect `*-failed-records.csv`.

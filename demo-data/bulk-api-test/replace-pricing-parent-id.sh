@@ -4,14 +4,14 @@
 #
 # Usage:
 #   ./replace-pricing-parent-id.sh a0XXXXXXXXXXXXXXX
-#       If the second argument is omitted: auto-selects the sole pricing_items_*.csv next to this
+#       If the second argument is omitted: auto-selects the sole pricing_*.csv next to this
 #       script, or prompts you to pick if multiple match (no hardcoded month/CSP).
-#   ./replace-pricing-parent-id.sh a0XXX /path/to/pricing_items_gcp_2026-03.csv
+#   ./replace-pricing-parent-id.sh a0XXX /path/to/pricing_for_bulk_gcp_2026-03.csv
 #       Explicit path when you already know which file to patch.
 #   OLD_ID=previousValue ./replace-pricing-parent-id.sh a0XXX
 #       Replace a different old value than the default placeholder (optional).
 #
-# Full wizard: ./write-demo-csv.sh --interactive (passes the pricing CSV path as arg 2)
+# Full wizard: ./write-bulk-import-csv.sh --interactive (passes the converted pricing CSV path as arg 2)
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
@@ -20,11 +20,11 @@ OLD="${OLD_ID:-PASTE_SF__ID_FROM_PARENT_SUCCESS_CSV}"
 resolve_pricing_csv() {
   local dir="$1"
   shopt -s nullglob
-  local files=( "$dir"/pricing_items_*.csv )
+  local files=( "$dir"/pricing_*.csv )
   shopt -u nullglob
   local n=${#files[@]}
   if (( n == 0 )); then
-    echo "No pricing_items_*.csv in $dir. Run write-demo-csv.sh first or pass the CSV path as arg 2." >&2
+    echo "No pricing_*.csv in $dir. Run write-bulk-import-csv.sh first or pass the CSV path as arg 2." >&2
     exit 1
   fi
   if (( n == 1 )); then
@@ -32,7 +32,7 @@ resolve_pricing_csv() {
     printf '%s' "${files[0]}"
     return
   fi
-  echo "Multiple pricing_items_*.csv files found — which one?" >&2
+  echo "Multiple pricing_*.csv files found — which one?" >&2
   local i=1 f
   for f in "${files[@]}"; do
     echo "  $i) $(basename "$f")" >&2
@@ -54,7 +54,7 @@ resolve_pricing_csv() {
 }
 
 if [[ $# -lt 1 ]] || [[ -z "${1:-}" ]]; then
-  echo "Usage: $0 <Catalog_Import__c_Id_from_sf__Id> [path/to/pricing_items.csv]" >&2
+  echo "Usage: $0 <Catalog_Import__c_Id_from_sf__Id> [path/to/pricing_*.csv]" >&2
   exit 1
 fi
 
