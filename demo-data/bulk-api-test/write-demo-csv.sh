@@ -1,13 +1,27 @@
 #!/usr/bin/env bash
-# Demo Bulk API 2.0 CSVs for Catalog_Import__c + Pricing_Item__c (pricing schema only).
+# Demo Bulk API 2.0 CSVs for Catalog_Import__c + Pricing_Item__c (pricing schema only; no exceptions).
 #
-# Usage:
-#   ./write-demo-csv.sh              # LF + fixed demo filenames (2025-12, aws)
+# Non-interactive:
+#   ./write-demo-csv.sh              # LF; fixed demo files (Import_Month 2025-12, CSP aws)
 #   ./write-demo-csv.sh CRLF
-#   CATALOG_IMPORT_ID=a0XXX ./write-demo-csv.sh
-#   ./write-demo-csv.sh --interactive   # full wizard (pricing only)
+#   LINE_ENDING=CRLF ./write-demo-csv.sh
+#   CATALOG_IMPORT_ID=a0XXX ./write-demo-csv.sh   # pre-fill parent Id in pricing file (optional)
+#   Writes next to this script:
+#     catalog_import_aws_2025-12.csv
+#     pricing_items_aws_2025-12.csv
+#   Match line ending with: sf data import bulk ... --line-ending LF|CRLF
 #
-# IMPORTANT: Child Catalog_Import__c must be sf__Id from success CSV, not Bulk Job Id 750...
+# Interactive wizard (requires sf on PATH):
+#   ./write-demo-csv.sh --interactive
+#   ./write-demo-csv.sh -i
+#   Prompts for year, month, CSP, org, line ending; writes:
+#     catalog_import_<csp>_<YYYY-MM>.csv
+#     pricing_items_<csp>_<YYYY-MM>.csv
+#   Then parent bulk import, sf data bulk results (under .bulk-results/), replace-pricing-parent-id.sh,
+#   and child bulk import. Passes the pricing CSV path to the replace script as the second argument.
+#
+# IMPORTANT: Catalog_Import__c on child rows must be the record Id (sf__Id from *-success-records.csv),
+#            not the Bulk ingest Job Id (750...).
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"

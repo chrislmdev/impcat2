@@ -4,13 +4,14 @@
 #
 # Usage:
 #   ./replace-pricing-parent-id.sh a0XXXXXXXXXXXXXXX
-#   ./replace-pricing-parent-id.sh a0XXX /path/to/pricing_items_gcp_2025-06.csv
-#   OLD_ID=oldvalue ./replace-pricing-parent-id.sh a0XXX
+#       If the second argument is omitted: auto-selects the sole pricing_items_*.csv next to this
+#       script, or prompts you to pick if multiple match (no hardcoded month/CSP).
+#   ./replace-pricing-parent-id.sh a0XXX /path/to/pricing_items_gcp_2026-03.csv
+#       Explicit path when you already know which file to patch.
+#   OLD_ID=previousValue ./replace-pricing-parent-id.sh a0XXX
+#       Replace a different old value than the default placeholder (optional).
 #
-# If the second argument is omitted: uses the only pricing_items_*.csv in this directory, or prompts
-# if several exist (no hardcoded date in the script).
-#
-# Full guided flow: ./write-demo-csv.sh --interactive
+# Full wizard: ./write-demo-csv.sh --interactive (passes the pricing CSV path as arg 2)
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"

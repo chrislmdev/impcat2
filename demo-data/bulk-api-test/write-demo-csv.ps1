@@ -1,11 +1,23 @@
-# Demo Bulk API 2.0 CSVs for Catalog_Import__c + Pricing_Item__c (pricing schema only).
+# Demo Bulk API 2.0 CSVs for Catalog_Import__c + Pricing_Item__c (pricing schema only; no exceptions).
 #
-# Non-interactive (default): writes catalog_import_aws_2025-12.csv + pricing_items_aws_2025-12.csv
+# Non-interactive (default):
+#   .\write-demo-csv.ps1
+#   .\write-demo-csv.ps1 -LineEnding LF
+#   Writes fixed demo files next to this script:
+#     catalog_import_aws_2025-12.csv
+#     pricing_items_aws_2025-12.csv
+#   Use the same -LineEnding value with: sf data import bulk ... --line-ending <CRLF|LF>
 #
-# Interactive wizard:
+# Interactive wizard (requires sf on PATH):
 #   .\write-demo-csv.ps1 -Interactive
+#   Prompts for year, month, CSP, org, line ending; writes:
+#     catalog_import_<csp>_<YYYY-MM>.csv
+#     pricing_items_<csp>_<YYYY-MM>.csv
+#   Then runs parent bulk import, sf data bulk results (under .bulk-results\), replace-pricing-parent-id.ps1,
+#   and child bulk import. Passes -CsvPath to the replace script explicitly.
 #
-# IMPORTANT: Catalog_Import__c on child rows must be sf__Id from *-success-records.csv, not Job Id 750...
+# IMPORTANT: On pricing rows, Catalog_Import__c must be the record Id (sf__Id from *-success-records.csv),
+#            not the Bulk ingest Job Id (750...).
 param(
     [switch]$Interactive,
     [ValidateSet('CRLF', 'LF')]

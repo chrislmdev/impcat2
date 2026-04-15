@@ -3,12 +3,14 @@
 #
 # Usage:
 #   .\replace-pricing-parent-id.ps1 -NewId a0XXXXXXXXXXXXXXX
-#   .\replace-pricing-parent-id.ps1 -NewId a0XXX -CsvPath .\pricing_items_gcp_2025-06.csv
+#       If -CsvPath is omitted: auto-selects the sole pricing_items_*.csv next to this script,
+#       or prompts you to pick if multiple match.
+#   .\replace-pricing-parent-id.ps1 -NewId a0XXX -CsvPath "demo-data\bulk-api-test\pricing_items_gcp_2026-03.csv"
+#       Explicit path when you already know which file to patch.
+#   .\replace-pricing-parent-id.ps1 a0XXX -OldId "previousId"
+#       Positional -NewId works: .\replace-pricing-parent-id.ps1 a0XXX
 #
-# If -CsvPath is omitted: uses the only pricing_items_*.csv in this folder, or prompts if several
-# exist (no hardcoded month/CSP in the script).
-#
-# Full guided flow: .\write-demo-csv.ps1 -Interactive (always passes -CsvPath)
+# Full wizard: .\write-demo-csv.ps1 -Interactive (passes -CsvPath for the file it just wrote)
 param(
     [Parameter(Mandatory = $true, Position = 0)]
     [string]$NewId,
