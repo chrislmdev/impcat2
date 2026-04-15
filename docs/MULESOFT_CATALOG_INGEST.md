@@ -76,7 +76,7 @@ chmod +x demo-data/bulk-api-test/write-demo-csv.sh demo-data/bulk-api-test/repla
 ./demo-data/bulk-api-test/write-demo-csv.sh --interactive
 ```
 
-**One-shot replace (already have `sf__Id`):** [`replace-pricing-parent-id.sh`](../demo-data/bulk-api-test/replace-pricing-parent-id.sh) `[new_id] [optional/path/to/pricing.csv]` — default CSV is `pricing_items_aws_2025-12.csv`. Windows: [`replace-pricing-parent-id.ps1`](../demo-data/bulk-api-test/replace-pricing-parent-id.ps1) `-NewId a0XXX` `-CsvPath ...`.
+**One-shot replace (already have `sf__Id`):** [`replace-pricing-parent-id.sh`](../demo-data/bulk-api-test/replace-pricing-parent-id.sh) `[new_id] [optional/path/to/pricing.csv]`. If you omit the path, the script picks the only `pricing_items_*.csv` in that folder, or **asks you to choose** if several exist. Windows: [`replace-pricing-parent-id.ps1`](../demo-data/bulk-api-test/replace-pricing-parent-id.ps1) `-NewId a0XXX` (optional `-CsvPath` — same auto-pick / prompt behavior).
 
 ### Step-by-step: Salesforce CLI pricing import (parent, then children)
 
@@ -112,8 +112,8 @@ Use this when loading **`Catalog_Import__c`** first, then **`Pricing_Item__c`** 
 4. **Point the child CSV at that parent Id**
 
    - **Manual:** in `demo-data/bulk-api-test/pricing_items_aws_2025-12.csv`, find/replace the placeholder in the **`Catalog_Import__c`** column with **`sf__Id`**. Prefer **VS Code** or **Notepad++**; avoid **Excel** for this edit (it can break CSV structure or line endings).
-   - **macOS / Linux:** `./replace-pricing-parent-id.sh 'a0XXXXXXXXXXXXXXX'` (optional second arg: path to pricing CSV if not the default file).
-   - **Windows:** `.\replace-pricing-parent-id.ps1 -NewId 'a0XXXXXXXXXXXXXXX'` (`-CsvPath` if needed).
+   - **macOS / Linux:** `./replace-pricing-parent-id.sh 'a0XXXXXXXXXXXXXXX'` (optional second arg: explicit path; otherwise auto-pick or prompt among `pricing_items_*.csv`).
+   - **Windows:** `.\replace-pricing-parent-id.ps1 -NewId 'a0XXXXXXXXXXXXXXX'` (optional `-CsvPath`; otherwise same auto-pick / prompt).
 
 5. **Import pricing lines** (again, **line-ending must match the file**):
 
