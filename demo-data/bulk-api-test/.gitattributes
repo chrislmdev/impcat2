@@ -1,0 +1,2 @@
+# Match write-demo-csv.ps1 default (CRLF) + Windows sf data import bulk --line-ending CRLF.
+*.csv text eol=crlf

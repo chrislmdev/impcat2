@@ -1,0 +1,5 @@
+Catalog_Import__c,CSP__c,Catalog_Item_Number__c,Title__c,CSO_Short_Name__c,Description__c,List_Unit_Price__c,Pricing_Unit__c,JWCC_Unit_Price__c,JWCC_Unit_Of_Issue__c,Discount_Premium_Fee__c,Focus_Category__c,Service_Category__c
+a00gL00000urC4PQAU,aws,AWS-DEMO-EC2-T3MICRO,t3.micro Linux us-east-1 mock,CSO-COMPUTE-EC2,General purpose burstable; test row only,0.0104,Hour,0.0092,Hour,-12%,Compute,Compute
+a00gL00000urC4PQAU,aws,AWS-DEMO-S3-STD,S3 Standard storage mock,CSO-STORAGE-S3,Object storage per GB-month; test row,0.023,GB-Mo,0.0202,GB-Mo,,Storage,Storage
+a00gL00000urC4PQAU,aws,AWS-DEMO-RDS-MYSQL,db.t3.micro MySQL mock,CSO-DATABASE-RDS,Managed relational DB; test row,0.017,Hour,0.015,Hour,-10%,Database,Database
+a00gL00000urC4PQAU,aws,AWS-DEMO-VPC-ENDPOINT,Interface VPC endpoint mock,CSO-NETWORK-VPC,Private connectivity; test row,0.01,Hour,0.0088,Hour,,Networking,Networking

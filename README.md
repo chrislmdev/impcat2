@@ -12,7 +12,7 @@ This workspace includes a Salesforce DX project under `force-app/` for a dev-org
 - **[docs/DATA_MODEL.md](docs/DATA_MODEL.md)** — objects and relationships  
 - **[docs/FLOWS.md](docs/FLOWS.md)** — end-to-end flows (Mermaid)  
 - **[docs/DEPENDENCIES_AND_TOOLING.md](docs/DEPENDENCIES_AND_TOOLING.md)** — stock Salesforce vs local CLI; no extra org packages  
-- **[docs/MULESOFT_CATALOG_INGEST.md](docs/MULESOFT_CATALOG_INGEST.md)** — when to use MuleSoft / Bulk API 2.0 instead of in-app upload  
+- **[docs/MULESOFT_CATALOG_INGEST.md](docs/MULESOFT_CATALOG_INGEST.md)** — large-catalog ingest; includes a **step-by-step** `sf data import bulk` procedure (parent `Catalog_Import__c`, then `Pricing_Item__c`; Windows **CRLF**; use **`sf__Id`** from success CSV, not the Bulk Job Id)  
 
 ### Prerequisites
 
