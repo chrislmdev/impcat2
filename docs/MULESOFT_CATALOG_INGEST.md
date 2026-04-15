@@ -55,6 +55,29 @@ From the `demo-data/bulk-api-test` directory on a Mac, once per clone: `chmod +x
 
 Optional env vars for `write-demo-csv.sh`: `CATALOG_IMPORT_ID=a0XXX` (skip manual find/replace if you already have the parent Id).
 
+### Guided wizard (pricing only, non-technical)
+
+**Prerequisites:** [Salesforce CLI](https://developer.salesforce.com/tools/salesforcecli) (`sf`) on your PATH; an authenticated org (`sf org login web` or similar). **Pricing / `Pricing_Item__c` only** — exceptions and other schemas are not covered by this wizard.
+
+The scripts prompt for **calendar year**, **month**, **CSP** (`aws` / `azure` / `gcp` / `oracle`), optional **Source_File__c** / **Imported_At__c** / **Imported_By__c**, then **org alias**, **line ending**, and walk through parent import, **`sf data bulk results`**, **`sf__Id`** extraction, patching the pricing CSV, and child import. Output files are named `catalog_import_<csp>_<YYYY-MM>.csv` and `pricing_items_<csp>_<YYYY-MM>.csv`. Bulk results are written under `demo-data/bulk-api-test/.bulk-results/` to avoid clashing with other folders.
+
+**Windows (PowerShell)** — if execution policy blocks scripts: `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned` (one-time).
+
+```powershell
+cd <repo-root>
+.\demo-data\bulk-api-test\write-demo-csv.ps1 -Interactive
+```
+
+**macOS / Linux**
+
+```bash
+cd <repo-root>
+chmod +x demo-data/bulk-api-test/write-demo-csv.sh demo-data/bulk-api-test/replace-pricing-parent-id.sh
+./demo-data/bulk-api-test/write-demo-csv.sh --interactive
+```
+
+**One-shot replace (already have `sf__Id`):** [`replace-pricing-parent-id.sh`](../demo-data/bulk-api-test/replace-pricing-parent-id.sh) `[new_id] [optional/path/to/pricing.csv]` — default CSV is `pricing_items_aws_2025-12.csv`. Windows: [`replace-pricing-parent-id.ps1`](../demo-data/bulk-api-test/replace-pricing-parent-id.ps1) `-NewId a0XXX` `-CsvPath ...`.
+
 ### Step-by-step: Salesforce CLI pricing import (parent, then children)
 
 Use this when loading **`Catalog_Import__c`** first, then **`Pricing_Item__c`** (same idea for exceptions with **`Exception_Item__c`**).
@@ -89,7 +112,8 @@ Use this when loading **`Catalog_Import__c`** first, then **`Pricing_Item__c`** 
 4. **Point the child CSV at that parent Id**
 
    - **Manual:** in `demo-data/bulk-api-test/pricing_items_aws_2025-12.csv`, find/replace the placeholder in the **`Catalog_Import__c`** column with **`sf__Id`**. Prefer **VS Code** or **Notepad++**; avoid **Excel** for this edit (it can break CSV structure or line endings).
-   - **macOS / Linux:** from `demo-data/bulk-api-test`, run `./replace-pricing-parent-id.sh 'a0XXXXXXXXXXXXXXX'` (use your real Id).
+   - **macOS / Linux:** `./replace-pricing-parent-id.sh 'a0XXXXXXXXXXXXXXX'` (optional second arg: path to pricing CSV if not the default file).
+   - **Windows:** `.\replace-pricing-parent-id.ps1 -NewId 'a0XXXXXXXXXXXXXXX'` (`-CsvPath` if needed).
 
 5. **Import pricing lines** (again, **line-ending must match the file**):
 
