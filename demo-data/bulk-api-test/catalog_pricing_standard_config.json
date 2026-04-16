@@ -1,0 +1,59 @@
+{
+  "_sync_note": "Keep header_aliases in sync with CatalogUploadService.PRICING_HEADER_ALIASES (force-app/.../CatalogUploadService.cls). preferred_column_order matches bulk upload + Pricing_Item__c child fields.",
+  "preferred_column_order": [
+    "Catalog_Import__c",
+    "CSP__c",
+    "Catalog_Item_Number__c",
+    "Title__c",
+    "CSO_Short_Name__c",
+    "Description__c",
+    "List_Unit_Price__c",
+    "Pricing_Unit__c",
+    "JWCC_Unit_Price__c",
+    "JWCC_Unit_Of_Issue__c",
+    "Discount_Premium_Fee__c",
+    "Focus_Category__c",
+    "Service_Category__c"
+  ],
+  "pricing_headers": [
+    "Catalog_Item_Number__c",
+    "Title__c",
+    "CSO_Short_Name__c",
+    "Description__c",
+    "List_Unit_Price__c",
+    "Pricing_Unit__c",
+    "JWCC_Unit_Price__c",
+    "JWCC_Unit_Of_Issue__c",
+    "Discount_Premium_Fee__c",
+    "Focus_Category__c",
+    "Service_Category__c"
+  ],
+  "header_aliases": {
+    "commercialunitprice": "List_Unit_Price__c",
+    "commerciallistprice": "List_Unit_Price__c",
+    "commercialprice": "List_Unit_Price__c",
+    "listprice": "List_Unit_Price__c",
+    "unitlistprice": "List_Unit_Price__c",
+    "jwccprice": "JWCC_Unit_Price__c",
+    "sku": "Catalog_Item_Number__c",
+    "catalognumber": "Catalog_Item_Number__c",
+    "itemnumber": "Catalog_Item_Number__c",
+    "shortname": "CSO_Short_Name__c",
+    "csoshortname": "CSO_Short_Name__c",
+    "commercialunit": "Pricing_Unit__c",
+    "commercialunitofmeasure": "Pricing_Unit__c",
+    "commercialunitofissue": "Pricing_Unit__c",
+    "jwccunit": "JWCC_Unit_Of_Issue__c",
+    "jwccunitofissue": "JWCC_Unit_Of_Issue__c",
+    "discountpremium": "Discount_Premium_Fee__c",
+    "focuscategory": "Focus_Category__c",
+    "servicecategory": "Service_Category__c",
+    "category": "Service_Category__c"
+  },
+  "csp_overrides": {
+    "aws": {},
+    "azure": {},
+    "gcp": {},
+    "oracle": {}
+  }
+}

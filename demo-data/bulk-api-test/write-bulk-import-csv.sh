@@ -6,17 +6,17 @@
 #   ./write-bulk-import-csv.sh CRLF
 #   IMPORT_MONTH=2026-03 CSP=gcp ./write-bulk-import-csv.sh
 #
-# Convert source pricing to Salesforce API columns (Python 3 required):
-#   ./write-bulk-import-csv.sh --pricing-csv /path/source.csv [--column-map map.json]
+# Standardize source pricing (Python 3 stdlib only; uses standardize_pricing_csv.py + catalog_pricing_standard_config.json):
+#   ./write-bulk-import-csv.sh --pricing-csv /path/source.csv [--column-map extra-map.json]
 #   Output: pricing_for_bulk_${CSP}_${IMPORT_MONTH}.csv next to this script.
 #
 # Interactive wizard (sf + python3 on PATH):
 #   ./write-bulk-import-csv.sh --interactive
-#   ./write-bulk-import-csv.sh --interactive --pricing-csv /path/source.csv [--column-map map.json]
+#   ./write-bulk-import-csv.sh --interactive --pricing-csv /path/source.csv [--column-map extra-map.json]
 #
 # Env: PRICING_CSV, PRICING_COLUMN_MAP (optional; same as flags for interactive).
 #
-# See pricing_column_map.example.json — map source headers to API names. Without a map, headers must be *__c.
+# Optional --map adds column_mappings on top of built-in aliases (see pricing_column_map.example.json).
 #
 # IMPORTANT: Catalog_Import__c on pricing rows must be the record Id after replace-pricing-parent-id.sh, not Job Id 750...
 set -euo pipefail
@@ -53,13 +53,19 @@ write_catalog_csv() {
     "${import_month},${csp},pricing,processing,${source_file},${imported_at},${imported_by},${row_count}"
 }
 
-run_convert_pricing() {
-  local src="$1" out="$2" map_arg="$3" ending="$4"
+run_standardize_pricing() {
+  local src="$1" out="$2" csp="$3" map_arg="$4" ending="$5"
   if ! command -v python3 >/dev/null 2>&1; then
-    echo "python3 is required for column conversion. Install Python 3 or use write-bulk-import-csv.ps1 on Windows." >&2
+    echo "python3 is required (standardize_pricing_csv.py). Install Python 3 — stdlib only, no pip packages." >&2
     exit 1
   fi
-  local -a pyargs=( "$SCRIPT_DIR/convert_pricing_csv_to_api.py" "$src" "$out" --line-ending "$ending" )
+  local -a pyargs=(
+    "$SCRIPT_DIR/standardize_pricing_csv.py"
+    --input "$src"
+    --output "$out"
+    --csp "$csp"
+    --line-ending "$ending"
+  )
   if [[ -n "$map_arg" ]]; then
     pyargs+=( --map "$map_arg" )
   fi
@@ -173,7 +179,7 @@ interactive_wizard() {
   pricing_from_cli="$(cd "$(dirname "$pricing_from_cli")" && pwd)/$(basename "$pricing_from_cli")"
 
   if [[ -z "${map_from_cli// }" ]]; then
-    read -r -p "Path to column map JSON (optional; Enter if headers are already *__c): " map_from_cli
+    read -r -p "Optional extra column map JSON (CSP-specific headers; Enter for built-in aliases only): " map_from_cli
   fi
   local map_resolved=""
   if [[ -n "${map_from_cli// }" ]]; then
@@ -224,14 +230,14 @@ interactive_wizard() {
     exit 1
   fi
 
-  run_convert_pricing "$pricing_from_cli" "$bulk_pricing_path" "$map_resolved" "$ending"
+  run_standardize_pricing "$pricing_from_cli" "$bulk_pricing_path" "$csp" "$map_resolved" "$ending"
 
   write_catalog_csv "$ending" "$import_month" "$csp" "$catalog_path" "$src_in" "$at_in" "$by_in" 0
 
   echo ""
   echo "Wrote:"
   echo "  $catalog_path"
-  echo "  $bulk_pricing_path (Salesforce API columns)"
+  echo "  $bulk_pricing_path (standardized for Bulk API)"
   echo ""
   echo "NOTE: Bulk JOB Id (750...) is only for downloading results."
   echo "      RECORD Id (sf__Id, often a0...) goes in Catalog_Import__c on pricing rows."
@@ -351,8 +357,8 @@ if [[ -n "${PRICING// }" ]]; then
   if [[ -n "${COLUMN_MAP// }" ]]; then
     MAP_ARG="$COLUMN_MAP"
   fi
-  run_convert_pricing "$(cd "$(dirname "$PRICING")" && pwd)/$(basename "$PRICING")" "$OUT" "$MAP_ARG" "$ENDING"
-  echo "Converted pricing written: $OUT ($ENDING)"
+  run_standardize_pricing "$(cd "$(dirname "$PRICING")" && pwd)/$(basename "$PRICING")" "$OUT" "$CSP" "$MAP_ARG" "$ENDING"
+  echo "Standardized pricing written: $OUT ($ENDING)"
   exit 0
 fi
 

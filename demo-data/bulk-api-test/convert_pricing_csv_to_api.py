@@ -1,6 +1,8 @@
 #!/usr/bin/env python3
 """
-Rewrite a source pricing CSV so column headers match Pricing_Item__c API names for Bulk API 2.0.
+Deprecated: use standardize_pricing_csv.py (same folder) — matches CatalogUploadService aliases + bulk parent columns.
+
+Legacy: simple header rename via column_mappings only (no fingerprint aliases).
 
   python3 convert_pricing_csv_to_api.py input.csv output.csv [--map FILE] [--line-ending LF|CRLF]
 

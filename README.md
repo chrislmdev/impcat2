@@ -12,7 +12,7 @@ This workspace includes a Salesforce DX project under `force-app/` for a dev-org
 - **[docs/DATA_MODEL.md](docs/DATA_MODEL.md)** — objects and relationships  
 - **[docs/FLOWS.md](docs/FLOWS.md)** — end-to-end flows (Mermaid)  
 - **[docs/DEPENDENCIES_AND_TOOLING.md](docs/DEPENDENCIES_AND_TOOLING.md)** — stock Salesforce vs local CLI; no extra org packages  
-- **[docs/MULESOFT_CATALOG_INGEST.md](docs/MULESOFT_CATALOG_INGEST.md)** — large-catalog ingest; **guided wizard** (`write-bulk-import-csv.ps1 -Interactive` / `write-bulk-import-csv.sh --interactive`) plus manual **step-by-step** `sf data import bulk` (parent then `Pricing_Item__c`; **`sf__Id`** not Job Id `750...`)  
+- **[docs/MULESOFT_CATALOG_INGEST.md](docs/MULESOFT_CATALOG_INGEST.md)** — large-catalog ingest: **standardize** CSP exports (`standardize_pricing_csv.py`), then **wizard** (`write-bulk-import-csv.ps1 -Interactive` / `.sh --interactive`) or manual **`sf data import bulk`** (parent then `Pricing_Item__c`; **`sf__Id`** not Job Id `750...`; Python 3 stdlib only, no extra packages)  
 
 ### Prerequisites
 
