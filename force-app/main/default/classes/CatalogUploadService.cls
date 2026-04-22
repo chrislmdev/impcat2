@@ -83,7 +83,13 @@ public with sharing class CatalogUploadService {
         'JWCC_Unit_Price__c'
     };
 
+    /** Long Text max length on Pricing_Item__c raw multi fields. */
+    @TestVisible
+    private static final Integer PRICING_RAW_PRICE_MAX_LEN = 32768;
+
     private static final Pattern HEADER_ALNUM = Pattern.compile('[a-z0-9]');
+    private static final Pattern US_THOUSANDS_HEAD = Pattern.compile('^\\d{1,3}$');
+    private static final Pattern US_THOUSANDS_TAIL = Pattern.compile('^\\d{3}(\\.\\d+)?$');
 
     /**
      * Extra CSV header fingerprints (alphanumeric-only) -> canonical API for pricing only.
@@ -391,10 +397,14 @@ public with sharing class CatalogUploadService {
                         continue;
                     }
                     if (DECIMAL_FIELDS.contains(api)) {
-                        try {
-                            row.put(api, Decimal.valueOf(raw));
-                        } catch (Exception ex) {
-                            rowErrs.add('Row ' + r + ': invalid number for ' + api + ': ' + raw);
+                        if (pfn.schema == 'pricing') {
+                            applyPricingPriceCell(row, api, raw, r, rowErrs);
+                        } else {
+                            try {
+                                row.put(api, Decimal.valueOf(raw));
+                            } catch (Exception ex) {
+                                rowErrs.add('Row ' + r + ': invalid number for ' + api + ': ' + raw);
+                            }
                         }
                     } else {
                         row.put(api, raw);
@@ -402,6 +412,13 @@ public with sharing class CatalogUploadService {
                 }
 
                 if (pfn.schema == 'pricing') {
+                    String jwRaw = (String) row.get('JWCC_Unit_Price_Raw__c');
+                    String liRaw = (String) row.get('List_Unit_Price_Raw__c');
+                    row.put(
+                        'Contains_Multi_Price__c',
+                        String.isNotBlank(jwRaw) || String.isNotBlank(liRaw)
+                    );
+
                     String fc = row.get('Focus_Category__c') != null ? (String) row.get('Focus_Category__c') : null;
                     String svc = row.get('Service_Category__c') != null ? (String) row.get('Service_Category__c') : null;
                     String t = row.get('Title__c') != null ? (String) row.get('Title__c') : null;
@@ -454,6 +471,155 @@ public with sharing class CatalogUploadService {
             out.catalogImportId = header.Id;
             out.errors.add(e.getMessage());
             return out;
+        }
+    }
+
+    /**
+     * Writes JWCC_Unit_Price__c or List_Unit_Price__c; for multi-value cells stores raw Long Text and first parsed decimal.
+     */
+    @TestVisible
+    private static void applyPricingPriceCell(
+        SObject row,
+        String priceFieldApi,
+        String raw,
+        Integer rowNum,
+        List<String> rowErrs
+    ) {
+        String t = raw == null ? '' : raw.trim();
+        if (String.isBlank(t)) {
+            return;
+        }
+        if (priceFieldApi != 'JWCC_Unit_Price__c' && priceFieldApi != 'List_Unit_Price__c') {
+            rowErrs.add('Row ' + rowNum + ': internal error, unsupported price field ' + priceFieldApi);
+            return;
+        }
+        String rawFieldApi = priceFieldApi == 'JWCC_Unit_Price__c'
+            ? 'JWCC_Unit_Price_Raw__c'
+            : 'List_Unit_Price_Raw__c';
+
+        if (isMultiPriceCell(t)) {
+            String stored = t.length() > PRICING_RAW_PRICE_MAX_LEN ? t.substring(0, PRICING_RAW_PRICE_MAX_LEN) : t;
+            row.put(rawFieldApi, stored);
+            Decimal collapsed = firstDecimalFromMultiPriceCell(t);
+            if (collapsed == null) {
+                rowErrs.add(
+                    'Row ' +
+                        rowNum +
+                        ': could not parse a numeric price from multi-value ' +
+                        priceFieldApi +
+                        ': ' +
+                        t
+                );
+            } else {
+                row.put(priceFieldApi, collapsed);
+            }
+        } else {
+            try {
+                row.put(priceFieldApi, Decimal.valueOf(t));
+            } catch (Exception ex1) {
+                List<String> commaParts = splitCsvCommaParts(t);
+                Decimal thousands = tryMergeUsThousandsTwoParts(commaParts);
+                if (thousands != null) {
+                    row.put(priceFieldApi, thousands);
+                } else {
+                    rowErrs.add('Row ' + rowNum + ': invalid number for ' + priceFieldApi + ': ' + t);
+                }
+            }
+        }
+    }
+
+    /**
+     * Multi-price: brace-wrapped CSP pattern, or comma-separated with two+ parseable decimals (excluding simple US thousands).
+     */
+    @TestVisible
+    static Boolean isMultiPriceCell(String raw) {
+        if (String.isBlank(raw)) {
+            return false;
+        }
+        String t = raw.trim();
+        if (t.length() >= 2 && t.startsWith('{') && t.endsWith('}')) {
+            return true;
+        }
+        try {
+            Decimal.valueOf(t);
+            return false;
+        } catch (Exception ignore) {
+        }
+        List<String> parts = splitCsvCommaParts(t);
+        if (tryMergeUsThousandsTwoParts(parts) != null) {
+            return false;
+        }
+        Integer validCount = 0;
+        for (String part : parts) {
+            String p = part == null ? '' : part.trim();
+            if (String.isBlank(p)) {
+                continue;
+            }
+            try {
+                Decimal.valueOf(p);
+                validCount++;
+            } catch (Exception ignore2) {
+            }
+        }
+        return validCount >= 2;
+    }
+
+    /**
+     * First comma-separated decimal after optional outer { }.
+     */
+    @TestVisible
+    static Decimal firstDecimalFromMultiPriceCell(String raw) {
+        String t = raw == null ? '' : raw.trim();
+        if (String.isBlank(t)) {
+            return null;
+        }
+        if (t.startsWith('{') && t.endsWith('}') && t.length() >= 2) {
+            t = t.substring(1, t.length() - 1).trim();
+        }
+        for (String part : splitCsvCommaParts(t)) {
+            String p = part == null ? '' : part.trim();
+            if (String.isBlank(p)) {
+                continue;
+            }
+            try {
+                return Decimal.valueOf(p);
+            } catch (Exception ignore) {
+            }
+        }
+        return null;
+    }
+
+    private static List<String> splitCsvCommaParts(String t) {
+        List<String> out = new List<String>();
+        if (t == null) {
+            return out;
+        }
+        for (String part : t.split(',')) {
+            out.add(part);
+        }
+        return out;
+    }
+
+    /**
+     * Classic US grouping: "1,234.56" -> two segments that merge to one decimal.
+     */
+    @TestVisible
+    static Decimal tryMergeUsThousandsTwoParts(List<String> parts) {
+        if (parts == null || parts.size() != 2) {
+            return null;
+        }
+        String a = parts[0] != null ? parts[0].trim() : '';
+        String b = parts[1] != null ? parts[1].trim() : '';
+        if (String.isBlank(a) || String.isBlank(b)) {
+            return null;
+        }
+        if (!US_THOUSANDS_HEAD.matcher(a).matches() || !US_THOUSANDS_TAIL.matcher(b).matches()) {
+            return null;
+        }
+        try {
+            return Decimal.valueOf(a + b);
+        } catch (Exception ignore) {
+            return null;
         }
     }
 

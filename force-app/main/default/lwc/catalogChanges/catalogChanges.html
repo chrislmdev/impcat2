@@ -85,6 +85,21 @@
         </div>
         <div class="slds-border_top">
             <template if:true={isPricingMode}>
+                <template if:true={showPricingMultiPriceNotice}>
+                    <div class="slds-p-horizontal_medium slds-p-top_small">
+                        <div class="slds-notify slds-notify_alert slds-theme_info" role="alert">
+                            <span class="slds-assistive-text">Information</span>
+                            <p class="slds-text-body_small">
+                                One or more rows had
+                                <strong>multiple prices in a single CSV cell</strong> on import. Dollar columns use the
+                                <strong>first parsed value</strong> for that cell. Verify amounts against the source file
+                                and the
+                                <strong>JWCC Unit Price (raw multi)</strong> /
+                                <strong>List Unit Price (raw multi)</strong> fields on Pricing Item records.
+                            </p>
+                        </div>
+                    </div>
+                </template>
                 <template if:true={showPricingEmpty}>
                     <div class="slds-p-around_medium slds-text-align_center slds-text-color_weak">
                         No pricing changes for the selected months and filters.

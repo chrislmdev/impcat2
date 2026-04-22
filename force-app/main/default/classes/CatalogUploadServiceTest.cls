@@ -277,6 +277,48 @@ private class CatalogUploadServiceTest {
     }
 
     @IsTest
+    static void multiPriceCellHelpers_detectCommaBraceThousandsAndSingle() {
+        System.assertEquals(true, CatalogUploadService.isMultiPriceCell('10,20'));
+        System.assertEquals(false, CatalogUploadService.isMultiPriceCell('1,234.56'));
+        System.assertEquals(true, CatalogUploadService.isMultiPriceCell('{10,20}'));
+        System.assertEquals(false, CatalogUploadService.isMultiPriceCell('10.5'));
+        System.assertEquals(10, CatalogUploadService.firstDecimalFromMultiPriceCell('10,20'));
+        System.assertEquals(10, CatalogUploadService.firstDecimalFromMultiPriceCell('{10,20.5}'));
+    }
+
+    @IsTest
+    static void processFile_pricing_commaMultiStoresRawFlagAndFirstDecimal() {
+        String csv = 'Catalog_Item_Number__c,List_Unit_Price__c\n' + 'SKU-M,10,20\n';
+        CatalogUploadService.FileProcessResult r = CatalogUploadService.processFile('2026-05_aws_pricing.csv', csv);
+        System.assertEquals(true, r.success, r.message + ' ' + r.errors);
+        Pricing_Item__c row = [
+            SELECT List_Unit_Price__c, List_Unit_Price_Raw__c, Contains_Multi_Price__c
+            FROM Pricing_Item__c
+            WHERE Catalog_Import__c = :r.catalogImportId
+            LIMIT 1
+        ];
+        System.assertEquals(10, row.List_Unit_Price__c);
+        System.assertEquals('10,20', row.List_Unit_Price_Raw__c);
+        System.assertEquals(true, row.Contains_Multi_Price__c);
+    }
+
+    @IsTest
+    static void processFile_pricing_braceMultiStoresRaw() {
+        String csv = 'Catalog_Item_Number__c,JWCC_Unit_Price__c\n' + 'SKU-BR,{1.5,2.5}\n';
+        CatalogUploadService.FileProcessResult r = CatalogUploadService.processFile('2026-05_gcp_pricing.csv', csv);
+        System.assertEquals(true, r.success, r.message + ' ' + r.errors);
+        Pricing_Item__c row = [
+            SELECT JWCC_Unit_Price__c, JWCC_Unit_Price_Raw__c, Contains_Multi_Price__c
+            FROM Pricing_Item__c
+            WHERE Catalog_Import__c = :r.catalogImportId
+            LIMIT 1
+        ];
+        System.assertEquals(1.5, row.JWCC_Unit_Price__c);
+        System.assertEquals('{1.5,2.5}', row.JWCC_Unit_Price_Raw__c);
+        System.assertEquals(true, row.Contains_Multi_Price__c);
+    }
+
+    @IsTest
     static void processFile_pricing_insertsAllRowsWhenPriorMonthExists() {
         String csv =
             'Catalog_Item_Number__c,Title__c,List_Unit_Price__c,JWCC_Unit_Price__c\n' +

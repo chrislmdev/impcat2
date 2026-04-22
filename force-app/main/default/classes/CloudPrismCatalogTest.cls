@@ -205,4 +205,63 @@ private class CloudPrismCatalogTest {
         List<String> m = CloudPrismCatalogController.getDistinctImportMonths('parent');
         System.assert(m.contains('2026-01'));
     }
+
+    @IsTest
+    static void pricingChanges_rowExposesContainsMultiPrice() {
+        Catalog_Import__c jan = new Catalog_Import__c(
+            Import_Month__c = '2030-05',
+            CSP__c = 'aws',
+            Schema__c = 'pricing',
+            Status__c = 'done',
+            Imported_At__c = Datetime.newInstance(2030, 5, 1, 12, 0, 0)
+        );
+        Catalog_Import__c feb = new Catalog_Import__c(
+            Import_Month__c = '2030-06',
+            CSP__c = 'aws',
+            Schema__c = 'pricing',
+            Status__c = 'done',
+            Imported_At__c = Datetime.newInstance(2030, 6, 1, 12, 0, 0)
+        );
+        insert new List<Catalog_Import__c>{ jan, feb };
+        insert new List<Pricing_Item__c>{
+            new Pricing_Item__c(
+                Catalog_Import__c = jan.Id,
+                CSP__c = 'aws',
+                Catalog_Item_Number__c = 'SKU-MULTI',
+                Title__c = 'Line',
+                List_Unit_Price__c = 10,
+                JWCC_Unit_Price__c = 9,
+                Contains_Multi_Price__c = false
+            ),
+            new Pricing_Item__c(
+                Catalog_Import__c = feb.Id,
+                CSP__c = 'aws',
+                Catalog_Item_Number__c = 'SKU-MULTI',
+                Title__c = 'Line',
+                List_Unit_Price__c = 11,
+                JWCC_Unit_Price__c = 9,
+                Contains_Multi_Price__c = true,
+                List_Unit_Price_Raw__c = '10,20'
+            )
+        };
+
+        Test.startTest();
+        List<PricingChangeService.PricingChangeRow> rows = PricingChangeService.compare(
+            '2030-05',
+            '2030-06',
+            null,
+            null
+        );
+        Test.stopTest();
+
+        Boolean found = false;
+        for (PricingChangeService.PricingChangeRow rr : rows) {
+            if (rr.catalogitemnumber == 'SKU-MULTI' && rr.contains_multi_price == true) {
+                found = true;
+                System.assertEquals('updated', rr.change_type);
+                break;
+            }
+        }
+        System.assert(found, 'Expected contains_multi_price on change row');
+    }
 }

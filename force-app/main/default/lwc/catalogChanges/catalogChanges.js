@@ -284,6 +284,15 @@ export default class CatalogChanges extends LightningElement {
         return '';
     }
 
+    /** True when any compared pricing row had a multi-value price cell on import (either month). */
+    get showPricingMultiPriceNotice() {
+        if (!this.isPricingMode || !this.compareReady) {
+            return false;
+        }
+        const rows = this._rawPricingRows || [];
+        return rows.some((r) => apexField(r, 'contains_multi_price') === true);
+    }
+
     get pricingButtonVariant() {
         return this.mode === 'pricing' ? 'brand' : 'neutral';
     }

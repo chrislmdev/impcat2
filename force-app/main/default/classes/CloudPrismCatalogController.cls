@@ -10,8 +10,8 @@ public with sharing class CloudPrismCatalogController {
 
         String soql =
             'SELECT Id, Name, CSP__c, Catalog_Item_Number__c, Title__c, CSO_Short_Name__c, Description__c, ' +
-            'List_Unit_Price__c, Pricing_Unit__c, JWCC_Unit_Price__c, JWCC_Unit_Of_Issue__c, ' +
-            'Discount_Premium_Fee__c, Focus_Category__c, Service_Category__c, ' +
+            'List_Unit_Price__c, List_Unit_Price_Raw__c, Pricing_Unit__c, JWCC_Unit_Price__c, JWCC_Unit_Price_Raw__c, JWCC_Unit_Of_Issue__c, ' +
+            'Contains_Multi_Price__c, Discount_Premium_Fee__c, Focus_Category__c, Service_Category__c, ' +
             'Catalog_Import__r.Import_Month__c, Catalog_Import__r.Imported_At__c ' +
             'FROM Pricing_Item__c WHERE Catalog_Import__r.Schema__c = \'pricing\'';
 

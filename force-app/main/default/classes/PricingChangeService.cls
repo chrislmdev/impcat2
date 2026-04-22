@@ -10,6 +10,8 @@ public with sharing class PricingChangeService {
         public String jwccU;
         public String commU;
         public String title;
+        /** True when import stored a multi-value price cell (manual review). */
+        public Boolean containsMulti;
     }
 
     public class PricingChangeRow {
@@ -27,6 +29,8 @@ public with sharing class PricingChangeService {
         @AuraEnabled public Decimal cust_delta_pct;
         @AuraEnabled public Decimal comm_delta;
         @AuraEnabled public Decimal comm_delta_pct;
+        /** True if either snapshot month had Contains_Multi_Price__c on the pricing row. */
+        @AuraEnabled public Boolean contains_multi_price;
     }
 
     /**
@@ -48,6 +52,7 @@ public with sharing class PricingChangeService {
                 Discount_Premium_Fee__c,
                 Pricing_Unit__c,
                 JWCC_Unit_Of_Issue__c,
+                Contains_Multi_Price__c,
                 Catalog_Import__r.Import_Month__c,
                 Catalog_Import__r.Imported_At__c,
                 Catalog_Import__r.CreatedDate
@@ -83,6 +88,7 @@ public with sharing class PricingChangeService {
         s.jwccU = p.JWCC_Unit_Of_Issue__c != null ? p.JWCC_Unit_Of_Issue__c.trim() : '';
         s.commU = p.Pricing_Unit__c != null ? p.Pricing_Unit__c.trim() : '';
         s.title = p.Title__c;
+        s.containsMulti = p.Contains_Multi_Price__c == true;
         return s;
     }
 
@@ -156,6 +162,8 @@ public with sharing class PricingChangeService {
             row.curr_jwcc = cr != null ? cr.jwccPric : null;
             row.prev_comm = pr != null ? pr.commPric : null;
             row.curr_comm = cr != null ? cr.commPric : null;
+            row.contains_multi_price =
+                (pr != null && pr.containsMulti == true) || (cr != null && cr.containsMulti == true);
 
             Decimal pj = row.prev_jwcc != null ? row.prev_jwcc : 0;
             Decimal cj = row.curr_jwcc != null ? row.curr_jwcc : 0;
