@@ -714,6 +714,8 @@ public with sharing class CatalogUploadService {
 
     /**
      * RFC4180-style: commas split fields; doubled quotes inside quoted field.
+     * When not inside double quotes, commas inside balanced curly-brace pairs do not split fields,
+     * so unquoted multi-price cells like {32.00,0.5} stay one column.
      */
     @TestVisible
     static List<String> splitCsvLine(String line) {
@@ -723,6 +725,7 @@ public with sharing class CatalogUploadService {
         }
         String cur = '';
         Boolean inQuotes = false;
+        Integer braceDepth = 0;
         Integer len = line.length();
         Integer i = 0;
         while (i < len) {
@@ -737,7 +740,23 @@ public with sharing class CatalogUploadService {
                 i++;
                 continue;
             }
-            if (ch == ',' && !inQuotes) {
+            if (!inQuotes) {
+                if (ch == '{') {
+                    braceDepth++;
+                    cur += ch;
+                    i++;
+                    continue;
+                }
+                if (ch == '}') {
+                    if (braceDepth > 0) {
+                        braceDepth--;
+                    }
+                    cur += ch;
+                    i++;
+                    continue;
+                }
+            }
+            if (ch == ',' && !inQuotes && braceDepth == 0) {
                 fields.add(cur);
                 cur = '';
                 i++;

@@ -40,6 +40,15 @@ private class CatalogUploadServiceTest {
     }
 
     @IsTest
+    static void splitCsvLine_bracesKeepInnerCommasInOneField() {
+        List<String> f = CatalogUploadService.splitCsvLine('SKU-1,{32.00,0.5},Title');
+        System.assertEquals(3, f.size(), 'Expected SKU, price cell, title');
+        System.assertEquals('SKU-1', f[0]);
+        System.assertEquals('{32.00,0.5}', f[1]);
+        System.assertEquals('Title', f[2]);
+    }
+
+    @IsTest
     static void headerFingerprint_matchesFriendlyHeaders() {
         System.assertEquals('title', CatalogUploadService.headerFingerprint('title'));
         System.assertEquals('title', CatalogUploadService.headerFingerprint('Title__c'));
@@ -299,6 +308,25 @@ private class CatalogUploadServiceTest {
         ];
         System.assertEquals(10, row.List_Unit_Price__c);
         System.assertEquals('10,20', row.List_Unit_Price_Raw__c);
+        System.assertEquals(true, row.Contains_Multi_Price__c);
+    }
+
+    @IsTest
+    static void processFile_pricing_unquotedBraceMultiPriceImports() {
+        String csv =
+            'Catalog_Item_Number__c,JWCC_Unit_Price__c,Title__c\n' +
+            'SKU-UB,{32.00,0.5},Widget\n';
+        CatalogUploadService.FileProcessResult r = CatalogUploadService.processFile('2026-07_aws_pricing.csv', csv);
+        System.assertEquals(true, r.success, r.message + ' ' + r.errors);
+        Pricing_Item__c row = [
+            SELECT JWCC_Unit_Price__c, JWCC_Unit_Price_Raw__c, Contains_Multi_Price__c, Title__c
+            FROM Pricing_Item__c
+            WHERE Catalog_Import__c = :r.catalogImportId
+            LIMIT 1
+        ];
+        System.assertEquals('Widget', row.Title__c);
+        System.assertEquals(32, row.JWCC_Unit_Price__c);
+        System.assertEquals('{32.00,0.5}', row.JWCC_Unit_Price_Raw__c);
         System.assertEquals(true, row.Contains_Multi_Price__c);
     }
 
